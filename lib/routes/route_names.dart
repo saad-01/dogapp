@@ -1,5 +1,6 @@
 class RouteName {
-  static const String splashScreen = '/';
+  static const String splashPage = '/';
 
-  static const String loginView = '/login_view';
+  static const String introPage = '/intro_page';
+  static const String chooseProfilePage = '/choose_profile_page';
 }

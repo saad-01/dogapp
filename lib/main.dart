@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
         useMaterial3: true,
+        fontFamily: "Kanit",
       ),
       debugShowCheckedModeBanner: false,
       getPages: AppRoutes.appRoutes(),
