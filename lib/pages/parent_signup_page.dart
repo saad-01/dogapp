@@ -139,6 +139,7 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
               ),
               PrimartyButton(
                 title: AppStrings.createButton,
+                icon: '',
                 width: 120,
                 height: 10,
                 onTap: () {

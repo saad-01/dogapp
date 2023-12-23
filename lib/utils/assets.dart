@@ -13,9 +13,15 @@ class AssetImages {
   static const calendarIcon = "assets/images/calendarNav.svg";
   static const settingsIcon = "assets/images/settingNav.svg";
   static const notActiveHomeIcon = "assets/images/notActiveHome.svg";
-  static const activeSettingsIcon= "assets/images/activeSettingIcon.svg";
+  static const activeSettingsIcon = "assets/images/activeSettingIcon.svg";
   static const activeCalendarIcon = "assets/images/activeCalendarIcon.svg";
   static const nextBlackIcon = "assets/images/nextBlackIcon.svg";
   static const logoutIcon = "assets/images/logoutIcon.svg";
   static const deleteIcon = "assets/images/deleteIcon.svg";
+  static const bellIcon = "assets/images/bell_icon.svg";
+  static const addWhiteIcon = "assets/images/addWhiteIcon.svg";
+  static const nextYellowIcon = "assets/images/nextYellowIcon.svg";
+  static const nextPrimaryIcon = "assets/images/nextPrimaryIcon.svg";
+  static const injectionImage = "assets/images/injectionImage.svg";
+  static const medImage = "assets/images/medImage.svg";
 }

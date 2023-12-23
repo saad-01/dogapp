@@ -1,6 +1,7 @@
 import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class PrimartyButton extends StatelessWidget {
   const PrimartyButton(
@@ -8,17 +9,20 @@ class PrimartyButton extends StatelessWidget {
       required this.title,
       this.onTap,
       required this.width,
-      required this.height});
+      required this.height,
+      required this.icon});
   final String title;
   final void Function()? onTap;
   final double width;
   final double height;
+  final String icon;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(8),
       child: Ink(
+        width: width * 3.4,
         padding: EdgeInsets.symmetric(horizontal: width, vertical: height),
         decoration: ShapeDecoration(
           gradient: const LinearGradient(
@@ -36,9 +40,19 @@ class PrimartyButton extends StatelessWidget {
             )
           ],
         ),
-        child: Text(
-          title,
-          style: Styles.btnStyle1(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            icon == '' ? const SizedBox() : SvgPicture.asset(icon),
+            if (icon != '')
+              const SizedBox(
+                width: 10,
+              ),
+            Text(
+              title,
+              style: Styles.btnStyle1(),
+            ),
+          ],
         ),
       ),
     );

@@ -166,6 +166,7 @@ class _ExpertSignupPageState extends State<ExpertSignupPage> {
                 height: 60,
               ),
               PrimartyButton(
+                icon: '',
                 title: AppStrings.createButton,
                 width: 120,
                 height: 10,
@@ -179,6 +180,5 @@ class _ExpertSignupPageState extends State<ExpertSignupPage> {
         ),
       )),
     );
-  
   }
 }

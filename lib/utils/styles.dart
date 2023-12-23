@@ -96,4 +96,34 @@ class Styles {
       fontSize: 12,
     );
   }
+
+  static TextStyle subYellowText() {
+    return const TextStyle(
+      color: AppColors.yellowColor,
+      decoration: TextDecoration.underline,
+      decorationColor: AppColors.yellowColor,
+      fontSize: 12,
+    );
+  }
+
+  static TextStyle homeH1() {
+    return const TextStyle(
+      color: AppColors.black,
+      fontSize: 24,
+    );
+  }
+
+  static TextStyle appointSub() {
+    return const TextStyle(
+      color: AppColors.lightGreyColor,
+      fontSize: 10,
+    );
+  }
+
+  static TextStyle subPrimaryText() {
+    return const TextStyle(
+      color: AppColors.primaryColor,
+      fontSize: 12,
+    );
+  }
 }
