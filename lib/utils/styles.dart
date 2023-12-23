@@ -64,6 +64,20 @@ class Styles {
     );
   }
 
+  static TextStyle primaryText() {
+    return const TextStyle(
+      color: AppColors.primaryColor,
+      fontSize: 16,
+    );
+  }
+
+  static TextStyle deleteText() {
+    return const TextStyle(
+      color: Color(0xFFCC0000),
+      fontSize: 16,
+    );
+  }
+
   static TextStyle expertSignupPaget2() {
     return TextStyle(
       color: AppColors.black.withOpacity(0.6000000238418579),
@@ -74,5 +88,12 @@ class Styles {
   static TextStyle btnStyle1() {
     return const TextStyle(
         color: AppColors.white, fontSize: 20, fontWeight: FontWeight.w600);
+  }
+
+  static TextStyle subText() {
+    return const TextStyle(
+      color: Color(0xFF3E3E3E),
+      fontSize: 12,
+    );
   }
 }

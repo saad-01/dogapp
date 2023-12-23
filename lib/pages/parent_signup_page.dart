@@ -1,5 +1,7 @@
+import 'package:dogapp/routes/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../components/primary_btn.dart';
 import '../components/textfield.dart';
@@ -139,7 +141,9 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                 title: AppStrings.createButton,
                 width: 120,
                 height: 10,
-                onTap: () {},
+                onTap: () {
+                  Get.offAllNamed(RouteName.parentDashboardPage);
+                },
               ),
               const SizedBox(
                 height: 20,

@@ -2,6 +2,7 @@
 import 'package:dogapp/pages/choose_profile_page.dart';
 import 'package:dogapp/pages/expert_signup_page.dart';
 import 'package:dogapp/pages/intro_page.dart';
+import 'package:dogapp/pages/parent_dashboard.dart';
 import 'package:dogapp/pages/parent_signup_page.dart';
 import 'package:dogapp/pages/splash_page.dart';
 import 'package:get/get.dart';
@@ -37,6 +38,12 @@ class AppRoutes {
         GetPage(
           name: RouteName.parentSignupPage,
           page: () => const ParentSignupPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.parentDashboardPage,
+          page: () => const ParentDashboard(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),

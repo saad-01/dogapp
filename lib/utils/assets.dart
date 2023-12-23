@@ -9,4 +9,13 @@ class AssetImages {
   static const expertIcon = "assets/images/expertIcon.svg";
   static const addIcon = "assets/images/addIcon.svg";
   static const dateIcon = "assets/images/dateIcon.svg";
+  static const homeIcon = "assets/images/homeNav.svg";
+  static const calendarIcon = "assets/images/calendarNav.svg";
+  static const settingsIcon = "assets/images/settingNav.svg";
+  static const notActiveHomeIcon = "assets/images/notActiveHome.svg";
+  static const activeSettingsIcon= "assets/images/activeSettingIcon.svg";
+  static const activeCalendarIcon = "assets/images/activeCalendarIcon.svg";
+  static const nextBlackIcon = "assets/images/nextBlackIcon.svg";
+  static const logoutIcon = "assets/images/logoutIcon.svg";
+  static const deleteIcon = "assets/images/deleteIcon.svg";
 }
