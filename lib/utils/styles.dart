@@ -41,4 +41,38 @@ class Styles {
       fontSize: 12,
     );
   }
+
+  static TextStyle expertSignupPageH1() {
+    return const TextStyle(
+      color: AppColors.black,
+      fontSize: 20,
+    );
+  }
+
+  static TextStyle expertSignupPageH2() {
+    return const TextStyle(
+        color: AppColors.primaryColor,
+        fontSize: 18,
+        decoration: TextDecoration.underline,
+        decorationColor: AppColors.primaryColor);
+  }
+
+  static TextStyle expertSignupPaget1() {
+    return const TextStyle(
+      color: AppColors.black,
+      fontSize: 16,
+    );
+  }
+
+  static TextStyle expertSignupPaget2() {
+    return TextStyle(
+      color: AppColors.black.withOpacity(0.6000000238418579),
+      fontSize: 14,
+    );
+  }
+
+  static TextStyle btnStyle1() {
+    return const TextStyle(
+        color: AppColors.white, fontSize: 20, fontWeight: FontWeight.w600);
+  }
 }

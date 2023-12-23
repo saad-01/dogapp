@@ -6,4 +6,7 @@ class AssetImages {
   static const dog = "assets/images/dogImage.svg";
   static const parent = "assets/images/parent.svg";
   static const expert = "assets/images/expert.svg";
+  static const expertIcon = "assets/images/expertIcon.svg";
+  static const addIcon = "assets/images/addIcon.svg";
+  static const dateIcon = "assets/images/dateIcon.svg";
 }

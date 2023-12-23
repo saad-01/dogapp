@@ -1,10 +1,12 @@
 import 'package:dogapp/components/not_outlined_box.dart';
 import 'package:dogapp/components/outlined_box.dart';
 import 'package:dogapp/components/primary_box.dart';
+import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ChooseProfilePage extends StatefulWidget {
   const ChooseProfilePage({super.key});
@@ -38,7 +40,12 @@ class _ChooseProfilePageState extends State<ChooseProfilePage> {
             children: [
               Column(
                 children: [
-                  const OutlinedBox(imagePath: AssetImages.parent),
+                  OutlinedBox(
+                    imagePath: AssetImages.parent,
+                    onPress: () {
+                      Get.toNamed(RouteName.parentSignupPage);
+                    },
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
@@ -53,14 +60,19 @@ class _ChooseProfilePageState extends State<ChooseProfilePage> {
               ),
               Column(
                 children: [
-                  const NotOutlinedBox(imagePath: AssetImages.expert),
+                  NotOutlinedBox(
+                    imagePath: AssetImages.expert,
+                    onPress: () {
+                      Get.toNamed(RouteName.expertSignupPage);
+                    },
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
                     AppStrings.dogsExpert,
                     style: Styles.choosePageText(),
-                  )
+                  ),
                 ],
               ),
             ],
