@@ -52,4 +52,13 @@ class AppStrings {
   static const termsOfUse = "Terms of use";
   static const logout = "Logout";
   static const deleteAccount = "Delete account";
+  static const appointDetail = "Appointment detail";
+  static const edit = "Edit";
+  static const appointType = "Appointment type";
+  static const pet = "Pet";
+  static const date = "Date";
+  static const notes = "Notes";
+  static const dogNameH = "Dog Name";
+  static const note =
+      "After this exercise yor dog will pay more attention to you and your hands.";
 }

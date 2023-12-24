@@ -1,4 +1,5 @@
 
+import 'package:dogapp/pages/appointment_detail_page.dart';
 import 'package:dogapp/pages/choose_profile_page.dart';
 import 'package:dogapp/pages/expert_signup_page.dart';
 import 'package:dogapp/pages/intro_page.dart';
@@ -44,6 +45,12 @@ class AppRoutes {
         GetPage(
           name: RouteName.parentDashboardPage,
           page: () => const ParentDashboard(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.appointDetailsPage,
+          page: () => const AppointmentDetailPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),

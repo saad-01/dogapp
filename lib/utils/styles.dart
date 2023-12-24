@@ -57,6 +57,14 @@ class Styles {
         decorationColor: AppColors.primaryColor);
   }
 
+  static TextStyle primary16U() {
+    return const TextStyle(
+        color: AppColors.primaryColor,
+        fontSize: 16,
+        decoration: TextDecoration.underline,
+        decorationColor: AppColors.primaryColor);
+  }
+
   static TextStyle expertSignupPaget1() {
     return const TextStyle(
       color: AppColors.black,
@@ -111,6 +119,15 @@ class Styles {
       color: AppColors.primaryColor,
       decoration: TextDecoration.underline,
       decorationColor: AppColors.primaryColor,
+      fontSize: 12,
+    );
+  }
+
+  static TextStyle denial12UText() {
+    return const TextStyle(
+      color: AppColors.statustxt2,
+      decoration: TextDecoration.underline,
+      decorationColor: AppColors.statustxt2,
       fontSize: 12,
     );
   }
@@ -171,12 +188,42 @@ class Styles {
 
   static TextStyle denialTxt() {
     return const TextStyle(
-        color: AppColors.statustxt2,
-        fontSize: 8,
-        fontWeight: FontWeight.w500,
-        decoration: TextDecoration.underline,
-        decorationColor: AppColors.statustxt2,);
+      color: AppColors.statustxt2,
+      fontSize: 8,
+      fontWeight: FontWeight.w500,
+      decoration: TextDecoration.underline,
+      decorationColor: AppColors.statustxt2,
+    );
   }
 
+  static TextStyle appBarH1() {
+    return const TextStyle(
+      color: AppColors.black,
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
+    );
+  }
 
+  static TextStyle grey14() {
+    return const TextStyle(
+      color: AppColors.grey,
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  static TextStyle black14() {
+    return const TextStyle(
+      color: AppColors.black,
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  static TextStyle noteTxt() {
+    return const TextStyle(
+      color: AppColors.black,
+      fontSize: 12,
+    );
+  }
 }

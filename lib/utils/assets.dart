@@ -30,4 +30,6 @@ class AssetImages {
   static const dogItemCalendar = "assets/images/calendarIcon.svg";
   static const dogItemClock = "assets/images/clockIcon.svg";
   static const dogItemMsg = "assets/images/msgIcon.svg";
+  static const backIcon = "assets/images/backIcon.svg";
+  static const injectionLg ="assets/images/injectionLg.svg";
 }
