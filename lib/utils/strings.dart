@@ -61,4 +61,21 @@ class AppStrings {
   static const dogNameH = "Dog Name";
   static const note =
       "After this exercise yor dog will pay more attention to you and your hands.";
+  static const releaseDogData = "Release your dog's data";
+  static const editRecord = "Edit Record";
+  static const shareRecord = "Share Record";
+  static const createRelease = "Create and Release your dog's data to an experts";
+  static const nameCapital = "DOG NAME";
+  static const data = "Data";
+  static const profile = "Profile";
+  static const dogsData = "Dog's Data";
+  static const healthData = "Health Data";
+  static const healthSub = "Add a appointment about of your dog's health and set  Reminder about the vaccination or grooming session.";
+  static const appAppoint = "Add Appointments";
+  static const exerciseExpert = "Exercises & Experts";
+  static const feedManage = "Feed management";
+  static const safetyEmergency = "Safety and Emergency";
+  static const gotoCommunity = "Go to Community";
+  static const kg = "00:00 KG";
+  static const weight = "Weight:";
 }

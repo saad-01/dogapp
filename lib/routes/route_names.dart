@@ -10,4 +10,5 @@ class RouteName {
   static const String calendarPage = '/calendar_page';
   static const String settingsPage = '/settings_page';
   static const String appointDetailsPage = '/appoint_details_page';
+  static const String dogDetailsPage = '/dog_details_page';
 }

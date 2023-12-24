@@ -31,5 +31,16 @@ class AssetImages {
   static const dogItemClock = "assets/images/clockIcon.svg";
   static const dogItemMsg = "assets/images/msgIcon.svg";
   static const backIcon = "assets/images/backIcon.svg";
-  static const injectionLg ="assets/images/injectionLg.svg";
+  static const injectionLg = "assets/images/injectionLg.svg";
+  static const editIcon = "assets/images/editIcon.svg";
+  static const shareIcon = "assets/images/shareIcon.svg";
+  static const medicineImage = "assets/images/medicineImage.svg";
+  static const capsuleImage = "assets/images/capsuleImage.svg";
+  static const medBottle = "assets/images/medBottle.svg";
+  static const blueMed = "assets/images/blueMed.svg";
+  static const yellowMed = "assets/images/yellowMed.svg";
+  static const dogFood = "assets/images/dogFood.svg";
+  static const dogBelt = "assets/images/dogBelt.svg";
+  static const communityIcon = "assets/images/community.svg";
+  static const weightMachine = "assets/images/wieghtMachine.svg";
 }

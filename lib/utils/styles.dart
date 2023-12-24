@@ -226,4 +226,13 @@ class Styles {
       fontSize: 12,
     );
   }
+
+  static TextStyle white16UTxt() {
+    return const TextStyle(
+      color: AppColors.white,
+      fontSize: 16,
+      decoration: TextDecoration.underline,
+      decorationColor: AppColors.white,
+    );
+  }
 }
