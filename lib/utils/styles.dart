@@ -106,6 +106,15 @@ class Styles {
     );
   }
 
+  static TextStyle primary12UText() {
+    return const TextStyle(
+      color: AppColors.primaryColor,
+      decoration: TextDecoration.underline,
+      decorationColor: AppColors.primaryColor,
+      fontSize: 12,
+    );
+  }
+
   static TextStyle homeH1() {
     return const TextStyle(
       color: AppColors.black,
@@ -120,10 +129,54 @@ class Styles {
     );
   }
 
+  static TextStyle black10Sub() {
+    return const TextStyle(
+      color: AppColors.black,
+      fontSize: 10,
+    );
+  }
+
   static TextStyle subPrimaryText() {
     return const TextStyle(
       color: AppColors.primaryColor,
       fontSize: 12,
     );
   }
+
+  static TextStyle primary8Txt() {
+    return const TextStyle(
+      color: AppColors.primaryColor,
+      fontSize: 8,
+      fontWeight: FontWeight.w400,
+    );
+  }
+
+  static TextStyle primary10Txt() {
+    return const TextStyle(
+      color: AppColors.primaryColor,
+      fontSize: 10,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  static TextStyle approvalTxt() {
+    return const TextStyle(
+      color: AppColors.primaryColor,
+      fontSize: 8,
+      fontWeight: FontWeight.w500,
+      decoration: TextDecoration.underline,
+      decorationColor: AppColors.primaryColor,
+    );
+  }
+
+  static TextStyle denialTxt() {
+    return const TextStyle(
+        color: AppColors.statustxt2,
+        fontSize: 8,
+        fontWeight: FontWeight.w500,
+        decoration: TextDecoration.underline,
+        decorationColor: AppColors.statustxt2,);
+  }
+
+
 }

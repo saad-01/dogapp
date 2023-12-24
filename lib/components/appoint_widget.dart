@@ -11,17 +11,19 @@ class AppointmentWidget extends StatelessWidget {
       required this.name,
       required this.date,
       required this.time,
-      required this.image});
+      required this.image,
+      required this.title,
+      required this.approvalFlag});
   final String type;
   final String name;
   final String date;
   final String time;
   final String image;
+  final String title;
+  final bool approvalFlag;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 381,
-      height: 101,
       padding: const EdgeInsets.all(10),
       decoration: ShapeDecoration(
         color: AppColors.white,
@@ -52,7 +54,11 @@ class AppointmentWidget extends StatelessWidget {
                   Text(
                     "Leptospirosis($type)",
                     style: Styles.subPrimaryText(),
-                  )
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  StatusWidget(title: title, approval: approvalFlag),
                 ],
               ),
               const SizedBox(
@@ -81,6 +87,30 @@ class AppointmentWidget extends StatelessWidget {
           SvgPicture.asset(image),
         ],
       ),
+    );
+  }
+}
+
+class StatusWidget extends StatelessWidget {
+  const StatusWidget(
+      {super.key, this.color, required this.title, required this.approval});
+  final Color? color;
+  final String title;
+  final bool approval;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 60,
+      height: 17,
+      decoration: ShapeDecoration(
+        color: approval ? AppColors.statusBg1 : AppColors.statusBg2,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+      ),
+      child: Center(
+          child: Text(
+        title,
+        style: approval ? Styles.approvalTxt() : Styles.denialTxt(),
+      )),
     );
   }
 }

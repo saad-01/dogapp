@@ -24,4 +24,10 @@ class AssetImages {
   static const nextPrimaryIcon = "assets/images/nextPrimaryIcon.svg";
   static const injectionImage = "assets/images/injectionImage.svg";
   static const medImage = "assets/images/medImage.svg";
+  static const dogItem = "assets/images/dogItem.jpeg";
+  static const verticalDivider = "assets/images/verticalSeprator.svg";
+  static const horizontalDivider = "assets/images/horizontalSeparator.svg";
+  static const dogItemCalendar = "assets/images/calendarIcon.svg";
+  static const dogItemClock = "assets/images/clockIcon.svg";
+  static const dogItemMsg = "assets/images/msgIcon.svg";
 }
