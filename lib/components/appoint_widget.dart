@@ -66,7 +66,12 @@ class AppointmentWidget extends StatelessWidget {
                     const SizedBox(
                       width: 5,
                     ),
-                    StatusWidget(title: title, approval: approvalFlag),
+                    if (title != 'Requested')
+                      StatusWidget(title: title, approval: approvalFlag),
+                    if (title == 'Requested')
+                      RequestedWidget(
+                        title: title,
+                      ),
                   ],
                 ),
                 const SizedBox(
@@ -119,6 +124,27 @@ class StatusWidget extends StatelessWidget {
           child: Text(
         title,
         style: approval ? Styles.approvalTxt() : Styles.denialTxt(),
+      )),
+    );
+  }
+}
+
+class RequestedWidget extends StatelessWidget {
+  const RequestedWidget({super.key, required this.title});
+  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 60,
+      height: 17,
+      decoration: ShapeDecoration(
+        color: AppColors.yellowColor.withOpacity(0.20),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+      ),
+      child: Center(
+          child: Text(
+        title,
+        style: Styles.yellow8U(),
       )),
     );
   }

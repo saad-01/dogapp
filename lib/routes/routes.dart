@@ -2,6 +2,8 @@
 import 'package:dogapp/pages/appointment_detail_page.dart';
 import 'package:dogapp/pages/choose_profile_page.dart';
 import 'package:dogapp/pages/dog_detail_page.dart';
+import 'package:dogapp/pages/expert_dashboard.dart';
+import 'package:dogapp/pages/expert_home_page.dart';
 import 'package:dogapp/pages/expert_signup_page.dart';
 import 'package:dogapp/pages/intro_page.dart';
 import 'package:dogapp/pages/list_expert_page.dart';
@@ -114,6 +116,20 @@ class AppRoutes {
         GetPage(
           name: RouteName.reportEditPage,
           page: () => const ReportEditPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+
+        GetPage(
+          name: RouteName.expertDashboardPage,
+          page: () => const ExpertDashboard(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+
+        GetPage(
+          name: RouteName.expertHomePage,
+          page: () => const ExpertHomePage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),

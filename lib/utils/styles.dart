@@ -312,5 +312,15 @@ class Styles {
     );
   }
 
+  static TextStyle yellow8U() {
+    return const TextStyle(
+      color: AppColors.yellowColor,
+      fontSize: 8,
+      decoration: TextDecoration.underline,
+      decorationColor: AppColors.yellowColor,
+      fontWeight: FontWeight.w400,
+    );
+  }
+
 
 }

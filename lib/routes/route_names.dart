@@ -18,4 +18,6 @@ class RouteName {
   static const String releasedReportPage = '/released_report_page';
   static const String selectEditReport = '/select_editReport_page';
   static const String reportEditPage = '/report_edit_page';
+  static const String expertDashboardPage = '/expert_dashboard_page';
+  static const String expertHomePage = '/expert_home_page';
 }

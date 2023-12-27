@@ -131,4 +131,8 @@ class AppStrings {
   static const photo = "Photo";
   static const files = "Files";
   static const save = "Save";
+  //Dashboard expert
+  static const requests = "Requests/Appointments";
+  static const underCare = "Dogs under your care";
+  static const requested = "Requested";
 }

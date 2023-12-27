@@ -3,6 +3,7 @@ import 'package:dogapp/pages/parent_home_page.dart';
 import 'package:dogapp/pages/settings_page.dart';
 import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/assets.dart';
+import 'package:dogapp/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -68,19 +69,19 @@ class _ParentDashboardState extends State<ParentDashboard> {
                       icon: selectedPage.value == 0
                           ? SvgPicture.asset(AssetImages.homeIcon)
                           : SvgPicture.asset(AssetImages.notActiveHomeIcon),
-                      label: "Home"),
+                      label: AppStrings.home),
                   BottomNavigationBarItem(
                       icon: selectedPage.value == 1
                           ? SvgPicture.asset(AssetImages.activeCalendarIcon)
                           : SvgPicture.asset(
                               AssetImages.calendarIcon,
                             ),
-                      label: "Calendar"),
+                      label: AppStrings.calendar),
                   BottomNavigationBarItem(
                       icon: selectedPage.value == 2
                           ? SvgPicture.asset(AssetImages.activeSettingsIcon)
                           : SvgPicture.asset(AssetImages.settingsIcon),
-                      label: "Settings"),
+                      label: AppStrings.settings),
                 ]),
           ),
         ),
