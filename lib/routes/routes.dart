@@ -10,7 +10,6 @@ import 'package:dogapp/pages/parent_signup_page.dart';
 import 'package:dogapp/pages/released_report_page.dart';
 import 'package:dogapp/pages/report_details_page.dart';
 import 'package:dogapp/pages/report_edit_page.dart';
-import 'package:dogapp/pages/select_edit_page.dart';
 import 'package:dogapp/pages/select_expert_page.dart';
 import 'package:dogapp/pages/select_report_page.dart';
 import 'package:dogapp/pages/splash_page.dart';
@@ -107,7 +106,7 @@ class AppRoutes {
 
         GetPage(
           name: RouteName.selectEditReport,
-          page: () => const SelectEditReport(),
+          page: () => SelectReportPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),

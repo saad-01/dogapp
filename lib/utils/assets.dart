@@ -63,6 +63,9 @@ class AssetImages {
   static const nutriExpert = "assets/images/nutriExpert.jpg";
   static const editReport = "assets/images/editReport.svg";
   static const expertItem = "assets/images/expertItem.jpeg";
-  static const expertItemDiv = "assets//images/expertItemDiv.svg";
+  static const expertItemDiv = "assets/images/expertItemDiv.svg";
   static const verified = "assets/images/verified.svg";
+  static const galleryIcon = "assets/images/galleryIcon.svg";
+  static const fileIcon = "assets/images/fileIcon.svg";
+  static const selectFieldIcon = "assets/images/selectFieldIcon.svg";
 }

@@ -8,7 +8,8 @@ import 'package:dogapp/utils/styles.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ExpertItem extends StatelessWidget {
-  const ExpertItem({super.key, required this.expertis, required this.filledBtnTitle});
+  const ExpertItem(
+      {super.key, required this.expertis, required this.filledBtnTitle});
   final String expertis;
   final String filledBtnTitle;
   @override
@@ -92,9 +93,13 @@ class ExpertItem extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      const AlternatingButton(
+                      AlternatingButton(
                         title: AppStrings.chat,
                         outlined: true,
+                        withIcon: false,
+                        width: 102,
+                        height: 28,
+                        style: Styles.primary10Txt(),
                       ),
                       const SizedBox(
                         width: 10,
@@ -102,6 +107,10 @@ class ExpertItem extends StatelessWidget {
                       AlternatingButton(
                         title: filledBtnTitle,
                         outlined: false,
+                        withIcon: false,
+                        width: 102,
+                        height: 28,
+                        style: Styles.white10Txt(),
                       ),
                     ],
                   )

@@ -118,5 +118,17 @@ class AppStrings {
   static const releasedReport = "Released Report";
   static const seeProfileBtn = "See Profile";
   static const endSharing = "End Sharing";
-  static const wantToEdit = "WANT TO EDIT";
+  static const wantToEdit = "WANT TO EDIT?";
+  static const editReport = 'Edit General Report';
+  static const anyHealthIssue = 'Any Health Issue';
+  static const totalAppointments = 'Total Appointments';
+  static const recentDiseases = 'Recent Diseases';
+  static const dogBehaviour = "Dog's Behavior";
+  static const addFiles = 'Add Files';
+  static const hintHealthIssues = 'Select or type of health issues';
+  static const hintRecentDisease = "Type your dog's recent disease if any";
+  static const hintDogBehaviour = "Chose your dog's behaviour";
+  static const photo = "Photo";
+  static const files = "Files";
+  static const save = "Save";
 }

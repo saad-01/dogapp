@@ -49,6 +49,13 @@ class Styles {
     );
   }
 
+  static TextStyle primary20() {
+    return const TextStyle(
+      color: AppColors.primaryColor,
+      fontSize: 20,
+    );
+  }
+
   static TextStyle expertSignupPageH2() {
     return const TextStyle(
         color: AppColors.primaryColor,
@@ -256,6 +263,13 @@ class Styles {
       fontSize: 16,
       decoration: TextDecoration.underline,
       decorationColor: AppColors.white,
+    );
+  }
+
+  static TextStyle white16() {
+    return const TextStyle(
+      color: AppColors.white,
+      fontSize: 16,
     );
   }
 

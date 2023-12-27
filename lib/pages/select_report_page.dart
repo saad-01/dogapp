@@ -41,7 +41,11 @@ class SelectReportPage extends StatelessWidget {
                 ImageBox(
                   imagePath: AssetImages.generalReport,
                   onPress: () {
-                    Get.toNamed(RouteName.reportDetailsPage);
+                    if (editFlag) {
+                      Get.toNamed(RouteName.reportEditPage);
+                    } else {
+                      Get.toNamed(RouteName.reportDetailsPage);
+                    }
                   },
                   title: AppStrings.trainReport,
                 ),
@@ -66,8 +70,7 @@ class SelectReportPage extends StatelessWidget {
                 ImageBox(
                   imagePath: AssetImages.trainReport,
                   onPress: () {
-                    print("hlo");
-                    Get.offNamed(RouteName.selectReportPage, arguments: true);
+                    Get.toNamed(RouteName.selectEditReport, arguments: true);
                   },
                   title: AppStrings.nutriReport,
                 ),
@@ -77,7 +80,7 @@ class SelectReportPage extends StatelessWidget {
                 ImageBox(
                   imagePath: AssetImages.otherReport,
                   onPress: () {
-                    Get.toNamed(RouteName.selectReportPage, arguments: true);
+                    Get.toNamed(RouteName.selectEditReport, arguments: true);
                   },
                   title: AppStrings.otherExpert,
                 ),
