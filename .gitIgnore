@@ -3,6 +3,7 @@
 
 # Ignore build directories
 /build/
+/windows/
 
 # Ignore configuration files
 config.ini

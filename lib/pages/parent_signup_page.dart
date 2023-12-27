@@ -140,7 +140,7 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
               PrimartyButton(
                 title: AppStrings.createButton,
                 icon: '',
-                width: 120,
+                width: MediaQuery.sizeOf(context).width * 0.8,
                 height: 10,
                 onTap: () {
                   Get.offAllNamed(RouteName.parentDashboardPage);

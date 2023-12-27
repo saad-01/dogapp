@@ -3,7 +3,6 @@ import 'package:dogapp/components/textfield.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -168,7 +167,7 @@ class _ExpertSignupPageState extends State<ExpertSignupPage> {
               PrimartyButton(
                 icon: '',
                 title: AppStrings.createButton,
-                width: 120,
+                width: MediaQuery.sizeOf(context).width * 0.8,
                 height: 10,
                 onTap: () {},
               ),

@@ -146,6 +146,13 @@ class Styles {
     );
   }
 
+  static TextStyle lightGrey12() {
+    return const TextStyle(
+      color: AppColors.lightGreyColor,
+      fontSize: 12,
+    );
+  }
+
   static TextStyle black10Sub() {
     return const TextStyle(
       color: AppColors.black,
@@ -171,6 +178,14 @@ class Styles {
   static TextStyle primary10Txt() {
     return const TextStyle(
       color: AppColors.primaryColor,
+      fontSize: 10,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  static TextStyle white10Txt() {
+    return const TextStyle(
+      color: AppColors.white,
       fontSize: 10,
       fontWeight: FontWeight.w500,
     );
@@ -212,6 +227,14 @@ class Styles {
     );
   }
 
+  static TextStyle grey8() {
+    return const TextStyle(
+      color: AppColors.grey,
+      fontSize: 8,
+      fontWeight: FontWeight.w400,
+    );
+  }
+
   static TextStyle black14() {
     return const TextStyle(
       color: AppColors.black,
@@ -235,4 +258,45 @@ class Styles {
       decorationColor: AppColors.white,
     );
   }
+
+  static TextStyle grey16() {
+    return const TextStyle(
+      color: AppColors.grey,
+      fontSize: 16,
+      decoration: TextDecoration.underline,
+      decorationColor: AppColors.white,
+    );
+  }
+
+  static TextStyle primary20G() {
+    return const TextStyle(
+      fontSize: 16,
+      color: AppColors.primaryColor,
+    );
+  }
+
+  static TextStyle white18() {
+    return const TextStyle(
+      fontSize: 18,
+      color: AppColors.white,
+    );
+  }
+
+  static TextStyle weight() {
+    return TextStyle(
+      color: AppColors.black.withOpacity(0.6000000238418579),
+      fontSize: 18,
+      fontWeight: FontWeight.w400,
+    );
+  }
+
+  static TextStyle maroon20() {
+    return const TextStyle(
+      color: AppColors.maroonColor,
+      fontSize: 20,
+      fontWeight: FontWeight.w400,
+    );
+  }
+
+
 }

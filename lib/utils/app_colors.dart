@@ -11,4 +11,7 @@ class AppColors{
   static const statusBg1 = Color(0x141FAB89);
   static const statusBg2 = Color(0x14AB1F40);
   static const statustxt2 = Color(0xFFAB271F);
+  static const exercieBox = Color(0xFFF2F3FF);
+  static const foodBox =  Color(0xFFFFF6F2);
+  static const maroonColor = Color(0xFFAD4444);
 }

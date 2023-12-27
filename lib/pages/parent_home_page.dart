@@ -86,8 +86,8 @@ class _ParentHomePageState extends State<ParentHomePage> {
             ),
             const PrimartyButton(
               title: AppStrings.addDog,
-              width: 75,
-              height: 16,
+              width: 170,
+              height: 12,
               icon: AssetImages.addWhiteIcon,
             ),
             const SizedBox(

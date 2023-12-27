@@ -43,4 +43,26 @@ class AssetImages {
   static const dogBelt = "assets/images/dogBelt.svg";
   static const communityIcon = "assets/images/community.svg";
   static const weightMachine = "assets/images/wieghtMachine.svg";
+  static const excerciseExpert = "assets/images/exerciseExpert.svg";
+  static const verticalDividerlg = "assets/images/verticalDivider.svg";
+  static const nextWhiteIcon = "assets/images/nextWhiteIcon.svg";
+  static const currentStreak = "assets/images/currentStreak.svg";
+  static const longStreak = "assets/images/longStreak.svg";
+  static const stopWatch = "assets/images/stopWatch.svg";
+  static const editWhite = "assets/images/editWhite.svg";
+  static const slider = "assets/images/slider.svg";
+  static const sliderItem = "assets/images/sliderItem.svg";
+  static const generalReport = "assets/images/generalReport.jpg";
+  static const dietReport = "assets/images/dietReport.jpg";
+  static const trainReport = "assets/images/trainingReport.jpg";
+  static const trainExpert = "assets/images/trainingExpert.jpg";
+  static const otherExpert = "assets/images/otherExpert.jpg";
+  static const otherReport = "assets/images/otherReport.jpg";
+  static const physioExpert = "assets/images/phsioExpert.jpg";
+  static const vetExpert = "assets/images/vetExpert.jpg";
+  static const nutriExpert = "assets/images/nutriExpert.jpg";
+  static const editReport = "assets/images/editReport.svg";
+  static const expertItem = "assets/images/expertItem.jpeg";
+  static const expertItemDiv = "assets//images/expertItemDiv.svg";
+  static const verified = "assets/images/verified.svg";
 }

@@ -43,8 +43,8 @@ class _IntroPageState extends State<IntroPage> {
                 Positioned(
                     bottom: 0,
                     child: SvgPicture.asset(
-                      AssetImages.introtxtBg,
-                      height: MediaQuery.sizeOf(context).height * 0.5,
+                      AssetImages.sliderItem,
+                      height: MediaQuery.sizeOf(context).height * 0.55,
                     )),
                 Positioned(
                     bottom: MediaQuery.sizeOf(context).height * 0.3,
