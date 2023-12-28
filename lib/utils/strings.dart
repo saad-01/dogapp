@@ -135,4 +135,17 @@ class AppStrings {
   static const requests = "Requests/Appointments";
   static const underCare = "Dogs under your care";
   static const requested = "Requested";
+  static const detail = "Detail";
+  static const reject = "Reject";
+  static const approve = "Approve";
+  static const completed = "Completed";
+  static const createFile = "Create Dog's File";
+  static const informParent = "Create a file of dog's appointment detail to inform this dog's parent."; 
+  static const vaccinationReport = "Vaccination Report";
+  static const typeVaccine = "Type of vaccine";
+  static const selectVaccine = "Select type of vaccine here";
+  static const doze = "Doze";
+  static const typeNotes = "Type some notes here";
+  static const sendNoti = "Send notification to parent";
+  static const release = "Release";
 }

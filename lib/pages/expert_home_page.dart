@@ -1,5 +1,7 @@
+import 'package:dogapp/routes/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import '../components/appoint_widget.dart';
 import '../components/dog_widget.dart';
 import '../utils/app_colors.dart';
@@ -117,25 +119,34 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
             const SizedBox(
               height: 11,
             ),
-            const AppointmentWidget(
-                type: AppStrings.vaccination,
-                name: AppStrings.dogName,
-                date: AppStrings.dateFormat,
-                time: AppStrings.time,
-                image: AssetImages.injectionImage,
-                title: AppStrings.approved,
-                approvalFlag: true),
+            AppointmentWidget(
+              type: AppStrings.vaccination,
+              name: AppStrings.dogName,
+              date: AppStrings.dateFormat,
+              time: AppStrings.time,
+              image: AssetImages.injectionImage,
+              title: AppStrings.approved,
+              approvalFlag: true,
+              onPress: () {
+                Get.toNamed(RouteName.appointExpertPage, arguments: 'Approved');
+              },
+            ),
             const SizedBox(
               height: 11,
             ),
-            const AppointmentWidget(
-                type: AppStrings.medicine,
-                name: AppStrings.dogName,
-                date: AppStrings.dateFormat,
-                time: AppStrings.time,
-                image: AssetImages.medImage,
-                title: AppStrings.requested,
-                approvalFlag: false),
+            AppointmentWidget(
+              type: AppStrings.medicine,
+              name: AppStrings.dogName,
+              date: AppStrings.dateFormat,
+              time: AppStrings.time,
+              image: AssetImages.medImage,
+              title: AppStrings.requested,
+              approvalFlag: false,
+              onPress: () {
+                Get.toNamed(RouteName.appointExpertPage,
+                    arguments: 'Requested');
+              },
+            ),
           ]),
         ),
       )),

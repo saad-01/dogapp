@@ -68,4 +68,7 @@ class AssetImages {
   static const galleryIcon = "assets/images/galleryIcon.svg";
   static const fileIcon = "assets/images/fileIcon.svg";
   static const selectFieldIcon = "assets/images/selectFieldIcon.svg";
+  static const thumbsUpIcon = "assets/images/thumbsUp.svg";
+  static const thumbsUpFilled = "assets/images/thumbsUpFilled.svg";
+  static const createFile = "assets/images/createFile.svg";
 }

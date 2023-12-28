@@ -1,9 +1,6 @@
-import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-
 import '../utils/app_colors.dart';
 
 class AppointmentWidget extends StatelessWidget {
@@ -28,9 +25,7 @@ class AppointmentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Get.toNamed(RouteName.appointDetailsPage);
-      },
+      onTap: onPress,
       child: Ink(
         padding: const EdgeInsets.all(10),
         decoration: ShapeDecoration(

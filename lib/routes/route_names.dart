@@ -20,4 +20,5 @@ class RouteName {
   static const String reportEditPage = '/report_edit_page';
   static const String expertDashboardPage = '/expert_dashboard_page';
   static const String expertHomePage = '/expert_home_page';
+  static const String appointExpertPage = '/appointment_expert__page';
 }

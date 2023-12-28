@@ -14,4 +14,6 @@ class AppColors{
   static const exercieBox = Color(0xFFF2F3FF);
   static const foodBox =  Color(0xFFFFF6F2);
   static const maroonColor = Color(0xFFAD4444);
+  static const redShade = Color(0x7FAB271F);
+  static const pinkShade = Color(0x14AB271F);
 }
