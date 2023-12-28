@@ -75,4 +75,9 @@ class AssetImages {
   static const speaker = "assets/images/speaker.svg";
   static const excercise = "assets/images/exercise.svg";
   static const fileDivider = "assets/images/fileDivider.svg";
+  static const symptoms = "assets/images/symptoms.svg";
+  static const vetImage = "assets/images/vetImage.svg";
+  static const antiParasite = "assets/images/antiParasite.svg";
+  static const boneMeal = "assets/images/boneMeal.svg";
+  static const coloredFile = "assets/images/coloredFile.svg";
 }

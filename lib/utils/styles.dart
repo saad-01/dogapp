@@ -153,6 +153,13 @@ class Styles {
     );
   }
 
+  static TextStyle lightgrey8() {
+    return const TextStyle(
+      color: AppColors.lightGreyColor,
+      fontSize: 8,
+    );
+  }
+
   static TextStyle lightGrey12() {
     return const TextStyle(
       color: AppColors.lightGreyColor,

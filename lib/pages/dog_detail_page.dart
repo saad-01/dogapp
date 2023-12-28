@@ -223,13 +223,16 @@ class DogDetailsPage extends StatelessWidget {
                             const SizedBox(
                               height: 20,
                             ),
-                            const Align(
+                            Align(
                               alignment: Alignment.center,
                               child: PrimartyButton(
                                 title: AppStrings.appAppoint,
                                 width: 242,
                                 height: 12,
                                 icon: '',
+                                onTap: () {
+                                  Get.toNamed(RouteName.addAppointmentPage);
+                                },
                               ),
                             ),
                           ],

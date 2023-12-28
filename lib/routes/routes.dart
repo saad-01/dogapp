@@ -1,3 +1,4 @@
+import 'package:dogapp/pages/add_appointment_page.dart';
 import 'package:dogapp/pages/add_comment_page.dart';
 import 'package:dogapp/pages/apointment_expert_page.dart';
 import 'package:dogapp/pages/appointment_detail_page.dart';
@@ -168,6 +169,12 @@ class AppRoutes {
         GetPage(
           name: RouteName.fileDetailsPage,
           page: () => const FileDetailsPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.addAppointmentPage,
+          page: () => const AddAppointmentPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),

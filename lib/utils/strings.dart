@@ -163,4 +163,8 @@ class AppStrings {
   static const visibleToParent = "Visible to parent";
   static const addComment = "Add Comment";
   static const patientFiles = "Patient files";
+  static const symptoms = "Symptoms";
+  static const antiparasitic = "Anti parasitic";
+  static const vetVisit = "Vet Visit";
+  static const seeAllFiles = "See all patient files which are released from your expert.";
 }

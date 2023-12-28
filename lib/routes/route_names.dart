@@ -27,4 +27,5 @@ class RouteName {
   static const String patientFilesPage = '/patient_files_page';
   static const String makeAnnouncementPage = '/make_announcement_page';
   static const String addCommentsPage = '/add_comments_page';
+  static const String addAppointmentPage = '/add_appointment_page';
 }
