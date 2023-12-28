@@ -87,11 +87,19 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
             const SizedBox(
               height: 15,
             ),
-            const DogWidget(),
+            DogWidget(
+              onPress: () {
+                Get.toNamed(RouteName.expertdogDetailsPage);
+              },
+            ),
             const SizedBox(
               height: 10,
             ),
-            const DogWidget(),
+             DogWidget(
+              onPress: () {
+                Get.toNamed(RouteName.expertdogDetailsPage);
+              },
+            ),
             const SizedBox(
               height: 25,
             ),

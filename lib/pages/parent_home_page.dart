@@ -7,6 +7,9 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+
+import '../routes/route_names.dart';
 
 class ParentHomePage extends StatefulWidget {
   const ParentHomePage({super.key});
@@ -76,11 +79,19 @@ class _ParentHomePageState extends State<ParentHomePage> {
             const SizedBox(
               height: 20,
             ),
-            const DogWidget(),
+             DogWidget(
+              onPress: () {
+                Get.toNamed(RouteName.dogDetailsPage);
+              },
+            ),
             const SizedBox(
               height: 10,
             ),
-            const DogWidget(),
+             DogWidget(
+              onPress: () {
+                Get.toNamed(RouteName.dogDetailsPage);
+              },
+            ),
             const SizedBox(
               height: 20,
             ),

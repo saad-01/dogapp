@@ -102,7 +102,7 @@ class Styles {
 
   static TextStyle btnStyle1() {
     return const TextStyle(
-        color: AppColors.white, fontSize: 20, fontWeight: FontWeight.w600);
+        color: AppColors.white, fontSize: 18, fontWeight: FontWeight.w600);
   }
 
   static TextStyle subText() {
@@ -321,6 +321,4 @@ class Styles {
       fontWeight: FontWeight.w400,
     );
   }
-
-
 }

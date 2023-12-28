@@ -1,20 +1,26 @@
+import 'package:dogapp/pages/add_comment_page.dart';
 import 'package:dogapp/pages/apointment_expert_page.dart';
 import 'package:dogapp/pages/appointment_detail_page.dart';
 import 'package:dogapp/pages/choose_profile_page.dart';
 import 'package:dogapp/pages/dog_detail_page.dart';
 import 'package:dogapp/pages/expert_dashboard.dart';
+import 'package:dogapp/pages/expert_dog_detail_page.dart';
 import 'package:dogapp/pages/expert_home_page.dart';
 import 'package:dogapp/pages/expert_signup_page.dart';
+import 'package:dogapp/pages/file_details_page.dart';
 import 'package:dogapp/pages/intro_page.dart';
 import 'package:dogapp/pages/list_expert_page.dart';
+import 'package:dogapp/pages/make_announcement_page.dart';
 import 'package:dogapp/pages/parent_dashboard.dart';
 import 'package:dogapp/pages/parent_signup_page.dart';
+import 'package:dogapp/pages/patient_files_page.dart';
 import 'package:dogapp/pages/released_report_page.dart';
 import 'package:dogapp/pages/report_details_page.dart';
 import 'package:dogapp/pages/report_edit_page.dart';
 import 'package:dogapp/pages/select_expert_page.dart';
 import 'package:dogapp/pages/select_report_page.dart';
 import 'package:dogapp/pages/splash_page.dart';
+import 'package:dogapp/pages/vaccination_report_page.dart';
 import 'package:get/get.dart';
 
 import 'route_names.dart';
@@ -126,6 +132,42 @@ class AppRoutes {
         GetPage(
           name: RouteName.appointExpertPage,
           page: () => AppointmentExpertPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.vaccinationReportPage,
+          page: () => const VaccinationReportPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.expertdogDetailsPage,
+          page: () => const ExpertDogDetailsPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.makeAnnouncementPage,
+          page: () => const MakeAnnouncementPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.addCommentsPage,
+          page: () => const AddCommentPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.patientFilesPage,
+          page: () => const PatientFilesPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.fileDetailsPage,
+          page: () => const FileDetailsPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),

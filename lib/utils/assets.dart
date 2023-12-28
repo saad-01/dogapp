@@ -71,4 +71,8 @@ class AssetImages {
   static const thumbsUpIcon = "assets/images/thumbsUp.svg";
   static const thumbsUpFilled = "assets/images/thumbsUpFilled.svg";
   static const createFile = "assets/images/createFile.svg";
+  static const outlineWatch = "assets/images/outlineWatch.svg";
+  static const speaker = "assets/images/speaker.svg";
+  static const excercise = "assets/images/exercise.svg";
+  static const fileDivider = "assets/images/fileDivider.svg";
 }

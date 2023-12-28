@@ -140,7 +140,8 @@ class AppStrings {
   static const approve = "Approve";
   static const completed = "Completed";
   static const createFile = "Create Dog's File";
-  static const informParent = "Create a file of dog's appointment detail to inform this dog's parent."; 
+  static const informParent =
+      "Create a file of dog's appointment detail to inform this dog's parent.";
   static const vaccinationReport = "Vaccination Report";
   static const typeVaccine = "Type of vaccine";
   static const selectVaccine = "Select type of vaccine here";
@@ -148,4 +149,18 @@ class AppStrings {
   static const typeNotes = "Type some notes here";
   static const sendNoti = "Send notification to parent";
   static const release = "Release";
+  static const typeDogName = "Type dog's name here";
+  static const timeHeading = "Time";
+  static const seePatients = "See Patients";
+  static const makeAnnouncement = "Make Announcement";
+  static const trainingData = "Training Data";
+  static const seeTrainingFile = "See Training File";
+  static const excercise = "Exercise";
+  static const handFeeding = "Hand Feeding";
+  static const title = "Title";
+  static const description = "Description";
+  static const giveTitle = "Give title";
+  static const visibleToParent = "Visible to parent";
+  static const addComment = "Add Comment";
+  static const patientFiles = "Patient files";
 }

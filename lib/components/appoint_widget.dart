@@ -2,6 +2,7 @@ import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../utils/app_colors.dart';
+import '../utils/strings.dart';
 
 class AppointmentWidget extends StatelessWidget {
   const AppointmentWidget(
@@ -13,7 +14,8 @@ class AppointmentWidget extends StatelessWidget {
       required this.image,
       required this.title,
       required this.approvalFlag,
-      this.onPress});
+      this.onPress,
+      this.showStatus});
   final String type;
   final String name;
   final String date;
@@ -21,6 +23,7 @@ class AppointmentWidget extends StatelessWidget {
   final String image;
   final String title;
   final bool approvalFlag;
+  final bool? showStatus;
   final void Function()? onPress;
   @override
   Widget build(BuildContext context) {
@@ -55,18 +58,22 @@ class AppointmentWidget extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "Leptospirosis($type)",
+                      type == 'Excercise'
+                          ? "${AppStrings.handFeeding}($type)"
+                          : "Leptospirosis($type)",
                       style: Styles.subPrimaryText(),
                     ),
                     const SizedBox(
                       width: 5,
                     ),
-                    if (title != 'Requested')
-                      StatusWidget(title: title, approval: approvalFlag),
-                    if (title == 'Requested')
-                      RequestedWidget(
-                        title: title,
-                      ),
+                    if (showStatus == null) ...[
+                      if (title != 'Requested')
+                        StatusWidget(title: title, approval: approvalFlag),
+                      if (title == 'Requested')
+                        RequestedWidget(
+                          title: title,
+                        ),
+                    ]
                   ],
                 ),
                 const SizedBox(
