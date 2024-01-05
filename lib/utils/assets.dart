@@ -80,4 +80,14 @@ class AssetImages {
   static const antiParasite = "assets/images/antiParasite.svg";
   static const boneMeal = "assets/images/boneMeal.svg";
   static const coloredFile = "assets/images/coloredFile.svg";
+  static const btnNext = "assets/images/btnNext.svg";
+  static const btnBack = "assets/images/btnBack.svg";
+  static const whiteGlobe = "assets/images/whiteGlobe.svg";
+  static const whiteDropdown = "assets/images/whiteDropDown.svg";
+  static const german = "assets/images/german.svg";
+  static const french = "assets/images/french.svg";
+  static const english = "assets/images/english.svg";
+  static const langPageItem = "assets/images/langPageItem.svg";
+  static const outlinedDog = "assets/images/outlinedDog.svg";
+  static const selectIcon = "assets/images/selectIcon.svg";
 }

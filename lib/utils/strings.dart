@@ -167,4 +167,14 @@ class AppStrings {
   static const antiparasitic = "Anti parasitic";
   static const vetVisit = "Vet Visit";
   static const seeAllFiles = "See all patient files which are released from your expert.";
+  static const next = "Next";
+  static const lang = "Language";
+  static const sliderHeading2 = "Maintain health data!";
+  static const sliderHeading3 = "Talk to experts";
+  static const slidertxt2 = "See Record of past and current illnesses, medication administrations, allergies and surgeries.";
+  static const slidertxt3  = "Search and contact with dog trainers, dog physiotherapists, dog nutritionists and veterinarians.";
+  static const selectLang  = "Select language";
+  static const german  = "German";
+  static const english  = "English";
+  static const french  = "French";
 }

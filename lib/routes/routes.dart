@@ -10,6 +10,7 @@ import 'package:dogapp/pages/expert_home_page.dart';
 import 'package:dogapp/pages/expert_signup_page.dart';
 import 'package:dogapp/pages/file_details_page.dart';
 import 'package:dogapp/pages/intro_page.dart';
+import 'package:dogapp/pages/language_page.dart';
 import 'package:dogapp/pages/list_expert_page.dart';
 import 'package:dogapp/pages/make_announcement_page.dart';
 import 'package:dogapp/pages/parent_dashboard.dart';
@@ -175,6 +176,12 @@ class AppRoutes {
         GetPage(
           name: RouteName.addAppointmentPage,
           page: () => const AddAppointmentPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.languagePage,
+          page: () => const SelectLanguagePage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),
