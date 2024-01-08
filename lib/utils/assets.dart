@@ -90,4 +90,8 @@ class AssetImages {
   static const langPageItem = "assets/images/langPageItem.svg";
   static const outlinedDog = "assets/images/outlinedDog.svg";
   static const selectIcon = "assets/images/selectIcon.svg";
+  static const singupBg = "assets/images/loginorSignup.svg";
+  static const google = "assets/images/google.svg";
+  static const mail = "assets/images/mail.svg";
+  static const loginBg = "assets/images/loginBg.svg";
 }

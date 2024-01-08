@@ -1,5 +1,6 @@
 import 'package:dogapp/pages/add_appointment_page.dart';
 import 'package:dogapp/pages/add_comment_page.dart';
+import 'package:dogapp/pages/add_dog.dart';
 import 'package:dogapp/pages/apointment_expert_page.dart';
 import 'package:dogapp/pages/appointment_detail_page.dart';
 import 'package:dogapp/pages/choose_profile_page.dart';
@@ -12,6 +13,7 @@ import 'package:dogapp/pages/file_details_page.dart';
 import 'package:dogapp/pages/intro_page.dart';
 import 'package:dogapp/pages/language_page.dart';
 import 'package:dogapp/pages/list_expert_page.dart';
+import 'package:dogapp/pages/login_page.dart';
 import 'package:dogapp/pages/make_announcement_page.dart';
 import 'package:dogapp/pages/parent_dashboard.dart';
 import 'package:dogapp/pages/parent_signup_page.dart';
@@ -21,6 +23,7 @@ import 'package:dogapp/pages/report_details_page.dart';
 import 'package:dogapp/pages/report_edit_page.dart';
 import 'package:dogapp/pages/select_expert_page.dart';
 import 'package:dogapp/pages/select_report_page.dart';
+import 'package:dogapp/pages/signup_page.dart';
 import 'package:dogapp/pages/splash_page.dart';
 import 'package:dogapp/pages/vaccination_report_page.dart';
 import 'package:get/get.dart';
@@ -182,6 +185,24 @@ class AppRoutes {
         GetPage(
           name: RouteName.languagePage,
           page: () => const SelectLanguagePage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.loginPage,
+          page: () => const LoginPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.signupPage,
+          page: () => const SignupPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.addDogPage,
+          page: () => const AddDogPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),

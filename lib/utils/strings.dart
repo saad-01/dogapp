@@ -177,4 +177,17 @@ class AppStrings {
   static const german  = "German";
   static const english  = "English";
   static const french  = "French";
+  static const signupTxt =
+      "Almost there! Get the most out of MY DOG by  creating an account. Track your training progress, participate in the challenges, meet other dog parents, and more!";
+  static const loginORsignup  = "Login or signup";
+  static const login  = "Login";
+  static const google  = "Continue with google";
+  static const mail  = "Sign up with email";
+  static const forgetPass  = "Forgot password?";
+  static const typeMail  = "Type your email";
+  static const typePass  = "Type your password";
+  static const alreadyAccount  = "Already have an account?";
+  static const agreeing  = "By creating an account you agree to MY DOG's";
+  static const policy  = "Privacy policy and Term of use";
+  static const or  = "OR";
 }

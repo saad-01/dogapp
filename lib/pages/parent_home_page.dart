@@ -79,7 +79,7 @@ class _ParentHomePageState extends State<ParentHomePage> {
             const SizedBox(
               height: 20,
             ),
-             DogWidget(
+            DogWidget(
               onPress: () {
                 Get.toNamed(RouteName.dogDetailsPage);
               },
@@ -87,7 +87,7 @@ class _ParentHomePageState extends State<ParentHomePage> {
             const SizedBox(
               height: 10,
             ),
-             DogWidget(
+            DogWidget(
               onPress: () {
                 Get.toNamed(RouteName.dogDetailsPage);
               },
@@ -95,11 +95,14 @@ class _ParentHomePageState extends State<ParentHomePage> {
             const SizedBox(
               height: 20,
             ),
-            const PrimartyButton(
+            PrimartyButton(
               title: AppStrings.addDog,
               width: 170,
               height: 12,
               icon: AssetImages.addWhiteIcon,
+              onTap: () {
+                Get.toNamed(RouteName.addDogPage);
+              },
             ),
             const SizedBox(
               height: 25,
@@ -151,6 +154,5 @@ class _ParentHomePageState extends State<ParentHomePage> {
         ),
       )),
     );
-  
   }
 }

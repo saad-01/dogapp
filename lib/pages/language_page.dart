@@ -1,9 +1,9 @@
 import 'package:dogapp/components/flag_item.dart';
+import 'package:dogapp/components/intro_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
-import 'package:dogapp/utils/styles.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
@@ -133,33 +133,13 @@ class SelectLanguagePage extends StatelessWidget {
                           const SizedBox(
                             height: 30,
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              Get.offNamed(RouteName.chooseProfilePage);
+                          IntroBtn(
+                            title: AppStrings.next,
+                            clr: AppColors.yellowColor,
+                            showIcon: false,
+                            onPress: () {
+                              Get.offNamed(RouteName.signupPage);
                             },
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 0.8,
-                              height: 52,
-                              decoration: ShapeDecoration(
-                                color: AppColors.yellowColor,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8)),
-                                shadows: const [
-                                  BoxShadow(
-                                    color: Color(0x14000000),
-                                    blurRadius: 12,
-                                    offset: Offset(0, 2),
-                                    spreadRadius: 0,
-                                  )
-                                ],
-                              ),
-                              child: Center(
-                                child: Text(
-                                  AppStrings.next,
-                                  style: Styles.appBarH1(),
-                                ),
-                              ),
-                            ),
                           ),
                         ],
                       ),
