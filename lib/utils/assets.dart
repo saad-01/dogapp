@@ -94,4 +94,8 @@ class AssetImages {
   static const google = "assets/images/google.svg";
   static const mail = "assets/images/mail.svg";
   static const loginBg = "assets/images/loginBg.svg";
+  static const uploadDog = "assets/images/uploadDog.svg";
+  static const dropDown = "assets/images/dropDown.svg";
+  static const male = "assets/images/male.svg";
+  static const female = "assets/images/female.svg";
 }

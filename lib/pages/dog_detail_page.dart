@@ -306,24 +306,30 @@ class DogDetailsPage extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const AppointmentWidget(
+                      AppointmentWidget(
                           type: AppStrings.vaccination,
                           name: AppStrings.dogName,
                           date: AppStrings.dateFormat,
                           time: AppStrings.time,
                           image: AssetImages.injectionImage,
                           title: AppStrings.approved,
+                          onPress: () {
+                            Get.toNamed(RouteName.appointDetailsPage);
+                          },
                           approvalFlag: true),
                       const SizedBox(
                         height: 11,
                       ),
-                      const AppointmentWidget(
+                      AppointmentWidget(
                           type: AppStrings.medicine,
                           name: AppStrings.dogName,
                           date: AppStrings.dateFormat,
                           time: AppStrings.time,
                           image: AssetImages.medImage,
                           title: AppStrings.denied,
+                          onPress: () {
+                            Get.toNamed(RouteName.appointDetailsPage);
+                          },
                           approvalFlag: false),
                     ],
                   ))),

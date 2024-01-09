@@ -23,7 +23,7 @@ class PatientFilesPage extends StatelessWidget {
                 children: [
                   FileItem(
                     onPress: () {
-                      Get.toNamed(RouteName.fileDetailsPage);
+                      Get.toNamed(RouteName.fileDetailsPage, arguments: '');
                     },
                   ),
                   const SizedBox(
@@ -31,7 +31,8 @@ class PatientFilesPage extends StatelessWidget {
                   ),
                   FileItem(
                     onPress: () {
-                      Get.toNamed(RouteName.fileDetailsPage);
+                      Get.toNamed(RouteName.fileDetailsPage,
+                          arguments: 'Completed');
                     },
                   ),
                 ],

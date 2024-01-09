@@ -11,8 +11,8 @@ import '../utils/app_colors.dart';
 import '../utils/assets.dart';
 
 class FileDetailsPage extends StatelessWidget {
-  const FileDetailsPage({super.key});
-  final String status = '';
+  FileDetailsPage({super.key});
+  final String status = Get.arguments;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

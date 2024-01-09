@@ -32,4 +32,5 @@ class RouteName {
   static const String loginPage = '/login_page';
   static const String signupPage = '/signup_page';
   static const String addDogPage = '/add_dog_page';
+  static const String addTrainingPage = '/add_training_page';
 }

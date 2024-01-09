@@ -254,5 +254,6 @@ class VaccinationReportPage extends StatelessWidget {
         ),
       )),
     );
+  
   }
 }

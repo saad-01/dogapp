@@ -17,4 +17,5 @@ class AppColors{
   static const redShade = Color(0x7FAB271F);
   static const pinkShade = Color(0x14AB271F);
   static const sliderUnselecteColors = Color(0xFFD9D9D9);
+  static const dividerColor = Color(0xFFF3F3F3);
 }

@@ -1,6 +1,7 @@
 import 'package:dogapp/pages/add_appointment_page.dart';
 import 'package:dogapp/pages/add_comment_page.dart';
 import 'package:dogapp/pages/add_dog.dart';
+import 'package:dogapp/pages/add_training.dart';
 import 'package:dogapp/pages/apointment_expert_page.dart';
 import 'package:dogapp/pages/appointment_detail_page.dart';
 import 'package:dogapp/pages/choose_profile_page.dart';
@@ -172,7 +173,7 @@ class AppRoutes {
         ),
         GetPage(
           name: RouteName.fileDetailsPage,
-          page: () => const FileDetailsPage(),
+          page: () => FileDetailsPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),
@@ -203,6 +204,12 @@ class AppRoutes {
         GetPage(
           name: RouteName.addDogPage,
           page: () => const AddDogPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.addTrainingPage,
+          page: () => const AddTrainingPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),

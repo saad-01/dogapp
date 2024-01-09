@@ -1,3 +1,4 @@
+
 class AppStrings {
   //splashpage
   static const myDog = "MY DOG";
@@ -190,4 +191,36 @@ class AppStrings {
   static const agreeing  = "By creating an account you agree to MY DOG's";
   static const policy  = "Privacy policy and Term of use";
   static const or  = "OR";
+  static const setProfile  = "Set a profile for your Dog";
+  static const uploadDog  = "Upload Dog's Photo";
+  static const dogsName  = "Dog's name";
+  static const neutered  = "Neutered";
+  static const color  = "Color";
+  static const male  = "Male";
+  static const female  = "Female";
+  static const typeGender  = "Describe gender of your dog";
+  static const typeChipNumber  = "Tell your dog's chip number";
+  static const typeColor  = "What type of color your dog have?";
+  static const selectBreed  = "Select your dog's breed here";
+  static const typeWeight  = "How much weight your dog have?";
+  static const createTraining  = "Create Training";
+  static const uploadPhoto  = "Upload Photo";
+  static const trainingTitle  = "Training Title";
+  static const giveTraining  = "Give this Training a tilte";
+  static const shortNote  = "Type a short note";
+  static const trainingNote  = "Note";
+  static const listDown  = "List down the needed equipment";
+  static const neededEquipment  = "Needed Equipment";
+  static const trainingLevel  = "Training level";
+  static const eligibility  = "Eligibility";
+  static const category  = "Category";
+  static const hintEligibilty  = "Specify the eligibility for this training";
+  static const trainLength  = "Training Length";
+  static const uploadFiles  = "Upload Files";
+  static const media  = "Media";
+  static const post  = "Post";
+  static const material  = "Training Material";
+  static const general  = "General";
+  static const dayByday  = "Day by Day";
+  static const giveDescription  = "Give description";
 }
