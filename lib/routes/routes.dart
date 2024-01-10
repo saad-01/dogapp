@@ -6,12 +6,15 @@ import 'package:dogapp/pages/add_training.dart';
 import 'package:dogapp/pages/apointment_expert_page.dart';
 import 'package:dogapp/pages/appointment_detail_page.dart';
 import 'package:dogapp/pages/choose_profile_page.dart';
+import 'package:dogapp/pages/create_diet_plan.dart';
+import 'package:dogapp/pages/create_time_table.dart';
 import 'package:dogapp/pages/diet_plan_page.dart';
 import 'package:dogapp/pages/dog_detail_page.dart';
 import 'package:dogapp/pages/expert_dashboard.dart';
 import 'package:dogapp/pages/expert_dog_detail_page.dart';
 import 'package:dogapp/pages/expert_ex_detail.dart';
 import 'package:dogapp/pages/expert_exercise_page.dart';
+import 'package:dogapp/pages/expert_feed_manage_page.dart';
 import 'package:dogapp/pages/expert_home_page.dart';
 import 'package:dogapp/pages/expert_signup_page.dart';
 import 'package:dogapp/pages/feed_manage_page.dart';
@@ -245,6 +248,24 @@ class AppRoutes {
         GetPage(
           name: RouteName.dietPlanPage,
           page: () => const DietPlanPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.expertFeedManagePage,
+          page: () => const ExpertFeedPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.createDietPlanPage,
+          page: () => const CreateDietPlan(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.createTimeTable,
+          page: () => const CreateTimeTable(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),

@@ -38,4 +38,7 @@ class RouteName {
   static const String feedManagePage = '/feed_manage_page';
   static const String addFoodPage = '/add_food_page';
   static const String dietPlanPage = '/diet_plan_page';
+  static const String createDietPlanPage = '/create_diet_plan_page';
+  static const String createTimeTable = '/create_time_table_page';
+  static const String expertFeedManagePage = '/expert_feed_manage_page';
 }

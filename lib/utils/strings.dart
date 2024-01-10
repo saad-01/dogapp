@@ -243,5 +243,24 @@ class AppStrings {
   static const payAttenNote = "Teach your dog to pay attention to you and listen to you whenever you call him/her.";
   static const bittingNote  = "Teach your dog to control their impulses, excitement, and the urge to wrap their jaw around anything.";
   static const dietNote  = "Teach your dog to control their impulses, excitement, and the urge to wrap their jaw around anything.";
-  // static const bittingNote  = "";
+  static const morningFood  = "Morning Food";
+  static const foodName  = "Food name";
+  static const eveningFood  = "Evening Food";
+  static const typeFood  = "Type food name here";
+  static const foodOutside  = "Food outside";
+  static const reminderNoti  = "Reminder Notification";
+  static const day  = "Day";
+  static const learnTennis  = "You can learn all about tennis.";
+  static const articles  = "Articles";
+  static const timing  = "Timing";
+  static const duration  = "Duration";
+  static const calories  = "Calories";
+  static const createFoodorDiet  = "Create Food/Diet Plan";
+  static const createPlan  = "Create Plan";
+  static const planTitle  = "Plan title";
+  static const startDate  = "Start date";
+  static const endDate  = "End date";
+  static const givePlanTitle  = "Give this plan title";
+  static const createTimeTable  = "Create time table";
+  static const createDetailedTb = "Create detailed time table fot this plan";
 }

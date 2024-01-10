@@ -1,5 +1,4 @@
 import 'package:dogapp/components/appbar.dart';
-import 'package:dogapp/components/food_reminder.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/app_colors.dart';
@@ -11,8 +10,8 @@ import 'package:get/get.dart';
 
 import '../utils/styles.dart';
 
-class FeedManagePage extends StatelessWidget {
-  const FeedManagePage({super.key});
+class ExpertFeedPage extends StatelessWidget {
+  const ExpertFeedPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -100,97 +99,42 @@ class FeedManagePage extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 40,
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      AppStrings.dailFoodReminders,
-                      style: Styles.expertSignupPaget1(),
+                  Container(
+                    width: MediaQuery.sizeOf(context).width * 0.84,
+                    height: 81,
+                    decoration: ShapeDecoration(
+                      color: const Color(0xFF256B90),
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                            width: 0.50, color: Color(0x1E010101)),
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      shadows: const [
+                        BoxShadow(
+                          color: Color(0x1E000000),
+                          blurRadius: 8,
+                          offset: Offset(0, 0),
+                          spreadRadius: 0,
+                        )
+                      ],
                     ),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const FoodReminderItem(
-                      heading: AppStrings.morningFood,
-                      foodName: AppStrings.foodName,
-                      timeHeading: AppStrings.timeHeading,
-                      time: AppStrings.time),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const FoodReminderItem(
-                      heading: AppStrings.eveningFood,
-                      foodName: AppStrings.foodName,
-                      timeHeading: AppStrings.timeHeading,
-                      time: AppStrings.time),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      AppStrings.planDogExperts,
-                      style: Styles.expertSignupPaget1(),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Get.toNamed(RouteName.dietPlanPage);
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15, vertical: 18),
-                      height: 101,
-                      decoration: ShapeDecoration(
-                        color: const Color(0xFFFFF9F2),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            width: 0.50,
-                            color:
-                                Colors.black.withOpacity(0.11999999731779099),
-                          ),
-                          borderRadius: BorderRadius.circular(10),
+                    child: Center(
+                      child: ListTile(
+                        leading: SvgPicture.asset(AssetImages.createPlan),
+                        trailing: SvgPicture.asset(AssetImages.nextWhiteIcon),
+                        title: Text(
+                          AppStrings.createFoodorDiet,
+                          style: Styles.white16(),
+                          textAlign: TextAlign.center,
                         ),
-                        shadows: const [
-                          BoxShadow(
-                            color: Color(0x0F000000),
-                            blurRadius: 8,
-                            offset: Offset(0, 2),
-                            spreadRadius: 0,
-                          )
-                        ],
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  AppStrings.dietPlan,
-                                  style: Styles.expertSignupPaget1(),
-                                ),
-                                Text(
-                                  AppStrings.dietNote,
-                                  style: Styles.grey8(),
-                                )
-                              ],
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 35,
-                          ),
-                          SvgPicture.asset(AssetImages.dogFood)
-                        ],
+                        onTap: () {
+                          Get.toNamed(RouteName.createDietPlanPage);
+                        },
                       ),
                     ),
                   ),
-                
                 ],
               ),
             ))

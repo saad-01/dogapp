@@ -13,6 +13,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+import '../components/imgWithTxt.dart';
+
 class ExpertDogDetailsPage extends StatelessWidget {
   const ExpertDogDetailsPage({super.key});
 
@@ -288,6 +290,29 @@ class ExpertDogDetailsPage extends StatelessWidget {
                             ),
                           ],
                         ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const ImageWithText(
+                            title: AppStrings.exerciseExpert,
+                            image: AssetImages.excerciseExpert,
+                            clr: AppColors.exercieBox,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed(RouteName.expertFeedManagePage);
+                            },
+                            child: const ImageWithText(
+                              title: AppStrings.feedManage,
+                              image: AssetImages.dogFood,
+                              clr: AppColors.foodBox,
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 20,

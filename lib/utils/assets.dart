@@ -104,4 +104,7 @@ class AssetImages {
   static const payAttention = "assets/images/payAttention.svg";
   static const stopBitting = "assets/images/stopBitting.svg";
   static const walk = "assets/images/walk.svg";
+  static const pdf = "assets/images/pdf.svg";
+  static const createPlan = "assets/images/createPlan.svg";
+  static const timeTable = "assets/images/timeTable.svg";
 }
