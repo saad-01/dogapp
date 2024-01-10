@@ -33,4 +33,9 @@ class RouteName {
   static const String signupPage = '/signup_page';
   static const String addDogPage = '/add_dog_page';
   static const String addTrainingPage = '/add_training_page';
+  static const String expertExercisePage = '/expert_exercise_page';
+  static const String expertExDetailPage = '/expert_ex_detail_page';
+  static const String feedManagePage = '/feed_manage_page';
+  static const String addFoodPage = '/add_food_page';
+  static const String dietPlanPage = '/diet_plan_page';
 }

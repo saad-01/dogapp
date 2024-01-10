@@ -1,15 +1,20 @@
 import 'package:dogapp/pages/add_appointment_page.dart';
 import 'package:dogapp/pages/add_comment_page.dart';
 import 'package:dogapp/pages/add_dog.dart';
+import 'package:dogapp/pages/add_food_page.dart';
 import 'package:dogapp/pages/add_training.dart';
 import 'package:dogapp/pages/apointment_expert_page.dart';
 import 'package:dogapp/pages/appointment_detail_page.dart';
 import 'package:dogapp/pages/choose_profile_page.dart';
+import 'package:dogapp/pages/diet_plan_page.dart';
 import 'package:dogapp/pages/dog_detail_page.dart';
 import 'package:dogapp/pages/expert_dashboard.dart';
 import 'package:dogapp/pages/expert_dog_detail_page.dart';
+import 'package:dogapp/pages/expert_ex_detail.dart';
+import 'package:dogapp/pages/expert_exercise_page.dart';
 import 'package:dogapp/pages/expert_home_page.dart';
 import 'package:dogapp/pages/expert_signup_page.dart';
+import 'package:dogapp/pages/feed_manage_page.dart';
 import 'package:dogapp/pages/file_details_page.dart';
 import 'package:dogapp/pages/intro_page.dart';
 import 'package:dogapp/pages/language_page.dart';
@@ -210,6 +215,36 @@ class AppRoutes {
         GetPage(
           name: RouteName.addTrainingPage,
           page: () => const AddTrainingPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.expertExercisePage,
+          page: () => const ExpertExercisePage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.expertExDetailPage,
+          page: () => const ExpertExerciseDetails(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.feedManagePage,
+          page: () => const FeedManagePage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.addFoodPage,
+          page: () => const AddFoodPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.dietPlanPage,
+          page: () => const DietPlanPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),

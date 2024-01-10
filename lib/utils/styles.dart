@@ -328,4 +328,11 @@ class Styles {
       fontWeight: FontWeight.w400,
     );
   }
+  static TextStyle white8() {
+    return const TextStyle(
+      color: AppColors.white,
+      fontSize: 8,
+      fontWeight: FontWeight.w400,
+    );
+  }
 }

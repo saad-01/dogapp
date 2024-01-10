@@ -146,6 +146,7 @@ class AppointmentDetailPage extends StatelessWidget {
                     child: SvgPicture.asset(AssetImages.injectionLg))
               ],
             ),
+          
           ],
         ),
       )),

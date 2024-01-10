@@ -241,18 +241,23 @@ class DogDetailsPage extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          ImageWithText(
+                          const ImageWithText(
                             title: AppStrings.exerciseExpert,
                             image: AssetImages.excerciseExpert,
                             clr: AppColors.exercieBox,
                           ),
-                          ImageWithText(
-                            title: AppStrings.feedManage,
-                            image: AssetImages.dogFood,
-                            clr: AppColors.foodBox,
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed(RouteName.feedManagePage);
+                            },
+                            child: const ImageWithText(
+                              title: AppStrings.feedManage,
+                              image: AssetImages.dogFood,
+                              clr: AppColors.foodBox,
+                            ),
                           ),
                         ],
                       ),

@@ -282,7 +282,7 @@ class ExpertDogDetailsPage extends StatelessWidget {
                                 height: 10,
                                 icon: '',
                                 onTap: () {
-                                  Get.toNamed(RouteName.addTrainingPage);
+                                  Get.toNamed(RouteName.expertExercisePage);
                                 },
                               ),
                             ),

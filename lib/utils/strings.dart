@@ -223,4 +223,25 @@ class AppStrings {
   static const general  = "General";
   static const dayByday  = "Day by Day";
   static const giveDescription  = "Give description";
+  static const exercises  = "Exercises";
+  static const games  = "Games";
+  static const goodManners  = "Good Manners";
+  static const trainingPrograms  = "Training Programs";
+  static const addTraining  = "Add Training Program";
+  static const stopBitting  = "Stop Biting";
+  static const theory  = "Theory";
+  static const payAttention = "Pay Attention";
+  static const addExercise = "Add Exercise";
+  static const walk = "Walk";
+  static const addFood = "Add Food";
+  static const dietPlan = "Diet plan";
+  static const foodManagement = "Food management";
+  static const dailFoodReminders = "Daily Food Reminders";
+  static const planDogExperts = "Plans by your dog's experts";
+  static const feedNote = "Add and manage your dogs daily food timing, create food plans, and diet plans.";
+  static const handFeedNote = "After this exercise yor dog will pay more attention to you and your hands. Get your dog’s attention and show them some super tasty food or treats in your hand.";
+  static const payAttenNote = "Teach your dog to pay attention to you and listen to you whenever you call him/her.";
+  static const bittingNote  = "Teach your dog to control their impulses, excitement, and the urge to wrap their jaw around anything.";
+  static const dietNote  = "Teach your dog to control their impulses, excitement, and the urge to wrap their jaw around anything.";
+  // static const bittingNote  = "";
 }

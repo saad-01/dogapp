@@ -98,4 +98,10 @@ class AssetImages {
   static const dropDown = "assets/images/dropDown.svg";
   static const male = "assets/images/male.svg";
   static const female = "assets/images/female.svg";
+  static const swimDog = "assets/images/swimDog.svg";
+  static const playDog = "assets/images/playingDog.svg";
+  static const tickDog = "assets/images/tickDog.svg";
+  static const payAttention = "assets/images/payAttention.svg";
+  static const stopBitting = "assets/images/stopBitting.svg";
+  static const walk = "assets/images/walk.svg";
 }
