@@ -41,4 +41,5 @@ class RouteName {
   static const String createDietPlanPage = '/create_diet_plan_page';
   static const String createTimeTable = '/create_time_table_page';
   static const String expertFeedManagePage = '/expert_feed_manage_page';
+  static const String safetyEmergencyPage = '/safety_emergency_page';
 }

@@ -1,12 +1,10 @@
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/components/select_field.dart';
-import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../components/alternating_btn.dart';
 import '../components/textfield.dart';
 import '../utils/styles.dart';
 

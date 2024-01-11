@@ -291,7 +291,7 @@ class Styles {
 
   static TextStyle primary20G() {
     return const TextStyle(
-      fontSize: 16,
+      fontSize: 20,
       color: AppColors.primaryColor,
     );
   }
@@ -328,6 +328,7 @@ class Styles {
       fontWeight: FontWeight.w400,
     );
   }
+
   static TextStyle white8() {
     return const TextStyle(
       color: AppColors.white,

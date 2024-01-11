@@ -107,4 +107,7 @@ class AssetImages {
   static const pdf = "assets/images/pdf.svg";
   static const createPlan = "assets/images/createPlan.svg";
   static const timeTable = "assets/images/timeTable.svg";
+  static const telephone = "assets/images/telephone.svg";
+  static const missDog = "assets/images/missDog.svg";
+  static const blueLight = "assets/images/blueLight.svg";
 }

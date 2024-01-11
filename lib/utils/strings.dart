@@ -263,4 +263,17 @@ class AppStrings {
   static const givePlanTitle  = "Give this plan title";
   static const createTimeTable  = "Create time table";
   static const createDetailedTb = "Create detailed time table fot this plan";
+  static const seeEmergencyNum = "See Emergency Numbers";
+  static const missingFound = "Missing & Found";
+  static const missingNote = "Find your missing dog or report a found dog to help someone reunite with their furry companion.";
+  static const addReport = "Add Report";
+  static const impInstructions = "Important Instructions";
+  static const emergencyCases = "What you have to do in emergency cases ";
+  static const inCaseEmergency = "In case of an emergency";
+  static const noteEmergency = "Teach your dog to control their impulses, excitement, and the urge to wrap their jaw around anything.";
+  static const missingDog = "Missing Dog";
+  static const lostDate = "Lost Date";
+  static const lostAddress = "Lost Address";
+  static const foundedDog = "Founded Dog";
+  // static const  = "";
 }

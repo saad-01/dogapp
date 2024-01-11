@@ -264,11 +264,14 @@ class DogDetailsPage extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      const CustomTile(
+                      CustomTile(
                         title: AppStrings.safetyEmergency,
                         leading: AssetImages.dogBelt,
                         trailing: AssetImages.nextWhiteIcon,
-                        clr: Color(0xFF007F84),
+                        clr: const Color(0xFF007F84),
+                        onPress: () {
+                          Get.toNamed(RouteName.safetyEmergencyPage);
+                        },
                       ),
                       const SizedBox(
                         height: 20,

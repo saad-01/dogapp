@@ -30,6 +30,7 @@ import 'package:dogapp/pages/patient_files_page.dart';
 import 'package:dogapp/pages/released_report_page.dart';
 import 'package:dogapp/pages/report_details_page.dart';
 import 'package:dogapp/pages/report_edit_page.dart';
+import 'package:dogapp/pages/safety_emergency_page.dart';
 import 'package:dogapp/pages/select_expert_page.dart';
 import 'package:dogapp/pages/select_report_page.dart';
 import 'package:dogapp/pages/signup_page.dart';
@@ -266,6 +267,12 @@ class AppRoutes {
         GetPage(
           name: RouteName.createTimeTable,
           page: () => const CreateTimeTable(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.safetyEmergencyPage,
+          page: () => const SafetyEmergencyPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),
