@@ -15,7 +15,7 @@ class DogWidget extends StatelessWidget {
       child: Ink(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: ShapeDecoration(
-          color: Colors.white,
+          color: AppColors.white,
           shape: RoundedRectangleBorder(
             side: BorderSide(
               width: 0.50,

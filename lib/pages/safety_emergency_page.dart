@@ -56,7 +56,7 @@ class SafetyEmergencyPage extends StatelessWidget {
                           textAlign: TextAlign.center,
                         ),
                         onTap: () {
-                          Get.toNamed(RouteName.createDietPlanPage);
+                          Get.toNamed(RouteName.emergencyNumPage);
                         },
                       ),
                     ),
@@ -112,11 +112,11 @@ class SafetyEmergencyPage extends StatelessWidget {
                                 height: 25,
                               ),
                               PrimartyButton(
-                                  title: AppStrings.addFood,
+                                  title: AppStrings.addReport,
                                   width: 170,
                                   height: 12,
                                   onTap: () {
-                                    Get.toNamed(RouteName.addFoodPage);
+                                    Get.toNamed(RouteName.emergencyReportPage);
                                   },
                                   icon: '')
                             ],

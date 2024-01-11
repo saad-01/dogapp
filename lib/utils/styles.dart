@@ -248,6 +248,13 @@ class Styles {
       fontWeight: FontWeight.w400,
     );
   }
+  static TextStyle grey10() {
+    return const TextStyle(
+      color: AppColors.grey,
+      fontSize: 10,
+      fontWeight: FontWeight.w400,
+    );
+  }
 
   static TextStyle black14() {
     return const TextStyle(

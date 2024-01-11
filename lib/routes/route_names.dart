@@ -42,4 +42,11 @@ class RouteName {
   static const String createTimeTable = '/create_time_table_page';
   static const String expertFeedManagePage = '/expert_feed_manage_page';
   static const String safetyEmergencyPage = '/safety_emergency_page';
+  static const String emergencyNumPage = '/emergency_num_page';
+  static const String addNumPage = '/add_num_page';
+  static const String emergencyReportPage = '/emergency_report_page';
+  static const String dogBaitPage = '/dog_bait_page';
+  static const String mapPage = '/map_page';
+  static const String missingDogsPage = '/missing_dogs_page';
+  static const String foundedDogsPage = '/founded_dogs_page';
 }

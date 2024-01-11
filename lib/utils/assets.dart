@@ -110,4 +110,14 @@ class AssetImages {
   static const telephone = "assets/images/telephone.svg";
   static const missDog = "assets/images/missDog.svg";
   static const blueLight = "assets/images/blueLight.svg";
+  static const search = "assets/images/search.svg";
+  static const report = "assets/images/report.svg";
+  static const dogBait = "assets/images/dogBait.jpg";
+  static const dogBaitLg = "assets/images/dogBaitlg.jpg";
+  static const missReport = "assets/images/missingReport.jpg";
+  static const foundOne = "assets/images/foundOne.jpg";
+  static const location = "assets/images/location.svg";
+  static const mapDesign = "assets/images/mapDesign.png";
+  static const locationRound = "assets/images/locationRound.svg";
+  static const bait = "assets/images/bait.svg";
 }

@@ -2,6 +2,7 @@ import 'package:dogapp/pages/add_appointment_page.dart';
 import 'package:dogapp/pages/add_comment_page.dart';
 import 'package:dogapp/pages/add_dog.dart';
 import 'package:dogapp/pages/add_food_page.dart';
+import 'package:dogapp/pages/add_num_page.dart';
 import 'package:dogapp/pages/add_training.dart';
 import 'package:dogapp/pages/apointment_expert_page.dart';
 import 'package:dogapp/pages/appointment_detail_page.dart';
@@ -9,7 +10,10 @@ import 'package:dogapp/pages/choose_profile_page.dart';
 import 'package:dogapp/pages/create_diet_plan.dart';
 import 'package:dogapp/pages/create_time_table.dart';
 import 'package:dogapp/pages/diet_plan_page.dart';
+import 'package:dogapp/pages/dog_bait_page.dart';
 import 'package:dogapp/pages/dog_detail_page.dart';
+import 'package:dogapp/pages/emergency_num_page.dart';
+import 'package:dogapp/pages/emergency_report_page.dart';
 import 'package:dogapp/pages/expert_dashboard.dart';
 import 'package:dogapp/pages/expert_dog_detail_page.dart';
 import 'package:dogapp/pages/expert_ex_detail.dart';
@@ -19,11 +23,14 @@ import 'package:dogapp/pages/expert_home_page.dart';
 import 'package:dogapp/pages/expert_signup_page.dart';
 import 'package:dogapp/pages/feed_manage_page.dart';
 import 'package:dogapp/pages/file_details_page.dart';
+import 'package:dogapp/pages/founded_dogs_page.dart';
 import 'package:dogapp/pages/intro_page.dart';
 import 'package:dogapp/pages/language_page.dart';
 import 'package:dogapp/pages/list_expert_page.dart';
 import 'package:dogapp/pages/login_page.dart';
 import 'package:dogapp/pages/make_announcement_page.dart';
+import 'package:dogapp/pages/map_page.dart';
+import 'package:dogapp/pages/missing_dogs_page.dart';
 import 'package:dogapp/pages/parent_dashboard.dart';
 import 'package:dogapp/pages/parent_signup_page.dart';
 import 'package:dogapp/pages/patient_files_page.dart';
@@ -273,6 +280,48 @@ class AppRoutes {
         GetPage(
           name: RouteName.safetyEmergencyPage,
           page: () => const SafetyEmergencyPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.emergencyNumPage,
+          page: () => const EmergencyNumPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.addNumPage,
+          page: () => const AddNumPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.emergencyReportPage,
+          page: () => const EmergencyReport(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.dogBaitPage,
+          page: () => const DogBaitPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.mapPage,
+          page: () => const MapPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.missingDogsPage,
+          page: () => const MissingDogsPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.foundedDogsPage,
+          page: () => const FoundedDogsPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),
