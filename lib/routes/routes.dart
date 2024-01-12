@@ -8,10 +8,14 @@ import 'package:dogapp/pages/apointment_expert_page.dart';
 import 'package:dogapp/pages/appointment_detail_page.dart';
 import 'package:dogapp/pages/choose_profile_page.dart';
 import 'package:dogapp/pages/create_diet_plan.dart';
+import 'package:dogapp/pages/create_foundreport_page.dart';
+import 'package:dogapp/pages/create_missreport_page.dart';
 import 'package:dogapp/pages/create_time_table.dart';
 import 'package:dogapp/pages/diet_plan_page.dart';
 import 'package:dogapp/pages/dog_bait_page.dart';
 import 'package:dogapp/pages/dog_detail_page.dart';
+import 'package:dogapp/pages/dog_died_page.dart';
+import 'package:dogapp/pages/dog_manage_page.dart';
 import 'package:dogapp/pages/emergency_num_page.dart';
 import 'package:dogapp/pages/emergency_report_page.dart';
 import 'package:dogapp/pages/expert_dashboard.dart';
@@ -23,6 +27,7 @@ import 'package:dogapp/pages/expert_home_page.dart';
 import 'package:dogapp/pages/expert_signup_page.dart';
 import 'package:dogapp/pages/feed_manage_page.dart';
 import 'package:dogapp/pages/file_details_page.dart';
+import 'package:dogapp/pages/found_profile_page.dart';
 import 'package:dogapp/pages/founded_dogs_page.dart';
 import 'package:dogapp/pages/intro_page.dart';
 import 'package:dogapp/pages/language_page.dart';
@@ -30,10 +35,13 @@ import 'package:dogapp/pages/list_expert_page.dart';
 import 'package:dogapp/pages/login_page.dart';
 import 'package:dogapp/pages/make_announcement_page.dart';
 import 'package:dogapp/pages/map_page.dart';
+import 'package:dogapp/pages/missed_profile_page.dart';
 import 'package:dogapp/pages/missing_dogs_page.dart';
+import 'package:dogapp/pages/notifications_page.dart';
 import 'package:dogapp/pages/parent_dashboard.dart';
 import 'package:dogapp/pages/parent_signup_page.dart';
 import 'package:dogapp/pages/patient_files_page.dart';
+import 'package:dogapp/pages/reason_page.dart';
 import 'package:dogapp/pages/released_report_page.dart';
 import 'package:dogapp/pages/report_details_page.dart';
 import 'package:dogapp/pages/report_edit_page.dart';
@@ -322,6 +330,54 @@ class AppRoutes {
         GetPage(
           name: RouteName.foundedDogsPage,
           page: () => const FoundedDogsPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.missReportPage,
+          page: () => const CreateMissingReport(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.foundedReportPage,
+          page: () => const CreateFoundReport(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.missDogProfilePage,
+          page: () => const MissedProfilePage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.foundDogProfilePage,
+          page: () => const FoundProfilePage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.notificationsPage,
+          page: () => const NotificationsPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.dogManagePage,
+          page: () => const DogManagementPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.reasonPage,
+          page: () => const ReasonPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.dogDiedPage,
+          page: () => const DogDiedPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),

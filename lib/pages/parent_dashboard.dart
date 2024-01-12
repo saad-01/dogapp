@@ -39,7 +39,7 @@ class _ParentDashboardState extends State<ParentDashboard> {
         body: pages[selectedPage.value],
         bottomNavigationBar: Obx(
           () => Container(
-            height: 80,
+            // height: 80,
             decoration: const ShapeDecoration(
               color: Colors.white,
               shape: RoundedRectangleBorder(

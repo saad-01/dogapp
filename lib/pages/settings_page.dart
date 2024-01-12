@@ -1,10 +1,12 @@
 import 'package:dogapp/components/list_tile.dart';
+import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -93,6 +95,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: AppStrings.notifications,
                 color: AppColors.white,
                 style: Styles.expertSignupPaget1(),
+                onPress: () {
+                  Get.toNamed(RouteName.notificationsPage);
+                },
               ),
               const SizedBox(
                 height: 15,
@@ -102,6 +107,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: AppStrings.manageDogs,
                 color: AppColors.white,
                 style: Styles.expertSignupPaget1(),
+                onPress: () {
+                  Get.toNamed(RouteName.dogManagePage);
+                },
               ),
               const SizedBox(
                 height: 50,

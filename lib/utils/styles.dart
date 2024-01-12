@@ -34,6 +34,12 @@ class Styles {
       fontSize: 28,
     );
   }
+  static TextStyle black28() {
+    return const TextStyle(
+      color: AppColors.black,
+      fontSize: 28,
+    );
+  }
 
   static TextStyle choosePageText() {
     return const TextStyle(
@@ -64,6 +70,15 @@ class Styles {
         decorationColor: AppColors.primaryColor);
   }
 
+  static TextStyle primary20U() {
+    return const TextStyle(
+        color: AppColors.primaryColor,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        decoration: TextDecoration.underline,
+        decorationColor: AppColors.primaryColor);
+  }
+
   static TextStyle primary16U() {
     return const TextStyle(
         color: AppColors.primaryColor,
@@ -90,6 +105,12 @@ class Styles {
     return const TextStyle(
       color: Color(0xFFCC0000),
       fontSize: 16,
+    );
+  }
+  static TextStyle red8() {
+    return const TextStyle(
+      color: Color(0xFFCC0000),
+      fontSize: 8,
     );
   }
 
@@ -248,6 +269,7 @@ class Styles {
       fontWeight: FontWeight.w400,
     );
   }
+
   static TextStyle grey10() {
     return const TextStyle(
       color: AppColors.grey,

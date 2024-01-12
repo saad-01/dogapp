@@ -86,7 +86,7 @@ class DogDetailsPage extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 15),
                             child: Container(
                               padding: const EdgeInsets.only(
-                                  top: 75, left: 15, right: 15, bottom: 25),
+                                  top: 25, left: 15, right: 15, bottom: 25),
                               decoration: ShapeDecoration(
                                 color: AppColors.white,
                                 shape: RoundedRectangleBorder(
@@ -108,6 +108,9 @@ class DogDetailsPage extends StatelessWidget {
                               ),
                               child: Column(
                                 children: [
+                                  const SizedBox(
+                                    height: 50,
+                                  ),
                                   Text(
                                     AppStrings.nameCapital,
                                     style: Styles.expertSignupPaget1(),
@@ -149,24 +152,17 @@ class DogDetailsPage extends StatelessWidget {
                             ),
                           ),
                           Positioned(
-                              left: 115,
-                              right: 115,
-                              top: 0,
-                              child: Container(
-                                width: 86,
-                                height: 86,
-                                decoration: ShapeDecoration(
-                                  image: const DecorationImage(
-                                    image: AssetImage(AssetImages.dogItem),
-                                    fit: BoxFit.cover,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    side: const BorderSide(
-                                        width: 1.50, color: Color(0xFF1FAB89)),
-                                    borderRadius: BorderRadius.circular(6),
-                                  ),
-                                ),
-                              ))
+                            left: 0,
+                            right: 0,
+                            top: 0,
+                            child: SizedBox(
+                              height: 86,
+                              width: 86,
+                              child: Image.asset(
+                                AssetImages.dogItemPng,
+                              ),
+                            ),
+                          )
                         ],
                       ),
                       const SizedBox(
@@ -351,7 +347,7 @@ class DogDetailsPage extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 15),
                             child: Container(
                               padding: const EdgeInsets.only(
-                                  top: 75, left: 15, right: 15, bottom: 25),
+                                  top: 25, left: 15, right: 15, bottom: 25),
                               decoration: ShapeDecoration(
                                 color: AppColors.white,
                                 shape: RoundedRectangleBorder(
@@ -373,6 +369,9 @@ class DogDetailsPage extends StatelessWidget {
                               ),
                               child: Column(
                                 children: [
+                                  const SizedBox(
+                                    height: 50,
+                                  ),
                                   Text(
                                     AppStrings.nameCapital,
                                     style: Styles.expertSignupPaget1(),
@@ -414,24 +413,17 @@ class DogDetailsPage extends StatelessWidget {
                             ),
                           ),
                           Positioned(
-                              left: 115,
-                              right: 115,
-                              top: 0,
-                              child: Container(
-                                width: 86,
-                                height: 86,
-                                decoration: ShapeDecoration(
-                                  image: const DecorationImage(
-                                    image: AssetImage(AssetImages.dogItem),
-                                    fit: BoxFit.cover,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    side: const BorderSide(
-                                        width: 1.50, color: Color(0xFF1FAB89)),
-                                    borderRadius: BorderRadius.circular(6),
-                                  ),
-                                ),
-                              ))
+                            left: 0,
+                            right: 0,
+                            top: 0,
+                            child: SizedBox(
+                              height: 86,
+                              width: 86,
+                              child: Image.asset(
+                                AssetImages.dogItemPng,
+                              ),
+                            ),
+                          )
                         ],
                       ),
                       const SizedBox(
@@ -686,5 +678,6 @@ class DogDetailsPage extends StatelessWidget {
         ),
       ),
     );
+  
   }
 }

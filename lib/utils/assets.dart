@@ -25,6 +25,7 @@ class AssetImages {
   static const injectionImage = "assets/images/injectionImage.svg";
   static const medImage = "assets/images/medImage.svg";
   static const dogItem = "assets/images/dogItem.jpeg";
+  static const dogItemPng = "assets/images/dogItem.png";
   static const verticalDivider = "assets/images/verticalSeprator.svg";
   static const horizontalDivider = "assets/images/horizontalSeparator.svg";
   static const dogItemCalendar = "assets/images/calendarIcon.svg";
@@ -120,4 +121,9 @@ class AssetImages {
   static const mapDesign = "assets/images/mapDesign.png";
   static const locationRound = "assets/images/locationRound.svg";
   static const bait = "assets/images/bait.svg";
+  static const somePhoto = "assets/images/somePhoto.jpg";
+  static const del = "assets/images/del.svg";
+  static const archieve = "assets/images/archieve.svg";
+  static const otherReason = "assets/images/otherReason.jpg";
+  static const died = "assets/images/died.jpg";
 }

@@ -49,4 +49,12 @@ class RouteName {
   static const String mapPage = '/map_page';
   static const String missingDogsPage = '/missing_dogs_page';
   static const String foundedDogsPage = '/founded_dogs_page';
+  static const String missReportPage = '/create_missreport_page';
+  static const String foundedReportPage = '/create_foundreport_page';
+  static const String missDogProfilePage = '/miss_dog_profile_page';
+  static const String foundDogProfilePage = '/founded_dog_profile_page';
+  static const String notificationsPage = '/notifications_page';
+  static const String dogManagePage = '/dog_manage_page';
+  static const String dogDiedPage = '/dog_died_page';
+  static const String reasonPage = '/reason_page';
 }

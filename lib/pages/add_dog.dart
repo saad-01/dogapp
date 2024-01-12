@@ -226,5 +226,6 @@ class AddDogPage extends StatelessWidget {
         ),
       )),
     );
+  
   }
 }

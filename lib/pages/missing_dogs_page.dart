@@ -3,8 +3,10 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import '../components/appbar.dart';
 import '../components/primary_btn.dart';
+import '../routes/route_names.dart';
 import '../utils/app_colors.dart';
 import '../utils/assets.dart';
 
@@ -68,7 +70,7 @@ class MissingDogsPage extends StatelessWidget {
                   ),
                   IntroDogWidget(
                     onPress: () {
-                      // Get.toNamed(RouteName.expertdogDetailsPage);
+                      Get.toNamed(RouteName.missDogProfilePage);
                     },
                   ),
                   const SizedBox(
@@ -76,7 +78,7 @@ class MissingDogsPage extends StatelessWidget {
                   ),
                   IntroDogWidget(
                     onPress: () {
-                      // Get.toNamed(RouteName.expertdogDetailsPage);
+                      Get.toNamed(RouteName.missDogProfilePage);
                     },
                   ),
                 ],
@@ -89,7 +91,7 @@ class MissingDogsPage extends StatelessWidget {
               height: 10,
               icon: '',
               onTap: () {
-                // Get.toNamed(RouteName.addNumPage);
+                Get.toNamed(RouteName.missReportPage);
               },
             ),
             const SizedBox(

@@ -7,43 +7,47 @@ class CustomListTile extends StatelessWidget {
       this.color,
       this.style,
       required this.trailing,
-      required this.title});
+      required this.title, this.onPress});
   final Color? color;
   final TextStyle? style;
   final String trailing;
   final String title;
+  final void Function()? onPress;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 56,
-      padding: const EdgeInsets.all(12),
-      decoration: ShapeDecoration(
-        color: color,
-        shape: RoundedRectangleBorder(
-          side: BorderSide(
-            width: 0.50,
-            color: Colors.black.withOpacity(0.11999999731779099),
+    return GestureDetector(
+      onTap: onPress,
+      child: Container(
+        height: 56,
+        padding: const EdgeInsets.all(12),
+        decoration: ShapeDecoration(
+          color: color,
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              width: 0.50,
+              color: Colors.black.withOpacity(0.11999999731779099),
+            ),
+            borderRadius: BorderRadius.circular(8),
           ),
-          borderRadius: BorderRadius.circular(8),
+          shadows: const [
+            BoxShadow(
+              color: Color(0x0F000000),
+              blurRadius: 8,
+              offset: Offset(0, 2),
+              spreadRadius: 0,
+            )
+          ],
         ),
-        shadows: const [
-          BoxShadow(
-            color: Color(0x0F000000),
-            blurRadius: 8,
-            offset: Offset(0, 2),
-            spreadRadius: 0,
-          )
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: style,
-          ),
-          SvgPicture.asset(trailing),
-        ],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: style,
+            ),
+            SvgPicture.asset(trailing),
+          ],
+        ),
       ),
     );
   }

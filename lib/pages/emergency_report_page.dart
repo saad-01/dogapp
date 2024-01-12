@@ -41,7 +41,7 @@ class EmergencyReport extends StatelessWidget {
               height: 50,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ImageBox(
                   imagePath: AssetImages.dogBait,
@@ -56,7 +56,7 @@ class EmergencyReport extends StatelessWidget {
                 ImageBox(
                   imagePath: AssetImages.missReport,
                   onPress: () {
-                    Get.toNamed(RouteName.missingDogsPage);
+                    Get.toNamed(RouteName.missReportPage);
                   },
                   title: AppStrings.missingReport,
                 ),
@@ -66,12 +66,12 @@ class EmergencyReport extends StatelessWidget {
               height: 40,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ImageBox(
                   imagePath: AssetImages.foundOne,
                   onPress: () {
-                    Get.toNamed(RouteName.foundedDogsPage);
+                    Get.toNamed(RouteName.foundedReportPage);
                   },
                   title: AppStrings.foundOne,
                 ),
