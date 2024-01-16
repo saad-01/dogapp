@@ -57,4 +57,8 @@ class RouteName {
   static const String dogManagePage = '/dog_manage_page';
   static const String dogDiedPage = '/dog_died_page';
   static const String reasonPage = '/reason_page';
+  static const String communityPage = '/community_page';
+  static const String chatPage = '/chat_page';
+  static const String addReminder = '/add_reminder';
+  static const String parentExPage = '/parent_exercise_page';
 }

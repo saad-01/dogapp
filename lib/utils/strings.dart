@@ -339,4 +339,24 @@ class AppStrings {
       "Hy! I lost my pet dog please help me to find my beloved dog. Thank you";
   static const missNote =
       "Hy! I found a wandering dog please contact with if someone recognize him";
+
+  static const community = "Community";
+  static const chats = "Chats";
+  static const groups = "Groups";
+  static const connectExperts = "Connect with experts";
+  static const now = "now";
+  static const bestWay = "Best way to train dog";
+  static const addChat = "Add Chat";
+  static const online = "Online";
+  static const message = "message";
+  static const addNewGrps = "Add new group by creating or finding groups";
+  static const newGroups = "New groups";
+  static const findGroup = "Find group";
+  static const createGroup = "Create group";
+  static const eventCalendar = "Event Calendar";
+  static const addReminder = "Add Reminder";
+  static const reminderName = "Reminder name";
+  static const repeat = "Repeat";
+  static const sett = "Set";
+  static const typeTime = "Type time";
 }

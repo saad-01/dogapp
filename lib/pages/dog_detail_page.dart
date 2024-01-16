@@ -240,10 +240,15 @@ class DogDetailsPage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const ImageWithText(
-                            title: AppStrings.exerciseExpert,
-                            image: AssetImages.excerciseExpert,
-                            clr: AppColors.exercieBox,
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed(RouteName.parentExPage);
+                            },
+                            child: const ImageWithText(
+                              title: AppStrings.exerciseExpert,
+                              image: AssetImages.excerciseExpert,
+                              clr: AppColors.exercieBox,
+                            ),
                           ),
                           GestureDetector(
                             onTap: () {
@@ -272,11 +277,14 @@ class DogDetailsPage extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      const CustomTile(
+                      CustomTile(
                         title: AppStrings.gotoCommunity,
                         leading: AssetImages.communityIcon,
                         trailing: AssetImages.nextWhiteIcon,
-                        clr: Color(0xFFB25423),
+                        clr: const Color(0xFFB25423),
+                        onPress: () {
+                          Get.toNamed(RouteName.communityPage);
+                        },
                       ),
                       const SizedBox(
                         height: 30,
@@ -678,6 +686,5 @@ class DogDetailsPage extends StatelessWidget {
         ),
       ),
     );
-  
   }
 }

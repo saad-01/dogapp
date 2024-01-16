@@ -126,4 +126,16 @@ class AssetImages {
   static const archieve = "assets/images/archieve.svg";
   static const otherReason = "assets/images/otherReason.jpg";
   static const died = "assets/images/died.jpg";
+  static const blackComm = "assets/images/blackComm.svg";
+  static const whiteComm = "assets/images/communities.svg";
+  static const sendBtn = "assets/images/send.svg";
+  static const primaryCam = "assets/images/cam.svg";
+  static const emoji = "assets/images/emoji.svg";
+  static const smallIcon = "assets/images/small.svg";
+  static const seen = "assets/images/seen.svg";
+  static const dp = "assets/images/dp.jpg";
+  static const demoImage = "assets/images/demoImage.jpg";
+  static const demoVideo = "assets/images/demoVideo.jpg";
+  static const attach = "assets/images/attach.svg";
+  static const calendar = "assets/images/calendar.svg";
 }

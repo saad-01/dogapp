@@ -34,6 +34,7 @@ class Styles {
       fontSize: 28,
     );
   }
+
   static TextStyle black28() {
     return const TextStyle(
       color: AppColors.black,
@@ -107,6 +108,7 @@ class Styles {
       fontSize: 16,
     );
   }
+
   static TextStyle red8() {
     return const TextStyle(
       color: Color(0xFFCC0000),
@@ -363,6 +365,13 @@ class Styles {
       color: AppColors.white,
       fontSize: 8,
       fontWeight: FontWeight.w400,
+    );
+  }
+
+  static TextStyle darkBlue12() {
+    return const TextStyle(
+      color: Color(0xFF0F3368),
+      fontSize: 12,
     );
   }
 }

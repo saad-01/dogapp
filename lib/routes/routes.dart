@@ -3,10 +3,13 @@ import 'package:dogapp/pages/add_comment_page.dart';
 import 'package:dogapp/pages/add_dog.dart';
 import 'package:dogapp/pages/add_food_page.dart';
 import 'package:dogapp/pages/add_num_page.dart';
+import 'package:dogapp/pages/add_reminder_page.dart';
 import 'package:dogapp/pages/add_training.dart';
 import 'package:dogapp/pages/apointment_expert_page.dart';
 import 'package:dogapp/pages/appointment_detail_page.dart';
+import 'package:dogapp/pages/chat_page.dart';
 import 'package:dogapp/pages/choose_profile_page.dart';
+import 'package:dogapp/pages/community_page.dart';
 import 'package:dogapp/pages/create_diet_plan.dart';
 import 'package:dogapp/pages/create_foundreport_page.dart';
 import 'package:dogapp/pages/create_missreport_page.dart';
@@ -39,6 +42,7 @@ import 'package:dogapp/pages/missed_profile_page.dart';
 import 'package:dogapp/pages/missing_dogs_page.dart';
 import 'package:dogapp/pages/notifications_page.dart';
 import 'package:dogapp/pages/parent_dashboard.dart';
+import 'package:dogapp/pages/parent_exercise_page.dart';
 import 'package:dogapp/pages/parent_signup_page.dart';
 import 'package:dogapp/pages/patient_files_page.dart';
 import 'package:dogapp/pages/reason_page.dart';
@@ -378,6 +382,30 @@ class AppRoutes {
         GetPage(
           name: RouteName.dogDiedPage,
           page: () => const DogDiedPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.communityPage,
+          page: () => const CommunityPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.chatPage,
+          page: () => const ChatPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.addReminder,
+          page: () => const AddReminderPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.parentExPage,
+          page: () => const ParentExercisePage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),
