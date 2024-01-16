@@ -366,5 +366,24 @@ class AppStrings {
   static const availExperts = "Check available experts and contact with them.";
   static const find = "Find";
   static const yourDogExperts = "Your Dog's Experts";
-  // static const yourDogExperts = "Your Dog's Expert";
+  static const addManual = "Add Manually";
+  static const distance = "Distance";
+  static const totalDistance = "Total distance";
+  static const totalSteps = "Total steps";
+  static const minutes = "Minutes";
+  static const steps = "Steps";
+  static const recentWalk = "Recent walk";
+  static const addRecordManually  = "Add record manually";
+  static const swipe = "Swipe to record new walk";
+  static const walkRecord = "Walk Record";
+  static const walkComplete = "Walk Complete";
+  static const stops = "Stops";
+  static const pause = "Pause";
+  static const complete = "Complete";
+  static const comment = "Comment";
+  static const dogCondition = "Dog’s Condition";
+  static const walkingTrack = "Walking track";
+  static const forest = "Forest";
+  static const weather = "How was the weather?";
+  static const warm = "Warm";
 }

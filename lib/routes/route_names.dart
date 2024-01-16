@@ -61,4 +61,8 @@ class RouteName {
   static const String chatPage = '/chat_page';
   static const String addReminder = '/add_reminder';
   static const String parentExPage = '/parent_exercise_page';
+  static const String walkPage = '/walk_page';
+  static const String walkRecordPage = '/walk_record_page';
+  static const String walkCompletePage = '/walk_complete_page';
+  static const String addWalkPage = '/add_walk_page';
 }

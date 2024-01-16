@@ -1,8 +1,6 @@
-import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 
 class AlternatingButton extends StatelessWidget {
   const AlternatingButton(
@@ -12,7 +10,7 @@ class AlternatingButton extends StatelessWidget {
       required this.width,
       required this.height,
       required this.withIcon,
-      this.icon, this.style});
+      this.icon, this.style, this.onPress});
   final String title;
   final bool outlined;
   final double width;
@@ -20,15 +18,14 @@ class AlternatingButton extends StatelessWidget {
   final bool withIcon;
   final String? icon;
   final TextStyle? style;
+  final void Function()? onPress;
   @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(5),
-        onTap: () {
-          Get.toNamed(RouteName.releasedReportPage);
-        },
+        onTap: onPress,
         child: Ink(
           width: width,
           height: height,

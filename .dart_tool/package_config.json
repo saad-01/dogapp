@@ -74,6 +74,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "flutter_swipe_button",
+      "rootUri": "file:///Users/apple/.pub-cache/hosted/pub.dev/flutter_swipe_button-2.1.1+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/apple/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -212,7 +218,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2024-01-10T11:25:09.526497Z",
+  "generated": "2024-01-16T15:12:40.458152Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }

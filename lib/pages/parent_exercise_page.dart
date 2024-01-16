@@ -118,7 +118,9 @@ class ParentExercisePage extends StatelessWidget {
                             Material(
                               color: Colors.transparent,
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Get.toNamed(RouteName.walkPage);
+                                },
                                 borderRadius: BorderRadius.circular(8),
                                 child: Ink(
                                   height: 73,

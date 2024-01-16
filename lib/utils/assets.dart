@@ -141,4 +141,10 @@ class AssetImages {
   static const walking = "assets/images/walking.png";
   static const jummping = "assets/images/jummping.svg";
   static const expertDp = "assets/images/expertDp.png";
+  static const footPrint = "assets/images/footprint.png";
+  static const backup = "assets/images/backup.png";
+  static const swipe = "assets/images/swipe.svg";
+  static const pause = "assets/images/pause.svg";
+  static const duration = "assets/images/duration.png";
+  static const distance = "assets/images/distance.svg";
 }

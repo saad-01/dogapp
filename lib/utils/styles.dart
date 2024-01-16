@@ -63,6 +63,13 @@ class Styles {
     );
   }
 
+  static TextStyle primary24() {
+    return const TextStyle(
+        color: AppColors.primaryColor,
+        fontSize: 24,
+        fontWeight: FontWeight.bold);
+  }
+
   static TextStyle expertSignupPageH2() {
     return const TextStyle(
         color: AppColors.primaryColor,
@@ -99,6 +106,12 @@ class Styles {
     return const TextStyle(
       color: AppColors.primaryColor,
       fontSize: 16,
+    );
+  }
+  static TextStyle primary14() {
+    return const TextStyle(
+      color: AppColors.primaryColor,
+      fontSize: 14,
     );
   }
 

@@ -5,6 +5,7 @@ import 'package:dogapp/pages/add_food_page.dart';
 import 'package:dogapp/pages/add_num_page.dart';
 import 'package:dogapp/pages/add_reminder_page.dart';
 import 'package:dogapp/pages/add_training.dart';
+import 'package:dogapp/pages/add_walk_page.dart';
 import 'package:dogapp/pages/apointment_expert_page.dart';
 import 'package:dogapp/pages/appointment_detail_page.dart';
 import 'package:dogapp/pages/chat_page.dart';
@@ -55,6 +56,9 @@ import 'package:dogapp/pages/select_report_page.dart';
 import 'package:dogapp/pages/signup_page.dart';
 import 'package:dogapp/pages/splash_page.dart';
 import 'package:dogapp/pages/vaccination_report_page.dart';
+import 'package:dogapp/pages/walk_complete_page.dart';
+import 'package:dogapp/pages/walk_page.dart';
+import 'package:dogapp/pages/walk_record_page.dart';
 import 'package:get/get.dart';
 
 import 'route_names.dart';
@@ -406,6 +410,30 @@ class AppRoutes {
         GetPage(
           name: RouteName.parentExPage,
           page: () => const ParentExercisePage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.walkPage,
+          page: () => const WalkPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.walkCompletePage,
+          page: () => const WalkCompletePage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.walkRecordPage,
+          page: () => const WalkRecordPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: RouteName.addWalkPage,
+          page: () => const AddWalkPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.leftToRight,
         ),
