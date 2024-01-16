@@ -311,6 +311,13 @@ class Styles {
     );
   }
 
+  static TextStyle white12() {
+    return const TextStyle(
+      color: AppColors.white,
+      fontSize: 12,
+    );
+  }
+
   static TextStyle grey16() {
     return const TextStyle(
       color: AppColors.grey,

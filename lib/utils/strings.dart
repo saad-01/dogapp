@@ -359,4 +359,12 @@ class AppStrings {
   static const repeat = "Repeat";
   static const sett = "Set";
   static const typeTime = "Type time";
+  static const walkRouts = "Walk & Routs";
+  static const training = "Training";
+  static const experts = "Experts";
+  static const findExpert = "Find an expert";
+  static const availExperts = "Check available experts and contact with them.";
+  static const find = "Find";
+  static const yourDogExperts = "Your Dog's Experts";
+  // static const yourDogExperts = "Your Dog's Expert";
 }

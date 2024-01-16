@@ -138,4 +138,7 @@ class AssetImages {
   static const demoVideo = "assets/images/demoVideo.jpg";
   static const attach = "assets/images/attach.svg";
   static const calendar = "assets/images/calendar.svg";
+  static const walking = "assets/images/walking.png";
+  static const jummping = "assets/images/jummping.svg";
+  static const expertDp = "assets/images/expertDp.png";
 }

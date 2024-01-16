@@ -19,4 +19,5 @@ class AppColors{
   static const sliderUnselecteColors = Color(0xFFD9D9D9);
   static const dividerColor = Color(0xFFF3F3F3);
   static const darkBlue = Color(0xFF0F3368);
+  static const darkBrown = Color(0xFF7E4001);
 }
