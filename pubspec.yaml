@@ -39,6 +39,7 @@ dependencies:
   flutter_svg: ^2.0.9
   flutter_carousel_widget: ^2.2.0
   flutter_swipe_button: ^2.1.1+1
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:

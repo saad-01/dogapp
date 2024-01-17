@@ -65,4 +65,11 @@ class RouteName {
   static const String walkRecordPage = '/walk_record_page';
   static const String walkCompletePage = '/walk_complete_page';
   static const String addWalkPage = '/add_walk_page';
+  static const String findTrainExpertPage = '/find_trainexpert_page';
+  static const String parentExerciseDetailPage = '/parent_exDetail_page';
+  static const String exerciseDetailPage = '/exercise_detail_page';
+  static const String expertExDetailsPage = '/expert_ex_details_page';
+  static const String dayByDayExPage = '/dayByday_ex_page';
+  static const String releasedReportsPage = '/released_reports_page';
+  static const String appointmentsPage = '/appointments_page';
 }

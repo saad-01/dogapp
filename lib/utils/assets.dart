@@ -147,4 +147,15 @@ class AssetImages {
   static const pause = "assets/images/pause.svg";
   static const duration = "assets/images/duration.png";
   static const distance = "assets/images/distance.svg";
+  static const searchIcon = "assets/images/searchIcon.svg";
+  static const trainingExpert = "assets/images/trainExpert.png";
+  static const day = "assets/images/day.svg";
+  static const primaryDown = "assets/images/primaryDown.svg";
+  static const videoTutorial = "assets/images/videoTutorial.png";
+  static const videoTutorial2 = "assets/images/videoTutorial2.png";
+  static const menu = "assets/images/menu.svg";
+  static const alarm = "assets/images/alarm.svg";
+  static const equipment = "assets/images/equipment.svg";
+  static const primaryCircle = "assets/images/primaryCircle.svg";
+  static const lock = "assets/images/lock.svg";
 }

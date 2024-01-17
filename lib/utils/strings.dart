@@ -82,7 +82,7 @@ class AppStrings {
   static const weight = "Weight";
   static const filesFromExpert = "Released files form expert";
   static const releaseFiles = "Released file form expert after appointment";
-  static const trainingStreak = "Training Streak";
+  static const trainingStreak = "Training Report";
   static const currentStreak = "Current streak";
   static const longestStreak = "Longest streak";
   static const timeTrained = "Time trained";
@@ -386,4 +386,21 @@ class AppStrings {
   static const forest = "Forest";
   static const weather = "How was the weather?";
   static const warm = "Warm";
+  static const searchByName = "Search by name";
+  static const sendInvite = "Send an invitation";
+  static const sendLocally = "Send invitation locally via communication apps or via number";
+  static const invite = "Send invitation";
+  static const tutorial = "Tutorial";
+  static const completeExercise = "Complete Exercise";
+  static const details = "Details";
+  static const easy = "Easy";
+  static const trainingLength = "Training length";
+  static const equipment = "Equipment";
+  static const editExercise = "Edit Exercise";
+  static const highFive = "High five";
+  static const trainingNotes = "After this exercise yor dog will pay more attention to you and your hands.";
+  static const trainingProgram = "Training Program";
+  static const preparedByExpert = "Prepared by expert";
+  static const noAction = "No action";
+  static const releasedReports = "Released Reports";
 }

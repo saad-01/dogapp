@@ -80,7 +80,9 @@ class SelectReportPage extends StatelessWidget {
                 ImageBox(
                   imagePath: AssetImages.otherReport,
                   onPress: () {
-                    Get.toNamed(RouteName.selectEditReport, arguments: true);
+                    Get.toNamed(
+                      RouteName.selectExpertPage,
+                    );
                   },
                   title: AppStrings.otherExpert,
                 ),
@@ -90,6 +92,5 @@ class SelectReportPage extends StatelessWidget {
         ),
       )),
     );
- 
   }
 }

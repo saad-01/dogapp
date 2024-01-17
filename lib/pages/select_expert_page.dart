@@ -45,7 +45,7 @@ class SelectExpertPage extends StatelessWidget {
                         ImageBox(
                           imagePath: AssetImages.trainExpert,
                           onPress: () {
-                            Get.toNamed(RouteName.expertSignupPage);
+                            Get.toNamed(RouteName.findTrainExpertPage);
                           },
                           title: AppStrings.trainExpert,
                         ),
@@ -55,7 +55,7 @@ class SelectExpertPage extends StatelessWidget {
                         ImageBox(
                           imagePath: AssetImages.physioExpert,
                           onPress: () {
-                            Get.toNamed(RouteName.expertSignupPage);
+                            Get.toNamed(RouteName.listExpertPage);
                           },
                           title: AppStrings.physioExpert,
                         ),
@@ -70,7 +70,7 @@ class SelectExpertPage extends StatelessWidget {
                         ImageBox(
                           imagePath: AssetImages.nutriExpert,
                           onPress: () {
-                            Get.toNamed(RouteName.expertSignupPage);
+                            Get.toNamed(RouteName.listExpertPage);
                           },
                           title: AppStrings.nutriExpert,
                         ),
@@ -80,7 +80,7 @@ class SelectExpertPage extends StatelessWidget {
                         ImageBox(
                           imagePath: AssetImages.vetExpert,
                           onPress: () {
-                            Get.toNamed(RouteName.expertSignupPage);
+                            Get.toNamed(RouteName.listExpertPage);
                           },
                           title: AppStrings.vetExpert,
                         ),
@@ -95,7 +95,7 @@ class SelectExpertPage extends StatelessWidget {
                         ImageBox(
                           imagePath: AssetImages.otherExpert,
                           onPress: () {
-                            Get.toNamed(RouteName.expertSignupPage);
+                            Get.toNamed(RouteName.listExpertPage);
                           },
                           title: AppStrings.otherExpert,
                         ),

@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-import '../components/imgWithTxt.dart';
+import '../components/img_with_txt.dart';
 
 class ExpertDogDetailsPage extends StatelessWidget {
   const ExpertDogDetailsPage({super.key});
@@ -34,7 +34,7 @@ class ExpertDogDetailsPage extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   decoration: ShapeDecoration(
-                    color: const Color(0x38ECECEC),
+                    color: const Color(0xfffafbfb),
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
                         width: 0.50,
@@ -127,11 +127,11 @@ class ExpertDogDetailsPage extends StatelessWidget {
                                   const SizedBox(
                                     height: 15,
                                   ),
-                                  Row(
+                                  const Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      const ButtonSmall(
+                                      ButtonSmall(
                                           title: AppStrings.editRecord,
                                           icon: AssetImages.editIcon,
                                           primaryAlike: false,
@@ -140,8 +140,7 @@ class ExpertDogDetailsPage extends StatelessWidget {
                                         title: AppStrings.shareRecord,
                                         icon: AssetImages.shareIcon,
                                         primaryAlike: true,
-                                        color: AppColors.primaryColor
-                                            .withOpacity(0.15),
+                                        color: AppColors.shareBtnClr,
                                       ),
                                     ],
                                   ),
@@ -297,10 +296,15 @@ class ExpertDogDetailsPage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const ImageWithText(
-                            title: AppStrings.exerciseExpert,
-                            image: AssetImages.excerciseExpert,
-                            clr: AppColors.exercieBox,
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed(RouteName.expertExercisePage);
+                            },
+                            child: const ImageWithText(
+                              title: AppStrings.exerciseExpert,
+                              image: AssetImages.excerciseExpert,
+                              clr: AppColors.exercieBox,
+                            ),
                           ),
                           GestureDetector(
                             onTap: () {
@@ -443,11 +447,11 @@ class ExpertDogDetailsPage extends StatelessWidget {
                                   const SizedBox(
                                     height: 15,
                                   ),
-                                  Row(
+                                  const Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      const ButtonSmall(
+                                      ButtonSmall(
                                           title: AppStrings.editRecord,
                                           icon: AssetImages.editIcon,
                                           primaryAlike: false,
@@ -456,8 +460,7 @@ class ExpertDogDetailsPage extends StatelessWidget {
                                         title: AppStrings.shareRecord,
                                         icon: AssetImages.shareIcon,
                                         primaryAlike: true,
-                                        color: AppColors.primaryColor
-                                            .withOpacity(0.15),
+                                        color: AppColors.shareBtnClr,
                                       ),
                                     ],
                                   ),

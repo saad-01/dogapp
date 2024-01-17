@@ -15,10 +15,10 @@ class WalkCompletePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            CustomAppBar(title: AppStrings.walkComplete),
+            const CustomAppBar(title: AppStrings.walkComplete),
             Expanded(
               child: Column(
                 children: [
@@ -103,7 +103,7 @@ class WalkCompletePage extends StatelessWidget {
                   ),
                   const CustomTextfield(hintText: '', obscureText: false),
                   const Spacer(),
-                  PrimartyButton(
+                  const PrimartyButton(
                       title: AppStrings.save, width: 260, height: 12, icon: ''),
                   const SizedBox(
                     height: 10,

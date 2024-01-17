@@ -85,7 +85,7 @@ class ParentExercisePage extends StatelessWidget {
                               trailing: AssetImages.nextBlackIcon,
                               clr: AppColors.white,
                               onPress: () {
-                                Get.toNamed(RouteName.expertExDetailPage);
+                                Get.toNamed(RouteName.parentExerciseDetailPage);
                               },
                             ),
                             const SizedBox(

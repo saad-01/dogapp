@@ -79,7 +79,7 @@ class MissedProfilePage extends StatelessWidget {
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 10, vertical: 5),
                                       decoration: ShapeDecoration(
-                                        color: const Color(0x38ECECEC),
+                                        color: const Color(0xfffafbfb),
                                         shape: RoundedRectangleBorder(
                                           side: BorderSide(
                                             width: 0.50,
@@ -405,6 +405,5 @@ class MissedProfilePage extends StatelessWidget {
         ),
       ),
     );
-  
   }
 }

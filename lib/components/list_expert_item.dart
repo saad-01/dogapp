@@ -1,4 +1,6 @@
+import 'package:dogapp/routes/route_names.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../utils/app_colors.dart';
 import '../utils/assets.dart';
@@ -51,56 +53,66 @@ class ListExpertItem extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
-                    decoration: ShapeDecoration(
-                      color: AppColors.statusBg1,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(2)),
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(RouteName.appointmentsPage);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 4, horizontal: 4),
+                      decoration: ShapeDecoration(
+                        color: AppColors.statusBg1,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(2)),
+                      ),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              AppStrings.appointments,
+                              style: Styles.primary8Txt(),
+                            ),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            Text(
+                              '2',
+                              style: Styles.primary10Txt(),
+                            ),
+                          ]),
                     ),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            AppStrings.appointments,
-                            style: Styles.primary8Txt(),
-                          ),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          Text(
-                            '2',
-                            style: Styles.primary10Txt(),
-                          ),
-                        ]),
                   ),
                   const SizedBox(
                     width: 4,
                   ),
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
-                    decoration: ShapeDecoration(
-                      color: AppColors.statusBg1,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(2)),
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(RouteName.releasedReportsPage);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 4, horizontal: 4),
+                      decoration: ShapeDecoration(
+                        color: AppColors.statusBg1,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(2)),
+                      ),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              AppStrings.releasedReport,
+                              style: Styles.primary8Txt(),
+                            ),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            Text(
+                              '12',
+                              style: Styles.primary10Txt(),
+                            ),
+                          ]),
                     ),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            AppStrings.releasedReport,
-                            style: Styles.primary8Txt(),
-                          ),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          Text(
-                            '12',
-                            style: Styles.primary10Txt(),
-                          ),
-                        ]),
                   ),
                 ],
               ),

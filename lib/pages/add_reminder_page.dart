@@ -72,7 +72,7 @@ class AddReminderPage extends StatelessWidget {
                     ],
                   ),
                   const Spacer(),
-                  PrimartyButton(
+                  const PrimartyButton(
                       title: AppStrings.sett, width: 270, height: 12, icon: ''),
                   const SizedBox(
                     height: 10,

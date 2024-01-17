@@ -2,7 +2,7 @@ import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/appoint_widget.dart';
 import 'package:dogapp/components/btn_sm.dart';
 import 'package:dogapp/components/custom_tile.dart';
-import 'package:dogapp/components/imgWithTxt.dart';
+import 'package:dogapp/components/img_with_txt.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/components/training_streak.dart';
 import 'package:dogapp/routes/route_names.dart';
@@ -33,7 +33,7 @@ class DogDetailsPage extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   decoration: ShapeDecoration(
-                    color: const Color(0x38ECECEC),
+                    color: const Color(0xfffafbfb),
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
                         width: 0.50,
@@ -129,11 +129,11 @@ class DogDetailsPage extends StatelessWidget {
                                   const SizedBox(
                                     height: 15,
                                   ),
-                                  Row(
+                                  const Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      const ButtonSmall(
+                                      ButtonSmall(
                                           title: AppStrings.editRecord,
                                           icon: AssetImages.editIcon,
                                           primaryAlike: false,
@@ -142,8 +142,7 @@ class DogDetailsPage extends StatelessWidget {
                                         title: AppStrings.shareRecord,
                                         icon: AssetImages.shareIcon,
                                         primaryAlike: true,
-                                        color: AppColors.primaryColor
-                                            .withOpacity(0.15),
+                                        color: AppColors.shareBtnClr,
                                       ),
                                     ],
                                   ),
@@ -398,11 +397,11 @@ class DogDetailsPage extends StatelessWidget {
                                   const SizedBox(
                                     height: 15,
                                   ),
-                                  Row(
+                                  const Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      const ButtonSmall(
+                                      ButtonSmall(
                                           title: AppStrings.editRecord,
                                           icon: AssetImages.editIcon,
                                           primaryAlike: false,
@@ -411,8 +410,7 @@ class DogDetailsPage extends StatelessWidget {
                                         title: AppStrings.shareRecord,
                                         icon: AssetImages.shareIcon,
                                         primaryAlike: true,
-                                        color: AppColors.primaryColor
-                                            .withOpacity(0.15),
+                                        color: AppColors.shareBtnClr,
                                       ),
                                     ],
                                   ),

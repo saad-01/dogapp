@@ -112,7 +112,7 @@ class DogDiedPage extends StatelessWidget {
                 ),
               ),
             ),
-            Spacer(
+            const Spacer(
               flex: 1,
             ),
             Row(

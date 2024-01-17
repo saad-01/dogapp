@@ -1,6 +1,6 @@
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/expert_item.dart';
-import 'package:dogapp/components/outlined_redBtn.dart';
+import 'package:dogapp/components/outlined_red_btn.dart';
 import 'package:dogapp/components/training_streak.dart';
 import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/assets.dart';

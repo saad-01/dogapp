@@ -1,11 +1,13 @@
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/components/training_streak.dart';
+import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../utils/styles.dart';
 
@@ -196,6 +198,9 @@ class ReportDetailsPage extends StatelessWidget {
                     height: 120,
                   ),
                   PrimartyButton(
+                      onTap: () {
+                        Get.toNamed(RouteName.selectExpertPage);
+                      },
                       title: AppStrings.share,
                       width: MediaQuery.sizeOf(context).width * 0.8,
                       height: 10,

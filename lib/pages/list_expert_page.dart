@@ -1,7 +1,9 @@
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/expert_item.dart';
+import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ListExpertPage extends StatelessWidget {
   const ListExpertPage({super.key});
@@ -12,9 +14,9 @@ class ListExpertPage extends StatelessWidget {
       body: SafeArea(
           child: Container(
         padding: const EdgeInsets.all(15),
-        child: const Column(
+        child: Column(
           children: [
-            CustomAppBar(title: AppStrings.selectExpertSingle),
+            const CustomAppBar(title: AppStrings.selectExpertSingle),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
@@ -22,13 +24,19 @@ class ListExpertPage extends StatelessWidget {
                     ExpertItem(
                       expertis: AppStrings.trainExpert,
                       filledBtnTitle: AppStrings.relReport,
+                      onPress: () {
+                        Get.toNamed(RouteName.releasedReportPage);
+                      },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 14,
                     ),
                     ExpertItem(
                       expertis: AppStrings.healthExpert,
                       filledBtnTitle: AppStrings.relReport,
+                      onPress: () {
+                        Get.toNamed(RouteName.releasedReportPage);
+                      },
                     ),
                   ],
                 ),
