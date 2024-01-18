@@ -22,6 +22,7 @@ import 'package:dogapp/pages/dog_bait_page.dart';
 import 'package:dogapp/pages/dog_detail_page.dart';
 import 'package:dogapp/pages/dog_died_page.dart';
 import 'package:dogapp/pages/dog_manage_page.dart';
+import 'package:dogapp/pages/emergency_case_page.dart';
 import 'package:dogapp/pages/emergency_num_page.dart';
 import 'package:dogapp/pages/emergency_report_page.dart';
 import 'package:dogapp/pages/exercise_details_page.dart';
@@ -490,6 +491,12 @@ class AppRoutes {
         GetPage(
           name: RouteName.expertProfilePage,
           page: () => const ExpertProfilePage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.emergencyCasePage,
+          page: () => const EmergencyCasePage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.rightToLeft,
         ),

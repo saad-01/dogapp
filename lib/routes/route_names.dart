@@ -73,4 +73,5 @@ class RouteName {
   static const String releasedReportsPage = '/released_reports_page';
   static const String appointmentsPage = '/appointments_page';
   static const String expertProfilePage = '/expert_profile_page';
+  static const String emergencyCasePage = '/emergency_case_page';
 }

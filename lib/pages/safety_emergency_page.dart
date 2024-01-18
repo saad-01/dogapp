@@ -154,7 +154,7 @@ class SafetyEmergencyPage extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.toNamed(RouteName.dietPlanPage);
+                      Get.toNamed(RouteName.emergencyCasePage);
                     },
                     child: Container(
                       padding: const EdgeInsets.symmetric(
@@ -217,14 +217,20 @@ class SafetyEmergencyPage extends StatelessWidget {
                   const SizedBox(
                     height: 12,
                   ),
-                  const MissDogItem(
+                  MissDogItem(
                     title: AppStrings.missingDog,
+                    onPress: () {
+                      Get.toNamed(RouteName.missDogProfilePage);
+                    },
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  const MissDogItem(
+                  MissDogItem(
                     title: AppStrings.foundedDog,
+                    onPress: () {
+                      Get.toNamed(RouteName.foundDogProfilePage);
+                    },
                   ),
                 ],
               ),

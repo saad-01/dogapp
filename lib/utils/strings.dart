@@ -409,4 +409,5 @@ class AppStrings {
   static const sharedData = "Shared data";
   static const totalTrainings = "Total trainings";
   static const saveRecord = "Save Record";
+  static const caseOfEmergency = "Case of an emergency";
 }
