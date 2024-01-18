@@ -128,6 +128,9 @@ class ListExpertItem extends StatelessWidget {
                     width: 80,
                     height: 28,
                     style: Styles.primary10Txt(),
+                    onPress: () {
+                      Get.toNamed(RouteName.expertProfilePage);
+                    },
                   ),
                   const SizedBox(
                     width: 5,
@@ -139,6 +142,9 @@ class ListExpertItem extends StatelessWidget {
                     width: 80,
                     height: 28,
                     style: Styles.white10Txt(),
+                    onPress: () {
+                      Get.toNamed(RouteName.chatPage);
+                    },
                   ),
                 ],
               )

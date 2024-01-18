@@ -130,14 +130,16 @@ class DogDetailsPage extends StatelessWidget {
                                     height: 15,
                                   ),
                                   const Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       ButtonSmall(
                                           title: AppStrings.editRecord,
                                           icon: AssetImages.editIcon,
                                           primaryAlike: false,
                                           color: AppColors.white),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
                                       ButtonSmall(
                                         title: AppStrings.shareRecord,
                                         icon: AssetImages.shareIcon,
@@ -239,24 +241,31 @@ class DogDetailsPage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          GestureDetector(
-                            onTap: () {
-                              Get.toNamed(RouteName.parentExPage);
-                            },
-                            child: const ImageWithText(
-                              title: AppStrings.exerciseExpert,
-                              image: AssetImages.excerciseExpert,
-                              clr: AppColors.exercieBox,
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.toNamed(RouteName.parentExPage);
+                              },
+                              child: const ImageWithText(
+                                title: AppStrings.exerciseExpert,
+                                image: AssetImages.excerciseExpert,
+                                clr: AppColors.exercieBox,
+                              ),
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              Get.toNamed(RouteName.feedManagePage);
-                            },
-                            child: const ImageWithText(
-                              title: AppStrings.feedManage,
-                              image: AssetImages.dogFood,
-                              clr: AppColors.foodBox,
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.toNamed(RouteName.feedManagePage);
+                              },
+                              child: const ImageWithText(
+                                title: AppStrings.feedManage,
+                                image: AssetImages.dogFood,
+                                clr: AppColors.foodBox,
+                              ),
                             ),
                           ),
                         ],
@@ -398,14 +407,16 @@ class DogDetailsPage extends StatelessWidget {
                                     height: 15,
                                   ),
                                   const Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       ButtonSmall(
                                           title: AppStrings.editRecord,
                                           icon: AssetImages.editIcon,
                                           primaryAlike: false,
                                           color: AppColors.white),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
                                       ButtonSmall(
                                         title: AppStrings.shareRecord,
                                         icon: AssetImages.shareIcon,

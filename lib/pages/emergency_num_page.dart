@@ -22,131 +22,130 @@ class EmergencyNumPage extends StatelessWidget {
         child: Column(
           children: [
             const CustomAppBar(title: AppStrings.emergencyNums),
-            Expanded(
-                child: SingleChildScrollView(
-              child: Column(
+            Container(
+              // width: 364,
+              height: 50,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+              decoration: ShapeDecoration(
+                color: AppColors.white,
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(width: 0.50, color: Color(0x3F737373)),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                shadows: const [
+                  BoxShadow(
+                    color: Color(0x0F000000),
+                    blurRadius: 6,
+                    offset: Offset(-2, 2),
+                    spreadRadius: 0,
+                  )
+                ],
+              ),
+              child: Row(
                 children: [
-                  Container(
-                    // width: 364,
-                    height: 50,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                    decoration: ShapeDecoration(
-                      color: AppColors.white,
-                      shape: RoundedRectangleBorder(
-                        side: const BorderSide(
-                            width: 0.50, color: Color(0x3F737373)),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      shadows: const [
-                        BoxShadow(
-                          color: Color(0x0F000000),
-                          blurRadius: 6,
-                          offset: Offset(-2, 2),
-                          spreadRadius: 0,
-                        )
-                      ],
-                    ),
-                    child: Row(
-                      children: [
-                        SvgPicture.asset(AssetImages.search),
-                        const SizedBox(
-                          width: 25,
-                        ),
-                        Expanded(
-                          child: TextField(
-                            obscureText: false,
-                            decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintStyle: Styles.expertSignupPaget2(),
-                                hintText: 'Search'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  SvgPicture.asset(AssetImages.search),
                   const SizedBox(
-                    height: 40,
+                    width: 25,
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Animal Rescue',
-                          style: Styles.expertSignupPaget1(),
-                        ),
-                        Text(
-                          '+1000 0000 000',
-                          style: Styles.expertSignupPaget1(),
-                        )
-                      ],
+                  Expanded(
+                    child: TextField(
+                      obscureText: false,
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintStyle: Styles.expertSignupPaget2(),
+                          hintText: 'Search'),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Animal Rescue',
-                          style: Styles.expertSignupPaget1(),
-                        ),
-                        Text(
-                          '+1000 0000 000',
-                          style: Styles.expertSignupPaget1(),
-                        )
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Animal Rescue',
-                          style: Styles.expertSignupPaget1(),
-                        ),
-                        Text(
-                          '+1000 0000 000',
-                          style: Styles.expertSignupPaget1(),
-                        )
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Animal Rescue',
-                          style: Styles.expertSignupPaget1(),
-                        ),
-                        Text(
-                          '+1000 0000 000',
-                          style: Styles.expertSignupPaget1(),
-                        )
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
                   ),
                 ],
               ),
-            )),
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            Expanded(
+                flex: 2,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Animal Rescue',
+                              style: Styles.expertSignupPaget1(),
+                            ),
+                            Text(
+                              '+1000 0000 000',
+                              style: Styles.expertSignupPaget1(),
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Animal Rescue',
+                              style: Styles.expertSignupPaget1(),
+                            ),
+                            Text(
+                              '+1000 0000 000',
+                              style: Styles.expertSignupPaget1(),
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Animal Rescue',
+                              style: Styles.expertSignupPaget1(),
+                            ),
+                            Text(
+                              '+1000 0000 000',
+                              style: Styles.expertSignupPaget1(),
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Animal Rescue',
+                              style: Styles.expertSignupPaget1(),
+                            ),
+                            Text(
+                              '+1000 0000 000',
+                              style: Styles.expertSignupPaget1(),
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                    ],
+                  ),
+                )),
             const Spacer(),
             PrimartyButton(
               title: AppStrings.addNum,
@@ -164,6 +163,5 @@ class EmergencyNumPage extends StatelessWidget {
         ),
       )),
     );
-  
   }
 }

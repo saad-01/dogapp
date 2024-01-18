@@ -347,7 +347,7 @@ class AppointmentExpertPage extends StatelessWidget {
                             Stack(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 70),
+                                  padding: const EdgeInsets.only(top: 60),
                                   child: Container(
                                     padding: const EdgeInsets.only(
                                         top: 10,
@@ -485,26 +485,17 @@ class AppointmentExpertPage extends StatelessWidget {
                                   ),
                                 ),
                                 Positioned(
-                                    left: 115,
-                                    top: 0,
-                                    child: Container(
-                                      width: 116,
-                                      height: 116,
-                                      decoration: ShapeDecoration(
-                                        image: const DecorationImage(
-                                          image:
-                                              AssetImage(AssetImages.dogItem),
-                                          fit: BoxFit.cover,
-                                        ),
-                                        shape: RoundedRectangleBorder(
-                                          side: const BorderSide(
-                                              width: 1.50,
-                                              color: AppColors.primaryColor),
-                                          borderRadius:
-                                              BorderRadius.circular(6),
-                                        ),
-                                      ),
-                                    ))
+                                  left: 0,
+                                  right: 0,
+                                  top: 0,
+                                  child: SizedBox(
+                                    height: 116,
+                                    width: 116,
+                                    child: Image.asset(
+                                      AssetImages.squareLarge,
+                                    ),
+                                  ),
+                                )
                               ],
                             ),
                             const SizedBox(

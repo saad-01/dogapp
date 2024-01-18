@@ -42,11 +42,11 @@ class ButtonSmall extends StatelessWidget {
         children: [
           SvgPicture.asset(icon),
           const SizedBox(
-            width: 15,
+            width: 10,
           ),
           Text(
             title,
-            style: primaryAlike ? Styles.primaryText() : Styles.grey16(),
+            style: primaryAlike ? Styles.primary14() : Styles.grey14(),
           ),
         ],
       ),

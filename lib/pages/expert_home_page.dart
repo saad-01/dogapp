@@ -42,31 +42,36 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
                     ),
                   ],
                 ),
-                Stack(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 5.0, right: 5),
-                      child: SvgPicture.asset(AssetImages.bellIcon),
-                    ),
-                    Positioned(
-                        right: 0,
-                        child: Container(
-                          width: 12,
-                          height: 12,
-                          decoration: const ShapeDecoration(
-                            color: AppColors.primaryColor,
-                            shape: OvalBorder(),
-                          ),
-                          child: const Align(
-                            alignment: Alignment.topCenter,
-                            child: Text(
-                              "2",
-                              style: TextStyle(
-                                  fontSize: 8, color: AppColors.white),
+                GestureDetector(
+                  onTap: () {
+                    Get.toNamed(RouteName.notificationsPage);
+                  },
+                  child: Stack(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 5.0, right: 5),
+                        child: SvgPicture.asset(AssetImages.bellIcon),
+                      ),
+                      Positioned(
+                          right: 0,
+                          child: Container(
+                            width: 12,
+                            height: 12,
+                            decoration: const ShapeDecoration(
+                              color: AppColors.primaryColor,
+                              shape: OvalBorder(),
                             ),
-                          ),
-                        ))
-                  ],
+                            child: const Align(
+                              alignment: Alignment.topCenter,
+                              child: Text(
+                                "2",
+                                style: TextStyle(
+                                    fontSize: 8, color: AppColors.white),
+                              ),
+                            ),
+                          ))
+                    ],
+                  ),
                 )
               ],
             ),
@@ -95,7 +100,7 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
             const SizedBox(
               height: 10,
             ),
-             DogWidget(
+            DogWidget(
               onPress: () {
                 Get.toNamed(RouteName.expertdogDetailsPage);
               },

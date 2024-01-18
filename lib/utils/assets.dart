@@ -158,4 +158,8 @@ class AssetImages {
   static const equipment = "assets/images/equipment.svg";
   static const primaryCircle = "assets/images/primaryCircle.svg";
   static const lock = "assets/images/lock.svg";
+  static const save = "assets/images/save.svg";
+  static const squareExpert = "assets/images/squareExpert.png";
+  static const squareLarge = "assets/images/squareLarge.png";
+  static const blackUp = "assets/images/upDown.svg";
 }

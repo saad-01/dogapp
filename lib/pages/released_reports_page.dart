@@ -4,11 +4,6 @@ import 'package:dogapp/components/training_streak.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../components/appoint_widget.dart';
-import '../routes/route_names.dart';
-import '../utils/assets.dart';
 
 class ReleasedReportsPage extends StatelessWidget {
   const ReleasedReportsPage({super.key});

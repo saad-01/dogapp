@@ -373,7 +373,7 @@ class AppStrings {
   static const minutes = "Minutes";
   static const steps = "Steps";
   static const recentWalk = "Recent walk";
-  static const addRecordManually  = "Add record manually";
+  static const addRecordManually = "Add record manually";
   static const swipe = "Swipe to record new walk";
   static const walkRecord = "Walk Record";
   static const walkComplete = "Walk Complete";
@@ -388,7 +388,8 @@ class AppStrings {
   static const warm = "Warm";
   static const searchByName = "Search by name";
   static const sendInvite = "Send an invitation";
-  static const sendLocally = "Send invitation locally via communication apps or via number";
+  static const sendLocally =
+      "Send invitation locally via communication apps or via number";
   static const invite = "Send invitation";
   static const tutorial = "Tutorial";
   static const completeExercise = "Complete Exercise";
@@ -398,9 +399,14 @@ class AppStrings {
   static const equipment = "Equipment";
   static const editExercise = "Edit Exercise";
   static const highFive = "High five";
-  static const trainingNotes = "After this exercise yor dog will pay more attention to you and your hands.";
+  static const trainingNotes =
+      "After this exercise yor dog will pay more attention to you and your hands.";
   static const trainingProgram = "Training Program";
   static const preparedByExpert = "Prepared by expert";
   static const noAction = "No action";
   static const releasedReports = "Released Reports";
+  static const expertProfile = "Expert Profile";
+  static const sharedData = "Shared data";
+  static const totalTrainings = "Total trainings";
+  static const saveRecord = "Save Record";
 }

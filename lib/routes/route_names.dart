@@ -72,4 +72,5 @@ class RouteName {
   static const String dayByDayExPage = '/dayByday_ex_page';
   static const String releasedReportsPage = '/released_reports_page';
   static const String appointmentsPage = '/appointments_page';
+  static const String expertProfilePage = '/expert_profile_page';
 }

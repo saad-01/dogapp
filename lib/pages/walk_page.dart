@@ -78,14 +78,16 @@ class WalkPage extends StatelessWidget {
                                   height: 15,
                                 ),
                                 Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     const ButtonSmall(
                                         title: AppStrings.editRecord,
                                         icon: AssetImages.editIcon,
                                         primaryAlike: false,
                                         color: AppColors.white),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
                                     ButtonSmall(
                                       title: AppStrings.shareRecord,
                                       icon: AssetImages.shareIcon,

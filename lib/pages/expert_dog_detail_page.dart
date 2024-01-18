@@ -128,14 +128,16 @@ class ExpertDogDetailsPage extends StatelessWidget {
                                     height: 15,
                                   ),
                                   const Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       ButtonSmall(
                                           title: AppStrings.editRecord,
                                           icon: AssetImages.editIcon,
                                           primaryAlike: false,
                                           color: AppColors.white),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
                                       ButtonSmall(
                                         title: AppStrings.shareRecord,
                                         icon: AssetImages.shareIcon,
@@ -149,22 +151,13 @@ class ExpertDogDetailsPage extends StatelessWidget {
                             ),
                           ),
                           Positioned(
-                              left: 120,
+                              left: 0,
+                              right: 0,
                               top: 0,
-                              child: Container(
-                                width: 86,
+                              child: SizedBox(
                                 height: 86,
-                                decoration: ShapeDecoration(
-                                  image: const DecorationImage(
-                                    image: AssetImage(AssetImages.dogItem),
-                                    fit: BoxFit.cover,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    side: const BorderSide(
-                                        width: 1.50, color: Color(0xFF1FAB89)),
-                                    borderRadius: BorderRadius.circular(6),
-                                  ),
-                                ),
+                                width: 86,
+                                child: Image.asset(AssetImages.dogItemPng),
                               ))
                         ],
                       ),
@@ -296,24 +289,31 @@ class ExpertDogDetailsPage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          GestureDetector(
-                            onTap: () {
-                              Get.toNamed(RouteName.expertExercisePage);
-                            },
-                            child: const ImageWithText(
-                              title: AppStrings.exerciseExpert,
-                              image: AssetImages.excerciseExpert,
-                              clr: AppColors.exercieBox,
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.toNamed(RouteName.expertExercisePage);
+                              },
+                              child: const ImageWithText(
+                                title: AppStrings.exerciseExpert,
+                                image: AssetImages.excerciseExpert,
+                                clr: AppColors.exercieBox,
+                              ),
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              Get.toNamed(RouteName.expertFeedManagePage);
-                            },
-                            child: const ImageWithText(
-                              title: AppStrings.feedManage,
-                              image: AssetImages.dogFood,
-                              clr: AppColors.foodBox,
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.toNamed(RouteName.expertFeedManagePage);
+                              },
+                              child: const ImageWithText(
+                                title: AppStrings.feedManage,
+                                image: AssetImages.dogFood,
+                                clr: AppColors.foodBox,
+                              ),
                             ),
                           ),
                         ],
@@ -448,14 +448,16 @@ class ExpertDogDetailsPage extends StatelessWidget {
                                     height: 15,
                                   ),
                                   const Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       ButtonSmall(
                                           title: AppStrings.editRecord,
                                           icon: AssetImages.editIcon,
                                           primaryAlike: false,
                                           color: AppColors.white),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
                                       ButtonSmall(
                                         title: AppStrings.shareRecord,
                                         icon: AssetImages.shareIcon,
@@ -469,23 +471,13 @@ class ExpertDogDetailsPage extends StatelessWidget {
                             ),
                           ),
                           Positioned(
-                              left: 115,
-                              right: 115,
+                              left: 0,
+                              right: 0,
                               top: 0,
-                              child: Container(
-                                width: 86,
+                              child: SizedBox(
                                 height: 86,
-                                decoration: ShapeDecoration(
-                                  image: const DecorationImage(
-                                    image: AssetImage(AssetImages.dogItem),
-                                    fit: BoxFit.cover,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    side: const BorderSide(
-                                        width: 1.50, color: Color(0xFF1FAB89)),
-                                    borderRadius: BorderRadius.circular(6),
-                                  ),
-                                ),
+                                width: 86,
+                                child: Image.asset(AssetImages.dogItemPng),
                               ))
                         ],
                       ),

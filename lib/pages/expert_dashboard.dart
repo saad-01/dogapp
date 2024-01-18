@@ -40,7 +40,6 @@ class _ExpertDashboardState extends State<ExpertDashboard> {
         body: pages[selectedPage.value],
         bottomNavigationBar: Obx(
           () => Container(
-            height: 80,
             decoration: const ShapeDecoration(
               color: Colors.white,
               shape: RoundedRectangleBorder(
