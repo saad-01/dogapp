@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "556238993501",
+    "project_id": "my-dog-app-2db20",
+    "storage_bucket": "my-dog-app-2db20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556238993501:android:83942cba97ea14101fb5b4",
+        "android_client_info": {
+          "package_name": "com.example.dogapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQhdzewsFtomZklvEGuw1KJigX9TE1hmk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

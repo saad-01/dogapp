@@ -39,20 +39,23 @@ class SelectTextfield extends StatelessWidget {
         children: [
           Expanded(
             child: DropdownButton<String>(
+              isExpanded: true,
               hint: Text(
                 hintText,
                 style: Styles.expertSignupPaget2(),
               ),
               value: val != '' ? val : null,
-              icon: const Text(''),
+              icon: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  // const Spacer(),
+                  SvgPicture.asset(AssetImages.dropDown),
+                ],
+              ),
               underline: const SizedBox(),
               onChanged: (value) {},
               items: items,
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: SvgPicture.asset(AssetImages.dropDown),
           ),
         ],
       ),

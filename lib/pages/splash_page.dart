@@ -1,13 +1,11 @@
 import 'dart:async';
-
-import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
+import 'package:dogapp/view_models/services/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -19,10 +17,12 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
+    AuthMethods auth = AuthMethods();
+    auth.isLogin();
     Timer(
-      const Duration(seconds: 3),
+      const Duration(seconds: 6),
       () {
-        Get.offAndToNamed(RouteName.introPage);
+        auth.isLogin();
       },
     );
     super.initState();

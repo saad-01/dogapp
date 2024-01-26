@@ -93,6 +93,9 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
               height: 15,
             ),
             DogWidget(
+              name: '',
+              date: '',
+              url: '',
               onPress: () {
                 Get.toNamed(RouteName.expertdogDetailsPage);
               },
@@ -101,6 +104,9 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
               height: 10,
             ),
             DogWidget(
+              name: '',
+              date: '',
+              url: '',
               onPress: () {
                 Get.toNamed(RouteName.expertdogDetailsPage);
               },

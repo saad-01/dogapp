@@ -410,4 +410,16 @@ class AppStrings {
   static const totalTrainings = "Total trainings";
   static const saveRecord = "Save Record";
   static const caseOfEmergency = "Case of an emergency";
+  static const success = "Success";
+  static const loginMsg = "Now you can login";
+  static const error = "Error";
+  static const yes = "Yes";
+  static const no = "No";
+  static const addColor = "Add Color";
+  static const neuteredHint = "Your dog is neutered or not";
+  static const pickColor = "Pick a color";
+  static const ok = "Ok";
+  static const titleSelectBreed = "Select Breed";
+  static const dogAdded = "Added successfully";
+  static const fillAll = "Please fill all fields";
 }

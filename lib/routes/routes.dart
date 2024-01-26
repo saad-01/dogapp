@@ -60,6 +60,7 @@ import 'package:dogapp/pages/released_reports_page.dart';
 import 'package:dogapp/pages/report_details_page.dart';
 import 'package:dogapp/pages/report_edit_page.dart';
 import 'package:dogapp/pages/safety_emergency_page.dart';
+import 'package:dogapp/pages/select_breed_page.dart';
 import 'package:dogapp/pages/select_expert_page.dart';
 import 'package:dogapp/pages/select_report_page.dart';
 import 'package:dogapp/pages/signup_page.dart';
@@ -497,6 +498,12 @@ class AppRoutes {
         GetPage(
           name: RouteName.emergencyCasePage,
           page: () => const EmergencyCasePage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.selectBreedPage,
+          page: () => const SelectBreedPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.rightToLeft,
         ),

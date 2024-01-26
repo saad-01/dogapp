@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/routes/route_names.dart';
@@ -63,85 +64,60 @@ class EmergencyNumPage extends StatelessWidget {
               height: 40,
             ),
             Expanded(
-                flex: 2,
+                flex: 5,
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Animal Rescue',
-                              style: Styles.expertSignupPaget1(),
-                            ),
-                            Text(
-                              '+1000 0000 000',
-                              style: Styles.expertSignupPaget1(),
-                            )
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Animal Rescue',
-                              style: Styles.expertSignupPaget1(),
-                            ),
-                            Text(
-                              '+1000 0000 000',
-                              style: Styles.expertSignupPaget1(),
-                            )
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Animal Rescue',
-                              style: Styles.expertSignupPaget1(),
-                            ),
-                            Text(
-                              '+1000 0000 000',
-                              style: Styles.expertSignupPaget1(),
-                            )
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Animal Rescue',
-                              style: Styles.expertSignupPaget1(),
-                            ),
-                            Text(
-                              '+1000 0000 000',
-                              style: Styles.expertSignupPaget1(),
-                            )
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 30,
+                      StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection('emergencyNumbers')
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return const Center(
+                              child: CircularProgressIndicator(
+                                color: AppColors.primaryColor,
+                              ),
+                            );
+                          }
+                          if (snapshot.hasError) {
+                            return Center(
+                              child: Text('Error: ${snapshot.error}'),
+                            );
+                          }
+                          // If data is available, display it
+                          return Column(
+                            children: snapshot.data!.docs.map((doc) {
+                              Map<String, dynamic> data =
+                                  doc.data() as Map<String, dynamic>;
+                              return Column(
+                                children: [
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          data['name'],
+                                          style: Styles.expertSignupPaget1(),
+                                        ),
+                                        Text(
+                                          data['phone_number'],
+                                          style: Styles.expertSignupPaget1(),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                ],
+                              );
+                            }).toList(),
+                          );
+                        },
                       ),
                     ],
                   ),

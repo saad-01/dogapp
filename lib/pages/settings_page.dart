@@ -4,6 +4,7 @@ import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
+import 'package:dogapp/view_models/services/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -137,6 +138,10 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: AppStrings.logout,
                 color: AppColors.white,
                 style: Styles.primaryText(),
+                onPress: () async {
+                  AuthMethods auth = AuthMethods();
+                  await auth.signOut();
+                },
               ),
               const SizedBox(
                 height: 15,

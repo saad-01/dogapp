@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/appoint_widget.dart';
 import 'package:dogapp/components/dog_widget.dart';
 import 'package:dogapp/components/primary_btn.dart';
@@ -5,6 +6,8 @@ import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
+import 'package:dogapp/view_models/services/shared_prefence.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -19,6 +22,19 @@ class ParentHomePage extends StatefulWidget {
 }
 
 class _ParentHomePageState extends State<ParentHomePage> {
+  SharedPref pref = SharedPref();
+  RxString name = ''.obs;
+  Future<void> getName() async {
+    name.value = (await pref.getNameFromSharedPreferences())!;
+    ;
+  }
+
+  @override
+  void initState() {
+    getName();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,9 +50,11 @@ class _ParentHomePageState extends State<ParentHomePage> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "${AppStrings.hey}Jacob",
-                      style: Styles.homeH1(),
+                    Obx(
+                      () => Text(
+                        "${AppStrings.hey}${name.value}",
+                        style: Styles.homeH1(),
+                      ),
                     ),
                     Text(
                       "${AppStrings.welcome}MY DOG!",
@@ -84,17 +102,45 @@ class _ParentHomePageState extends State<ParentHomePage> {
             const SizedBox(
               height: 20,
             ),
-            DogWidget(
-              onPress: () {
-                Get.toNamed(RouteName.dogDetailsPage);
-              },
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            DogWidget(
-              onPress: () {
-                Get.toNamed(RouteName.dogDetailsPage);
+            FutureBuilder<QuerySnapshot>(
+              future: FirebaseFirestore.instance
+                  .collection('dogs')
+                  .where('uid',
+                      isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+                  .get(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  // While data is being fetched, show a loading indicator
+                  return const CircularProgressIndicator(
+                    color: AppColors.primaryColor,
+                  );
+                } else if (snapshot.hasError) {
+                  // If an error occurs during data retrieval, display an error message
+                  return Text('Error: ${snapshot.error}');
+                } else {
+                  // If data retrieval is successful, build the UI with the fetched data
+                  final List<QueryDocumentSnapshot> docs = snapshot.data!.docs;
+                  return Column(
+                    children: docs.map((doc) {
+                      return Column(
+                        children: [
+                          DogWidget(
+                            name: doc['name'],
+                            date: doc['date'],
+                            url: doc['photoUrl'],
+                            onPress: () {
+                              Get.toNamed(RouteName.dogDetailsPage,
+                                  arguments: doc);
+                            },
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                        ],
+                      );
+                    }).toList(),
+                  );
+                }
               },
             ),
             const SizedBox(

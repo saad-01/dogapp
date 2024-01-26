@@ -126,7 +126,7 @@ class SignupPage extends StatelessWidget {
                             icon: AssetImages.mail,
                             showIcon: true,
                             onPress: () {
-                              Get.offNamed(RouteName.signupPage);
+                              Get.offNamed(RouteName.chooseProfilePage);
                             },
                           ),
                           const SizedBox(
@@ -199,6 +199,5 @@ class SignupPage extends StatelessWidget {
         ),
       ),
     );
-  
   }
 }

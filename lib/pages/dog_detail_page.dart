@@ -14,11 +14,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+import '../components/pic_container.dart';
+
 class DogDetailsPage extends StatelessWidget {
   const DogDetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final arguments = Get.arguments;
+    final doc = arguments.data();
     return DefaultTabController(
       initialIndex: 0,
       length: 2,
@@ -112,7 +116,7 @@ class DogDetailsPage extends StatelessWidget {
                                     height: 50,
                                   ),
                                   Text(
-                                    AppStrings.nameCapital,
+                                    doc['name'],
                                     style: Styles.expertSignupPaget1(),
                                   ),
                                   const SizedBox(
@@ -153,14 +157,12 @@ class DogDetailsPage extends StatelessWidget {
                             ),
                           ),
                           Positioned(
-                            left: 0,
-                            right: 0,
-                            top: 0,
-                            child: SizedBox(
-                              height: 86,
-                              width: 86,
-                              child: Image.asset(
-                                AssetImages.dogItemPng,
+                            child: Align(
+                              alignment: Alignment.topCenter,
+                              child: PicContainer(
+                                width: 94,
+                                height: 94,
+                                child: Image.network(doc['photoUrl']),
                               ),
                             ),
                           )
@@ -389,7 +391,7 @@ class DogDetailsPage extends StatelessWidget {
                                     height: 50,
                                   ),
                                   Text(
-                                    AppStrings.nameCapital,
+                                    doc['name'],
                                     style: Styles.expertSignupPaget1(),
                                   ),
                                   const SizedBox(
@@ -430,14 +432,12 @@ class DogDetailsPage extends StatelessWidget {
                             ),
                           ),
                           Positioned(
-                            left: 0,
-                            right: 0,
-                            top: 0,
-                            child: SizedBox(
-                              height: 86,
-                              width: 86,
-                              child: Image.asset(
-                                AssetImages.dogItemPng,
+                            child: Align(
+                              alignment: Alignment.topCenter,
+                              child: PicContainer(
+                                width: 94,
+                                height: 94,
+                                child: Image.network(doc['photoUrl']),
                               ),
                             ),
                           )
@@ -590,7 +590,7 @@ class DogDetailsPage extends StatelessWidget {
                                     Text('${AppStrings.dogName}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.dogNameH,
+                                      doc['name'],
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -605,7 +605,7 @@ class DogDetailsPage extends StatelessWidget {
                                     Text('${AppStrings.breed}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.breed,
+                                      doc['breed'],
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -620,7 +620,7 @@ class DogDetailsPage extends StatelessWidget {
                                     Text('${AppStrings.dateOfBirth}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.dateFormat,
+                                      doc['date'],
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -635,7 +635,7 @@ class DogDetailsPage extends StatelessWidget {
                                     Text('${AppStrings.gender}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.gender,
+                                      doc['gender'],
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -650,7 +650,7 @@ class DogDetailsPage extends StatelessWidget {
                                     Text('${AppStrings.weight}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.weight,
+                                      doc['weight'],
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -665,7 +665,7 @@ class DogDetailsPage extends StatelessWidget {
                                     Text('${AppStrings.microChipNum}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.microChipNum,
+                                      doc['microchipNumber'],
                                       style: Styles.black14(),
                                     ),
                                   ],

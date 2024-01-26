@@ -4,11 +4,19 @@ import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 
 class CustomTextfield extends StatelessWidget {
-  const CustomTextfield({super.key, required this.hintText, this.suffixIcon, this.keyboardType, required this.obscureText});
+  const CustomTextfield(
+      {super.key,
+      required this.hintText,
+      this.suffixIcon,
+      this.keyboardType,
+      required this.obscureText, this.controller, this.focusNode, this.onFieldSubmitted});
   final String hintText;
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
+  final TextEditingController? controller;
+  final FocusNode? focusNode;
   final bool obscureText;
+  final void Function(String)? onFieldSubmitted;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,11 +39,14 @@ class CustomTextfield extends StatelessWidget {
         ],
       ),
       child: Center(
-        child: TextField(
+        child: TextFormField(
           obscureText: obscureText,
           keyboardType: keyboardType,
+          controller: controller,
+          focusNode: focusNode,
+          onFieldSubmitted: onFieldSubmitted,
           decoration: InputDecoration(
-            suffixIcon: suffixIcon ?? const SizedBox(),
+              suffixIcon: suffixIcon ?? const SizedBox(),
               border: InputBorder.none,
               hintStyle: Styles.expertSignupPaget2(),
               hintText: hintText),

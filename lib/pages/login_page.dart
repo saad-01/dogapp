@@ -1,16 +1,24 @@
 import 'package:dogapp/components/textfield.dart';
+import 'package:dogapp/view_models/login_model.dart';
 import 'package:flutter/material.dart';
-import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../components/intro_btn.dart';
 import '../utils/app_colors.dart';
+import '../utils/utils.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final loginVM = Get.put(LoginModel());
+  final _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height;
@@ -89,17 +97,72 @@ class LoginPage extends StatelessWidget {
                       width: width,
                       child: Column(
                         children: [
-                          const CustomTextfield(
-                            hintText: AppStrings.typeYourMail,
-                            obscureText: false,
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const CustomTextfield(
-                            hintText: AppStrings.typePassword,
-                            obscureText: false,
-                          ),
+                          Form(
+                              key: _formkey,
+                              child: Column(
+                                children: [
+                                  CustomTextfield(
+                                    hintText: AppStrings.typeYourMail,
+                                    obscureText: false,
+                                    controller: loginVM.emailController.value,
+                                    focusNode: loginVM.emailFocusNode.value,
+                                    onFieldSubmitted: (p0) {
+                                      Utils.fieldFocusChange(
+                                          context,
+                                          loginVM.emailFocusNode.value,
+                                          loginVM.passwordFocusNode.value);
+                                    },
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  Obx(
+                                    () => CustomTextfield(
+                                      hintText: AppStrings.typePassword,
+                                      obscureText:
+                                          loginVM.passwordVisible.value,
+                                      focusNode:
+                                          loginVM.passwordFocusNode.value,
+                                      controller:
+                                          loginVM.passwordController.value,
+                                      onFieldSubmitted: (p0) {},
+                                      suffixIcon: loginVM.passwordVisible.value
+                                          ? GestureDetector(
+                                              onTap: () {
+                                                if (loginVM
+                                                    .passwordVisible.value) {
+                                                  loginVM.passwordVisible
+                                                      .value = false;
+                                                } else {
+                                                  loginVM.passwordVisible
+                                                      .value = true;
+                                                }
+                                              },
+                                              child: const Padding(
+                                                padding: EdgeInsets.all(8.0),
+                                                child: Icon(Icons.visibility),
+                                              ),
+                                            )
+                                          : GestureDetector(
+                                              onTap: () {
+                                                if (loginVM
+                                                    .passwordVisible.value) {
+                                                  loginVM.passwordVisible
+                                                      .value = false;
+                                                } else {
+                                                  loginVM.passwordVisible
+                                                      .value = true;
+                                                }
+                                              },
+                                              child: const Padding(
+                                                padding: EdgeInsets.all(8.0),
+                                                child:
+                                                    Icon(Icons.visibility_off),
+                                              )),
+                                    ),
+                                  ),
+                                ],
+                              )),
                           const SizedBox(
                             height: 10,
                           ),
@@ -121,13 +184,16 @@ class LoginPage extends StatelessWidget {
                           const SizedBox(
                             height: 50,
                           ),
-                          IntroBtn(
-                            title: AppStrings.login,
-                            clr: AppColors.yellowColor,
-                            showIcon: false,
-                            onPress: () {
-                              Get.offNamed(RouteName.chooseProfilePage);
-                            },
+                          Obx(
+                            () => IntroBtn(
+                              title: AppStrings.login,
+                              clr: AppColors.yellowColor,
+                              showIcon: false,
+                              onPress: () {
+                                loginVM.loginUser();
+                              },
+                              loading: loginVM.loading.value,
+                            ),
                           ),
                         ],
                       ),

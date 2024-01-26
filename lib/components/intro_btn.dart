@@ -1,3 +1,4 @@
+import 'package:dogapp/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -10,10 +11,12 @@ class IntroBtn extends StatelessWidget {
       required this.clr,
       required this.showIcon,
       this.icon,
-      this.onPress});
+      this.onPress,
+      this.loading});
   final String title;
   final Color clr;
   final bool showIcon;
+  final bool? loading;
   final String? icon;
   final void Function()? onPress;
   @override
@@ -36,23 +39,50 @@ class IntroBtn extends StatelessWidget {
             )
           ],
         ),
-        child: showIcon
-            ? Row(
-                children: [
-                  SvgPicture.asset(icon!),
-                  const SizedBox(width: 40),
-                  Text(
-                    title,
-                    style: Styles.black14(),
+        child: loading != null
+            ? loading!
+                ? const Center(
+                    child: SizedBox(
+                    width: 25,
+                    height: 25,
+                    child: CircularProgressIndicator(
+                      color: AppColors.white,
+                    ),
+                  ))
+                : showIcon
+                    ? Row(
+                        children: [
+                          SvgPicture.asset(icon!),
+                          const SizedBox(width: 40),
+                          Text(
+                            title,
+                            style: Styles.black14(),
+                          ),
+                        ],
+                      )
+                    : Center(
+                        child: Text(
+                          title,
+                          style: Styles.appBarH1(),
+                        ),
+                      )
+            : showIcon
+                ? Row(
+                    children: [
+                      SvgPicture.asset(icon!),
+                      const SizedBox(width: 40),
+                      Text(
+                        title,
+                        style: Styles.black14(),
+                      ),
+                    ],
+                  )
+                : Center(
+                    child: Text(
+                      title,
+                      style: Styles.appBarH1(),
+                    ),
                   ),
-                ],
-              )
-            : Center(
-                child: Text(
-                  title,
-                  style: Styles.appBarH1(),
-                ),
-              ),
       ),
     );
   }

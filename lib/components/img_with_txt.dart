@@ -11,7 +11,7 @@ class ImageWithText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 128,
+      height: 149,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
       decoration: ShapeDecoration(
         color: clr,
@@ -35,9 +35,15 @@ class ImageWithText extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SvgPicture.asset(image),
+          const SizedBox(
+            height: 8,
+          ),
           Text(
             title,
             style: Styles.expertSignupPaget1(),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
           )
         ],
       ),

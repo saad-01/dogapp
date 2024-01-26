@@ -4,10 +4,19 @@ import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../utils/app_colors.dart';
+import 'pic_container.dart';
 
 class DogWidget extends StatelessWidget {
-  const DogWidget({super.key, this.onPress});
+  const DogWidget(
+      {super.key,
+      this.onPress,
+      required this.name,
+      required this.url,
+      required this.date});
   final void Function()? onPress;
+  final String name;
+  final String url;
+  final String date;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -34,19 +43,12 @@ class DogWidget extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Container(
+            PicContainer(
               width: 94,
               height: 94,
-              decoration: ShapeDecoration(
-                image: const DecorationImage(
-                  image: AssetImage(AssetImages.dogItem),
-                  fit: BoxFit.cover,
-                ),
-                shape: RoundedRectangleBorder(
-                  side: const BorderSide(
-                      width: 1.50, color: AppColors.primaryColor),
-                  borderRadius: BorderRadius.circular(6),
-                ),
+              child: Image.network(
+                url,
+                fit: BoxFit.cover,
               ),
             ),
             const SizedBox(
@@ -61,11 +63,11 @@ class DogWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    AppStrings.dogName,
+                    name,
                     style: Styles.expertSignupPaget1(),
                   ),
                   Text(
-                    AppStrings.dateFormat,
+                    date,
                     style: Styles.black10Sub(),
                   ),
                   const SizedBox(
@@ -79,7 +81,7 @@ class DogWidget extends StatelessWidget {
                         number: '2',
                       ),
                       SizedBox(
-                        width: 10,
+                        width: 5,
                       ),
                       DogItemInfo(
                         title: AppStrings.msgs,
@@ -161,7 +163,7 @@ class DogItemInfo extends StatelessWidget {
                   ),
                   Text(
                     number,
-                    style: Styles.primary10Txt(),
+                    style: Styles.primary8Txt(),
                   ),
                 ]),
           ),

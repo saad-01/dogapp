@@ -10,12 +10,14 @@ class PrimartyButton extends StatelessWidget {
       this.onTap,
       required this.width,
       required this.height,
-      required this.icon});
+      required this.icon,
+      this.loading});
   final String title;
   final void Function()? onTap;
   final double width;
   final double height;
   final String icon;
+  final bool? loading;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -43,20 +45,44 @@ class PrimartyButton extends StatelessWidget {
               )
             ],
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              icon == '' ? const SizedBox() : SvgPicture.asset(icon),
-              if (icon != '')
-                const SizedBox(
-                  width: 10,
+          child: loading != null
+              ? loading!
+                  ? const Center(
+                      child: SizedBox(
+                      width: 25,
+                      height: 25,
+                      child: CircularProgressIndicator(
+                        color: AppColors.white,
+                      ),
+                    ))
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        icon == '' ? const SizedBox() : SvgPicture.asset(icon),
+                        if (icon != '')
+                          const SizedBox(
+                            width: 10,
+                          ),
+                        Text(
+                          title,
+                          style: Styles.btnStyle1(),
+                        ),
+                      ],
+                    )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    icon == '' ? const SizedBox() : SvgPicture.asset(icon),
+                    if (icon != '')
+                      const SizedBox(
+                        width: 10,
+                      ),
+                    Text(
+                      title,
+                      style: Styles.btnStyle1(),
+                    ),
+                  ],
                 ),
-              Text(
-                title,
-                style: Styles.btnStyle1(),
-              ),
-            ],
-          ),
         ),
       ),
     );
