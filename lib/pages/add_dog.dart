@@ -14,6 +14,8 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+import '../view_models/breeds.dart';
+
 class AddDogPage extends StatefulWidget {
   const AddDogPage({super.key});
 
@@ -27,6 +29,7 @@ class _AddDogPageState extends State<AddDogPage> {
   Widget build(BuildContext context) {
     // String selectedOption = '';
     final addDogVM = Get.put(AddDogModel());
+    final breedsVM = Get.put(Breeds());
     final formkey = GlobalKey<FormState>();
     return Scaffold(
       body: SafeArea(
@@ -135,25 +138,29 @@ class _AddDogPageState extends State<AddDogPage> {
                       const SizedBox(
                         height: 8,
                       ),
-                      CustomTextfield(
-                        hintText: AppStrings.dateFormat,
-                        obscureText: false,
-                        keyboardType: TextInputType.none,
-                        controller: addDogVM.dateController.value,
-                        focusNode: addDogVM.dateFocusNode.value,
-                        onFieldSubmitted: (p0) {
-                          Utils.fieldFocusChange(
-                              context,
-                              addDogVM.dateFocusNode.value,
-                              addDogVM.weightFocusNode.value);
-                        },
-                        suffixIcon: GestureDetector(
-                          onTap: () {
-                            addDogVM.selectDate(context);
+                      Obx(
+                        () => CustomTextfield(
+                          hintText: addDogVM.dateController.value.text == ''
+                              ? AppStrings.dateFormat
+                              : addDogVM.dateController.value.text,
+                          obscureText: false,
+                          keyboardType: TextInputType.none,
+                          controller: addDogVM.dateController.value,
+                          focusNode: addDogVM.dateFocusNode.value,
+                          onFieldSubmitted: (p0) {
+                            Utils.fieldFocusChange(
+                                context,
+                                addDogVM.dateFocusNode.value,
+                                addDogVM.weightFocusNode.value);
                           },
-                          child: Padding(
-                            padding: const EdgeInsets.all(15),
-                            child: SvgPicture.asset(AssetImages.dateIcon),
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              addDogVM.selectDate(context);
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(15),
+                              child: SvgPicture.asset(AssetImages.dateIcon),
+                            ),
                           ),
                         ),
                       ),
@@ -235,9 +242,9 @@ class _AddDogPageState extends State<AddDogPage> {
                             children: [
                               Obx(
                                 () => Text(
-                                  addDogVM.breed.value == ''
+                                  breedsVM.breed.value == ''
                                       ? AppStrings.selectBreed
-                                      : addDogVM.breed.value,
+                                      : breedsVM.breed.value,
                                   style: Styles.expertSignupPaget2(),
                                 ),
                               ),
@@ -513,14 +520,17 @@ class _AddDogPageState extends State<AddDogPage> {
               const SizedBox(
                 height: 60,
               ),
-              PrimartyButton(
-                icon: '',
-                title: AppStrings.createButton,
-                width: MediaQuery.sizeOf(context).width * 0.8,
-                height: 10,
-                onTap: () async {
-                  await addDogVM.createDog();
-                },
+               Obx(
+                () => PrimartyButton(
+                  loading: addDogVM.loading.value,
+                  icon: '',
+                  title: AppStrings.createButton,
+                  width: MediaQuery.sizeOf(context).width * 0.8,
+                  height: 10,
+                  onTap: () async {
+                    await addDogVM.createDog();
+                  },
+                ),
               ),
               const SizedBox(
                 height: 20,

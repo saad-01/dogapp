@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/utils/styles.dart';
+import 'package:dogapp/utils/utils.dart';
+import 'package:dogapp/view_models/died_dog_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 import '../components/appbar.dart';
 import '../components/primary_btn.dart';
@@ -14,6 +18,9 @@ class DogDiedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final diedVM = Get.put(DiedDogModel());
+    final QueryDocumentSnapshot<Object> arguments = Get.arguments;
+    final doc = arguments;
     return Scaffold(
       body: SafeArea(
           child: Container(
@@ -22,9 +29,7 @@ class DogDiedPage extends StatelessWidget {
           children: [
             const CustomAppBar(title: AppStrings.dogDied),
             Expanded(
-              flex: 3,
-              child: SizedBox(
-                height: MediaQuery.sizeOf(context).height,
+              child: SingleChildScrollView(
                 child: Column(
                   children: [
                     Align(
@@ -37,9 +42,17 @@ class DogDiedPage extends StatelessWidget {
                     const SizedBox(
                       height: 8,
                     ),
-                    const CustomTextfield(
+                    CustomTextfield(
                       hintText: AppStrings.typeReason,
                       obscureText: false,
+                      controller: diedVM.reasonController.value,
+                      focusNode: diedVM.reasonFocusNode.value,
+                      onFieldSubmitted: (p0) {
+                        Utils.fieldFocusChange(
+                            context,
+                            diedVM.reasonFocusNode.value,
+                            diedVM.birthDateFocusNode.value);
+                      },
                     ),
                     const SizedBox(
                       height: 18,
@@ -57,12 +70,26 @@ class DogDiedPage extends StatelessWidget {
                     CustomTextfield(
                       hintText: AppStrings.dateFormat,
                       obscureText: false,
-                      suffixIcon: Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: SvgPicture.asset(
-                          AssetImages.dateIcon,
-                          colorFilter: const ColorFilter.mode(
-                              AppColors.primaryColor, BlendMode.srcIn),
+                      controller: diedVM.birthDateController.value,
+                      focusNode: diedVM.birthDateFocusNode.value,
+                      onFieldSubmitted: (p0) {
+                        Utils.fieldFocusChange(
+                            context,
+                            diedVM.birthDateFocusNode.value,
+                            diedVM.deathDateFocusNode.value);
+                      },
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          diedVM.selectDate(
+                              context, diedVM.birthDateController);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: SvgPicture.asset(
+                            AssetImages.dateIcon,
+                            colorFilter: const ColorFilter.mode(
+                                AppColors.primaryColor, BlendMode.srcIn),
+                          ),
                         ),
                       ),
                     ),
@@ -82,12 +109,27 @@ class DogDiedPage extends StatelessWidget {
                     CustomTextfield(
                       hintText: AppStrings.dateFormat,
                       obscureText: false,
-                      suffixIcon: Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: SvgPicture.asset(
-                          AssetImages.dateIcon,
-                          colorFilter: const ColorFilter.mode(
-                              AppColors.primaryColor, BlendMode.srcIn),
+                      keyboardType: TextInputType.none,
+                      controller: diedVM.deathDateController.value,
+                      focusNode: diedVM.deathDateFocusNode.value,
+                      onFieldSubmitted: (p0) {
+                        Utils.fieldFocusChange(
+                            context,
+                            diedVM.deathDateFocusNode.value,
+                            diedVM.notesFocusNode.value);
+                      },
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          diedVM.selectDate(
+                              context, diedVM.deathDateController);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: SvgPicture.asset(
+                            AssetImages.dateIcon,
+                            colorFilter: const ColorFilter.mode(
+                                AppColors.primaryColor, BlendMode.srcIn),
+                          ),
                         ),
                       ),
                     ),
@@ -104,76 +146,84 @@ class DogDiedPage extends StatelessWidget {
                     const SizedBox(
                       height: 8,
                     ),
-                    const CustomTextfield(
+                    CustomTextfield(
                       hintText: AppStrings.typeNotes,
                       obscureText: false,
+                      keyboardType: TextInputType.none,
+                      controller: diedVM.notesController.value,
+                      focusNode: diedVM.notesFocusNode.value,
+                      onFieldSubmitted: (p0) {},
                     ),
                   ],
                 ),
               ),
             ),
-            const Spacer(
-              flex: 1,
-            ),
-            Row(
-              children: [
-                Container(
-                  width: 24,
-                  height: 24,
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                        side: const BorderSide(
-                          width: 1,
-                          strokeAlign: BorderSide.strokeAlignCenter,
-                          color: Color(0xFF018383),
-                        ),
-                        borderRadius: BorderRadius.circular(6)),
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                Text(
-                  AppStrings.sendArchive,
-                  style: Styles.expertSignupPaget1(),
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              children: [
-                Container(
-                  width: 24,
-                  height: 24,
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                        side: const BorderSide(
-                          width: 1,
-                          strokeAlign: BorderSide.strokeAlignCenter,
-                          color: Color(0xFF018383),
-                        ),
-                        borderRadius: BorderRadius.circular(6)),
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                Text(
-                  AppStrings.dontShow,
-                  style: Styles.expertSignupPaget1(),
-                )
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     Container(
+            //       width: 24,
+            //       height: 24,
+            //       decoration: ShapeDecoration(
+            //         shape: RoundedRectangleBorder(
+            //             side: const BorderSide(
+            //               width: 1,
+            //               strokeAlign: BorderSide.strokeAlignCenter,
+            //               color: Color(0xFF018383),
+            //             ),
+            //             borderRadius: BorderRadius.circular(6)),
+            //       ),
+            //     ),
+            //     const SizedBox(
+            //       width: 15,
+            //     ),
+            //     Text(
+            //       AppStrings.sendArchive,
+            //       style: Styles.expertSignupPaget1(),
+            //     )
+            //   ],
+            // ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            // Row(
+            //   children: [
+            //     Container(
+            //       width: 24,
+            //       height: 24,
+            //       decoration: ShapeDecoration(
+            //         shape: RoundedRectangleBorder(
+            //             side: const BorderSide(
+            //               width: 1,
+            //               strokeAlign: BorderSide.strokeAlignCenter,
+            //               color: Color(0xFF018383),
+            //             ),
+            //             borderRadius: BorderRadius.circular(6)),
+            //       ),
+            //     ),
+            //     const SizedBox(
+            //       width: 15,
+            //     ),
+            //     Text(
+            //       AppStrings.dontShow,
+            //       style: Styles.expertSignupPaget1(),
+            //     )
+            //   ],
+            // ),
             const SizedBox(
               height: 30,
             ),
-            PrimartyButton(
-                title: AppStrings.save,
-                width: MediaQuery.sizeOf(context).width * 0.81,
-                height: 10,
-                icon: ''),
+            Obx(
+              () => PrimartyButton(
+                  title: AppStrings.save,
+                  width: MediaQuery.sizeOf(context).width * 0.81,
+                  height: 10,
+                  onTap: () {
+                    diedVM.addReason(doc['dogId']);
+                  },
+                  loading: diedVM.loading.value,
+                  icon: ''),
+            ),
+
             const SizedBox(
               height: 20,
             ),

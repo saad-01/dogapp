@@ -9,7 +9,10 @@ class CustomTextfield extends StatelessWidget {
       required this.hintText,
       this.suffixIcon,
       this.keyboardType,
-      required this.obscureText, this.controller, this.focusNode, this.onFieldSubmitted});
+      required this.obscureText,
+      this.controller,
+      this.focusNode,
+      this.onFieldSubmitted});
   final String hintText;
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
@@ -40,6 +43,7 @@ class CustomTextfield extends StatelessWidget {
       ),
       child: Center(
         child: TextFormField(
+          textCapitalization: TextCapitalization.sentences,
           obscureText: obscureText,
           keyboardType: keyboardType,
           controller: controller,

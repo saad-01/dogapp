@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/image_box.dart';
 import 'package:dogapp/utils/styles.dart';
+import 'package:dogapp/view_models/services/delete_dog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,6 +15,9 @@ class ReasonPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final QueryDocumentSnapshot<Object> arguments = Get.arguments;
+    final doc = arguments;
+    String dogId = doc['dogId'];
     return Scaffold(
       body: SafeArea(
           child: Container(
@@ -43,7 +48,7 @@ class ReasonPage extends StatelessWidget {
                         ImageBox(
                           imagePath: AssetImages.died,
                           onPress: () {
-                            Get.toNamed(RouteName.dogDiedPage);
+                            Get.toNamed(RouteName.dogDiedPage, arguments: doc);
                           },
                           title: AppStrings.dogDied,
                         ),
@@ -53,7 +58,7 @@ class ReasonPage extends StatelessWidget {
                         ImageBox(
                           imagePath: AssetImages.otherReason,
                           onPress: () {
-                            // Get.toNamed(RouteName.missReportPage);
+                            DeleteDog().deleteDog(dogId);
                           },
                           title: AppStrings.otherReason,
                         ),
@@ -67,6 +72,5 @@ class ReasonPage extends StatelessWidget {
         ),
       )),
     );
-  
   }
 }

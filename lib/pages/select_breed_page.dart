@@ -2,33 +2,29 @@ import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
+import 'package:dogapp/view_models/breeds.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../utils/styles.dart';
-import '../view_models/add_dog_model.dart';
 
-class SelectBreedPage extends StatefulWidget {
+class SelectBreedPage extends StatelessWidget {
   const SelectBreedPage({super.key});
 
   @override
-  State<SelectBreedPage> createState() => _SelectBreedPageState();
-}
-
-class _SelectBreedPageState extends State<SelectBreedPage> {
-  final TextEditingController searchController = TextEditingController();
-  final RxList<String> filteredItems = <String>[].obs;
-
-  @override
   Widget build(BuildContext context) {
-    final addDogVM = Get.put(AddDogModel());
+    final TextEditingController searchController = TextEditingController();
+
+    final RxList<String> filteredItems = <String>[].obs;
+
+    final breeds = Get.put(Breeds());
     void filterList(String query) {
       filteredItems.assignAll(
-        addDogVM.dogBreeds.where((item) => item.contains(query)),
+        breeds.dogBreeds.where((item) => item.contains(query)),
       );
     }
 
-    filteredItems.addAll(addDogVM.dogBreeds);
+    filteredItems.addAll(breeds.dogBreeds);
     return Scaffold(
       body: SafeArea(
           child: Container(
@@ -85,12 +81,13 @@ class _SelectBreedPageState extends State<SelectBreedPage> {
                   itemBuilder: (context, index) {
                     return ListTile(
                       title: Text(
-                        addDogVM.dogBreeds[index],
+                        breeds.dogBreeds[index],
                         style: Styles.expertSignupPaget1(),
                       ),
                       onTap: () {
                         // Add your onTap logic here
-                        addDogVM.breed.value = addDogVM.dogBreeds[index];
+                        breeds.breed.value = breeds.dogBreeds[index];
+
                         Get.back();
                       },
                     );

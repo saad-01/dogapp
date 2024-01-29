@@ -1,13 +1,17 @@
 import 'package:dogapp/components/list_tile.dart';
+import 'package:dogapp/components/pic_container.dart';
 import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:dogapp/view_models/services/auth_services.dart';
+import 'package:dogapp/view_models/services/shared_prefence.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+
+import '../components/custom_tile.dart';
+import '../models/user_model.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -17,8 +21,27 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  SharedPref prefs = SharedPref();
+  UserModel user = UserModel();
+  RxString name = ''.obs;
+  RxString email = ''.obs;
+  RxString photoUrl = ''.obs;
+  Future<void> getUser() async {
+    user = await prefs.getUser();
+    name.value = user.name!;
+    email.value = user.email!;
+    photoUrl.value = user.photoUrl!;
+  }
+
+  @override
+  void initState() {
+    getUser();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    getUser();
     return Scaffold(
       body: SafeArea(
           child: Padding(
@@ -63,33 +86,68 @@ class _SettingsPageState extends State<SettingsPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
-                      children: [
-                        SvgPicture.asset(AssetImages.expertIcon),
-                        const SizedBox(
-                          width: 15,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Your Name",
-                              style: Styles.expertSignupPaget1(),
+                    Obx(
+                      () => Row(
+                        children: [
+                          PicContainer(
+                            width: 58,
+                            height: 58,
+                            child: Image.network(
+                              photoUrl.value == ''
+                                  ? 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM='
+                                  : photoUrl.value,
+                              fit: BoxFit.cover,
                             ),
-                            Text(
-                              "yourmail@gmail.com",
-                              style: Styles.subText(),
-                            ),
-                          ],
-                        ),
-                      ],
+                          ),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                name.value,
+                                style: Styles.expertSignupPaget1(),
+                              ),
+                              Text(
+                                email.value,
+                                style: Styles.subText(),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                    SvgPicture.asset(AssetImages.nextBlackIcon)
+                    // SvgPicture.asset(AssetImages.nextBlackIcon)
                   ],
                 ),
               ),
               const SizedBox(
-                height: 25,
+                height: 35,
+              ),
+              CustomTile(
+                title: AppStrings.safetyEmergency,
+                leading: AssetImages.dogBelt,
+                trailing: AssetImages.nextWhiteIcon,
+                clr: const Color(0xFF007F84),
+                onPress: () {
+                  Get.toNamed(RouteName.safetyEmergencyPage);
+                },
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomTile(
+                title: AppStrings.gotoCommunity,
+                leading: AssetImages.communityIcon,
+                trailing: AssetImages.nextWhiteIcon,
+                clr: const Color(0xFFB25423),
+                onPress: () {
+                  Get.toNamed(RouteName.communityPage);
+                },
+              ),
+              const SizedBox(
+                height: 50,
               ),
               CustomListTile(
                 trailing: AssetImages.nextBlackIcon,
@@ -113,7 +171,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 },
               ),
               const SizedBox(
-                height: 50,
+                height: 15,
               ),
               CustomListTile(
                 trailing: AssetImages.nextBlackIcon,

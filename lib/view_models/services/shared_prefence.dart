@@ -20,6 +20,24 @@ class SharedPref {
     return true;
   }
 
+  Future<UserModel> getUser() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    String? email = sp.getString('email');
+    String? name = sp.getString('name');
+    String? role = sp.getString('role');
+    String? date = sp.getString('date');
+    String? phoneNumber = sp.getString('phoneNumber');
+    String? photoUrl = sp.getString('photoUrl');
+
+    return UserModel(
+        name: name,
+        email: email,
+        phoneNumber: phoneNumber,
+        date: date,
+        role: role,
+        photoUrl: photoUrl);
+  }
+
 // Example of retrieving the UID from shared preferences
   Future<String?> getUidFromSharedPreferences() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -35,6 +53,7 @@ class SharedPref {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('role');
   }
+
   Future<bool> removeUser() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     sp.clear();

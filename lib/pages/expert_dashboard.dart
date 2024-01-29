@@ -81,7 +81,7 @@ class _ExpertDashboardState extends State<ExpertDashboard> {
                       icon: selectedPage.value == 2
                           ? SvgPicture.asset(AssetImages.activeSettingsIcon)
                           : SvgPicture.asset(AssetImages.settingsIcon),
-                      label: AppStrings.settings),
+                      label: AppStrings.more),
                 ]),
           ),
         ),

@@ -22,6 +22,7 @@ import 'package:dogapp/pages/dog_bait_page.dart';
 import 'package:dogapp/pages/dog_detail_page.dart';
 import 'package:dogapp/pages/dog_died_page.dart';
 import 'package:dogapp/pages/dog_manage_page.dart';
+import 'package:dogapp/pages/edit_food_page.dart';
 import 'package:dogapp/pages/emergency_case_page.dart';
 import 'package:dogapp/pages/emergency_num_page.dart';
 import 'package:dogapp/pages/emergency_report_page.dart';
@@ -71,6 +72,7 @@ import 'package:dogapp/pages/walk_page.dart';
 import 'package:dogapp/pages/walk_record_page.dart';
 import 'package:get/get.dart';
 
+import '../pages/edit_dog_page.dart';
 import 'route_names.dart';
 
 class AppRoutes {
@@ -504,6 +506,18 @@ class AppRoutes {
         GetPage(
           name: RouteName.selectBreedPage,
           page: () => const SelectBreedPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.editFoodPage,
+          page: () => const EditFoodPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.editDogPage,
+          page: () => const EditDogPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.rightToLeft,
         ),

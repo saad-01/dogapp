@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/appoint_widget.dart';
 import 'package:dogapp/components/btn_sm.dart';
@@ -21,8 +22,9 @@ class DogDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final arguments = Get.arguments;
-    final doc = arguments.data();
+    final QueryDocumentSnapshot<Object> arguments = Get.arguments;
+    final doc = arguments;
+    final String weight = doc['weight'];
     return DefaultTabController(
       initialIndex: 0,
       length: 2,
@@ -133,21 +135,26 @@ class DogDetailsPage extends StatelessWidget {
                                   const SizedBox(
                                     height: 15,
                                   ),
-                                  const Row(
+                                  Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       ButtonSmall(
                                           title: AppStrings.editRecord,
                                           icon: AssetImages.editIcon,
                                           primaryAlike: false,
+                                          onPress: () {
+                                            Get.toNamed(RouteName.editDogPage,
+                                                arguments: doc);
+                                          },
                                           color: AppColors.white),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 10,
                                       ),
                                       ButtonSmall(
                                         title: AppStrings.shareRecord,
                                         icon: AssetImages.shareIcon,
                                         primaryAlike: true,
+                                        onPress: () {},
                                         color: AppColors.shareBtnClr,
                                       ),
                                     ],
@@ -261,7 +268,8 @@ class DogDetailsPage extends StatelessWidget {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                Get.toNamed(RouteName.feedManagePage);
+                                Get.toNamed(RouteName.feedManagePage,
+                                    arguments: doc);
                               },
                               child: const ImageWithText(
                                 title: AppStrings.feedManage,
@@ -271,30 +279,6 @@ class DogDetailsPage extends StatelessWidget {
                             ),
                           ),
                         ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      CustomTile(
-                        title: AppStrings.safetyEmergency,
-                        leading: AssetImages.dogBelt,
-                        trailing: AssetImages.nextWhiteIcon,
-                        clr: const Color(0xFF007F84),
-                        onPress: () {
-                          Get.toNamed(RouteName.safetyEmergencyPage);
-                        },
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      CustomTile(
-                        title: AppStrings.gotoCommunity,
-                        leading: AssetImages.communityIcon,
-                        trailing: AssetImages.nextWhiteIcon,
-                        clr: const Color(0xFFB25423),
-                        onPress: () {
-                          Get.toNamed(RouteName.communityPage);
-                        },
                       ),
                       const SizedBox(
                         height: 30,
@@ -309,11 +293,11 @@ class DogDetailsPage extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const CustomTile(
-                        title: AppStrings.kg,
+                      CustomTile(
+                        title: weight.toUpperCase(),
                         leading: AssetImages.weightMachine,
                         trailing: AssetImages.addIcon,
-                        clr: Color(0xFFFFF2F9),
+                        clr: const Color(0xFFFFF2F9),
                       ),
                       const SizedBox(
                         height: 30,
@@ -408,21 +392,28 @@ class DogDetailsPage extends StatelessWidget {
                                   const SizedBox(
                                     height: 15,
                                   ),
-                                  const Row(
+                                  Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       ButtonSmall(
                                           title: AppStrings.editRecord,
                                           icon: AssetImages.editIcon,
                                           primaryAlike: false,
+                                          onPress: () {
+                                            Get.toNamed(RouteName.editDogPage,
+                                                arguments: doc);
+                                          },
                                           color: AppColors.white),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 10,
                                       ),
                                       ButtonSmall(
                                         title: AppStrings.shareRecord,
                                         icon: AssetImages.shareIcon,
                                         primaryAlike: true,
+                                        onPress: () {
+                                          
+                                        },
                                         color: AppColors.shareBtnClr,
                                       ),
                                     ],
@@ -675,10 +666,14 @@ class DogDetailsPage extends StatelessWidget {
                             const SizedBox(
                               height: 40,
                             ),
-                            const PrimartyButton(
+                            PrimartyButton(
                                 title: AppStrings.editProfile,
                                 width: 180,
                                 height: 12,
+                                onTap: () {
+                                            Get.toNamed(RouteName.editDogPage,
+                                                arguments: doc);
+                                          },
                                 icon: AssetImages.editWhite),
                             const SizedBox(
                               height: 20,

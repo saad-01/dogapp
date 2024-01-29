@@ -1,5 +1,4 @@
 import 'package:dogapp/components/appbar.dart';
-import 'package:dogapp/components/miss_dog_item.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -207,31 +206,31 @@ class SafetyEmergencyPage extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      AppStrings.notifications,
-                      style: Styles.expertSignupPaget1(),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  MissDogItem(
-                    title: AppStrings.missingDog,
-                    onPress: () {
-                      Get.toNamed(RouteName.missDogProfilePage);
-                    },
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  MissDogItem(
-                    title: AppStrings.foundedDog,
-                    onPress: () {
-                      Get.toNamed(RouteName.foundDogProfilePage);
-                    },
-                  ),
+                  // Align(
+                  //   alignment: Alignment.centerLeft,
+                  //   child: Text(
+                  //     AppStrings.notifications,
+                  //     style: Styles.expertSignupPaget1(),
+                  //   ),
+                  // ),
+                  // const SizedBox(
+                  //   height: 12,
+                  // ),
+                  // MissDogItem(
+                  //   title: AppStrings.missingDog,
+                  //   onPress: () {
+                  //     Get.toNamed(RouteName.missDogProfilePage);
+                  //   },
+                  // ),
+                  // const SizedBox(
+                  //   height: 20,
+                  // ),
+                  // MissDogItem(
+                  //   title: AppStrings.foundedDog,
+                  //   onPress: () {
+                  //     Get.toNamed(RouteName.foundDogProfilePage);
+                  //   },
+                  // ),
                 ],
               ),
             ))

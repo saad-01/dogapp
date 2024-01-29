@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/food_reminder.dart';
 import 'package:dogapp/components/primary_btn.dart';
@@ -16,6 +17,8 @@ class FeedManagePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final QueryDocumentSnapshot<Object> arguments = Get.arguments;
+    final doc = arguments;
     return Scaffold(
       body: SafeArea(
           child: Container(
@@ -65,7 +68,7 @@ class FeedManagePage extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(
-                                height: 18,
+                                height: 8,
                               ),
                               Text(
                                 AppStrings.feedNote,
@@ -81,7 +84,8 @@ class FeedManagePage extends StatelessWidget {
                                   width: 170,
                                   height: 12,
                                   onTap: () {
-                                    Get.toNamed(RouteName.addFoodPage);
+                                    Get.toNamed(RouteName.addFoodPage,
+                                        arguments: doc);
                                   },
                                   icon: '')
                             ],
@@ -112,19 +116,58 @@ class FeedManagePage extends StatelessWidget {
                   const SizedBox(
                     height: 15,
                   ),
-                  const FoodReminderItem(
-                      heading: AppStrings.morningFood,
-                      foodName: AppStrings.foodName,
-                      timeHeading: AppStrings.timeHeading,
-                      time: AppStrings.time),
-                  const SizedBox(
-                    height: 10,
+                  StreamBuilder<QuerySnapshot>(
+                    stream: FirebaseFirestore.instance
+                        .collection('dogFood')
+                        .where('dogId', isEqualTo: doc['dogId'])
+                        .snapshots(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        // While data is being fetched, show a loading indicator
+                        return const CircularProgressIndicator(
+                          color: AppColors.primaryColor,
+                        );
+                      } else if (snapshot.hasError) {
+                        // If an error occurs during data retrieval, display an error message
+                        return Text('Error: ${snapshot.error}');
+                      } else {
+                        // If data retrieval is successful, build the UI with the fetched data
+                        final List<QueryDocumentSnapshot> docs =
+                            snapshot.data!.docs;
+                        print(docs);
+                        // Check if the list of documents is empty
+                        if (docs.isEmpty) {
+                          // Return an empty widget if there are no documents
+                          return Text(
+                            AppStrings.none,
+                            style: Styles.grey16(),
+                          );
+                        }
+
+                        // If there are documents, build the UI with the fetched data
+                        return Column(
+                          children: docs.map((doc) {
+                            return Column(
+                              children: [
+                                FoodReminderItem(
+                                    heading: doc['title'],
+                                    foodName: doc['foodName'],
+                                    onPress: () {
+                                      Get.toNamed(RouteName.editFoodPage,
+                                          arguments: doc);
+                                    },
+                                    timeHeading: AppStrings.timeHeading,
+                                    time: doc['time']),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                              ],
+                            );
+                          }).toList(),
+                        );
+                      }
+                    },
                   ),
-                  const FoodReminderItem(
-                      heading: AppStrings.eveningFood,
-                      foodName: AppStrings.foodName,
-                      timeHeading: AppStrings.timeHeading,
-                      time: AppStrings.time),
                   const SizedBox(
                     height: 30,
                   ),
@@ -190,7 +233,6 @@ class FeedManagePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                
                 ],
               ),
             ))

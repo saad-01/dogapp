@@ -419,7 +419,21 @@ class AppStrings {
   static const neuteredHint = "Your dog is neutered or not";
   static const pickColor = "Pick a color";
   static const ok = "Ok";
+  static const more = "More";
   static const titleSelectBreed = "Select Breed";
   static const dogAdded = "Added successfully";
+  static const dogdeleted = "Deleted successfully";
   static const fillAll = "Please fill all fields";
+  static const none = "None";
+  static const never = "Never";
+  static const monday = "Monday";
+  static const tuesday = "Tuesday";
+  static const wednesday = "Wednesday";
+  static const thursday = "Thursday";
+  static const friday = "Friday";
+  static const saturday = "Saturday";
+  static const sunday = "Sunday";
+  static const everyday = "Everyday";
+  static const weekdays = "Weekdays";
+  static const weekend = "Weekend";
 }

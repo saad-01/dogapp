@@ -7,11 +7,18 @@ import '../utils/assets.dart';
 import '../utils/styles.dart';
 
 class FoodReminderItem extends StatelessWidget {
-  const FoodReminderItem({super.key, required this.heading, required this.foodName, required this.timeHeading, required this.time});
+  const FoodReminderItem(
+      {super.key,
+      required this.heading,
+      required this.foodName,
+      required this.timeHeading,
+      required this.time,
+      this.onPress});
   final String heading;
   final String foodName;
   final String timeHeading;
   final String time;
+  final VoidCallback? onPress;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -43,17 +50,24 @@ class FoodReminderItem extends StatelessWidget {
                 heading,
                 style: Styles.subPrimaryText(),
               ),
-              Row(
-                children: [
-                  Text(
-                    AppStrings.edit,
-                    style: Styles.subYellowText(),
+              GestureDetector(
+                onTap: onPress,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5.0),
+                  child: Row(
+                    children: [
+                      Text(
+                        AppStrings.edit,
+                        style: Styles.subYellowText(),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      SvgPicture.asset(AssetImages.nextYellowIcon),
+                    ],
                   ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  SvgPicture.asset(AssetImages.nextYellowIcon),
-                ],
+                ),
               ),
             ],
           ),
@@ -64,7 +78,7 @@ class FoodReminderItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "$foodName:",
+                "${AppStrings.foodName}:",
                 style: Styles.lightGrey12(),
               ),
               Text(

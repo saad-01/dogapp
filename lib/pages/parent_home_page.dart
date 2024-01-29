@@ -102,12 +102,12 @@ class _ParentHomePageState extends State<ParentHomePage> {
             const SizedBox(
               height: 20,
             ),
-            FutureBuilder<QuerySnapshot>(
-              future: FirebaseFirestore.instance
+            StreamBuilder<QuerySnapshot>(
+              stream: FirebaseFirestore.instance
                   .collection('dogs')
                   .where('uid',
                       isEqualTo: FirebaseAuth.instance.currentUser!.uid)
-                  .get(),
+                  .snapshots(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   // While data is being fetched, show a loading indicator
@@ -120,6 +120,13 @@ class _ParentHomePageState extends State<ParentHomePage> {
                 } else {
                   // If data retrieval is successful, build the UI with the fetched data
                   final List<QueryDocumentSnapshot> docs = snapshot.data!.docs;
+                  if (docs.isEmpty) {
+                    // Return an empty widget if there are no documents
+                    return Text(
+                      AppStrings.none,
+                      style: Styles.grey16(),
+                    );
+                  }
                   return Column(
                     children: docs.map((doc) {
                       return Column(

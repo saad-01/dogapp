@@ -75,4 +75,6 @@ class RouteName {
   static const String expertProfilePage = '/expert_profile_page';
   static const String emergencyCasePage = '/emergency_case_page';
   static const String selectBreedPage = '/select_breed_page';
+  static const String editFoodPage = '/edit_food_page';
+  static const String editDogPage = '/edit_dog_page';
 }
