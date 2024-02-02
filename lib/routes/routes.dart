@@ -17,6 +17,7 @@ import 'package:dogapp/pages/create_foundreport_page.dart';
 import 'package:dogapp/pages/create_missreport_page.dart';
 import 'package:dogapp/pages/create_time_table.dart';
 import 'package:dogapp/pages/day_by_day_ex_page.dart';
+import 'package:dogapp/pages/day_view.dart';
 import 'package:dogapp/pages/diet_plan_page.dart';
 import 'package:dogapp/pages/dog_bait_page.dart';
 import 'package:dogapp/pages/dog_detail_page.dart';
@@ -518,6 +519,12 @@ class AppRoutes {
         GetPage(
           name: RouteName.editDogPage,
           page: () => const EditDogPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.dayPage,
+          page: () => DayView(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.rightToLeft,
         ),

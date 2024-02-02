@@ -436,4 +436,5 @@ class AppStrings {
   static const everyday = "Everyday";
   static const weekdays = "Weekdays";
   static const weekend = "Weekend";
+  static const setReminder = "Set Reminder";
 }

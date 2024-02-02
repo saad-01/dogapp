@@ -162,4 +162,7 @@ class AssetImages {
   static const squareExpert = "assets/images/squareExpert.png";
   static const squareLarge = "assets/images/squareLarge.png";
   static const blackUp = "assets/images/upDown.svg";
+  static const whiteNext = "assets/images/whiteNext.svg";
+  static const whiteBack = "assets/images/whiteBack.svg";
+  static const event = "assets/images/event.svg";
 }

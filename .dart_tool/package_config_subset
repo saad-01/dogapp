@@ -230,6 +230,10 @@ image_picker_windows
 2.19
 file:///Users/apple/.pub-cache/hosted/pub.dev/image_picker_windows-0.2.1+1/
 file:///Users/apple/.pub-cache/hosted/pub.dev/image_picker_windows-0.2.1+1/lib/
+intl
+2.12
+file:///Users/apple/.pub-cache/hosted/pub.dev/intl-0.18.1/
+file:///Users/apple/.pub-cache/hosted/pub.dev/intl-0.18.1/lib/
 js
 2.19
 file:///Users/apple/.pub-cache/hosted/pub.dev/js-0.6.7/
@@ -314,6 +318,10 @@ shared_preferences_windows
 2.19
 file:///Users/apple/.pub-cache/hosted/pub.dev/shared_preferences_windows-2.3.2/
 file:///Users/apple/.pub-cache/hosted/pub.dev/shared_preferences_windows-2.3.2/lib/
+simple_gesture_detector
+2.12
+file:///Users/apple/.pub-cache/hosted/pub.dev/simple_gesture_detector-0.2.0/
+file:///Users/apple/.pub-cache/hosted/pub.dev/simple_gesture_detector-0.2.0/lib/
 source_span
 2.18
 file:///Users/apple/.pub-cache/hosted/pub.dev/source_span-1.10.0/
@@ -334,6 +342,10 @@ string_scanner
 2.18
 file:///Users/apple/.pub-cache/hosted/pub.dev/string_scanner-1.2.0/
 file:///Users/apple/.pub-cache/hosted/pub.dev/string_scanner-1.2.0/lib/
+table_calendar
+2.12
+file:///Users/apple/.pub-cache/hosted/pub.dev/table_calendar-3.0.9/
+file:///Users/apple/.pub-cache/hosted/pub.dev/table_calendar-3.0.9/lib/
 term_glyph
 2.12
 file:///Users/apple/.pub-cache/hosted/pub.dev/term_glyph-1.2.1/
