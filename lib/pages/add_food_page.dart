@@ -20,6 +20,7 @@ class AddFoodPage extends StatelessWidget {
     final foodVM = Get.put(FoodModel());
     final QueryDocumentSnapshot<Object> arguments = Get.arguments;
     final doc = arguments;
+    final formkey = GlobalKey<FormState>();
     return Scaffold(
       body: SafeArea(
           child: Container(
@@ -57,123 +58,171 @@ class AddFoodPage extends StatelessWidget {
                   const SizedBox(
                     height: 8,
                   ),
-                  CustomTextfield(
-                    hintText: AppStrings.typeFood,
-                    obscureText: false,
-                    controller: foodVM.foodNameController.value,
-                    focusNode: foodVM.foodNameFocusNode.value,
-                    onFieldSubmitted: (p0) {
-                      Utils.fieldFocusChange(
-                          context,
-                          foodVM.foodNameFocusNode.value,
-                          foodVM.notesFocusNode.value);
-                    },
-                  ),
-                  const SizedBox(
-                    height: 18,
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      AppStrings.timeHeading,
-                      style: Styles.expertSignupPaget1(),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Obx(
-                    () => CustomTextfield(
-                      hintText: foodVM.timeController.value.text == ''
-                          ? AppStrings.time
-                          : foodVM.timeController.value.text,
-                      obscureText: false,
-                      keyboardType: TextInputType.none,
-                      controller: foodVM.timeController.value,
-                      focusNode: foodVM.timeFocusNode.value,
-                      onFieldSubmitted: (p0) {
-                        Utils.fieldFocusChange(
-                            context,
-                            foodVM.timeFocusNode.value,
-                            foodVM.notesFocusNode.value);
-                      },
-                      suffixIcon: GestureDetector(
-                        onTap: () async {
-                          await foodVM.selectTime(
-                              context, foodVM.timeController.value);
-                          foodVM.checkTimePeriod();
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: SvgPicture.asset(AssetImages.outlineWatch),
+                  Form(
+                    key: formkey,
+                    child: Column(
+                      children: [
+                        CustomTextfield(
+                          hintText: AppStrings.typeFood,
+                          obscureText: false,
+                          controller: foodVM.foodNameController.value,
+                          focusNode: foodVM.foodNameFocusNode.value,
+                          onFieldSubmitted: (p0) {
+                            // Utils.fieldFocusChange(
+                            //     context,
+                            //     foodVM.foodNameFocusNode.value,
+                            //     foodVM.timeFocusNode.value);
+                          },
                         ),
-                      ),
+                        const SizedBox(
+                          height: 18,
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            AppStrings.timeHeading,
+                            style: Styles.expertSignupPaget1(),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Obx(
+                          () => CustomTextfield(
+                            hintText: foodVM.timeController.value.text == ''
+                                ? AppStrings.time
+                                : foodVM.timeController.value.text,
+                            obscureText: false,
+                            // keyboardType: TextInputType.none,
+                            controller: foodVM.timeController.value,
+                            focusNode: foodVM.timeFocusNode.value,
+                            onFieldSubmitted: (p0) {
+                              // Utils.fieldFocusChange(
+                              //     context,
+                              //     foodVM.timeFocusNode.value,
+                              //     foodVM.notesFocusNode.value);
+                            },
+                            suffixIcon: GestureDetector(
+                              onTap: () async {
+                                await foodVM.selectTime(
+                                    context, foodVM.timeController.value);
+                                foodVM.checkTimePeriod();
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(18.0),
+                                child:
+                                    SvgPicture.asset(AssetImages.outlineWatch),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 18,
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            AppStrings.notes,
+                            style: Styles.expertSignupPaget1(),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        CustomTextfield(
+                          hintText: AppStrings.typeNotes,
+                          obscureText: false,
+                          controller: foodVM.notesController.value,
+                          focusNode: foodVM.notesFocusNode.value,
+                          onFieldSubmitted: (p0) {
+                            // Utils.fieldFocusChange(
+                            //     context,
+                            //     foodVM.notesFocusNode.value,
+                            //     foodVM.reminderTimeFocusNode.value);
+                          },
+                        ),
+
+                        // const SizedBox(
+                        //   height: 18,
+                        // ),
+                        // Align(
+                        //   alignment: Alignment.centerLeft,
+                        //   child: Text(
+                        //     AppStrings.foodOutside,
+                        //     style: Styles.expertSignupPaget1(),
+                        //   ),
+                        // ),
+                        // const SizedBox(
+                        //   height: 8,
+                        // ),
+                        // CustomTextfield(
+                        //   hintText: 'Mon',
+                        //   obscureText: false,
+                        //   suffixIcon: Padding(
+                        //     padding: const EdgeInsets.all(18.0),
+                        //     child: SvgPicture.asset(AssetImages.selectFieldIcon),
+                        //   ),
+                        // ),
+                        // const SizedBox(
+                        //   height: 18,
+                        // ),
+                        // Align(
+                        //   alignment: Alignment.centerLeft,
+                        //   child: Text(
+                        //     AppStrings.weight,
+                        //     style: Styles.expertSignupPaget1(),
+                        //   ),
+                        // ),
+                        // const SizedBox(
+                        //   height: 8,
+                        // ),
+                        // const CustomTextfield(
+                        //   hintText: '00:00 KG',
+                        //   obscureText: false,
+                        // ),
+                        const SizedBox(
+                          height: 40,
+                        ),
+                        Text(
+                          AppStrings.reminderNoti,
+                          style: Styles.expertSignupPaget1(),
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            AppStrings.timeHeading,
+                            style: Styles.expertSignupPaget1(),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Obx(
+                          () => CustomTextfield(
+                            hintText:
+                                foodVM.reminderTimeController.value.text == ''
+                                    ? AppStrings.time
+                                    : foodVM.reminderTimeController.value.text,
+                            // keyboardType: TextInputType.none,
+                            controller: foodVM.reminderTimeController.value,
+                            focusNode: foodVM.reminderTimeFocusNode.value,
+                            onFieldSubmitted: (p0) {},
+                            obscureText: false,
+                            suffixIcon: GestureDetector(
+                              onTap: () async {
+                                await foodVM.selectTime(context,
+                                    foodVM.reminderTimeController.value);
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(18.0),
+                                child:
+                                    SvgPicture.asset(AssetImages.outlineWatch),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  const SizedBox(
-                    height: 18,
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      AppStrings.notes,
-                      style: Styles.expertSignupPaget1(),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  CustomTextfield(
-                    hintText: AppStrings.typeNotes,
-                    obscureText: false,
-                    controller: foodVM.notesController.value,
-                    focusNode: foodVM.notesFocusNode.value,
-                    onFieldSubmitted: (p0) {},
-                  ),
-                  // const SizedBox(
-                  //   height: 18,
-                  // ),
-                  // Align(
-                  //   alignment: Alignment.centerLeft,
-                  //   child: Text(
-                  //     AppStrings.foodOutside,
-                  //     style: Styles.expertSignupPaget1(),
-                  //   ),
-                  // ),
-                  // const SizedBox(
-                  //   height: 8,
-                  // ),
-                  // CustomTextfield(
-                  //   hintText: 'Mon',
-                  //   obscureText: false,
-                  //   suffixIcon: Padding(
-                  //     padding: const EdgeInsets.all(18.0),
-                  //     child: SvgPicture.asset(AssetImages.selectFieldIcon),
-                  //   ),
-                  // ),
-                  // const SizedBox(
-                  //   height: 18,
-                  // ),
-                  // Align(
-                  //   alignment: Alignment.centerLeft,
-                  //   child: Text(
-                  //     AppStrings.weight,
-                  //     style: Styles.expertSignupPaget1(),
-                  //   ),
-                  // ),
-                  // const SizedBox(
-                  //   height: 8,
-                  // ),
-                  // const CustomTextfield(
-                  //   hintText: '00:00 KG',
-                  //   obscureText: false,
-                  // ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  Text(
-                    AppStrings.reminderNoti,
-                    style: Styles.expertSignupPaget1(),
                   ),
                   const SizedBox(
                     height: 18,
@@ -315,41 +364,6 @@ class AddFoodPage extends StatelessWidget {
                               ],
                             )),
                       ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 18,
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      AppStrings.timeHeading,
-                      style: Styles.expertSignupPaget1(),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Obx(
-                    () => CustomTextfield(
-                      hintText: foodVM.reminderTimeController.value.text == ''
-                          ? AppStrings.time
-                          : foodVM.reminderTimeController.value.text,
-                      keyboardType: TextInputType.none,
-                      controller: foodVM.reminderTimeController.value,
-                      focusNode: foodVM.reminderTimeFocusNode.value,
-                      onFieldSubmitted: (p0) {},
-                      obscureText: false,
-                      suffixIcon: GestureDetector(
-                        onTap: () async {
-                          await foodVM.selectTime(
-                              context, foodVM.reminderTimeController.value);
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: SvgPicture.asset(AssetImages.outlineWatch),
-                        ),
-                      ),
                     ),
                   ),
                   const SizedBox(

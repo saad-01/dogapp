@@ -1,65 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:sensors_plus/sensors_plus.dart';
 
 class DayView extends StatefulWidget {
-  final DateTime? date;
-
-  DayView({this.date});
-
   @override
   _DayViewState createState() => _DayViewState();
 }
 
 class _DayViewState extends State<DayView> {
-  List<String> events = [
-    '10 am - 11 am: Dog\'s Race, Friendly Match',
-    '12 pm: Lunch with John',
-  ];
+  double _distance = 0.0;
+  int _steps = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    accelerometerEventStream().listen((AccelerometerEvent event) {
+      // Assuming Z-axis acceleration represents vertical motion
+      double verticalAcceleration = event.z;
+
+      // Assuming a threshold for detecting a step
+      if (verticalAcceleration > 10.0) {
+        setState(() {
+          _steps++;
+        });
+      }
+
+      // Update distance based on step count and average stride length
+      // Adjust these values based on your requirements and user characteristics
+      double averageStrideLengthMeters = 0.7;
+      double distance = _steps * averageStrideLengthMeters;
+
+      setState(() {
+        _distance = distance;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Day View'),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: 24,
-              itemBuilder: (context, index) {
-                String hour = (index + 1).toString().padLeft(2, '0');
-                String eventsForHour = '';
-
-                for (String event in events) {
-                  if (event.startsWith('$hour ')) {
-                    eventsForHour += '$event\n';
-                  }
-                }
-
-                return Container(
-                  margin: EdgeInsets.symmetric(vertical: 8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '$hour:00',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        eventsForHour,
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Step Counter'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Steps: $_steps',
+                style: TextStyle(fontSize: 24.0),
+              ),
+              Text(
+                'Distance: $_distance meters',
+                style: TextStyle(fontSize: 24.0),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

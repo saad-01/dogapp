@@ -52,6 +52,8 @@ dependencies:
   firebase_app_check: ^0.2.1+8
   flutter_colorpicker: ^1.0.3
   table_calendar: ^3.0.9
+  pedometer: ^4.0.1
+  sensors_plus: ^4.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

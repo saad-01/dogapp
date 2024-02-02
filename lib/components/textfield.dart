@@ -43,6 +43,7 @@ class CustomTextfield extends StatelessWidget {
       ),
       child: Center(
         child: TextFormField(
+          textInputAction: TextInputAction.go,
           textCapitalization: TextCapitalization.sentences,
           obscureText: obscureText,
           keyboardType: keyboardType,
