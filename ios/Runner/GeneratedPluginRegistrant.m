@@ -54,18 +54,6 @@
 @import image_picker_ios;
 #endif
 
-#if __has_include(<pedometer/PedometerPlugin.h>)
-#import <pedometer/PedometerPlugin.h>
-#else
-@import pedometer;
-#endif
-
-#if __has_include(<sensors_plus/FPPSensorsPlusPlugin.h>)
-#import <sensors_plus/FPPSensorsPlusPlugin.h>
-#else
-@import sensors_plus;
-#endif
-
 #if __has_include(<shared_preferences_foundation/SharedPreferencesPlugin.h>)
 #import <shared_preferences_foundation/SharedPreferencesPlugin.h>
 #else
@@ -83,8 +71,6 @@
   [FluttertoastPlugin registerWithRegistrar:[registry registrarForPlugin:@"FluttertoastPlugin"]];
   [FLTGoogleSignInPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTGoogleSignInPlugin"]];
   [FLTImagePickerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTImagePickerPlugin"]];
-  [PedometerPlugin registerWithRegistrar:[registry registrarForPlugin:@"PedometerPlugin"]];
-  [FPPSensorsPlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"FPPSensorsPlusPlugin"]];
   [SharedPreferencesPlugin registerWithRegistrar:[registry registrarForPlugin:@"SharedPreferencesPlugin"]];
 }
 

@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+import '../utils/app_colors.dart';
+
 class ExpertSignupPage extends StatefulWidget {
   const ExpertSignupPage({super.key});
 
@@ -178,11 +180,42 @@ class _ExpertSignupPageState extends State<ExpertSignupPage> {
               const SizedBox(
                 height: 20,
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    AppStrings.alreadyAccount,
+                    style: TextStyle(
+                      color: AppColors.black,
+                      fontSize: 14,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.toNamed(RouteName.loginPage);
+                      },
+                      child: Text(
+                        AppStrings.login.toUpperCase(),
+                        style: const TextStyle(
+                            color: AppColors.black,
+                            decoration: TextDecoration.underline,
+                            decorationColor: AppColors.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
       )),
     );
-  
   }
 }

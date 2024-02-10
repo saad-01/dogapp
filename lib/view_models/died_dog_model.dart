@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/view_models/services/delete_dog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import '../utils/strings.dart';
 import '../utils/utils.dart';
 
@@ -23,7 +24,8 @@ Future<void> selectDate(BuildContext context, Rx<TextEditingController> controll
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
-      controller.value.text = "${pickedDate!.toLocal()}".split(' ')[0];
+    String formattedDate = DateFormat('dd.MM.yyyy').format(pickedDate!);
+    controller.value.text = formattedDate;
     
   }
   Future<void> addReason(String dogId) async {

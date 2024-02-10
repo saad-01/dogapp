@@ -366,7 +366,7 @@ class EditFoodPage extends StatelessWidget {
                   Obx(
                     () => PrimartyButton(
                         loading: foodVM.loading.value,
-                        title: AppStrings.save,
+                        title: AppStrings.edit,
                         width: MediaQuery.sizeOf(context).width * 0.75,
                         height: 10,
                         onTap: () async {

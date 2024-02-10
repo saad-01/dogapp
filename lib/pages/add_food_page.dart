@@ -3,7 +3,6 @@ import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
-import 'package:dogapp/utils/utils.dart';
 import 'package:dogapp/view_models/add_food_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -62,17 +61,20 @@ class AddFoodPage extends StatelessWidget {
                     key: formkey,
                     child: Column(
                       children: [
-                        CustomTextfield(
-                          hintText: AppStrings.typeFood,
-                          obscureText: false,
-                          controller: foodVM.foodNameController.value,
-                          focusNode: foodVM.foodNameFocusNode.value,
-                          onFieldSubmitted: (p0) {
-                            // Utils.fieldFocusChange(
-                            //     context,
-                            //     foodVM.foodNameFocusNode.value,
-                            //     foodVM.timeFocusNode.value);
-                          },
+                        Obx(
+                          () => CustomTextfield(
+                            hintText: AppStrings.typeFood,
+                            obscureText: false,
+                            isError: foodVM.nameError.value,
+                            controller: foodVM.foodNameController.value,
+                            focusNode: foodVM.foodNameFocusNode.value,
+                            onFieldSubmitted: (p0) {
+                              // Utils.fieldFocusChange(
+                              //     context,
+                              //     foodVM.foodNameFocusNode.value,
+                              //     foodVM.timeFocusNode.value);
+                            },
+                          ),
                         ),
                         const SizedBox(
                           height: 18,
@@ -93,6 +95,7 @@ class AddFoodPage extends StatelessWidget {
                                 ? AppStrings.time
                                 : foodVM.timeController.value.text,
                             obscureText: false,
+                            isError: foodVM.timeError.value,
                             // keyboardType: TextInputType.none,
                             controller: foodVM.timeController.value,
                             focusNode: foodVM.timeFocusNode.value,

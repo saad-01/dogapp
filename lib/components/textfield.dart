@@ -12,35 +12,61 @@ class CustomTextfield extends StatelessWidget {
       required this.obscureText,
       this.controller,
       this.focusNode,
-      this.onFieldSubmitted});
+      this.onFieldSubmitted,
+      this.validator,
+      this.isError});
   final String hintText;
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
   final FocusNode? focusNode;
   final bool obscureText;
+  final bool? isError;
   final void Function(String)? onFieldSubmitted;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return Container(
-      // width: 371,
       height: 56,
       padding: const EdgeInsets.only(left: 15, right: 15),
-      decoration: ShapeDecoration(
-        color: AppColors.white,
-        shape: RoundedRectangleBorder(
-          side: const BorderSide(width: 0.50, color: Color(0x3F737373)),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        shadows: const [
-          BoxShadow(
-            color: Color(0x0F000000),
-            blurRadius: 6,
-            offset: Offset(-2, 2),
-            spreadRadius: 0,
-          )
-        ],
-      ),
+      decoration: isError != null
+          ? isError!
+              ? BoxDecoration(
+                  color: AppColors.white,
+                  border: Border.all(width: 2, color: AppColors.red),
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
+                )
+              : ShapeDecoration(
+                  color: AppColors.white,
+                  shape: RoundedRectangleBorder(
+                    side:
+                        const BorderSide(width: 0.50, color: Color(0x3F737373)),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  shadows: const [
+                    BoxShadow(
+                      color: Color(0x0F000000),
+                      blurRadius: 6,
+                      offset: Offset(-2, 2),
+                      spreadRadius: 0,
+                    )
+                  ],
+                )
+          : ShapeDecoration(
+              color: AppColors.white,
+              shape: RoundedRectangleBorder(
+                side: const BorderSide(width: 0.50, color: Color(0x3F737373)),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              shadows: const [
+                BoxShadow(
+                  color: Color(0x0F000000),
+                  blurRadius: 6,
+                  offset: Offset(-2, 2),
+                  spreadRadius: 0,
+                )
+              ],
+            ),
       child: Center(
         child: TextFormField(
           textInputAction: TextInputAction.go,
@@ -49,6 +75,7 @@ class CustomTextfield extends StatelessWidget {
           keyboardType: keyboardType,
           controller: controller,
           focusNode: focusNode,
+          validator: validator,
           onFieldSubmitted: onFieldSubmitted,
           decoration: InputDecoration(
               suffixIcon: suffixIcon ?? const SizedBox(),

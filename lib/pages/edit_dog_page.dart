@@ -542,7 +542,7 @@ class EditDogPage extends StatelessWidget {
                 () => PrimartyButton(
                   loading: addDogVM.loading.value,
                   icon: '',
-                  title: AppStrings.createButton,
+                  title: AppStrings.edit,
                   width: MediaQuery.sizeOf(context).width * 0.8,
                   height: 10,
                   onTap: () async {

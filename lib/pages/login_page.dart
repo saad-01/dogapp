@@ -91,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                       width: width,
                     )),
                 Positioned(
-                    bottom: 30,
+                    bottom: 0,
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       width: width,
@@ -101,17 +101,25 @@ class _LoginPageState extends State<LoginPage> {
                               key: _formkey,
                               child: Column(
                                 children: [
-                                  CustomTextfield(
-                                    hintText: AppStrings.typeYourMail,
-                                    obscureText: false,
-                                    controller: loginVM.emailController.value,
-                                    focusNode: loginVM.emailFocusNode.value,
-                                    onFieldSubmitted: (p0) {
-                                      Utils.fieldFocusChange(
-                                          context,
-                                          loginVM.emailFocusNode.value,
-                                          loginVM.passwordFocusNode.value);
-                                    },
+                                  Obx(
+                                    () => CustomTextfield(
+                                      hintText: AppStrings.typeYourMail,
+                                      obscureText: false,
+                                      isError: loginVM.mailError.value,
+                                      controller: loginVM.emailController.value,
+                                      focusNode: loginVM.emailFocusNode.value,
+                                      onFieldSubmitted: (value) {
+                                        Utils.fieldFocusChange(
+                                            context,
+                                            loginVM.emailFocusNode.value,
+                                            loginVM.passwordFocusNode.value);
+                                        if (value.isEmpty) {
+                                          loginVM.mailError.value = true;
+                                        } else {
+                                          loginVM.mailError.value = false;
+                                        }
+                                      },
+                                    ),
                                   ),
                                   const SizedBox(
                                     height: 20,
@@ -119,13 +127,20 @@ class _LoginPageState extends State<LoginPage> {
                                   Obx(
                                     () => CustomTextfield(
                                       hintText: AppStrings.typePassword,
+                                      isError: loginVM.passwordError.value,
                                       obscureText:
                                           loginVM.passwordVisible.value,
                                       focusNode:
                                           loginVM.passwordFocusNode.value,
                                       controller:
                                           loginVM.passwordController.value,
-                                      onFieldSubmitted: (p0) {},
+                                      onFieldSubmitted: (value) {
+                                        if (value.isEmpty) {
+                                          loginVM.passwordError.value = true;
+                                        } else {
+                                          loginVM.passwordError.value = false;
+                                        }
+                                      },
                                       suffixIcon: loginVM.passwordVisible.value
                                           ? GestureDetector(
                                               onTap: () {
@@ -182,7 +197,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           const SizedBox(
-                            height: 50,
+                            height: 30,
                           ),
                           Obx(
                             () => IntroBtn(
@@ -190,10 +205,44 @@ class _LoginPageState extends State<LoginPage> {
                               clr: AppColors.yellowColor,
                               showIcon: false,
                               onPress: () {
-                                loginVM.loginUser();
+                                if (_formkey.currentState!.validate()) {
+                                  loginVM.loginUser();
+                                }
                               },
                               loading: loginVM.loading.value,
                             ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                AppStrings.noAccount,
+                                style: TextStyle(
+                                  color: AppColors.white,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Get.back();
+                                  },
+                                  child: Text(
+                                    AppStrings.signup.toUpperCase(),
+                                    style: const TextStyle(
+                                        color: AppColors.white,
+                                        decoration: TextDecoration.underline,
+                                        decorationColor: AppColors.white,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),

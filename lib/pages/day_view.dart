@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sensors_plus/sensors_plus.dart';
 
 class DayView extends StatefulWidget {
   @override
@@ -13,27 +12,7 @@ class _DayViewState extends State<DayView> {
   @override
   void initState() {
     super.initState();
-    accelerometerEventStream().listen((AccelerometerEvent event) {
-      // Assuming Z-axis acceleration represents vertical motion
-      double verticalAcceleration = event.z;
-
-      // Assuming a threshold for detecting a step
-      if (verticalAcceleration > 10.0) {
-        setState(() {
-          _steps++;
-        });
       }
-
-      // Update distance based on step count and average stride length
-      // Adjust these values based on your requirements and user characteristics
-      double averageStrideLengthMeters = 0.7;
-      double distance = _steps * averageStrideLengthMeters;
-
-      setState(() {
-        _distance = distance;
-      });
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

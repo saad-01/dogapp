@@ -15,6 +15,8 @@ class FoodModel extends GetxController {
   final reminderTimeController = TextEditingController().obs;
   final RxString day = 'Never'.obs;
   final RxBool loading = false.obs;
+  final RxBool nameError = false.obs;
+  final RxBool timeError = false.obs;
   final foodNameFocusNode = FocusNode().obs;
   final timeFocusNode = FocusNode().obs;
   final notesFocusNode = FocusNode().obs;
@@ -56,9 +58,20 @@ class FoodModel extends GetxController {
 
       // Ensure both name and phone number are not empty
       if (foodNameController.value.text.isEmpty ||
-          timeController.value.text.isEmpty ||
-          reminderTimeController.value.text.isEmpty) {
+          timeController.value.text.isEmpty) {
         loading.value = false;
+        if (foodNameController.value.text.isEmpty) {
+          nameError.value = true;
+        }
+        if (timeController.value.text.isEmpty) {
+          timeError.value = true;
+        }
+        if (foodNameController.value.text.isNotEmpty) {
+          nameError.value = false;
+        }
+        if (timeController.value.text.isNotEmpty) {
+          timeError.value = false;
+        }
         Utils.snackBar(AppStrings.error, AppStrings.fillAll);
       } else {
         await firestore.collection("dogFood").doc(id).set({

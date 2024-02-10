@@ -97,17 +97,20 @@ class CreateFoundReport extends StatelessWidget {
                             const SizedBox(
                               height: 8,
                             ),
-                            CustomTextfield(
-                              hintText: AppStrings.typeYourname,
-                              obscureText: false,
-                              controller: foundVM.yourNameController.value,
-                              focusNode: foundVM.yourNameFocusNode.value,
-                              onFieldSubmitted: (p0) {
-                                Utils.fieldFocusChange(
-                                    context,
-                                    foundVM.yourNameFocusNode.value,
-                                    foundVM.addressFocusNode.value);
-                              },
+                            Obx(
+                              () => CustomTextfield(
+                                hintText: AppStrings.typeYourname,
+                                obscureText: false,
+                                isError: foundVM.nameError.value,
+                                controller: foundVM.yourNameController.value,
+                                focusNode: foundVM.yourNameFocusNode.value,
+                                onFieldSubmitted: (p0) {
+                                  Utils.fieldFocusChange(
+                                      context,
+                                      foundVM.yourNameFocusNode.value,
+                                      foundVM.addressFocusNode.value);
+                                },
+                              ),
                             ),
                             const SizedBox(
                               height: 20,
@@ -119,17 +122,20 @@ class CreateFoundReport extends StatelessWidget {
                             const SizedBox(
                               height: 8,
                             ),
-                            CustomTextfield(
-                              hintText: AppStrings.typeAddress,
-                              obscureText: false,
-                              controller: foundVM.addressController.value,
-                              focusNode: foundVM.addressFocusNode.value,
-                              onFieldSubmitted: (p0) {
-                                Utils.fieldFocusChange(
-                                    context,
-                                    foundVM.addressFocusNode.value,
-                                    foundVM.phoneNumFocusNode.value);
-                              },
+                            Obx(
+                              () => CustomTextfield(
+                                hintText: AppStrings.typeAddress,
+                                obscureText: false,
+                                isError: foundVM.addressError.value,
+                                controller: foundVM.addressController.value,
+                                focusNode: foundVM.addressFocusNode.value,
+                                onFieldSubmitted: (p0) {
+                                  Utils.fieldFocusChange(
+                                      context,
+                                      foundVM.addressFocusNode.value,
+                                      foundVM.phoneNumFocusNode.value);
+                                },
+                              ),
                             ),
                             const SizedBox(
                               height: 20,
@@ -141,17 +147,20 @@ class CreateFoundReport extends StatelessWidget {
                             const SizedBox(
                               height: 8,
                             ),
-                            CustomTextfield(
-                              hintText: AppStrings.typeNumber,
-                              obscureText: false,
-                              controller: foundVM.phoneNumController.value,
-                              focusNode: foundVM.phoneNumFocusNode.value,
-                              onFieldSubmitted: (p0) {
-                                Utils.fieldFocusChange(
-                                    context,
-                                    foundVM.phoneNumFocusNode.value,
-                                    foundVM.notesFocusNode.value);
-                              },
+                            Obx(
+                              () => CustomTextfield(
+                                hintText: AppStrings.typeNumber,
+                                obscureText: false,
+                                controller: foundVM.phoneNumController.value,
+                                isError: foundVM.numberError.value,
+                                focusNode: foundVM.phoneNumFocusNode.value,
+                                onFieldSubmitted: (p0) {
+                                  Utils.fieldFocusChange(
+                                      context,
+                                      foundVM.phoneNumFocusNode.value,
+                                      foundVM.notesFocusNode.value);
+                                },
+                              ),
                             ),
                             const SizedBox(
                               height: 20,
@@ -209,20 +218,24 @@ class CreateFoundReport extends StatelessWidget {
                             const SizedBox(
                               height: 8,
                             ),
-                            CustomTextfield(
-                              hintText: AppStrings.dateFormat,
-                              obscureText: false,
-                              keyboardType: TextInputType.number,
-                              controller: foundVM.dateController.value,
-                              focusNode: foundVM.dateFocusNode.value,
-                              onFieldSubmitted: (p0) {},
-                              suffixIcon: GestureDetector(
-                                onTap: () {
-                                  foundVM.selectDate(context);
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.all(15),
-                                  child: SvgPicture.asset(AssetImages.dateIcon),
+                            Obx(
+                              () => CustomTextfield(
+                                hintText: AppStrings.dateFormat,
+                                obscureText: false,
+                                isError: foundVM.dateError.value,
+                                keyboardType: TextInputType.number,
+                                controller: foundVM.dateController.value,
+                                focusNode: foundVM.dateFocusNode.value,
+                                onFieldSubmitted: (p0) {},
+                                suffixIcon: GestureDetector(
+                                  onTap: () {
+                                    foundVM.selectDate(context);
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15),
+                                    child:
+                                        SvgPicture.asset(AssetImages.dateIcon),
+                                  ),
                                 ),
                               ),
                             ),
@@ -299,22 +312,30 @@ class CreateFoundReport extends StatelessWidget {
                       () => Container(
                         height: 56,
                         padding: const EdgeInsets.only(left: 15, right: 15),
-                        decoration: ShapeDecoration(
-                          color: AppColors.white,
-                          shape: RoundedRectangleBorder(
-                            side: const BorderSide(
-                                width: 0.50, color: Color(0x3F737373)),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          shadows: const [
-                            BoxShadow(
-                              color: Color(0x0F000000),
-                              blurRadius: 6,
-                              offset: Offset(-2, 2),
-                              spreadRadius: 0,
-                            )
-                          ],
-                        ),
+                        decoration: foundVM.colorError.value
+                            ? BoxDecoration(
+                                color: AppColors.white,
+                                border:
+                                    Border.all(width: 2, color: AppColors.red),
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(8)),
+                              )
+                            : ShapeDecoration(
+                                color: AppColors.white,
+                                shape: RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                      width: 0.50, color: Color(0x3F737373)),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                shadows: const [
+                                  BoxShadow(
+                                    color: Color(0x0F000000),
+                                    blurRadius: 6,
+                                    offset: Offset(-2, 2),
+                                    spreadRadius: 0,
+                                  )
+                                ],
+                              ),
                         child: foundVM.selectedColors.isEmpty
                             ? Row(
                                 mainAxisAlignment:

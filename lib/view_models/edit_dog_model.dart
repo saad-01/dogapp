@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import '../utils/strings.dart';
 import '../utils/utils.dart';
 
@@ -42,18 +43,21 @@ class EditDogModel extends GetxController {
   }
 
   Future<void> selectDate(BuildContext context) async {
-    final DateTime? pickedDate = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
+  final DateTime? pickedDate = await showDatePicker(
+    context: context,
+    initialDate: DateTime.now(),
+    firstDate: DateTime(1900),
+    lastDate: DateTime.now(),
+  );
 
-    if (pickedDate != null && pickedDate != _selectedDate) {
-      _selectedDate = pickedDate;
-      dateController.value.text = "${pickedDate.toLocal()}".split(' ')[0];
-    }
+  if (pickedDate != null && pickedDate != _selectedDate) {
+    _selectedDate = pickedDate;
+    // Format the date using the desired format (DD.MM.YYYY)
+    String formattedDate = DateFormat('dd.MM.yyyy').format(pickedDate);
+    dateController.value.text = formattedDate;
   }
+}
+
 
   void addColor(Color color) {
     selectedColors.add(color);

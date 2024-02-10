@@ -116,17 +116,20 @@ class _AddDogPageState extends State<AddDogPage> {
                       const SizedBox(
                         height: 8,
                       ),
-                      CustomTextfield(
-                        hintText: AppStrings.typeDogName,
-                        obscureText: false,
-                        controller: addDogVM.nameController.value,
-                        focusNode: addDogVM.nameFocusNode.value,
-                        onFieldSubmitted: (p0) {
-                          Utils.fieldFocusChange(
-                              context,
-                              addDogVM.nameFocusNode.value,
-                              addDogVM.dateFocusNode.value);
-                        },
+                      Obx(
+                        () => CustomTextfield(
+                          hintText: AppStrings.typeDogName,
+                          obscureText: false,
+                          isError: addDogVM.nameError.value,
+                          controller: addDogVM.nameController.value,
+                          focusNode: addDogVM.nameFocusNode.value,
+                          onFieldSubmitted: (p0) {
+                            Utils.fieldFocusChange(
+                                context,
+                                addDogVM.nameFocusNode.value,
+                                addDogVM.dateFocusNode.value);
+                          },
+                        ),
                       ),
                       const SizedBox(
                         height: 20,
@@ -144,6 +147,7 @@ class _AddDogPageState extends State<AddDogPage> {
                               ? AppStrings.dateFormat
                               : addDogVM.dateController.value.text,
                           obscureText: false,
+                          isError: addDogVM.dateError.value,
                           keyboardType: TextInputType.none,
                           controller: addDogVM.dateController.value,
                           focusNode: addDogVM.dateFocusNode.value,
@@ -174,17 +178,19 @@ class _AddDogPageState extends State<AddDogPage> {
                       const SizedBox(
                         height: 8,
                       ),
-                      CustomTextfield(
-                        hintText: AppStrings.typeWeight,
-                        obscureText: false,
-                        controller: addDogVM.weightController.value,
-                        focusNode: addDogVM.weightFocusNode.value,
-                        onFieldSubmitted: (p0) {
-                          Utils.fieldFocusChange(
-                              context,
-                              addDogVM.weightFocusNode.value,
-                              addDogVM.microchipNumberFocusNode.value);
-                        },
+                      Obx(
+                        () => CustomTextfield(
+                          hintText: AppStrings.typeWeight,
+                          obscureText: false,
+                          controller: addDogVM.weightController.value,
+                          focusNode: addDogVM.weightFocusNode.value,
+                          onFieldSubmitted: (p0) {
+                            Utils.fieldFocusChange(
+                                context,
+                                addDogVM.weightFocusNode.value,
+                                addDogVM.microchipNumberFocusNode.value);
+                          },
+                        ),
                       ),
                       const SizedBox(
                         height: 20,
@@ -197,12 +203,14 @@ class _AddDogPageState extends State<AddDogPage> {
                       const SizedBox(
                         height: 8,
                       ),
-                      CustomTextfield(
-                        hintText: AppStrings.typeChipNumber,
-                        obscureText: false,
-                        controller: addDogVM.microchipNumberController.value,
-                        focusNode: addDogVM.microchipNumberFocusNode.value,
-                        onFieldSubmitted: (p0) {},
+                      Obx(
+                        () => CustomTextfield(
+                          hintText: AppStrings.typeChipNumber,
+                          obscureText: false,
+                          controller: addDogVM.microchipNumberController.value,
+                          focusNode: addDogVM.microchipNumberFocusNode.value,
+                          onFieldSubmitted: (p0) {},
+                        ),
                       ),
                       const SizedBox(
                         height: 20,
@@ -214,47 +222,57 @@ class _AddDogPageState extends State<AddDogPage> {
                       const SizedBox(
                         height: 8,
                       ),
-                      Container(
-                        height: 56,
-                        padding: const EdgeInsets.only(left: 15, right: 15),
-                        decoration: ShapeDecoration(
-                          color: AppColors.white,
-                          shape: RoundedRectangleBorder(
-                            side: const BorderSide(
-                                width: 0.50, color: Color(0x3F737373)),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          shadows: const [
-                            BoxShadow(
-                              color: Color(0x0F000000),
-                              blurRadius: 6,
-                              offset: Offset(-2, 2),
-                              spreadRadius: 0,
-                            )
-                          ],
-                        ),
-                        child: GestureDetector(
-                          onTap: () {
-                            Get.toNamed(RouteName.selectBreedPage);
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Obx(
-                                () => Text(
-                                  breedsVM.breed.value == ''
-                                      ? AppStrings.selectBreed
-                                      : breedsVM.breed.value,
-                                  style: Styles.expertSignupPaget2(),
+                      Obx(
+                        () => Container(
+                          height: 56,
+                          padding: const EdgeInsets.only(left: 15, right: 15),
+                          decoration: addDogVM.breedError.value
+                              ? BoxDecoration(
+                                  color: AppColors.white,
+                                  border: Border.all(
+                                      width: 2, color: AppColors.red),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(8)),
+                                )
+                              : ShapeDecoration(
+                                  color: AppColors.white,
+                                  shape: RoundedRectangleBorder(
+                                    side: const BorderSide(
+                                        width: 0.50, color: Color(0x3F737373)),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  shadows: const [
+                                    BoxShadow(
+                                      color: Color(0x0F000000),
+                                      blurRadius: 6,
+                                      offset: Offset(-2, 2),
+                                      spreadRadius: 0,
+                                    )
+                                  ],
                                 ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 10.0),
-                                child:
-                                    SvgPicture.asset(AssetImages.nextBlackIcon),
-                              ),
-                            ],
+                          child: GestureDetector(
+                            onTap: () {
+                              Get.toNamed(RouteName.selectBreedPage);
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Obx(
+                                  () => Text(
+                                    breedsVM.breed.value == ''
+                                        ? AppStrings.selectBreed
+                                        : breedsVM.breed.value,
+                                    style: Styles.expertSignupPaget2(),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 10.0),
+                                  child: SvgPicture.asset(
+                                      AssetImages.nextBlackIcon),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -273,6 +291,7 @@ class _AddDogPageState extends State<AddDogPage> {
               Obx(
                 () => SelectTextfield(
                   val: addDogVM.gender.value,
+                  isError: addDogVM.genderError.value,
                   hintText: AppStrings.typeGender,
                   items: [
                     DropdownMenuItem(
@@ -328,6 +347,7 @@ class _AddDogPageState extends State<AddDogPage> {
               Obx(
                 () => SelectTextfield(
                   val: addDogVM.neutered.value,
+                  isError: addDogVM.neuteredError.value,
                   hintText: AppStrings.neuteredHint,
                   items: [
                     DropdownMenuItem(

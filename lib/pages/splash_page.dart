@@ -18,9 +18,9 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     AuthMethods auth = AuthMethods();
-    auth.isLogin();
+
     Timer(
-      const Duration(seconds: 6),
+      const Duration(seconds: 5),
       () {
         auth.isLogin();
       },

@@ -100,17 +100,20 @@ class CreateMissingReport extends StatelessWidget {
                         key: formkey,
                         child: Column(
                           children: [
-                            CustomTextfield(
-                              hintText: AppStrings.typeDogName,
-                              obscureText: false,
-                              controller: missVM.nameController.value,
-                              focusNode: missVM.nameFocusNode.value,
-                              onFieldSubmitted: (p0) {
-                                Utils.fieldFocusChange(
-                                    context,
-                                    missVM.nameFocusNode.value,
-                                    missVM.ageFocusNode.value);
-                              },
+                            Obx(
+                              () => CustomTextfield(
+                                hintText: AppStrings.typeDogName,
+                                obscureText: false,
+                                isError: missVM.nameError.value,
+                                controller: missVM.nameController.value,
+                                focusNode: missVM.nameFocusNode.value,
+                                onFieldSubmitted: (p0) {
+                                  Utils.fieldFocusChange(
+                                      context,
+                                      missVM.nameFocusNode.value,
+                                      missVM.ageFocusNode.value);
+                                },
+                              ),
                             ),
                             const SizedBox(
                               height: 20,
@@ -194,7 +197,7 @@ class CreateMissingReport extends StatelessWidget {
                             ),
                             const SizedBox(
                               height: 20,
-                            ),  
+                            ),
                             Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(AppStrings.weight,
@@ -248,20 +251,24 @@ class CreateMissingReport extends StatelessWidget {
                             const SizedBox(
                               height: 8,
                             ),
-                            CustomTextfield(
-                              hintText: AppStrings.dateFormat,
-                              obscureText: false,
-                              keyboardType: TextInputType.none,
-                              controller: missVM.dateController.value,
-                              focusNode: missVM.dateFocusNode.value,
-                              onFieldSubmitted: (p0) {},
-                              suffixIcon: GestureDetector(
-                                onTap: () {
-                                  missVM.selectDate(context);
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.all(15),
-                                  child: SvgPicture.asset(AssetImages.dateIcon),
+                            Obx(
+                              () => CustomTextfield(
+                                hintText: AppStrings.dateFormat,
+                                obscureText: false,
+                                isError: missVM.dateError.value,
+                                keyboardType: TextInputType.none,
+                                controller: missVM.dateController.value,
+                                focusNode: missVM.dateFocusNode.value,
+                                onFieldSubmitted: (p0) {},
+                                suffixIcon: GestureDetector(
+                                  onTap: () {
+                                    missVM.selectDate(context);
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15),
+                                    child:
+                                        SvgPicture.asset(AssetImages.dateIcon),
+                                  ),
                                 ),
                               ),
                             ),
@@ -275,50 +282,62 @@ class CreateMissingReport extends StatelessWidget {
                             const SizedBox(
                               height: 8,
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                Get.toNamed(RouteName.selectBreedPage,
-                                    arguments: false);
-                              },
-                              child: Container(
-                                height: 56,
-                                padding:
-                                    const EdgeInsets.only(left: 15, right: 15),
-                                decoration: ShapeDecoration(
-                                  color: AppColors.white,
-                                  shape: RoundedRectangleBorder(
-                                    side: const BorderSide(
-                                        width: 0.50, color: Color(0x3F737373)),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  shadows: const [
-                                    BoxShadow(
-                                      color: Color(0x0F000000),
-                                      blurRadius: 6,
-                                      offset: Offset(-2, 2),
-                                      spreadRadius: 0,
-                                    )
-                                  ],
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Obx(
-                                      () => Text(
-                                        breeds.breed.value == ''
-                                            ? AppStrings.selectBreed
-                                            : breeds.breed.value,
-                                        style: Styles.expertSignupPaget2(),
+                            Obx(
+                              () => GestureDetector(
+                                onTap: () {
+                                  Get.toNamed(RouteName.selectBreedPage,
+                                      arguments: false);
+                                },
+                                child: Container(
+                                  height: 56,
+                                  padding: const EdgeInsets.only(
+                                      left: 15, right: 15),
+                                  decoration: missVM.breedError.value
+                                      ? BoxDecoration(
+                                          color: AppColors.white,
+                                          border: Border.all(
+                                              width: 2, color: AppColors.red),
+                                          borderRadius: const BorderRadius.all(
+                                              Radius.circular(8)),
+                                        )
+                                      : ShapeDecoration(
+                                          color: AppColors.white,
+                                          shape: RoundedRectangleBorder(
+                                            side: const BorderSide(
+                                                width: 0.50,
+                                                color: Color(0x3F737373)),
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                          shadows: const [
+                                            BoxShadow(
+                                              color: Color(0x0F000000),
+                                              blurRadius: 6,
+                                              offset: Offset(-2, 2),
+                                              spreadRadius: 0,
+                                            )
+                                          ],
+                                        ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Obx(
+                                        () => Text(
+                                          breeds.breed.value == ''
+                                              ? AppStrings.selectBreed
+                                              : breeds.breed.value,
+                                          style: Styles.expertSignupPaget2(),
+                                        ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 20.0),
-                                      child: SvgPicture.asset(
-                                          AssetImages.nextBlackIcon),
-                                    ),
-                                  ],
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 20.0),
+                                        child: SvgPicture.asset(
+                                            AssetImages.nextBlackIcon),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -338,22 +357,32 @@ class CreateMissingReport extends StatelessWidget {
                                 height: 56,
                                 padding:
                                     const EdgeInsets.only(left: 15, right: 15),
-                                decoration: ShapeDecoration(
-                                  color: AppColors.white,
-                                  shape: RoundedRectangleBorder(
-                                    side: const BorderSide(
-                                        width: 0.50, color: Color(0x3F737373)),
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  shadows: const [
-                                    BoxShadow(
-                                      color: Color(0x0F000000),
-                                      blurRadius: 6,
-                                      offset: Offset(-2, 2),
-                                      spreadRadius: 0,
-                                    )
-                                  ],
-                                ),
+                                decoration: missVM.colorError.value
+                                    ? BoxDecoration(
+                                        color: AppColors.white,
+                                        border: Border.all(
+                                            width: 2, color: AppColors.red),
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(8)),
+                                      )
+                                    : ShapeDecoration(
+                                        color: AppColors.white,
+                                        shape: RoundedRectangleBorder(
+                                          side: const BorderSide(
+                                              width: 0.50,
+                                              color: Color(0x3F737373)),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                        shadows: const [
+                                          BoxShadow(
+                                            color: Color(0x0F000000),
+                                            blurRadius: 6,
+                                            offset: Offset(-2, 2),
+                                            spreadRadius: 0,
+                                          )
+                                        ],
+                                      ),
                                 child: missVM.selectedColors.isEmpty
                                     ? Row(
                                         mainAxisAlignment:
@@ -518,17 +547,20 @@ class CreateMissingReport extends StatelessWidget {
                             const SizedBox(
                               height: 8,
                             ),
-                            CustomTextfield(
-                              hintText: AppStrings.typeYourname,
-                              obscureText: false,
-                              controller: missVM.yourNameController.value,
-                              focusNode: missVM.yourNameFocusNode.value,
-                              onFieldSubmitted: (p0) {
-                                Utils.fieldFocusChange(
-                                    context,
-                                    missVM.yourNameFocusNode.value,
-                                    missVM.addressFocusNode.value);
-                              },
+                            Obx(
+                              () => CustomTextfield(
+                                hintText: AppStrings.typeYourname,
+                                obscureText: false,
+                                isError: missVM.yourNameError.value,
+                                controller: missVM.yourNameController.value,
+                                focusNode: missVM.yourNameFocusNode.value,
+                                onFieldSubmitted: (p0) {
+                                  Utils.fieldFocusChange(
+                                      context,
+                                      missVM.yourNameFocusNode.value,
+                                      missVM.addressFocusNode.value);
+                                },
+                              ),
                             ),
                             const SizedBox(
                               height: 20,
@@ -540,17 +572,20 @@ class CreateMissingReport extends StatelessWidget {
                             const SizedBox(
                               height: 8,
                             ),
-                            CustomTextfield(
-                              hintText: AppStrings.typeAddress,
-                              obscureText: false,
-                              controller: missVM.addressController.value,
-                              focusNode: missVM.addressFocusNode.value,
-                              onFieldSubmitted: (p0) {
-                                Utils.fieldFocusChange(
-                                    context,
-                                    missVM.addressFocusNode.value,
-                                    missVM.phoneNumFocusNode.value);
-                              },
+                            Obx(
+                              () => CustomTextfield(
+                                hintText: AppStrings.typeAddress,
+                                obscureText: false,
+                                isError: missVM.addressError.value,
+                                controller: missVM.addressController.value,
+                                focusNode: missVM.addressFocusNode.value,
+                                onFieldSubmitted: (p0) {
+                                  Utils.fieldFocusChange(
+                                      context,
+                                      missVM.addressFocusNode.value,
+                                      missVM.phoneNumFocusNode.value);
+                                },
+                              ),
                             ),
                             const SizedBox(
                               height: 20,
@@ -562,17 +597,20 @@ class CreateMissingReport extends StatelessWidget {
                             const SizedBox(
                               height: 8,
                             ),
-                            CustomTextfield(
-                              hintText: AppStrings.typeNumber,
-                              obscureText: false,
-                              controller: missVM.phoneNumController.value,
-                              focusNode: missVM.phoneNumFocusNode.value,
-                              onFieldSubmitted: (p0) {
-                                Utils.fieldFocusChange(
-                                    context,
-                                    missVM.phoneNumFocusNode.value,
-                                    missVM.notesFocusNode.value);
-                              },
+                            Obx(
+                              () => CustomTextfield(
+                                hintText: AppStrings.typeNumber,
+                                obscureText: false,
+                                isError: missVM.numberError.value,
+                                controller: missVM.phoneNumController.value,
+                                focusNode: missVM.phoneNumFocusNode.value,
+                                onFieldSubmitted: (p0) {
+                                  Utils.fieldFocusChange(
+                                      context,
+                                      missVM.phoneNumFocusNode.value,
+                                      missVM.notesFocusNode.value);
+                                },
+                              ),
                             ),
                             const SizedBox(
                               height: 20,

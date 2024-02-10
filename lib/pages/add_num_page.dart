@@ -39,17 +39,20 @@ class AddNumPage extends StatelessWidget {
                 key: formkey,
                 child: Column(
                   children: [
-                    CustomTextfield(
-                        controller: addNumVM.nameController.value,
-                        focusNode: addNumVM.nameFocusNode.value,
-                        onFieldSubmitted: (p0) {
-                          Utils.fieldFocusChange(
-                              context,
-                              addNumVM.nameFocusNode.value,
-                              addNumVM.phoneNumFocusNode.value);
-                        },
-                        hintText: AppStrings.typeName,
-                        obscureText: false),
+                    Obx(
+                      () => CustomTextfield(
+                          controller: addNumVM.nameController.value,
+                          focusNode: addNumVM.nameFocusNode.value,
+                          isError: addNumVM.nameError.value,
+                          onFieldSubmitted: (p0) {
+                            Utils.fieldFocusChange(
+                                context,
+                                addNumVM.nameFocusNode.value,
+                                addNumVM.phoneNumFocusNode.value);
+                          },
+                          hintText: AppStrings.typeName,
+                          obscureText: false),
+                    ),
                     const SizedBox(
                       height: 18,
                     ),
@@ -63,12 +66,15 @@ class AddNumPage extends StatelessWidget {
                     const SizedBox(
                       height: 8,
                     ),
-                    CustomTextfield(
-                        controller: addNumVM.phoneNumController.value,
-                        focusNode: addNumVM.phoneNumFocusNode.value,
-                        onFieldSubmitted: (p0) {},
-                        hintText: AppStrings.typeNum,
-                        obscureText: false),
+                    Obx(
+                      () => CustomTextfield(
+                          controller: addNumVM.phoneNumController.value,
+                          focusNode: addNumVM.phoneNumFocusNode.value,
+                          isError: addNumVM.numError.value,
+                          onFieldSubmitted: (p0) {},
+                          hintText: AppStrings.typeNum,
+                          obscureText: false),
+                    ),
                   ],
                 )),
             const SizedBox(
@@ -84,7 +90,6 @@ class AddNumPage extends StatelessWidget {
                 loading: addNumVM.loading.value,
                 onTap: () async {
                   await addNumVM.addNum();
-                  
                 },
               ),
             ),

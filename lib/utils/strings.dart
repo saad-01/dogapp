@@ -79,7 +79,7 @@ class AppStrings {
   static const safetyEmergency = "Safety and Emergency";
   static const gotoCommunity = "Go to Community";
   static const kg = "00:00 KG";
-  static const weight = "Weight";
+  static const weight = "Weight (Kg)";
   static const filesFromExpert = "Released files form expert";
   static const releaseFiles = "Released file form expert after appointment";
   static const trainingStreak = "Training Report";
@@ -437,4 +437,8 @@ class AppStrings {
   static const weekdays = "Weekdays";
   static const weekend = "Weekend";
   static const setReminder = "Set Reminder";
+  static const signup = "Signup";
+  static const noAccount = "Don't have an account?";
+  static const incorrect = "Email or password is incorrect";
+  static const selectImage = "Please select image";
 }

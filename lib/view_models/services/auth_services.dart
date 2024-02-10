@@ -31,23 +31,28 @@ class AuthMethods {
     required String date,
     required String number,
     required String role,
-    required XFile file,
+    XFile? file,
   }) async {
     String res = "Some error Occurred";
     try {
-      if (email.isNotEmpty ||
-          password.isNotEmpty ||
-          name.isNotEmpty ||
-          date.isNotEmpty ||
+      if (email.isNotEmpty &&
+          password.isNotEmpty &&
+          name.isNotEmpty &&
+          date.isNotEmpty &&
           number.isNotEmpty) {
         // registering user in auth with email and password
         UserCredential cred = await _auth.createUserWithEmailAndPassword(
           email: email,
           password: password,
         );
-
-        String photoUrl = await StorageMethods()
+        String photoUrl='';
+        if (file!=null) {
+          photoUrl = await StorageMethods()
             .uploadImageToStorage('profilePics', file, false);
+        } else {
+          photoUrl ='https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png';
+        }
+        
 
         model.UserModel user = model.UserModel(
           name: name,
@@ -134,15 +139,15 @@ class AuthMethods {
     _auth.authStateChanges().listen((User? user) async {
       if (user == null) {
         // User is signed out
-        Get.toNamed(RouteName.introPage);
+        Get.offNamed(RouteName.introPage);
       } else {
         // User is signed in
         SharedPref pref = SharedPref();
         String? role = await pref.getRoleFromSharedPreferences();
         if (role == 'parent') {
-          Get.toNamed(RouteName.parentDashboardPage);
+          Get.offNamed(RouteName.parentDashboardPage);
         } else {
-          Get.toNamed(RouteName.expertDashboardPage);
+          Get.offNamed(RouteName.expertDashboardPage);
         }
       }
     });

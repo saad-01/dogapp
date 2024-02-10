@@ -104,7 +104,7 @@ class SignupPage extends StatelessWidget {
                             showIcon: true,
                             icon: AssetImages.google,
                             onPress: () {
-                              Get.offNamed(RouteName.signupPage);
+                              Get.toNamed(RouteName.signupPage);
                             },
                           ),
                           const SizedBox(
@@ -126,7 +126,7 @@ class SignupPage extends StatelessWidget {
                             icon: AssetImages.mail,
                             showIcon: true,
                             onPress: () {
-                              Get.offNamed(RouteName.chooseProfilePage);
+                              Get.toNamed(RouteName.chooseProfilePage);
                             },
                           ),
                           const SizedBox(
@@ -175,9 +175,7 @@ class SignupPage extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: GestureDetector(
-                              onTap: () {
-                                Get.toNamed(RouteName.loginPage);
-                              },
+                              onTap: () {},
                               child: Text(
                                 AppStrings.policy.toUpperCase(),
                                 maxLines: 2,

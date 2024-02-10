@@ -8,6 +8,8 @@ class AddNumModel extends GetxController {
   final nameController = TextEditingController().obs;
   final phoneNumController = TextEditingController().obs;
   final RxBool loading = false.obs;
+  final RxBool nameError = false.obs;
+  final RxBool numError = false.obs;
   final nameFocusNode = FocusNode().obs;
   final phoneNumFocusNode = FocusNode().obs;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -18,7 +20,20 @@ class AddNumModel extends GetxController {
       // Ensure both name and phone number are not empty
       if (nameController.value.text.isEmpty ||
           phoneNumController.value.text.isEmpty) {
+        
         loading.value = false;
+        if (nameController.value.text.isEmpty) {
+          nameError.value = true;
+        }
+        if (phoneNumController.value.text.isEmpty) {
+          numError.value = true;
+        }
+        if (nameController.value.text.isNotEmpty) {
+          nameError.value = false;
+        }
+        if (phoneNumController.value.text.isNotEmpty) {
+          numError.value = false;
+        }
         Utils.snackBar(AppStrings.error, AppStrings.fillAll);
       }
 
