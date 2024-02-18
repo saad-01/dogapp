@@ -21,7 +21,7 @@ class DogManagementPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            CustomAppBar(title: AppStrings.management),
+            const CustomAppBar(title: AppStrings.management),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(

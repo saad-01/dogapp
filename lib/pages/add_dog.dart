@@ -533,6 +533,7 @@ class _AddDogPageState extends State<AddDogPage> {
                   width: MediaQuery.sizeOf(context).width * 0.8,
                   height: 10,
                   onTap: () async {
+                    addDogVM.breed.value = breedsVM.breed.value;
                     await addDogVM.createDog();
                   },
                 ),

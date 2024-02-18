@@ -6,6 +6,7 @@ import 'package:dogapp/pages/add_num_page.dart';
 import 'package:dogapp/pages/add_reminder_page.dart';
 import 'package:dogapp/pages/add_training.dart';
 import 'package:dogapp/pages/add_walk_page.dart';
+import 'package:dogapp/pages/antiparasitic_page.dart';
 import 'package:dogapp/pages/apointment_expert_page.dart';
 import 'package:dogapp/pages/appointment_detail_page.dart';
 import 'package:dogapp/pages/appointments_page.dart';
@@ -48,9 +49,11 @@ import 'package:dogapp/pages/list_expert_page.dart';
 import 'package:dogapp/pages/login_page.dart';
 import 'package:dogapp/pages/make_announcement_page.dart';
 import 'package:dogapp/pages/map_page.dart';
+import 'package:dogapp/pages/medicine_page.dart';
 import 'package:dogapp/pages/missed_profile_page.dart';
 import 'package:dogapp/pages/missing_dogs_page.dart';
 import 'package:dogapp/pages/notifications_page.dart';
+import 'package:dogapp/pages/other_appoint_page.dart';
 import 'package:dogapp/pages/parent_dashboard.dart';
 import 'package:dogapp/pages/parent_exercise_detail_page.dart';
 import 'package:dogapp/pages/parent_exercise_page.dart';
@@ -67,7 +70,9 @@ import 'package:dogapp/pages/select_expert_page.dart';
 import 'package:dogapp/pages/select_report_page.dart';
 import 'package:dogapp/pages/signup_page.dart';
 import 'package:dogapp/pages/splash_page.dart';
+import 'package:dogapp/pages/symptoms_page.dart';
 import 'package:dogapp/pages/vaccination_report_page.dart';
+import 'package:dogapp/pages/vet_page.dart';
 import 'package:dogapp/pages/walk_complete_page.dart';
 import 'package:dogapp/pages/walk_page.dart';
 import 'package:dogapp/pages/walk_record_page.dart';
@@ -278,7 +283,7 @@ class AppRoutes {
         ),
         GetPage(
           name: RouteName.addFoodPage,
-          page: () => const AddFoodPage(),
+          page: () => AddFoodPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.rightToLeft,
         ),
@@ -524,7 +529,37 @@ class AppRoutes {
         ),
         GetPage(
           name: RouteName.dayPage,
-          page: () => DayView(),
+          page: () => const DayView(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.antiParasitePage,
+          page: () => const AntiParasiteReportPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.medicinePage,
+          page: () => const MedicineReportPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.vetVisitPage,
+          page: () => const VetReportPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.symptomsPage,
+          page: () => const SymptomsReportPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.otherAppointPage,
+          page: () => const OtherReportPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.rightToLeft,
         ),

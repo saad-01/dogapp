@@ -11,15 +11,19 @@ import '../components/select_field.dart';
 import '../components/textfield.dart';
 import '../utils/styles.dart';
 
-class AddFoodPage extends StatelessWidget {
-  const AddFoodPage({super.key});
+class AddFoodPage extends StatefulWidget {
+  AddFoodPage({super.key});
+  final QueryDocumentSnapshot<Object> arguments = Get.arguments;
+  @override
+  State<AddFoodPage> createState() => _AddFoodPageState();
+}
 
+class _AddFoodPageState extends State<AddFoodPage> {
+  final foodVM = Get.put(FoodModel());
+  final formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    final foodVM = Get.put(FoodModel());
-    final QueryDocumentSnapshot<Object> arguments = Get.arguments;
-    final doc = arguments;
-    final formkey = GlobalKey<FormState>();
+    final doc = widget.arguments;
     return Scaffold(
       body: SafeArea(
           child: Container(

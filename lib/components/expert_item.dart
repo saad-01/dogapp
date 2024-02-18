@@ -9,9 +9,15 @@ import 'package:flutter_svg/svg.dart';
 
 class ExpertItem extends StatelessWidget {
   const ExpertItem(
-      {super.key, required this.expertis, required this.filledBtnTitle, this.onPress});
+      {super.key,
+      required this.expertis,
+      required this.filledBtnTitle,
+      this.onPress,
+      this.name, this.url});
   final String expertis;
   final String filledBtnTitle;
+  final String? name;
+  final String? url;
   final void Function()? onPress;
   @override
   Widget build(BuildContext context) {
@@ -51,12 +57,12 @@ class ExpertItem extends StatelessWidget {
                 Container(
                   width: 67,
                   height: 67,
-                  decoration: const ShapeDecoration(
+                  decoration: ShapeDecoration(
                     image: DecorationImage(
-                      image: AssetImage(AssetImages.expertItem),
+                      image: NetworkImage(url??'https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png'),
                       fit: BoxFit.cover,
                     ),
-                    shape: OvalBorder(
+                    shape: const OvalBorder(
                       side: BorderSide(
                         width: 1,
                         strokeAlign: BorderSide.strokeAlignCenter,
@@ -79,7 +85,7 @@ class ExpertItem extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      "K.Devis",
+                      name ?? 'K.Devis',
                       style: Styles.expertSignupPaget1(),
                     ),
                     SizedBox(

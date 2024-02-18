@@ -26,7 +26,6 @@ class _ParentHomePageState extends State<ParentHomePage> {
   RxString name = ''.obs;
   Future<void> getName() async {
     name.value = (await pref.getNameFromSharedPreferences())!;
-    ;
   }
 
   @override
@@ -189,31 +188,91 @@ class _ParentHomePageState extends State<ParentHomePage> {
             const SizedBox(
               height: 11,
             ),
-            AppointmentWidget(
-                type: AppStrings.vaccination,
-                name: AppStrings.dogName,
-                date: AppStrings.dateFormat,
-                time: AppStrings.time,
-                image: AssetImages.injectionImage,
-                title: AppStrings.approved,
-                onPress: () {
-                  Get.toNamed(RouteName.appointDetailsPage);
-                },
-                approvalFlag: true),
-            const SizedBox(
-              height: 11,
+            StreamBuilder<QuerySnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('appointments')
+                  .where('parentId',
+                      isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+                  .snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  // While data is being fetched, show a loading indicator
+                  return const CircularProgressIndicator(
+                    color: AppColors.primaryColor,
+                  );
+                } else if (snapshot.hasError) {
+                  // If an error occurs during data retrieval, display an error message
+                  return Text('Error: ${snapshot.error}');
+                } else {
+                  // If data retrieval is successful, build the UI with the fetched data
+
+                  final List<QueryDocumentSnapshot> docs = snapshot.data!.docs;
+
+                  if (docs.isEmpty) {
+                    // Return an empty widget if there are no documents
+                    return Text(
+                      AppStrings.none,
+                      style: Styles.grey16(),
+                    );
+                  }
+                  return Column(
+                    children: docs.map((doc) {
+                      String vaccType = doc['vaccinationType'];
+                      String type = doc['type'];
+                      String image = '';
+                      if (vaccType.isEmpty) {
+                        vaccType = doc['reason'];
+                      }
+                      if (type == 'vaccination') {
+                        image = AssetImages.injectionImage;
+                      } else if (type == 'medicine') {
+                        image = AssetImages.medImage;
+                      } else if (type == 'other') {
+                        image = AssetImages.boneMeal;
+                      } else if (type == 'symptoms') {
+                        image = AssetImages.symptoms;
+                      } else if (type == 'vet') {
+                        image = AssetImages.vetImage;
+                      } else {
+                        image = AssetImages.antiParasite;
+                      }
+                      return Column(
+                        children: [
+                          AppointmentWidget(
+                              type: "$vaccType(${doc['type']})",
+                              name: AppStrings.dogName,
+                              id: doc['dogId'],
+                              date: doc['date'],
+                              time: doc['time'],
+                              image: image,
+                              title: doc['status'],
+                              onPress: () {
+                                Get.toNamed(RouteName.appointDetailsPage,
+                                    arguments: doc);
+                              },
+                              approvalFlag:
+                                  doc['status'] == 'Approved' ? true : false),
+                          const SizedBox(
+                            height: 11,
+                          ),
+                        ],
+                      );
+                    }).toList(),
+                  );
+                }
+              },
             ),
-            AppointmentWidget(
-                type: AppStrings.medicine,
-                name: AppStrings.dogName,
-                date: AppStrings.dateFormat,
-                time: AppStrings.time,
-                image: AssetImages.medImage,
-                title: AppStrings.denied,
-                onPress: () {
-                  Get.toNamed(RouteName.appointDetailsPage);
-                },
-                approvalFlag: false),
+            // AppointmentWidget(
+            //     type: AppStrings.medicine,
+            //     name: AppStrings.dogName,
+            //     date: AppStrings.dateFormat,
+            //     time: AppStrings.time,
+            //     image: AssetImages.medImage,
+            //     title: AppStrings.denied,
+            //     onPress: () {
+            //       Get.toNamed(RouteName.appointDetailsPage);
+            //     },
+            //     approvalFlag: false),
           ]),
         ),
       )),

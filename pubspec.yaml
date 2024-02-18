@@ -53,6 +53,11 @@ dependencies:
   flutter_colorpicker: ^1.0.3
   table_calendar: ^3.0.9
   intl: ^0.18.0
+  flutter_local_notifications: ^15.1.1
+  firebase_messaging: ^14.6.8
+  http: ^1.2.0
+  firebase_in_app_messaging: ^0.7.4+13
+  file_picker: ^6.1.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

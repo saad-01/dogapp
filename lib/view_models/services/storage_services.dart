@@ -39,7 +39,8 @@ class StorageMethods {
     }
   }
 
-  Future<List<String>> uploadPhotos(List<XFile> photos,String uId, String name) async {
+  Future<List<String>> uploadPhotos(
+      List<XFile> photos, String uId, String name) async {
     List<String> photoPaths = [];
     for (var photo in photos) {
       String id = const Uuid().v1();

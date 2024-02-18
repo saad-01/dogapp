@@ -1,10 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dogapp/components/requested_widget.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import '../utils/app_colors.dart';
-import '../utils/strings.dart';
 
-class AppointmentWidget extends StatelessWidget {
+class AppointmentWidget extends StatefulWidget {
   const AppointmentWidget(
       {super.key,
       required this.type,
@@ -15,20 +17,46 @@ class AppointmentWidget extends StatelessWidget {
       required this.title,
       required this.approvalFlag,
       this.onPress,
-      this.showStatus});
+      this.showStatus,
+      this.id});
   final String type;
   final String name;
   final String date;
   final String time;
   final String image;
   final String title;
+  final String? id;
   final bool approvalFlag;
   final bool? showStatus;
   final void Function()? onPress;
+
+  @override
+  State<AppointmentWidget> createState() => _AppointmentWidgetState();
+}
+
+class _AppointmentWidgetState extends State<AppointmentWidget> {
+  RxString name = ''.obs;
+  getDogName(String id) async {
+    DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
+        .instance
+        .collection(
+            'dogs') // Replace 'your_collection' with your collection name
+        .doc(id) // Replace 'your_document_id' with your document ID
+        .get();
+    dynamic fieldValue = snapshot.get('name');
+    name.value = fieldValue.toString();
+  }
+
+  @override
+  void initState() {
+    getDogName(widget.id!);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onPress,
+      onTap: widget.onPress,
       child: Ink(
         padding: const EdgeInsets.all(10),
         decoration: ShapeDecoration(
@@ -58,20 +86,19 @@ class AppointmentWidget extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      type == 'Excercise'
-                          ? "${AppStrings.handFeeding}($type)"
-                          : "Leptospirosis($type)",
+                      widget.type == 'Excercise' ? widget.type : widget.type,
                       style: Styles.subPrimaryText(),
                     ),
                     const SizedBox(
                       width: 5,
                     ),
-                    if (showStatus == null) ...[
-                      if (title != 'Requested')
-                        StatusWidget(title: title, approval: approvalFlag),
-                      if (title == 'Requested')
+                    if (widget.showStatus == null) ...[
+                      if (widget.title != 'Requested')
+                        StatusWidget(
+                            title: widget.title, approval: widget.approvalFlag),
+                      if (widget.title == 'Requested')
                         RequestedWidget(
-                          title: title,
+                          title: widget.title,
                         ),
                     ]
                   ],
@@ -79,27 +106,29 @@ class AppointmentWidget extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
+                Obx(
+                  () => Text(
+                    name.value,
+                    style: Styles.appointSub(),
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
                 Text(
-                  name,
+                  widget.date,
                   style: Styles.appointSub(),
                 ),
                 const SizedBox(
                   height: 5,
                 ),
                 Text(
-                  date,
-                  style: Styles.appointSub(),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  time,
+                  widget.time,
                   style: Styles.appointSub(),
                 ),
               ],
             ),
-            SvgPicture.asset(image),
+            SvgPicture.asset(widget.image),
           ],
         ),
       ),
@@ -131,23 +160,3 @@ class StatusWidget extends StatelessWidget {
   }
 }
 
-class RequestedWidget extends StatelessWidget {
-  const RequestedWidget({super.key, required this.title});
-  final String title;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 60,
-      height: 17,
-      decoration: ShapeDecoration(
-        color: AppColors.yellowColor.withOpacity(0.20),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
-      ),
-      child: Center(
-          child: Text(
-        title,
-        style: Styles.yellow8U(),
-      )),
-    );
-  }
-}

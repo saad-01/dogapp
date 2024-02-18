@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 class DayView extends StatefulWidget {
+  const DayView({super.key});
+
   @override
   _DayViewState createState() => _DayViewState();
 }
 
 class _DayViewState extends State<DayView> {
-  double _distance = 0.0;
-  int _steps = 0;
+  final double _distance = 0.0;
+  final int _steps = 0;
 
   @override
   void initState() {
@@ -19,7 +21,7 @@ class _DayViewState extends State<DayView> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Step Counter'),
+          title: const Text('Step Counter'),
         ),
         body: Center(
           child: Column(
@@ -27,11 +29,11 @@ class _DayViewState extends State<DayView> {
             children: <Widget>[
               Text(
                 'Steps: $_steps',
-                style: TextStyle(fontSize: 24.0),
+                style: const TextStyle(fontSize: 24.0),
               ),
               Text(
                 'Distance: $_distance meters',
-                style: TextStyle(fontSize: 24.0),
+                style: const TextStyle(fontSize: 24.0),
               ),
             ],
           ),

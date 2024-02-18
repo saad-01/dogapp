@@ -438,7 +438,11 @@ class AppStrings {
   static const weekend = "Weekend";
   static const setReminder = "Set Reminder";
   static const signup = "Signup";
+  static const request = "Request";
   static const noAccount = "Don't have an account?";
   static const incorrect = "Email or password is incorrect";
   static const selectImage = "Please select image";
+  static const yourDoc = "Your Doctor";
+  static const selectDoc = "Select Doctor";
+  static const reasonAppointment = "Reason of appointment";
 }

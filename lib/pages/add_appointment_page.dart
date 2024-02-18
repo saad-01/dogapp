@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/svg_box.dart';
 import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/app_colors.dart';
@@ -14,6 +15,8 @@ class AddAppointmentPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final QueryDocumentSnapshot<Object> arguments = Get.arguments;
+    final doc = arguments;
     return Scaffold(
       body: SafeArea(
           child: Container(
@@ -35,7 +38,10 @@ class AddAppointmentPage extends StatelessWidget {
                     children: [
                       SvgBox(
                         imagePath: AssetImages.injectionImage,
-                        onPress: () {},
+                        onPress: () {
+                          Get.toNamed(RouteName.vaccinationReportPage,
+                              arguments: doc);
+                        },
                         title: AppStrings.vaccination,
                       ),
                       const SizedBox(
@@ -43,7 +49,10 @@ class AddAppointmentPage extends StatelessWidget {
                       ),
                       SvgBox(
                         imagePath: AssetImages.antiParasite,
-                        onPress: () {},
+                        onPress: () {
+                          Get.toNamed(RouteName.antiParasitePage,
+                              arguments: doc);
+                        },
                         title: AppStrings.antiparasitic,
                       ),
                     ],
@@ -56,7 +65,9 @@ class AddAppointmentPage extends StatelessWidget {
                     children: [
                       SvgBox(
                         imagePath: AssetImages.medImage,
-                        onPress: () {},
+                        onPress: () {
+                          Get.toNamed(RouteName.medicinePage, arguments: doc);
+                        },
                         title: AppStrings.medicine,
                       ),
                       const SizedBox(
@@ -64,7 +75,9 @@ class AddAppointmentPage extends StatelessWidget {
                       ),
                       SvgBox(
                         imagePath: AssetImages.symptoms,
-                        onPress: () {},
+                        onPress: () {
+                          Get.toNamed(RouteName.symptomsPage, arguments: doc);
+                        },
                         title: AppStrings.symptoms,
                       ),
                     ],
@@ -77,7 +90,9 @@ class AddAppointmentPage extends StatelessWidget {
                     children: [
                       SvgBox(
                         imagePath: AssetImages.vetImage,
-                        onPress: () {},
+                        onPress: () {
+                          Get.toNamed(RouteName.vetVisitPage, arguments: doc);
+                        },
                         title: AppStrings.vetVisit,
                       ),
                       const SizedBox(
@@ -85,7 +100,10 @@ class AddAppointmentPage extends StatelessWidget {
                       ),
                       SvgBox(
                         imagePath: AssetImages.boneMeal,
-                        onPress: () {},
+                        onPress: () {
+                          Get.toNamed(RouteName.otherAppointPage,
+                              arguments: doc);
+                        },
                         title: AppStrings.otherExpert,
                       ),
                     ],
@@ -127,7 +145,6 @@ class AddAppointmentPage extends StatelessWidget {
                       },
                     ),
                   ),
-                  
                   const SizedBox(
                     height: 20,
                   )

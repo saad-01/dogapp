@@ -237,7 +237,8 @@ class DogDetailsPage extends StatelessWidget {
                                 height: 12,
                                 icon: '',
                                 onTap: () {
-                                  Get.toNamed(RouteName.addAppointmentPage);
+                                  Get.toNamed(RouteName.addAppointmentPage,
+                                      arguments: doc);
                                 },
                               ),
                             ),
@@ -312,31 +313,66 @@ class DogDetailsPage extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      AppointmentWidget(
-                          type: AppStrings.vaccination,
-                          name: AppStrings.dogName,
-                          date: AppStrings.dateFormat,
-                          time: AppStrings.time,
-                          image: AssetImages.injectionImage,
-                          title: AppStrings.approved,
-                          onPress: () {
-                            Get.toNamed(RouteName.appointDetailsPage);
-                          },
-                          approvalFlag: true),
-                      const SizedBox(
-                        height: 11,
+                      StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection('appointments')
+                            .where('dogId', isEqualTo: doc['dogId'])
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            // While data is being fetched, show a loading indicator
+                            return const CircularProgressIndicator(
+                              color: AppColors.primaryColor,
+                            );
+                          } else if (snapshot.hasError) {
+                            // If an error occurs during data retrieval, display an error message
+                            return Text('Error: ${snapshot.error}');
+                          } else {
+                            // If data retrieval is successful, build the UI with the fetched data
+                            final List<QueryDocumentSnapshot> docs =
+                                snapshot.data!.docs;
+                            if (docs.isEmpty) {
+                              // Return an empty widget if there are no documents
+                              return Text(
+                                AppStrings.none,
+                                style: Styles.grey16(),
+                              );
+                            }
+                            return Column(
+                              children: docs.map((doc) {
+                                return Column(
+                                  children: [
+                                    AppointmentWidget(
+                                        type:
+                                            "${doc['vaccinationType']}(${doc['type']})",
+                                        name: AppStrings.dogName,
+                                        id: doc['dogId'],
+                                        date: doc['date'],
+                                        time: doc['time'],
+                                        image: doc['type'] == 'vaccination'
+                                            ? AssetImages.injectionImage
+                                            : AssetImages.medImage,
+                                        title: doc['status'],
+                                        onPress: () {
+                                          Get.toNamed(
+                                              RouteName.appointDetailsPage,
+                                              arguments: doc);
+                                        },
+                                        approvalFlag:
+                                            doc['status'] == 'Approved'
+                                                ? true
+                                                : false),
+                                    const SizedBox(
+                                      height: 11,
+                                    ),
+                                  ],
+                                );
+                              }).toList(),
+                            );
+                          }
+                        },
                       ),
-                      AppointmentWidget(
-                          type: AppStrings.medicine,
-                          name: AppStrings.dogName,
-                          date: AppStrings.dateFormat,
-                          time: AppStrings.time,
-                          image: AssetImages.medImage,
-                          title: AppStrings.denied,
-                          onPress: () {
-                            Get.toNamed(RouteName.appointDetailsPage);
-                          },
-                          approvalFlag: false),
                     ],
                   ))),
                   SingleChildScrollView(
@@ -411,9 +447,7 @@ class DogDetailsPage extends StatelessWidget {
                                         title: AppStrings.shareRecord,
                                         icon: AssetImages.shareIcon,
                                         primaryAlike: true,
-                                        onPress: () {
-                                          
-                                        },
+                                        onPress: () {},
                                         color: AppColors.shareBtnClr,
                                       ),
                                     ],
@@ -671,9 +705,9 @@ class DogDetailsPage extends StatelessWidget {
                                 width: 180,
                                 height: 12,
                                 onTap: () {
-                                            Get.toNamed(RouteName.editDogPage,
-                                                arguments: doc);
-                                          },
+                                  Get.toNamed(RouteName.editDogPage,
+                                      arguments: doc);
+                                },
                                 icon: AssetImages.editWhite),
                             const SizedBox(
                               height: 20,

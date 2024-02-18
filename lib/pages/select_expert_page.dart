@@ -45,7 +45,9 @@ class SelectExpertPage extends StatelessWidget {
                         ImageBox(
                           imagePath: AssetImages.trainExpert,
                           onPress: () {
-                            Get.toNamed(RouteName.findTrainExpertPage);
+                            Get.offNamed(RouteName.listExpertPage,
+                                arguments: 'Training');
+                            // Get.offNamed(RouteName.findTrainExpertPage);
                           },
                           title: AppStrings.trainExpert,
                         ),
@@ -55,7 +57,8 @@ class SelectExpertPage extends StatelessWidget {
                         ImageBox(
                           imagePath: AssetImages.physioExpert,
                           onPress: () {
-                            Get.toNamed(RouteName.listExpertPage);
+                            Get.offNamed(RouteName.listExpertPage,
+                                arguments: AppStrings.physioExpert);
                           },
                           title: AppStrings.physioExpert,
                         ),
@@ -70,7 +73,8 @@ class SelectExpertPage extends StatelessWidget {
                         ImageBox(
                           imagePath: AssetImages.nutriExpert,
                           onPress: () {
-                            Get.toNamed(RouteName.listExpertPage);
+                            Get.offNamed(RouteName.listExpertPage,
+                                arguments: AppStrings.nutriExpert);
                           },
                           title: AppStrings.nutriExpert,
                         ),
@@ -80,7 +84,8 @@ class SelectExpertPage extends StatelessWidget {
                         ImageBox(
                           imagePath: AssetImages.vetExpert,
                           onPress: () {
-                            Get.toNamed(RouteName.listExpertPage);
+                            Get.offNamed(RouteName.listExpertPage,
+                                arguments: AppStrings.vetExpert);
                           },
                           title: AppStrings.vetExpert,
                         ),
@@ -95,12 +100,10 @@ class SelectExpertPage extends StatelessWidget {
                         ImageBox(
                           imagePath: AssetImages.otherExpert,
                           onPress: () {
-                            Get.toNamed(RouteName.listExpertPage);
+                            Get.offNamed(RouteName.listExpertPage,
+                                arguments: 'other');
                           },
                           title: AppStrings.otherExpert,
-                        ),
-                        const SizedBox(
-                          width: 170,
                         ),
                       ],
                     ),

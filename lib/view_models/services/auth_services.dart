@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:dogapp/models/user_model.dart' as model;
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import '../../models/user_model.dart';
+import '../../models/expert_model.dart' as model_ex;
 import 'storage_services.dart';
 
 class AuthMethods {
@@ -45,14 +45,14 @@ class AuthMethods {
           email: email,
           password: password,
         );
-        String photoUrl='';
-        if (file!=null) {
+        String photoUrl = '';
+        if (file != null) {
           photoUrl = await StorageMethods()
-            .uploadImageToStorage('profilePics', file, false);
+              .uploadImageToStorage('profilePics', file, false);
         } else {
-          photoUrl ='https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png';
+          photoUrl =
+              'https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png';
         }
-        
 
         model.UserModel user = model.UserModel(
           name: name,
@@ -80,6 +80,67 @@ class AuthMethods {
     return res;
   }
 
+  Future<String> signUpExpert({
+    required String email,
+    required String password,
+    required String name,
+    required String date,
+    required String number,
+    required String qualification,
+    required String speciality,
+    required String role,
+    XFile? file,
+  }) async {
+    String res = "Some error Occurred";
+    try {
+      if (email.isNotEmpty &&
+          password.isNotEmpty &&
+          name.isNotEmpty &&
+          date.isNotEmpty &&
+          number.isNotEmpty &&
+          speciality.isNotEmpty) {
+        // registering user in auth with email and password
+        UserCredential cred = await _auth.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+        String photoUrl = '';
+        if (file != null) {
+          photoUrl = await StorageMethods()
+              .uploadImageToStorage('profilePics', file, false);
+        } else {
+          photoUrl =
+              'https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png';
+        }
+
+        model_ex.ExpertModel expert = model_ex.ExpertModel(
+          name: name,
+          id: cred.user!.uid,
+          photoUrl: photoUrl,
+          email: email,
+          date: date,
+          phoneNumber: number,
+          role: role,
+          qualification: qualification,
+          speciality: speciality,
+        );
+
+        // adding user in our database
+        await _firestore
+            .collection("users")
+            .doc(cred.user!.uid)
+            .set(expert.toJson());
+
+        res = "success";
+      } else {
+        res = "Please enter all the fields";
+      }
+    } catch (err) {
+      return err.toString();
+    }
+    return res;
+  }
+
   // logging in user
   Future<String> loginUser({
     required String email,
@@ -87,38 +148,17 @@ class AuthMethods {
   }) async {
     String res = "Some error Occurred";
     try {
-      if (email.isNotEmpty || password.isNotEmpty) {
+      if (email.isNotEmpty && password.isNotEmpty) {
         // logging in user with email and password
 
         UserCredential userCredential = await _auth.signInWithEmailAndPassword(
           email: email,
           password: password,
         );
-
-        // Access the user's UID
         String uid = userCredential.user!.uid;
-        var userSnap =
-            await FirebaseFirestore.instance.collection('users').doc(uid).get();
-        var userData = {};
-        userData = userSnap.data()!;
-        var role = userData['role'];
-        UserModel user = model.UserModel(
-            photoUrl: userData['photoUrl'],
-            date: userData['date'],
-            role: userData['role'],
-            phoneNumber: userData['phoneNumber'],
-            name: userData['name'],
-            id: userData['uid'],
-            email: userData['email']);
         SharedPref pref = SharedPref();
         await pref.saveUidToSharedPreferences(uid);
-        await pref.saveUser(user);
-        if (role == 'parent') {
-          Get.offAllNamed(RouteName.parentDashboardPage);
-        } else {
-          Get.offAll(RouteName.expertDashboardPage);
-        }
-        res = "success";
+        res = 'success';
       } else {
         res = "Please enter all the fields";
       }
@@ -132,7 +172,7 @@ class AuthMethods {
     SharedPref pref = SharedPref();
     await pref.removeUser();
     await _auth.signOut();
-    Get.offAllNamed(RouteName.loginPage);
+    Get.offAllNamed(RouteName.introPage);
   }
 
   Future<void> isLogin() async {

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/assets.dart';
@@ -5,9 +6,36 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
-class AppointmentDetailPage extends StatelessWidget {
+import '../components/requested_widget.dart';
+
+class AppointmentDetailPage extends StatefulWidget {
   const AppointmentDetailPage({super.key});
+
+  @override
+  State<AppointmentDetailPage> createState() => _AppointmentDetailPageState();
+}
+
+class _AppointmentDetailPageState extends State<AppointmentDetailPage> {
+  final QueryDocumentSnapshot<Object> doc = Get.arguments;
+  RxString name = ''.obs;
+  getDogName(String id) async {
+    DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
+        .instance
+        .collection(
+            'dogs') // Replace 'your_collection' with your collection name
+        .doc(id) // Replace 'your_document_id' with your document ID
+        .get();
+    dynamic fieldValue = snapshot.get('name');
+    name.value = fieldValue.toString();
+  }
+
+  @override
+  void initState() {
+    getDogName(doc['dogId']);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +94,7 @@ class AppointmentDetailPage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "Affenpinscher",
+                          doc['vaccinationType'],
                           style: Styles.expertSignupPaget1(),
                         ),
                         const SizedBox(
@@ -78,7 +106,7 @@ class AppointmentDetailPage extends StatelessWidget {
                             Text('${AppStrings.appointType}:',
                                 style: Styles.grey14()),
                             Text(
-                              AppStrings.vaccination,
+                              doc['type'],
                               style: Styles.black14(),
                             ),
                           ],
@@ -90,9 +118,11 @@ class AppointmentDetailPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text('${AppStrings.pet}:', style: Styles.grey14()),
-                            Text(
-                              AppStrings.dogNameH,
-                              style: Styles.black14(),
+                            Obx(
+                              () => Text(
+                                name.value,
+                                style: Styles.black14(),
+                              ),
                             ),
                           ],
                         ),
@@ -104,7 +134,7 @@ class AppointmentDetailPage extends StatelessWidget {
                           children: [
                             Text('${AppStrings.date}:', style: Styles.grey14()),
                             Text(
-                              AppStrings.dateFormat,
+                              doc['date'],
                               style: Styles.black14(),
                             ),
                           ],
@@ -122,7 +152,7 @@ class AppointmentDetailPage extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Text(
-                                AppStrings.note,
+                                doc['notes'],
                                 style: Styles.choosePageText(),
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
@@ -133,8 +163,15 @@ class AppointmentDetailPage extends StatelessWidget {
                         const SizedBox(
                           height: 5,
                         ),
-                        const StatusItem(
-                            title: AppStrings.approved, approval: true)
+                        if (doc['status'] != 'Requested')
+                          StatusItem(
+                              title: doc['status'],
+                              approval:
+                                  doc['status'] == 'Approved' ? true : false),
+                        if (doc['status'] == 'Requested')
+                          RequestedWidget(
+                            title: doc['status'],
+                          ),
                       ],
                     ),
                   ),
@@ -146,7 +183,6 @@ class AppointmentDetailPage extends StatelessWidget {
                     child: SvgPicture.asset(AssetImages.injectionLg))
               ],
             ),
-          
           ],
         ),
       )),

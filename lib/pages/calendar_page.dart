@@ -15,10 +15,6 @@ class CalendarPage extends StatefulWidget {
 }
 
 class _CalendarPageState extends State<CalendarPage> {
-  List<String> eventsList = [
-    '10 am - 11 am: Dog\'s Race, Friendly Match',
-    '12 pm: Lunch with John',
-  ];
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _selectedDate = DateTime.now();
   DateTime _focusedDay = DateTime.now();

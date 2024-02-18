@@ -78,4 +78,9 @@ class RouteName {
   static const String editFoodPage = '/edit_food_page';
   static const String editDogPage = '/edit_dog_page';
   static const String dayPage = '/day_page';
+  static const String antiParasitePage = '/antiparasite_page';
+  static const String medicinePage = '/medicine_page';
+  static const String symptomsPage = '/symptoms_page';
+  static const String vetVisitPage = '/vet_visit_page';
+  static const String otherAppointPage = '/other_appoint_page';
 }

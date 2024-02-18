@@ -1,4 +1,5 @@
 import 'package:dogapp/components/textfield.dart';
+import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/view_models/login_model.dart';
 import 'package:flutter/material.dart';
 import 'package:dogapp/utils/assets.dart';
@@ -204,10 +205,8 @@ class _LoginPageState extends State<LoginPage> {
                               title: AppStrings.login,
                               clr: AppColors.yellowColor,
                               showIcon: false,
-                              onPress: () {
-                                if (_formkey.currentState!.validate()) {
-                                  loginVM.loginUser();
-                                }
+                              onPress: () async {
+                                await loginVM.loginUser();
                               },
                               loading: loginVM.loading.value,
                             ),
@@ -229,7 +228,7 @@ class _LoginPageState extends State<LoginPage> {
                                 padding: const EdgeInsets.all(8.0),
                                 child: GestureDetector(
                                   onTap: () {
-                                    Get.back();
+                                    Get.toNamed(RouteName.chooseProfilePage);
                                   },
                                   child: Text(
                                     AppStrings.signup.toUpperCase(),
