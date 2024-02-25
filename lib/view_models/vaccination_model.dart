@@ -201,6 +201,7 @@ class VaccinationModel extends GetxController {
           'parentId': FirebaseAuth.instance.currentUser!.uid,
           'dogId': dogId.value,
           'id': id,
+           'releaseFlag': false,
           'urls': jsonEncode(urls),
         });
         loading.value = false;

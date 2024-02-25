@@ -291,11 +291,11 @@ class ExpertProfilePage extends StatelessWidget {
                                   visible: showHealth.value,
                                   child: const Column(
                                     children: [
-                                      FileItem(),
-                                      SizedBox(
-                                        height: 8,
-                                      ),
-                                      FileItem(),
+                                      // FileItem(),
+                                      // SizedBox(
+                                      //   height: 8,
+                                      // ),
+                                      // FileItem(),
                                     ],
                                   )),
                             ),

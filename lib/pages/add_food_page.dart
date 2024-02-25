@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/utils/assets.dart';
@@ -12,8 +11,8 @@ import '../components/textfield.dart';
 import '../utils/styles.dart';
 
 class AddFoodPage extends StatefulWidget {
-  AddFoodPage({super.key});
-  final QueryDocumentSnapshot<Object> arguments = Get.arguments;
+  const AddFoodPage({super.key});
+
   @override
   State<AddFoodPage> createState() => _AddFoodPageState();
 }
@@ -21,9 +20,9 @@ class AddFoodPage extends StatefulWidget {
 class _AddFoodPageState extends State<AddFoodPage> {
   final foodVM = Get.put(FoodModel());
   final formkey = GlobalKey<FormState>();
+  final doc = Get.arguments;
   @override
   Widget build(BuildContext context) {
-    final doc = widget.arguments;
     return Scaffold(
       body: SafeArea(
           child: Container(

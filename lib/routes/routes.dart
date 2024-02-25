@@ -223,7 +223,7 @@ class AppRoutes {
         ),
         GetPage(
           name: RouteName.fileDetailsPage,
-          page: () => FileDetailsPage(),
+          page: () => const FileDetailsPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.rightToLeft,
         ),

@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/appbar.dart';
+import 'package:dogapp/components/pic_container.dart';
 import 'package:dogapp/components/primary_btn.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:dogapp/components/expertDashboard_btn.dart';
 import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
@@ -10,9 +12,45 @@ import 'package:get/get.dart';
 import '../utils/app_colors.dart';
 import '../utils/assets.dart';
 
-class FileDetailsPage extends StatelessWidget {
-  FileDetailsPage({super.key});
-  final String status = Get.arguments;
+class FileDetailsPage extends StatefulWidget {
+  const FileDetailsPage({super.key});
+
+  @override
+  State<FileDetailsPage> createState() => _FileDetailsPageState();
+}
+
+class _FileDetailsPageState extends State<FileDetailsPage> {
+  final Map arguments = Get.arguments;
+  dynamic doc;
+  String vaccType = '';
+  String type = '';
+  String image = '';
+  dynamic dog;
+  @override
+  void initState() {
+    doc = arguments['document'];
+    dog = arguments['dog'];
+    vaccType = doc['vaccinationType'];
+    type = doc['type'];
+    if (vaccType.isEmpty) {
+      vaccType = doc['reason'];
+    }
+    if (type == 'vaccination') {
+      image = AssetImages.injectionImage;
+    } else if (type == 'medicine') {
+      image = AssetImages.medImage;
+    } else if (type == 'other') {
+      image = AssetImages.boneMeal;
+    } else if (type == 'symptoms') {
+      image = AssetImages.symptoms;
+    } else if (type == 'vet') {
+      image = AssetImages.vetImage;
+    } else {
+      image = AssetImages.antiParasite;
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -24,7 +62,7 @@ class FileDetailsPage extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const CustomAppBar(title: "Dain's File"),
+              CustomAppBar(title: "${dog['name']}'s File"),
               Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -109,17 +147,13 @@ class FileDetailsPage extends StatelessWidget {
                                               MainAxisAlignment.end,
                                           children: [
                                             Text(
-                                              status == 'Approved'
-                                                  ? AppStrings.approved
-                                                  : status == 'Completed'
-                                                      ? AppStrings.completed
-                                                      : '',
+                                              doc['status'],
                                               style: Styles.primary16U(),
                                             )
                                           ],
                                         ),
                                         const SizedBox(
-                                          height: 18,
+                                          height: 10,
                                         ),
                                         const Padding(
                                           padding: EdgeInsets.symmetric(
@@ -129,7 +163,7 @@ class FileDetailsPage extends StatelessWidget {
                                           ),
                                         ),
                                         Text(
-                                          "Affenpinscher",
+                                          vaccType,
                                           style: Styles.expertSignupPaget1(),
                                         ),
                                         const SizedBox(
@@ -142,7 +176,7 @@ class FileDetailsPage extends StatelessWidget {
                                             Text('${AppStrings.appointType}:',
                                                 style: Styles.grey14()),
                                             Text(
-                                              AppStrings.vaccination,
+                                              type,
                                               style: Styles.black14(),
                                             ),
                                           ],
@@ -157,7 +191,7 @@ class FileDetailsPage extends StatelessWidget {
                                             Text('${AppStrings.pet}:',
                                                 style: Styles.grey14()),
                                             Text(
-                                              AppStrings.dogNameH,
+                                              dog['name'],
                                               style: Styles.black14(),
                                             ),
                                           ],
@@ -172,7 +206,7 @@ class FileDetailsPage extends StatelessWidget {
                                             Text('${AppStrings.date}:',
                                                 style: Styles.grey14()),
                                             Text(
-                                              AppStrings.dateFormat,
+                                              doc['date'],
                                               style: Styles.black14(),
                                             ),
                                           ],
@@ -190,7 +224,7 @@ class FileDetailsPage extends StatelessWidget {
                                           children: [
                                             Expanded(
                                               child: Text(
-                                                AppStrings.note,
+                                                doc['notes'],
                                                 style: Styles.choosePageText(),
                                                 maxLines: 2,
                                                 overflow: TextOverflow.ellipsis,
@@ -207,130 +241,145 @@ class FileDetailsPage extends StatelessWidget {
                                     right: 0,
                                     left: 0,
                                     child: SvgPicture.asset(
-                                        AssetImages.injectionLg))
+                                      image,
+                                      width: 100,
+                                    ))
                               ],
                             ),
+                            if (doc['parentId'] ==
+                                FirebaseAuth.instance.currentUser!.uid) ...[
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                children: [
+                                  Text('${AppStrings.comments}:',
+                                      style: Styles.grey14()),
+                                ],
+                              ),
+                              StreamBuilder(
+                                stream: FirebaseFirestore.instance
+                                    .collection('comments')
+                                    .where('appointId', isEqualTo: doc['id'])
+                                    .snapshots(),
+                                builder: (context, snapshot) {
+                                  if (snapshot.connectionState ==
+                                      ConnectionState.waiting) {
+                                    // While data is being fetched, show a loading indicator
+                                    return const CircularProgressIndicator(
+                                      color: AppColors.primaryColor,
+                                    );
+                                  } else if (snapshot.hasError) {
+                                    // If an error occurs during data retrieval, display an error message
+                                    return Text('Error: ${snapshot.error}');
+                                  } else {
+                                    // If data retrieval is successful, build the UI with the fetched data
+                                    final List<QueryDocumentSnapshot> docs =
+                                        snapshot.data!.docs;
+                                    if (docs.isEmpty) {
+                                      // Return an empty widget if there are no documents
+                                      return Text(
+                                        AppStrings.none,
+                                        style: Styles.grey16(),
+                                      );
+                                    }
+                                    return Column(
+                                      children: docs.map((docu) {
+                                        return Column(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Expanded(
+                                                  child: Text(docu['comment'],
+                                                      style: Styles
+                                                          .choosePageText()),
+                                                ),
+                                              ],
+                                            ),
+                                            const SizedBox(
+                                              height: 5,
+                                            ),
+                                          ],
+                                        );
+                                      }).toList(),
+                                    );
+                                  }
+                                },
+                              ),
+                            ],
                             const SizedBox(
                               height: 30,
                             ),
-                            if (status == 'Requested')
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  ExpertDashboardBtn(
-                                    title: AppStrings.reject,
-                                    borderClr: AppColors.redShade,
-                                    height: 53,
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.4,
-                                    bgClr: const Color(0xfff8eeed),
-                                    clr: AppColors.maroonColor,
-                                  ),
-                                  ExpertDashboardBtn(
-                                    title: AppStrings.approve,
-                                    borderClr: AppColors.primaryColor,
-                                    height: 53,
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.4,
-                                    bgClr: const Color(0xFFecf9f6),
-                                    clr: AppColors.primaryColor,
-                                  ),
-                                ],
-                              ),
-                            if (status == 'Approved')
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  ExpertDashboardBtn(
-                                    title: AppStrings.completed,
-                                    borderClr: AppColors.primaryColor,
-                                    height: 53,
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.88,
-                                    leading: AssetImages.thumbsUpIcon,
-                                    trailing: AssetImages.nextPrimaryIcon,
-                                    bgClr: const Color(0xFFecf9f6),
-                                    clr: AppColors.primaryColor,
-                                  ),
-                                ],
-                              ),
-                            if (status == 'Completed') ...[
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  ExpertDashboardBtn(
-                                    title: AppStrings.completed,
-                                    borderClr: AppColors.primaryColor,
-                                    height: 53,
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.88,
-                                    leading: AssetImages.thumbsUpFilled,
-                                    trailing: AssetImages.nextPrimaryIcon,
-                                    bgClr: const Color(0xFFecf9f6),
-                                    clr: AppColors.primaryColor,
-                                  ),
-                                ],
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  Get.toNamed(RouteName.vaccinationReportPage);
-                                },
-                                child: Ink(
-                                  padding: const EdgeInsets.all(20),
-                                  decoration: ShapeDecoration(
-                                    color: AppColors.white,
-                                    shape: RoundedRectangleBorder(
-                                      side: BorderSide(
-                                        width: 0.50,
-                                        color: Colors.black
-                                            .withOpacity(0.11999999731779099),
-                                      ),
-                                      borderRadius: BorderRadius.circular(6),
-                                    ),
-                                    shadows: const [
-                                      BoxShadow(
-                                        color: Color(0x1E000000),
-                                        blurRadius: 8,
-                                        offset: Offset(0, 0),
-                                        spreadRadius: 0,
-                                      )
-                                    ],
-                                  ),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              AppStrings.createFile,
-                                              style:
-                                                  Styles.expertSignupPaget1(),
-                                            ),
-                                            Text(
-                                              AppStrings.informParent,
-                                              style: Styles.choosePageText(),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 20,
-                                      ),
-                                      SvgPicture.asset(AssetImages.createFile),
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ]
+                            // Row(
+                            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            //   children: [
+                            //     ExpertDashboardBtn(
+                            //       title: AppStrings.completed,
+                            //       borderClr: AppColors.primaryColor,
+                            //       height: 53,
+                            //       width:
+                            //           MediaQuery.sizeOf(context).width * 0.88,
+                            //       leading: AssetImages.thumbsUpFilled,
+                            //       trailing: AssetImages.nextPrimaryIcon,
+                            //       bgClr: const Color(0xFFecf9f6),
+                            //       clr: AppColors.primaryColor,
+                            //     ),
+                            //   ],
+                            // ),
+                            // InkWell(
+                            //   onTap: () {
+                            //     Get.toNamed(RouteName.vaccinationReportPage);
+                            //   },
+                            //   child: Ink(
+                            //     padding: const EdgeInsets.all(20),
+                            //     decoration: ShapeDecoration(
+                            //       color: AppColors.white,
+                            //       shape: RoundedRectangleBorder(
+                            //         side: BorderSide(
+                            //           width: 0.50,
+                            //           color: Colors.black
+                            //               .withOpacity(0.11999999731779099),
+                            //         ),
+                            //         borderRadius: BorderRadius.circular(6),
+                            //       ),
+                            //       shadows: const [
+                            //         BoxShadow(
+                            //           color: Color(0x1E000000),
+                            //           blurRadius: 8,
+                            //           offset: Offset(0, 0),
+                            //           spreadRadius: 0,
+                            //         )
+                            //       ],
+                            //     ),
+                            //     child: Row(
+                            //       crossAxisAlignment: CrossAxisAlignment.start,
+                            //       mainAxisAlignment:
+                            //           MainAxisAlignment.spaceBetween,
+                            //       children: [
+                            //         Expanded(
+                            //           child: Column(
+                            //             crossAxisAlignment:
+                            //                 CrossAxisAlignment.start,
+                            //             children: [
+                            //               Text(
+                            //                 AppStrings.createFile,
+                            //                 style: Styles.expertSignupPaget1(),
+                            //               ),
+                            //               Text(
+                            //                 AppStrings.informParent,
+                            //                 style: Styles.choosePageText(),
+                            //               ),
+                            //             ],
+                            //           ),
+                            //         ),
+                            //         const SizedBox(
+                            //           width: 20,
+                            //         ),
+                            //         SvgPicture.asset(AssetImages.createFile),
+                            //       ],
+                            //     ),
+                            //   ),
+                            // )
                           ],
                         ),
                       ),
@@ -386,7 +435,7 @@ class FileDetailsPage extends StatelessWidget {
                                                 Text('${AppStrings.dogName}:',
                                                     style: Styles.grey14()),
                                                 Text(
-                                                  AppStrings.dogNameH,
+                                                  dog['name'],
                                                   style: Styles.black14(),
                                                 ),
                                               ],
@@ -402,7 +451,7 @@ class FileDetailsPage extends StatelessWidget {
                                                 Text('${AppStrings.breed}:',
                                                     style: Styles.grey14()),
                                                 Text(
-                                                  AppStrings.breed,
+                                                  dog['breed'],
                                                   style: Styles.black14(),
                                                 ),
                                               ],
@@ -419,7 +468,7 @@ class FileDetailsPage extends StatelessWidget {
                                                     '${AppStrings.dateOfBirth}:',
                                                     style: Styles.grey14()),
                                                 Text(
-                                                  AppStrings.dateFormat,
+                                                  dog['date'],
                                                   style: Styles.black14(),
                                                 ),
                                               ],
@@ -435,7 +484,7 @@ class FileDetailsPage extends StatelessWidget {
                                                 Text('${AppStrings.gender}:',
                                                     style: Styles.grey14()),
                                                 Text(
-                                                  AppStrings.gender,
+                                                  dog['gender'],
                                                   style: Styles.black14(),
                                                 ),
                                               ],
@@ -451,7 +500,7 @@ class FileDetailsPage extends StatelessWidget {
                                                 Text('${AppStrings.weight}:',
                                                     style: Styles.grey14()),
                                                 Text(
-                                                  AppStrings.weight,
+                                                  dog['weight'],
                                                   style: Styles.black14(),
                                                 ),
                                               ],
@@ -468,7 +517,7 @@ class FileDetailsPage extends StatelessWidget {
                                                     '${AppStrings.microChipNum}:',
                                                     style: Styles.grey14()),
                                                 Text(
-                                                  AppStrings.microChipNum,
+                                                  dog['microchipNumber'],
                                                   style: Styles.black14(),
                                                 ),
                                               ],
@@ -483,14 +532,14 @@ class FileDetailsPage extends StatelessWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  left: 0,
-                                  top: 0,
-                                  right: 0,
-                                  child: SizedBox(
-                                    height: 116,
-                                    width: 116,
-                                    child: Image.asset(
-                                      AssetImages.squareLarge,
+                                  child: Align(
+                                    alignment: Alignment.topCenter,
+                                    child: PicContainer(
+                                      height: 116,
+                                      width: 116,
+                                      child: Image.network(
+                                        dog['photoUrl'],
+                                      ),
                                     ),
                                   ),
                                 )
@@ -511,7 +560,7 @@ class FileDetailsPage extends StatelessWidget {
                   width: MediaQuery.sizeOf(context).width * 0.75,
                   height: 10,
                   onTap: () {
-                    Get.toNamed(RouteName.addCommentsPage);
+                    Get.toNamed(RouteName.addCommentsPage, arguments: doc);
                   },
                   icon: AssetImages.addWhiteIcon)
             ],

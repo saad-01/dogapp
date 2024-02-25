@@ -141,7 +141,7 @@ class AddAppointmentPage extends StatelessWidget {
                         style: Styles.lightgrey8(),
                       ),
                       onTap: () {
-                        Get.toNamed(RouteName.patientFilesPage);
+                        Get.toNamed(RouteName.patientFilesPage, arguments: doc);
                       },
                     ),
                   ),

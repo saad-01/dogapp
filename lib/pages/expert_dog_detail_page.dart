@@ -1,6 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/appoint_widget.dart';
-import 'package:dogapp/components/btn_sm.dart';
 import 'package:dogapp/components/custom_tile.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/components/training_streak.dart';
@@ -14,12 +14,22 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../components/img_with_txt.dart';
+import '../components/pic_container.dart';
 
-class ExpertDogDetailsPage extends StatelessWidget {
+class ExpertDogDetailsPage extends StatefulWidget {
   const ExpertDogDetailsPage({super.key});
 
   @override
+  State<ExpertDogDetailsPage> createState() => _ExpertDogDetailsPageState();
+}
+
+class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
+  final DocumentSnapshot<Object> arguments = Get.arguments;
+
+  @override
   Widget build(BuildContext context) {
+    final doc = arguments;
+    final String weight = doc['weight'];
     return DefaultTabController(
       initialIndex: 0,
       length: 2,
@@ -109,56 +119,70 @@ class ExpertDogDetailsPage extends StatelessWidget {
                               ),
                               child: Column(
                                 children: [
-                                  Text(
-                                    AppStrings.nameCapital,
-                                    style: Styles.expertSignupPaget1(),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        doc['name'],
+                                        style: Styles.expertSignupPaget1(),
+                                      ),
+                                    ],
                                   ),
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  Text(
-                                    AppStrings.releaseDogData,
-                                    style: Styles.expertSignupPaget1(),
-                                  ),
-                                  Text(
-                                    AppStrings.createRelease,
-                                    style: Styles.subText(),
-                                  ),
-                                  const SizedBox(
-                                    height: 15,
-                                  ),
-                                  const Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      ButtonSmall(
-                                          title: AppStrings.editRecord,
-                                          icon: AssetImages.editIcon,
-                                          primaryAlike: false,
-                                          color: AppColors.white),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      ButtonSmall(
-                                        title: AppStrings.shareRecord,
-                                        icon: AssetImages.shareIcon,
-                                        primaryAlike: true,
-                                        color: AppColors.shareBtnClr,
-                                      ),
-                                    ],
-                                  ),
+                                  // Text(
+                                  //   AppStrings.releaseDogData,
+                                  //   style: Styles.expertSignupPaget1(),
+                                  // ),
+                                  // Text(
+                                  //   AppStrings.createRelease,
+                                  //   style: Styles.subText(),
+                                  // ),
+                                  // const SizedBox(
+                                  //   height: 15,
+                                  // ),
+                                  // Row(
+                                  //   mainAxisAlignment: MainAxisAlignment.center,
+                                  //   children: [
+                                  //     ButtonSmall(
+                                  //         title: AppStrings.editRecord,
+                                  //         icon: AssetImages.editIcon,
+                                  //         primaryAlike: false,
+                                  //         onPress: () {
+                                  //           Get.toNamed(RouteName.editDogPage,
+                                  //               arguments: doc);
+                                  //         },
+                                  //         color: AppColors.white),
+                                  //     const SizedBox(
+                                  //       width: 10,
+                                  //     ),
+                                  //     ButtonSmall(
+                                  //       title: AppStrings.shareRecord,
+                                  //       icon: AssetImages.shareIcon,
+                                  //       primaryAlike: true,
+                                  //       onPress: () {},
+                                  //       color: AppColors.shareBtnClr,
+                                  //     ),
+                                  //   ],
+                                  // ),
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                              left: 0,
-                              right: 0,
-                              top: 0,
-                              child: SizedBox(
-                                height: 86,
-                                width: 86,
-                                child: Image.asset(AssetImages.dogItemPng),
-                              ))
+                            child: Align(
+                              alignment: Alignment.topCenter,
+                              child: PicContainer(
+                                width: 94,
+                                height: 94,
+                                child: Image.network(doc['photoUrl']),
+                              ),
+                            ),
+                          )
                         ],
                       ),
                       const SizedBox(
@@ -223,7 +247,8 @@ class ExpertDogDetailsPage extends StatelessWidget {
                                 height: 10,
                                 icon: '',
                                 onTap: () {
-                                  Get.toNamed(RouteName.patientFilesPage);
+                                  Get.toNamed(RouteName.patientFilesPage,
+                                      arguments: doc);
                                 },
                               ),
                             ),
@@ -321,18 +346,18 @@ class ExpertDogDetailsPage extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      CustomTile(
-                        title: AppStrings.makeAnnouncement,
-                        leading: AssetImages.speaker,
-                        trailing: AssetImages.nextBlackIcon,
-                        clr: AppColors.white,
-                        onPress: () {
-                          Get.toNamed(RouteName.makeAnnouncementPage);
-                        },
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
+                      // CustomTile(
+                      //   title: AppStrings.makeAnnouncement,
+                      //   leading: AssetImages.speaker,
+                      //   trailing: AssetImages.nextBlackIcon,
+                      //   clr: AppColors.white,
+                      //   onPress: () {
+                      //     Get.toNamed(RouteName.makeAnnouncementPage);
+                      //   },
+                      // ),
+                      // const SizedBox(
+                      //   height: 30,
+                      // ),
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -343,11 +368,11 @@ class ExpertDogDetailsPage extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const CustomTile(
-                        title: AppStrings.kg,
+                      CustomTile(
+                        title: weight,
                         leading: AssetImages.weightMachine,
                         trailing: AssetImages.addIcon,
-                        clr: Color(0xFFFFF2F9),
+                        clr: const Color(0xFFFFF2F9),
                       ),
                       const SizedBox(
                         height: 30,
@@ -362,39 +387,87 @@ class ExpertDogDetailsPage extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const AppointmentWidget(
-                          type: AppStrings.vaccination,
-                          name: AppStrings.dogName,
-                          date: AppStrings.dateFormat,
-                          time: AppStrings.time,
-                          image: AssetImages.injectionImage,
-                          title: AppStrings.approved,
-                          showStatus: false,
-                          approvalFlag: true),
-                      const SizedBox(
-                        height: 11,
+                      StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection('appointments')
+                            .where('dogId', isEqualTo: doc['dogId'])
+                            .where('releaseFlag', isEqualTo: false)
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            // While data is being fetched, show a loading indicator
+                            return const CircularProgressIndicator(
+                              color: AppColors.primaryColor,
+                            );
+                          } else if (snapshot.hasError) {
+                            // If an error occurs during data retrieval, display an error message
+                            return Text('Error: ${snapshot.error}');
+                          } else {
+                            // If data retrieval is successful, build the UI with the fetched data
+                            final List<QueryDocumentSnapshot> docs =
+                                snapshot.data!.docs;
+                            if (docs.isEmpty) {
+                              // Return an empty widget if there are no documents
+                              return Text(
+                                AppStrings.none,
+                                style: Styles.grey16(),
+                              );
+                            }
+                            return Column(
+                              children: docs.map((doc) {
+                                String vaccType = doc['vaccinationType'];
+                                String type = doc['type'];
+                                String image = '';
+                                if (vaccType.isEmpty) {
+                                  vaccType = doc['reason'];
+                                }
+                                if (type == 'vaccination') {
+                                  image = AssetImages.injectionImage;
+                                } else if (type == 'medicine') {
+                                  image = AssetImages.medImage;
+                                } else if (type == 'other') {
+                                  image = AssetImages.boneMeal;
+                                } else if (type == 'symptoms') {
+                                  image = AssetImages.symptoms;
+                                } else if (type == 'vet') {
+                                  image = AssetImages.vetImage;
+                                } else {
+                                  image = AssetImages.antiParasite;
+                                }
+                                return Column(
+                                  children: [
+                                    AppointmentWidget(
+                                        type: "$vaccType(${doc['type']})",
+                                        name: AppStrings.dogName,
+                                        id: doc['dogId'],
+                                        date: doc['date'],
+                                        time: doc['time'],
+                                        image: image,
+                                        title: doc['status'],
+                                        onPress: () {
+                                          Get.toNamed(
+                                              RouteName.appointExpertPage,
+                                              arguments: {
+                                                "document": doc,
+                                                "status": doc["status"]
+                                              });
+                                        },
+                                        approvalFlag:
+                                            doc['status'] == 'Approved' ||
+                                                    doc['status'] == 'Completed'
+                                                ? true
+                                                : false),
+                                    const SizedBox(
+                                      height: 11,
+                                    ),
+                                  ],
+                                );
+                              }).toList(),
+                            );
+                          }
+                        },
                       ),
-                      const AppointmentWidget(
-                          type: AppStrings.medicine,
-                          name: AppStrings.dogName,
-                          date: AppStrings.dateFormat,
-                          time: AppStrings.time,
-                          image: AssetImages.medImage,
-                          title: AppStrings.approved,
-                          showStatus: false,
-                          approvalFlag: true),
-                      const SizedBox(
-                        height: 11,
-                      ),
-                      const AppointmentWidget(
-                          type: AppStrings.excercise,
-                          name: AppStrings.dogName,
-                          date: AppStrings.dateFormat,
-                          time: AppStrings.time,
-                          image: AssetImages.excercise,
-                          title: AppStrings.denied,
-                          showStatus: false,
-                          approvalFlag: false),
                     ],
                   ))),
                   SingleChildScrollView(
@@ -407,7 +480,7 @@ class ExpertDogDetailsPage extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 15),
                             child: Container(
                               padding: const EdgeInsets.only(
-                                  top: 75, left: 15, right: 15, bottom: 25),
+                                  top: 25, left: 15, right: 15, bottom: 25),
                               decoration: ShapeDecoration(
                                 color: AppColors.white,
                                 shape: RoundedRectangleBorder(
@@ -429,166 +502,145 @@ class ExpertDogDetailsPage extends StatelessWidget {
                               ),
                               child: Column(
                                 children: [
-                                  Text(
-                                    AppStrings.nameCapital,
-                                    style: Styles.expertSignupPaget1(),
+                                  const SizedBox(
+                                    height: 60,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        doc['name'],
+                                        style: Styles.expertSignupPaget1(),
+                                      ),
+                                    ],
                                   ),
                                   const SizedBox(
                                     height: 10,
-                                  ),
-                                  Text(
-                                    AppStrings.releaseDogData,
-                                    style: Styles.expertSignupPaget1(),
-                                  ),
-                                  Text(
-                                    AppStrings.createRelease,
-                                    style: Styles.subText(),
-                                  ),
-                                  const SizedBox(
-                                    height: 15,
-                                  ),
-                                  const Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      ButtonSmall(
-                                          title: AppStrings.editRecord,
-                                          icon: AssetImages.editIcon,
-                                          primaryAlike: false,
-                                          color: AppColors.white),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      ButtonSmall(
-                                        title: AppStrings.shareRecord,
-                                        icon: AssetImages.shareIcon,
-                                        primaryAlike: true,
-                                        color: AppColors.shareBtnClr,
-                                      ),
-                                    ],
                                   ),
                                 ],
                               ),
                             ),
                           ),
                           Positioned(
-                              left: 0,
-                              right: 0,
-                              top: 0,
-                              child: SizedBox(
-                                height: 86,
-                                width: 86,
-                                child: Image.asset(AssetImages.dogItemPng),
-                              ))
+                            child: Align(
+                              alignment: Alignment.topCenter,
+                              child: PicContainer(
+                                width: 94,
+                                height: 94,
+                                child: Image.network(doc['photoUrl']),
+                              ),
+                            ),
+                          )
                         ],
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(AppStrings.filesFromExpert,
-                                  style: Styles.expertSignupPaget1()),
-                              Text(AppStrings.releaseFiles,
-                                  style: Styles.lightGrey12()),
-                            ],
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Get.toNamed(RouteName.selectReportPage,
-                                  arguments: false);
-                            },
-                            child: Row(
-                              children: [
-                                Text(
-                                  AppStrings.seeAll,
-                                  style: Styles.subYellowText(),
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                SvgPicture.asset(AssetImages.nextYellowIcon)
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(15),
-                        decoration: ShapeDecoration(
-                          color: const Color(0xFFFFFAF2),
-                          shape: RoundedRectangleBorder(
-                            side: const BorderSide(
-                                width: 0.50, color: Color(0x3F737373)),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          shadows: const [
-                            BoxShadow(
-                              color: Color(0x0F000000),
-                              blurRadius: 6,
-                              offset: Offset(-2, 2),
-                              spreadRadius: 0,
-                            )
-                          ],
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              width: 86,
-                              height: 86,
-                              decoration: ShapeDecoration(
-                                image: const DecorationImage(
-                                  image: AssetImage(AssetImages.dogItem),
-                                  fit: BoxFit.cover,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  side: const BorderSide(
-                                      width: 1.50, color: Color(0xFF1FAB89)),
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    AppStrings.nameCapital,
-                                    style: Styles.expertSignupPaget1(),
-                                  ),
-                                  Text(
-                                    "Leptospirosis(${AppStrings.vaccination})",
-                                    style: Styles.subPrimaryText(),
-                                  ),
-                                  const SizedBox(
-                                    height: 8,
-                                  ),
-                                  Text(
-                                    AppStrings.note,
-                                    style: Styles.noteTxt(),
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SvgPicture.asset(AssetImages.slider),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //   children: [
+                      //     Column(
+                      //       crossAxisAlignment: CrossAxisAlignment.start,
+                      //       children: [
+                      //         Text(AppStrings.filesFromExpert,
+                      //             style: Styles.expertSignupPaget1()),
+                      //         Text(AppStrings.releaseFiles,
+                      //             style: Styles.lightGrey12()),
+                      //       ],
+                      //     ),
+                      //     InkWell(
+                      //       onTap: () {
+                      //         Get.toNamed(RouteName.selectReportPage,
+                      //             arguments: false);
+                      //       },
+                      //       child: Row(
+                      //         children: [
+                      //           Text(
+                      //             AppStrings.seeAll,
+                      //             style: Styles.subYellowText(),
+                      //           ),
+                      //           const SizedBox(
+                      //             width: 10,
+                      //           ),
+                      //           SvgPicture.asset(AssetImages.nextYellowIcon)
+                      //         ],
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
+                      // const SizedBox(
+                      //   height: 15,
+                      // ),
+                      // Container(
+                      //   padding: const EdgeInsets.all(15),
+                      //   decoration: ShapeDecoration(
+                      //     color: const Color(0xFFFFFAF2),
+                      //     shape: RoundedRectangleBorder(
+                      //       side: const BorderSide(
+                      //           width: 0.50, color: Color(0x3F737373)),
+                      //       borderRadius: BorderRadius.circular(8),
+                      //     ),
+                      //     shadows: const [
+                      //       BoxShadow(
+                      //         color: Color(0x0F000000),
+                      //         blurRadius: 6,
+                      //         offset: Offset(-2, 2),
+                      //         spreadRadius: 0,
+                      //       )
+                      //     ],
+                      //   ),
+                      //   child: Row(
+                      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //     children: [
+                      //       Container(
+                      //         width: 86,
+                      //         height: 86,
+                      //         decoration: ShapeDecoration(
+                      //           image: const DecorationImage(
+                      //             image: AssetImage(AssetImages.dogItem),
+                      //             fit: BoxFit.cover,
+                      //           ),
+                      //           shape: RoundedRectangleBorder(
+                      //             side: const BorderSide(
+                      //                 width: 1.50, color: Color(0xFF1FAB89)),
+                      //             borderRadius: BorderRadius.circular(6),
+                      //           ),
+                      //         ),
+                      //       ),
+                      //       const SizedBox(
+                      //         width: 10,
+                      //       ),
+                      //       Expanded(
+                      //         child: Column(
+                      //           crossAxisAlignment: CrossAxisAlignment.start,
+                      //           children: [
+                      //             Text(
+                      //               AppStrings.nameCapital,
+                      //               style: Styles.expertSignupPaget1(),
+                      //             ),
+                      //             Text(
+                      //               "Leptospirosis(${AppStrings.vaccination})",
+                      //               style: Styles.subPrimaryText(),
+                      //             ),
+                      //             const SizedBox(
+                      //               height: 8,
+                      //             ),
+                      //             Text(
+                      //               AppStrings.note,
+                      //               style: Styles.noteTxt(),
+                      //               maxLines: 2,
+                      //               overflow: TextOverflow.ellipsis,
+                      //             ),
+                      //           ],
+                      //         ),
+                      //       )
+                      //     ],
+                      //   ),
+                      // ),
+                      // const SizedBox(
+                      //   height: 20,
+                      // ),
+                      // SvgPicture.asset(AssetImages.slider),
                       const SizedBox(
                         height: 20,
                       ),
@@ -628,7 +680,7 @@ class ExpertDogDetailsPage extends StatelessWidget {
                                     Text('${AppStrings.dogName}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.dogNameH,
+                                      doc['name'],
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -643,7 +695,7 @@ class ExpertDogDetailsPage extends StatelessWidget {
                                     Text('${AppStrings.breed}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.breed,
+                                      doc['breed'],
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -658,7 +710,7 @@ class ExpertDogDetailsPage extends StatelessWidget {
                                     Text('${AppStrings.dateOfBirth}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.dateFormat,
+                                      doc['date'],
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -673,7 +725,7 @@ class ExpertDogDetailsPage extends StatelessWidget {
                                     Text('${AppStrings.gender}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.gender,
+                                      doc['gender'],
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -688,7 +740,7 @@ class ExpertDogDetailsPage extends StatelessWidget {
                                     Text('${AppStrings.weight}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.weight,
+                                      doc['weight'],
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -703,7 +755,7 @@ class ExpertDogDetailsPage extends StatelessWidget {
                                     Text('${AppStrings.microChipNum}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.microChipNum,
+                                      doc['microchipNumber'],
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -713,14 +765,18 @@ class ExpertDogDetailsPage extends StatelessWidget {
                             const SizedBox(
                               height: 40,
                             ),
-                            const PrimartyButton(
-                                title: AppStrings.editProfile,
-                                width: 180,
-                                height: 12,
-                                icon: AssetImages.editWhite),
-                            const SizedBox(
-                              height: 20,
-                            ),
+                            // PrimartyButton(
+                            //     title: AppStrings.editProfile,
+                            //     width: 180,
+                            //     height: 12,
+                            //     onTap: () {
+                            //       Get.toNamed(RouteName.editDogPage,
+                            //           arguments: doc);
+                            //     },
+                            //     icon: AssetImages.editWhite),
+                            // const SizedBox(
+                            //   height: 20,
+                            // ),
                           ],
                         ),
                       )

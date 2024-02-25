@@ -34,6 +34,7 @@ class _AppointmentDetailPageState extends State<AppointmentDetailPage> {
   @override
   void initState() {
     getDogName(doc['dogId']);
+   
     super.initState();
   }
 

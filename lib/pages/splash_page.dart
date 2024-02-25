@@ -30,17 +30,33 @@ class _SplashPageState extends State<SplashPage> {
     notificationServices.isTokenRefresh();
     notificationServices.getDeviceToken().then((value) async {
       final FirebaseFirestore firestore = FirebaseFirestore.instance;
-      String id = const Uuid().v1();
-      await firestore.collection("tokens").doc(id).set({
-        'token': value,
-      });
-      if (kDebugMode) {
-        print('Device Token');
-      }
-      if (kDebugMode) {
-        print(value);
+
+      // Query the Firestore collection to check if the token exists
+      QuerySnapshot tokenSnapshot = await firestore
+          .collection("tokens")
+          .where('token', isEqualTo: value)
+          .get();
+
+      // If the token doesn't exist in the database, insert it
+      if (tokenSnapshot.docs.isEmpty) {
+        String id = const Uuid().v1();
+
+        await firestore.collection("tokens").doc(id).set({
+          'token': value,
+        });
+
+        if (kDebugMode) {
+          print('Device Token');
+          print(value);
+        }
+      } else {
+        // Token already exists, handle as needed
+        if (kDebugMode) {
+          print('Token already exists');
+        }
       }
     });
+
     // await FirebaseAPIServices().sendPushNotifications(
     //     title: "add values", body: "add values", token: tokens);
   }

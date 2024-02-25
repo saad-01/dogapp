@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/utils/assets.dart';
@@ -18,7 +17,7 @@ class EditFoodPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final foodVM = Get.put(EditFoodModel());
-    final QueryDocumentSnapshot<Object> arguments = Get.arguments;
+    final arguments = Get.arguments;
     final doc = arguments;
 
     foodVM.foodNameController.value =

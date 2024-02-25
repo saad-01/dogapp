@@ -317,6 +317,7 @@ class DogDetailsPage extends StatelessWidget {
                         stream: FirebaseFirestore.instance
                             .collection('appointments')
                             .where('dogId', isEqualTo: doc['dogId'])
+                            .where('releaseFlag',isEqualTo: false)
                             .snapshots(),
                         builder: (context, snapshot) {
                           if (snapshot.connectionState ==
@@ -341,18 +342,34 @@ class DogDetailsPage extends StatelessWidget {
                             }
                             return Column(
                               children: docs.map((doc) {
+                                String vaccType = doc['vaccinationType'];
+                                String type = doc['type'];
+                                String image = '';
+                                if (vaccType.isEmpty) {
+                                  vaccType = doc['reason'];
+                                }
+                                if (type == 'vaccination') {
+                                  image = AssetImages.injectionImage;
+                                } else if (type == 'medicine') {
+                                  image = AssetImages.medImage;
+                                } else if (type == 'other') {
+                                  image = AssetImages.boneMeal;
+                                } else if (type == 'symptoms') {
+                                  image = AssetImages.symptoms;
+                                } else if (type == 'vet') {
+                                  image = AssetImages.vetImage;
+                                } else {
+                                  image = AssetImages.antiParasite;
+                                }
                                 return Column(
                                   children: [
                                     AppointmentWidget(
-                                        type:
-                                            "${doc['vaccinationType']}(${doc['type']})",
+                                        type: "$vaccType(${doc['type']})",
                                         name: AppStrings.dogName,
                                         id: doc['dogId'],
                                         date: doc['date'],
                                         time: doc['time'],
-                                        image: doc['type'] == 'vaccination'
-                                            ? AssetImages.injectionImage
-                                            : AssetImages.medImage,
+                                        image: image,
                                         title: doc['status'],
                                         onPress: () {
                                           Get.toNamed(
@@ -360,7 +377,7 @@ class DogDetailsPage extends StatelessWidget {
                                               arguments: doc);
                                         },
                                         approvalFlag:
-                                            doc['status'] == 'Approved'
+                                            doc['status'] == 'Approved' || doc['status'] == 'Completed'
                                                 ? true
                                                 : false),
                                     const SizedBox(

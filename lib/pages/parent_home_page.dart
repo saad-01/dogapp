@@ -193,6 +193,7 @@ class _ParentHomePageState extends State<ParentHomePage> {
                   .collection('appointments')
                   .where('parentId',
                       isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+                      .where('releaseFlag', isEqualTo: false)
                   .snapshots(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
@@ -250,8 +251,10 @@ class _ParentHomePageState extends State<ParentHomePage> {
                                 Get.toNamed(RouteName.appointDetailsPage,
                                     arguments: doc);
                               },
-                              approvalFlag:
-                                  doc['status'] == 'Approved' ? true : false),
+                              approvalFlag: doc['status'] == 'Approved' ||
+                                      doc['status'] == 'Completed'
+                                  ? true
+                                  : false),
                           const SizedBox(
                             height: 11,
                           ),

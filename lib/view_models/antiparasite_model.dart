@@ -191,6 +191,7 @@ class AnitParasiteModel extends GetxController {
           'dogId': dogId.value,
           'id': id,
           'vaccinationType': '',
+          'releaseFlag': false,
           'urls': jsonEncode(urls),
         });
         loading.value = false;

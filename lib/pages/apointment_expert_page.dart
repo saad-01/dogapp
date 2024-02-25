@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/expertDashboard_btn.dart';
-import 'package:dogapp/routes/route_names.dart';
+import 'package:dogapp/components/pic_container.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
+import 'package:dogapp/view_models/appoint_expert_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -9,9 +11,80 @@ import '../components/appbar.dart';
 import '../utils/app_colors.dart';
 import '../utils/assets.dart';
 
-class AppointmentExpertPage extends StatelessWidget {
-  AppointmentExpertPage({super.key});
-  final String status = Get.arguments;
+class AppointmentExpertPage extends StatefulWidget {
+  const AppointmentExpertPage({super.key});
+
+  @override
+  State<AppointmentExpertPage> createState() => _AppointmentExpertPageState();
+}
+
+class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
+  final vm = Get.put(AppointExpertModel());
+
+  String status = '';
+  final Map arguments = Get.arguments;
+  dynamic doc;
+  RxString name = ''.obs;
+  RxString date = ''.obs;
+  String vaccType = '';
+  String type = '';
+  String image = '';
+  RxString breed = ''.obs;
+  RxString microchipNumber = ''.obs;
+  RxString gender = ''.obs;
+  RxString weight = ''.obs;
+  RxString photoUrl =
+      'https://img.freepik.com/free-photo/puppy-that-is-walking-snow_1340-37228.jpg'
+          .obs;
+  getDogName(String id) async {
+    DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
+        .instance
+        .collection(
+            'dogs') // Replace 'your_collection' with your collection name
+        .doc(id) // Replace 'your_document_id' with your document ID
+        .get();
+    dynamic fieldValue = snapshot.get('name');
+    dynamic dateVal = snapshot.get('date');
+    dynamic breedVal = snapshot.get('breed');
+    dynamic microVal = snapshot.get('microchipNumber');
+    dynamic genderVal = snapshot.get('gender');
+    dynamic weightVal = snapshot.get('weight');
+    dynamic photoVal = snapshot.get('photoUrl');
+    name.value = fieldValue.toString();
+    date.value = dateVal.toString();
+    breed.value = breedVal.toString();
+    gender.value = genderVal.toString();
+    microchipNumber.value = microVal.toString();
+    weight.value = weightVal.toString();
+    photoUrl.value = photoVal.toString();
+  }
+
+  @override
+  void initState() {
+    status = arguments['status'];
+    doc = arguments['document'];
+    vaccType = doc['vaccinationType'];
+    type = doc['type'];
+    if (vaccType.isEmpty) {
+      vaccType = doc['reason'];
+    }
+    if (type == 'vaccination') {
+      image = AssetImages.injectionImage;
+    } else if (type == 'medicine') {
+      image = AssetImages.medImage;
+    } else if (type == 'other') {
+      image = AssetImages.boneMeal;
+    } else if (type == 'symptoms') {
+      image = AssetImages.symptoms;
+    } else if (type == 'vet') {
+      image = AssetImages.vetImage;
+    } else {
+      image = AssetImages.antiParasite;
+    }
+    getDogName(doc['dogId']);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -131,7 +204,7 @@ class AppointmentExpertPage extends StatelessWidget {
                                           ),
                                         ),
                                         Text(
-                                          "Affenpinscher",
+                                          vaccType,
                                           style: Styles.expertSignupPaget1(),
                                         ),
                                         const SizedBox(
@@ -144,7 +217,7 @@ class AppointmentExpertPage extends StatelessWidget {
                                             Text('${AppStrings.appointType}:',
                                                 style: Styles.grey14()),
                                             Text(
-                                              AppStrings.vaccination,
+                                              type,
                                               style: Styles.black14(),
                                             ),
                                           ],
@@ -158,9 +231,11 @@ class AppointmentExpertPage extends StatelessWidget {
                                           children: [
                                             Text('${AppStrings.pet}:',
                                                 style: Styles.grey14()),
-                                            Text(
-                                              AppStrings.dogNameH,
-                                              style: Styles.black14(),
+                                            Obx(
+                                              () => Text(
+                                                name.value,
+                                                style: Styles.black14(),
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -174,7 +249,7 @@ class AppointmentExpertPage extends StatelessWidget {
                                             Text('${AppStrings.date}:',
                                                 style: Styles.grey14()),
                                             Text(
-                                              AppStrings.dateFormat,
+                                              doc['date'],
                                               style: Styles.black14(),
                                             ),
                                           ],
@@ -192,7 +267,7 @@ class AppointmentExpertPage extends StatelessWidget {
                                           children: [
                                             Expanded(
                                               child: Text(
-                                                AppStrings.note,
+                                                doc['notes'],
                                                 style: Styles.choosePageText(),
                                                 maxLines: 2,
                                                 overflow: TextOverflow.ellipsis,
@@ -209,7 +284,9 @@ class AppointmentExpertPage extends StatelessWidget {
                                     right: 0,
                                     left: 0,
                                     child: SvgPicture.asset(
-                                        AssetImages.injectionLg))
+                                      image,
+                                      width: 100,
+                                    ))
                               ],
                             ),
                             const SizedBox(
@@ -228,6 +305,9 @@ class AppointmentExpertPage extends StatelessWidget {
                                         MediaQuery.sizeOf(context).width * 0.4,
                                     bgClr: const Color(0xfff8eeed),
                                     clr: AppColors.maroonColor,
+                                    onPress: () {
+                                      vm.updateStatus(doc['id'], 'Rejected');
+                                    },
                                   ),
                                   ExpertDashboardBtn(
                                     title: AppStrings.approve,
@@ -237,6 +317,9 @@ class AppointmentExpertPage extends StatelessWidget {
                                         MediaQuery.sizeOf(context).width * 0.4,
                                     bgClr: const Color(0xFFecf9f6),
                                     clr: AppColors.primaryColor,
+                                    onPress: () {
+                                      vm.updateStatus(doc['id'], 'Approved');
+                                    },
                                   ),
                                 ],
                               ),
@@ -255,6 +338,9 @@ class AppointmentExpertPage extends StatelessWidget {
                                     trailing: AssetImages.nextPrimaryIcon,
                                     bgClr: const Color(0xFFecf9f6),
                                     clr: AppColors.primaryColor,
+                                    onPress: () {
+                                      vm.updateStatus(doc['id'], 'Completed');
+                                    },
                                   ),
                                 ],
                               ),
@@ -278,7 +364,7 @@ class AppointmentExpertPage extends StatelessWidget {
                               ),
                               InkWell(
                                 onTap: () {
-                                  Get.toNamed(RouteName.vaccinationReportPage);
+                                  vm.release(doc['id']);
                                 },
                                 child: Ink(
                                   padding: const EdgeInsets.all(20),
@@ -387,9 +473,11 @@ class AppointmentExpertPage extends StatelessWidget {
                                               children: [
                                                 Text('${AppStrings.dogName}:',
                                                     style: Styles.grey14()),
-                                                Text(
-                                                  AppStrings.dogNameH,
-                                                  style: Styles.black14(),
+                                                Obx(
+                                                  () => Text(
+                                                    name.value,
+                                                    style: Styles.black14(),
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -403,9 +491,11 @@ class AppointmentExpertPage extends StatelessWidget {
                                               children: [
                                                 Text('${AppStrings.breed}:',
                                                     style: Styles.grey14()),
-                                                Text(
-                                                  AppStrings.breed,
-                                                  style: Styles.black14(),
+                                                Obx(
+                                                  () => Text(
+                                                    breed.value,
+                                                    style: Styles.black14(),
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -420,9 +510,11 @@ class AppointmentExpertPage extends StatelessWidget {
                                                 Text(
                                                     '${AppStrings.dateOfBirth}:',
                                                     style: Styles.grey14()),
-                                                Text(
-                                                  AppStrings.dateFormat,
-                                                  style: Styles.black14(),
+                                                Obx(
+                                                  () => Text(
+                                                    date.value,
+                                                    style: Styles.black14(),
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -436,9 +528,11 @@ class AppointmentExpertPage extends StatelessWidget {
                                               children: [
                                                 Text('${AppStrings.gender}:',
                                                     style: Styles.grey14()),
-                                                Text(
-                                                  AppStrings.gender,
-                                                  style: Styles.black14(),
+                                                Obx(
+                                                  () => Text(
+                                                    gender.value,
+                                                    style: Styles.black14(),
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -452,9 +546,11 @@ class AppointmentExpertPage extends StatelessWidget {
                                               children: [
                                                 Text('${AppStrings.weight}:',
                                                     style: Styles.grey14()),
-                                                Text(
-                                                  AppStrings.weight,
-                                                  style: Styles.black14(),
+                                                Obx(
+                                                  () => Text(
+                                                    weight.value,
+                                                    style: Styles.black14(),
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -469,9 +565,11 @@ class AppointmentExpertPage extends StatelessWidget {
                                                 Text(
                                                     '${AppStrings.microChipNum}:',
                                                     style: Styles.grey14()),
-                                                Text(
-                                                  AppStrings.microChipNum,
-                                                  style: Styles.black14(),
+                                                Obx(
+                                                  () => Text(
+                                                    microchipNumber.value,
+                                                    style: Styles.black14(),
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -485,14 +583,14 @@ class AppointmentExpertPage extends StatelessWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  left: 0,
-                                  right: 0,
-                                  top: 0,
-                                  child: SizedBox(
-                                    height: 116,
-                                    width: 116,
-                                    child: Image.asset(
-                                      AssetImages.squareLarge,
+                                  child: Align(
+                                    alignment: Alignment.topCenter,
+                                    child: PicContainer(
+                                      width: 116,
+                                      height: 116,
+                                      child: Obx(() => Image.network(
+                                            photoUrl.value,
+                                          )),
                                     ),
                                   ),
                                 )

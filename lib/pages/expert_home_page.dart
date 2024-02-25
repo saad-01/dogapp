@@ -118,26 +118,30 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
                   .snapshots(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  // While data is being fetched, show a loading indicator
                   return const CircularProgressIndicator(
                     color: AppColors.primaryColor,
                   );
                 }
                 if (snapshot.hasError) {
                   return Text('Error: ${snapshot.error}');
-                  // If an error occurs during data retrieval, display an error message
                 }
+                List<String> dogIds = []; // Store unique dog IDs
                 List<QueryDocumentSnapshot> appointments = snapshot.data!.docs;
-                if (appointments.isEmpty) {
-                  // Return an empty widget if there are no documents
+                // Collect unique dog IDs from appointments
+                appointments.forEach((appointment) {
+                  String dogId = appointment['dogId'];
+                  if (!dogIds.contains(dogId)) {
+                    dogIds.add(dogId);
+                  }
+                });
+                if (dogIds.isEmpty) {
                   return Text(
                     AppStrings.none,
                     style: Styles.grey16(),
                   );
                 }
                 return Column(
-                  children: appointments.map((appointment) {
-                    String dogId = appointment['dogId'];
+                  children: dogIds.map((dogId) {
                     return StreamBuilder<DocumentSnapshot>(
                       stream: FirebaseFirestore.instance
                           .collection('dogs')
@@ -159,7 +163,6 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
                             style: Styles.grey16(),
                           );
                         }
-                        // You can build your custom widget here to display dog details
                         final doc = dogSnapshot.data!;
                         return Column(
                           children: [
@@ -168,7 +171,7 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
                               date: doc['date'],
                               url: doc['photoUrl'],
                               onPress: () {
-                                Get.toNamed(RouteName.dogDetailsPage,
+                                Get.toNamed(RouteName.expertdogDetailsPage,
                                     arguments: doc);
                               },
                             ),
@@ -212,18 +215,18 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
                   AppStrings.requests,
                   style: Styles.expertSignupPaget1(),
                 ),
-                Row(
-                  children: [
-                    Text(
-                      AppStrings.seeAll,
-                      style: Styles.subYellowText(),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    SvgPicture.asset(AssetImages.nextYellowIcon)
-                  ],
-                ),
+                // Row(
+                //   children: [
+                //     Text(
+                //       AppStrings.seeAll,
+                //       style: Styles.subYellowText(),
+                //     ),
+                //     const SizedBox(
+                //       width: 10,
+                //     ),
+                //     // SvgPicture.asset(AssetImages.nextYellowIcon)
+                //   ],
+                // ),
               ],
             ),
             const SizedBox(
@@ -234,6 +237,7 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
                   .collection('appointments')
                   .where('expertId',
                       isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+                  .where('releaseFlag', isEqualTo: false)
                   .snapshots(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
@@ -256,24 +260,46 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
                   }
                   return Column(
                     children: docs.map((doc) {
+                      String vaccType = doc['vaccinationType'];
+                      String type = doc['type'];
+                      String image = '';
+                      if (vaccType.isEmpty) {
+                        vaccType = doc['reason'];
+                      }
+                      if (type == 'vaccination') {
+                        image = AssetImages.injectionImage;
+                      } else if (type == 'medicine') {
+                        image = AssetImages.medImage;
+                      } else if (type == 'other') {
+                        image = AssetImages.boneMeal;
+                      } else if (type == 'symptoms') {
+                        image = AssetImages.symptoms;
+                      } else if (type == 'vet') {
+                        image = AssetImages.vetImage;
+                      } else {
+                        image = AssetImages.antiParasite;
+                      }
                       return Column(
                         children: [
                           AppointmentWidget(
-                              type: "${doc['vaccinationType']}(${doc['type']})",
+                              type: "$vaccType(${doc['type']})",
                               name: AppStrings.dogName,
                               id: doc['dogId'],
                               date: doc['date'],
                               time: doc['time'],
-                              image: doc['type'] == 'vaccination'
-                                  ? AssetImages.injectionImage
-                                  : AssetImages.medImage,
+                              image: image,
                               title: doc['status'],
                               onPress: () {
-                                Get.toNamed(RouteName.appointDetailsPage,
-                                    arguments: doc);
+                                Get.toNamed(RouteName.appointExpertPage,
+                                    arguments: {
+                                      "document": doc,
+                                      "status": doc["status"]
+                                    });
                               },
-                              approvalFlag:
-                                  doc['status'] == 'Approved' ? true : false),
+                              approvalFlag: doc['status'] == 'Approved' ||
+                                      doc['status'] == 'Completed'
+                                  ? true
+                                  : false),
                           const SizedBox(
                             height: 11,
                           ),

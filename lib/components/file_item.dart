@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../utils/app_colors.dart';
 import '../utils/assets.dart';
-import '../utils/strings.dart';
 import '../utils/styles.dart';
 
 class FileItem extends StatelessWidget {
-  const FileItem({super.key, this.onPress});
+  const FileItem({super.key, this.onPress, required this.name, required this.date, required this.time, required this.url, required this.note, required this.vaccType, required this.type});
   final void Function()? onPress;
+  final String name;
+  final String date;
+  final String time;
+  final String url;
+  final String note;
+  final String vaccType;
+  final String type;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -41,8 +47,8 @@ class FileItem extends StatelessWidget {
                   width: 73,
                   height: 73,
                   decoration: ShapeDecoration(
-                    image: const DecorationImage(
-                      image: AssetImage(AssetImages.dogItem),
+                    image: DecorationImage(
+                      image: NetworkImage(url),
                       fit: BoxFit.cover,
                     ),
                     shape: RoundedRectangleBorder(
@@ -56,12 +62,8 @@ class FileItem extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  AppStrings.nameCapital,
+                  name,
                   style: Styles.expertSignupPaget1(),
-                ),
-                Text(
-                  AppStrings.dateFormat,
-                  style: Styles.black10Sub(),
                 ),
               ],
             ),
@@ -77,7 +79,7 @@ class FileItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Leptospirosis(${AppStrings.vaccination})",
+                    "$vaccType($type)",
                     style: Styles.subPrimaryText(),
                   ),
                   const SizedBox(
@@ -87,14 +89,14 @@ class FileItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        AppStrings.dateFormat,
+                        date,
                         style: Styles.appointSub(),
                       ),
                       const SizedBox(
                         width: 15,
                       ),
                       Text(
-                        AppStrings.time,
+                        time,
                         style: Styles.appointSub(),
                       ),
                     ],
@@ -103,7 +105,7 @@ class FileItem extends StatelessWidget {
                     height: 8,
                   ),
                   Text(
-                    AppStrings.healthSub,
+                    note,
                     style: Styles.appointSub(),
                   ),
                 ],
