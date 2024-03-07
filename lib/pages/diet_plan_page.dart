@@ -1,16 +1,25 @@
+import 'dart:convert';
 import 'package:dogapp/components/appbar.dart';
-import 'package:dogapp/components/pdf_file_item.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../utils/app_colors.dart';
 
-class DietPlanPage extends StatelessWidget {
+class DietPlanPage extends StatefulWidget {
   const DietPlanPage({super.key});
 
   @override
+  State<DietPlanPage> createState() => _DietPlanPageState();
+}
+
+class _DietPlanPageState extends State<DietPlanPage> {
+  final doc = Get.arguments;
+
+  @override
   Widget build(BuildContext context) {
+    List<dynamic> timetable = jsonDecode(doc['timeTable']);
     return Scaffold(
       body: SafeArea(
           child: Container(
@@ -32,30 +41,9 @@ class DietPlanPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Lorem ipsum dolor sit amet consectetur. Massa sagittis eget enim mauris sem id diam in. Lorem ipsum dolor sit amet consectetur. Massa sagittis eget enim mauris sem id diam in. Lorem ipsum dolor sit amet consectetur. Massa sagittis eget enim mauris sem id diam in. Lorem ipsum dolor sit amet consectetur. Massa sagittis eget enim mauris sem id diam in. Lorem ipsum dolor sit amet consectetur. Massa sagittis eget enim mauris sem id diam in. Lorem ipsum dolor sit amet consectetur. Massa sagittis eget enim mauris sem id diam in.',
+                      doc['description'],
                       style: Styles.choosePageText(),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      AppStrings.articles,
-                      style: Styles.appBarH1(),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      PdfFileItem(),
-                      PdfFileItem(),
-                      PdfFileItem(),
-                    ],
                   ),
                   const SizedBox(
                     height: 15,
@@ -93,8 +81,8 @@ class DietPlanPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(AppStrings.timing, style: Styles.grey14()),
-                            Text(AppStrings.time, style: Styles.black14()),
+                            Text(AppStrings.startDate, style: Styles.grey14()),
+                            Text(doc['startDate'], style: Styles.black14()),
                           ],
                         ),
                         const SizedBox(
@@ -103,29 +91,101 @@ class DietPlanPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(AppStrings.calories, style: Styles.grey14()),
-                            Text('0000', style: Styles.black14()),
+                            Text(AppStrings.endDate, style: Styles.grey14()),
+                            Text(doc['endDate'], style: Styles.black14()),
                           ],
                         ),
                         const SizedBox(
                           height: 18,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(AppStrings.doze, style: Styles.grey14()),
-                            Text('256lb', style: Styles.black14()),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 18,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(AppStrings.duration, style: Styles.grey14()),
-                            Text('1 Month Daily', style: Styles.black14()),
-                          ],
+                        Column(
+                          children: timetable.map<Widget>((category) {
+                            String categoryName = category['name'];
+                            List<dynamic> foods = category['foods'];
+
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(categoryName, style: Styles.grey14()),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 18,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: foods.map<Widget>((food) {
+                                    String foodName = food['foodName'];
+                                    String quantity = food['quantity'];
+                                    String calories = food['calories'];
+                                    String time = food['time'];
+
+                                    return Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(AppStrings.foodName,
+                                                style: Styles.grey14()),
+                                            Text(foodName,
+                                                style: Styles.black14()),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 18,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(AppStrings.calories,
+                                                style: Styles.grey14()),
+                                            Text(calories,
+                                                style: Styles.black14()),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 18,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(AppStrings.quantity,
+                                                style: Styles.grey14()),
+                                            Text(quantity,
+                                                style: Styles.black14()),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 18,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(AppStrings.timeHeading,
+                                                style: Styles.grey14()),
+                                            Text(time, style: Styles.black14()),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 18,
+                                        ),
+                                      ],
+                                    );
+                                  }).toList(),
+                                ),
+                              ],
+                            );
+                          }).toList(),
                         ),
                       ],
                     ),

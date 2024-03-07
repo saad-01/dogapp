@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
@@ -93,7 +94,9 @@ class FoodModel extends GetxController {
     } catch (e) {
       loading.value =
           false; // Ensure loading is set back to false in case of error
-      print('Error adding data: $e');
+      if (kDebugMode) {
+        print('Error adding data: $e');
+      }
       // Handle error, such as showing an error message to the user
     }
   }

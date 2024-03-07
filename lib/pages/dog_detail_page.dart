@@ -254,7 +254,7 @@ class DogDetailsPage extends StatelessWidget {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                Get.toNamed(RouteName.parentExPage);
+                                Get.toNamed(RouteName.parentExPage,arguments: doc);
                               },
                               child: const ImageWithText(
                                 title: AppStrings.exerciseExpert,

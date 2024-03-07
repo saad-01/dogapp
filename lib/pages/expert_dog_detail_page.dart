@@ -332,7 +332,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                Get.toNamed(RouteName.expertFeedManagePage);
+                                Get.toNamed(RouteName.expertFeedManagePage,arguments: doc);
                               },
                               child: const ImageWithText(
                                 title: AppStrings.feedManage,

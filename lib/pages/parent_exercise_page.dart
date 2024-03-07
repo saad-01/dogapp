@@ -10,9 +10,15 @@ import '../components/custom_tile.dart';
 import '../utils/app_colors.dart';
 import '../utils/assets.dart';
 
-class ParentExercisePage extends StatelessWidget {
+class ParentExercisePage extends StatefulWidget {
   const ParentExercisePage({super.key});
 
+  @override
+  State<ParentExercisePage> createState() => _ParentExercisePageState();
+}
+
+class _ParentExercisePageState extends State<ParentExercisePage> {
+  final doc = Get.arguments;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -119,7 +125,7 @@ class ParentExercisePage extends StatelessWidget {
                               color: Colors.transparent,
                               child: InkWell(
                                 onTap: () {
-                                  Get.toNamed(RouteName.walkPage);
+                                  Get.toNamed(RouteName.walkPage,arguments: doc);
                                 },
                                 borderRadius: BorderRadius.circular(8),
                                 child: Ink(

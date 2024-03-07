@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/appbar.dart';
+import 'package:dogapp/components/diet_plan_widget.dart';
 import 'package:dogapp/components/food_reminder.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/routes/route_names.dart';
@@ -134,7 +135,6 @@ class FeedManagePage extends StatelessWidget {
                         // If data retrieval is successful, build the UI with the fetched data
                         final List<QueryDocumentSnapshot> docs =
                             snapshot.data!.docs;
-                        print(docs);
                         // Check if the list of documents is empty
                         if (docs.isEmpty) {
                           // Return an empty widget if there are no documents
@@ -181,57 +181,54 @@ class FeedManagePage extends StatelessWidget {
                   const SizedBox(
                     height: 15,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Get.toNamed(RouteName.dietPlanPage);
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15, vertical: 18),
-                      height: 101,
-                      decoration: ShapeDecoration(
-                        color: const Color(0xFFFFF9F2),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            width: 0.50,
-                            color:
-                                Colors.black.withOpacity(0.11999999731779099),
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        shadows: const [
-                          BoxShadow(
-                            color: Color(0x0F000000),
-                            blurRadius: 8,
-                            offset: Offset(0, 2),
-                            spreadRadius: 0,
-                          )
-                        ],
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                  StreamBuilder<QuerySnapshot>(
+                    stream: FirebaseFirestore.instance
+                        .collection('dietPlans')
+                        .where('dogId', isEqualTo: doc['dogId'])
+                        .snapshots(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        // While data is being fetched, show a loading indicator
+                        return const CircularProgressIndicator(
+                          color: AppColors.primaryColor,
+                        );
+                      } else if (snapshot.hasError) {
+                        // If an error occurs during data retrieval, display an error message
+                        return Text('Error: ${snapshot.error}');
+                      } else {
+                        // If data retrieval is successful, build the UI with the fetched data
+                        final List<QueryDocumentSnapshot> docs =
+                            snapshot.data!.docs;
+                        // Check if the list of documents is empty
+                        if (docs.isEmpty) {
+                          // Return an empty widget if there are no documents
+                          return Text(
+                            AppStrings.none,
+                            style: Styles.grey16(),
+                          );
+                        }
+
+                        // If there are documents, build the UI with the fetched data
+                        return Column(
+                          children: docs.map((docu) {
+                            return Column(
                               children: [
-                                Text(
-                                  AppStrings.dietPlan,
-                                  style: Styles.expertSignupPaget1(),
+                                DietPlanWidget(
+                                  description: docu['description'],
+                                  onPress: () {
+                                    Get.toNamed(RouteName.dietPlanPage,
+                                        arguments: docu);
+                                  },
                                 ),
-                                Text(
-                                  AppStrings.dietNote,
-                                  style: Styles.grey8(),
-                                )
+                                const SizedBox(
+                                  height: 10,
+                                ),
                               ],
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 35,
-                          ),
-                          SvgPicture.asset(AssetImages.dogFood)
-                        ],
-                      ),
-                    ),
+                            );
+                          }).toList(),
+                        );
+                      }
+                    },
                   ),
                 ],
               ),

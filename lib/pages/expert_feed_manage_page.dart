@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/routes/route_names.dart';
@@ -10,8 +11,15 @@ import 'package:get/get.dart';
 
 import '../utils/styles.dart';
 
-class ExpertFeedPage extends StatelessWidget {
+class ExpertFeedPage extends StatefulWidget {
   const ExpertFeedPage({super.key});
+
+  @override
+  State<ExpertFeedPage> createState() => _ExpertFeedPageState();
+}
+
+class _ExpertFeedPageState extends State<ExpertFeedPage> {
+  final DocumentSnapshot<Object> doc = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +88,7 @@ class ExpertFeedPage extends StatelessWidget {
                                   width: 170,
                                   height: 12,
                                   onTap: () {
-                                    Get.toNamed(RouteName.addFoodPage);
+                                    Get.toNamed(RouteName.addFoodPage,arguments: doc);
                                   },
                                   icon: '')
                             ],
@@ -130,7 +138,7 @@ class ExpertFeedPage extends StatelessWidget {
                           textAlign: TextAlign.center,
                         ),
                         onTap: () {
-                          Get.toNamed(RouteName.createDietPlanPage);
+                          Get.toNamed(RouteName.createDietPlanPage, arguments: doc);
                         },
                       ),
                     ),

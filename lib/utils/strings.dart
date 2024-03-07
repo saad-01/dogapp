@@ -261,7 +261,7 @@ class AppStrings {
   static const articles = "Articles";
   static const timing = "Timing";
   static const duration = "Duration";
-  static const calories = "Calories";
+  static const calories = "Calories(kcal)";
   static const createFoodorDiet = "Create Food/Diet Plan";
   static const createPlan = "Create Plan";
   static const planTitle = "Plan title";
@@ -301,7 +301,7 @@ class AppStrings {
   static const theDanger = "The danger";
   static const baitLocation = "Bait loction";
   static const typeBaitLocation = "Type bait location";
-  static const seeMapView = "See map view";
+  static const addBaitLocation = "Add bait location on map";
   static const sendNotiAll = "Send notification to all";
   static const mapView = "Map View";
   static const missingDogs = "Missing Dogs";
@@ -367,7 +367,7 @@ class AppStrings {
   static const find = "Find";
   static const yourDogExperts = "Your Dog's Experts";
   static const addManual = "Add Manually";
-  static const distance = "Distance";
+  static const distance = "Distance(km)";
   static const totalDistance = "Total distance";
   static const totalSteps = "Total steps";
   static const minutes = "Minutes";
@@ -445,4 +445,13 @@ class AppStrings {
   static const yourDoc = "Your Doctor";
   static const selectDoc = "Select Doctor";
   static const reasonAppointment = "Reason of appointment";
+  static const timeTable = "Time Table";
+  static const morning = "Morning";
+  static const evening = "Evening";
+  static const midday = "Midday";
+  static const quantity = "Quantity(grams)";
+  static const selectRightTime = "Please select right time";
+  static const morningTime = "9am to 12pm";
+  static const midTime = "12pm to 6pm";
+  static const eveningTime = "6pm to 12am";
 }
