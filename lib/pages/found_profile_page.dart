@@ -6,6 +6,7 @@ import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class FoundProfilePage extends StatelessWidget {
   const FoundProfilePage({super.key});
@@ -21,7 +22,7 @@ class FoundProfilePage extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             child: Column(
               children: [
-                const CustomAppBar(title: AppStrings.foundedDog),
+                CustomAppBar(title: AppStrings.foundedDog.tr),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Column(
@@ -58,13 +59,13 @@ class FoundProfilePage extends StatelessWidget {
                                       height: 50,
                                     ),
                                     Text(
-                                      AppStrings.nameCapital,
+                                      AppStrings.nameCapital.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                     SizedBox(
                                       width: 246,
                                       child: Text(
-                                        AppStrings.lostNote,
+                                        AppStrings.lostNote.tr,
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                         style: Styles.subText(),
@@ -111,12 +112,12 @@ class FoundProfilePage extends StatelessWidget {
                                         indicatorColor: AppColors.primaryColor,
                                         splashBorderRadius:
                                             BorderRadius.circular(10),
-                                        tabs: const <Widget>[
+                                        tabs:  <Widget>[
                                           Tab(
-                                            text: AppStrings.dogsData,
+                                            text: AppStrings.dogsData.tr,
                                           ),
                                           Tab(
-                                            text: AppStrings.contactInfo,
+                                            text: AppStrings.contactInfo.tr,
                                           ),
                                         ],
                                       ),
@@ -176,10 +177,10 @@ class FoundProfilePage extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text('${AppStrings.breed}:',
+                                          Text('${AppStrings.breed.tr}:',
                                               style: Styles.grey14()),
                                           Text(
-                                            AppStrings.breed,
+                                            AppStrings.breed.tr,
                                             style: Styles.black14(),
                                           ),
                                         ],
@@ -191,10 +192,10 @@ class FoundProfilePage extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text('${AppStrings.gender}:',
+                                          Text('${AppStrings.gender.tr}:',
                                               style: Styles.grey14()),
                                           Text(
-                                            AppStrings.gender,
+                                            AppStrings.gender.tr,
                                             style: Styles.black14(),
                                           ),
                                         ],
@@ -206,10 +207,10 @@ class FoundProfilePage extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text('${AppStrings.weight}:',
+                                          Text('${AppStrings.weight.tr}:',
                                               style: Styles.grey14()),
                                           Text(
-                                            AppStrings.weight,
+                                            AppStrings.weight.tr,
                                             style: Styles.black14(),
                                           ),
                                         ],
@@ -221,10 +222,10 @@ class FoundProfilePage extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text('${AppStrings.microChipNum}:',
+                                          Text('${AppStrings.microChipNum.tr}:',
                                               style: Styles.grey14()),
                                           Text(
-                                            AppStrings.microChipNum,
+                                            AppStrings.microChipNum.tr,
                                             style: Styles.black14(),
                                           ),
                                         ],
@@ -236,10 +237,10 @@ class FoundProfilePage extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text('${AppStrings.lostDate}:',
+                                          Text('${AppStrings.lostDate.tr}:',
                                               style: Styles.grey14()),
                                           Text(
-                                            AppStrings.dateFormat,
+                                            AppStrings.dateFormat.tr,
                                             style: Styles.black14(),
                                           ),
                                         ],
@@ -249,7 +250,8 @@ class FoundProfilePage extends StatelessWidget {
                                       ),
                                       Align(
                                         alignment: Alignment.centerLeft,
-                                        child: Text('${AppStrings.somePhotos}:',
+                                        child: Text(
+                                            '${AppStrings.somePhotos.tr}:',
                                             style: Styles.grey14()),
                                       ),
                                       const SizedBox(
@@ -305,7 +307,7 @@ class FoundProfilePage extends StatelessWidget {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text('${AppStrings.name}:',
+                                              Text('${AppStrings.name.tr}:',
                                                   style: Styles.grey14()),
                                               Text(
                                                 'Name here',
@@ -320,7 +322,8 @@ class FoundProfilePage extends StatelessWidget {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text('${AppStrings.yourNumber}:',
+                                              Text(
+                                                  '${AppStrings.yourNumber.tr}:',
                                                   style: Styles.grey14()),
                                               Text(
                                                 '+1000000000',
@@ -335,10 +338,10 @@ class FoundProfilePage extends StatelessWidget {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text('${AppStrings.address}:',
+                                              Text('${AppStrings.address.tr}:',
                                                   style: Styles.grey14()),
                                               Text(
-                                                AppStrings.addressHere,
+                                                AppStrings.addressHere.tr,
                                                 style: Styles.black14(),
                                               ),
                                             ],
@@ -350,14 +353,14 @@ class FoundProfilePage extends StatelessWidget {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text('${AppStrings.notes}:',
+                                              Text('${AppStrings.notes.tr}:',
                                                   style: Styles.grey14()),
                                             ],
                                           ),
                                           Align(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
-                                              AppStrings.lostNote,
+                                              AppStrings.lostNote.tr,
                                               maxLines: 2,
                                               overflow: TextOverflow.ellipsis,
                                               style: Styles.lightGrey12(),
@@ -379,7 +382,7 @@ class FoundProfilePage extends StatelessWidget {
                           height: 30,
                         ),
                         AlternatingButton(
-                            title: AppStrings.shareDog,
+                            title: AppStrings.shareDog.tr,
                             outlined: true,
                             width: MediaQuery.sizeOf(context).width * 0.81,
                             height: 50,
@@ -389,7 +392,7 @@ class FoundProfilePage extends StatelessWidget {
                           height: 20,
                         ),
                         PrimartyButton(
-                            title: AppStrings.chat,
+                            title: AppStrings.chat.tr,
                             width: MediaQuery.sizeOf(context).width * 0.81,
                             height: 12,
                             icon: ''),

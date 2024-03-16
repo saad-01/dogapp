@@ -97,7 +97,7 @@ class ExpertSignupModel extends GetxController {
     if (res == "success") {
       // navigate to the home screen
       loading.value = false;
-      Utils.snackBar(AppStrings.success, AppStrings.loginMsg);
+      Utils.snackBar(AppStrings.success.tr, AppStrings.loginMsg.tr);
       Get.offAllNamed(RouteName.loginPage);
     } else if (res == 'Please enter all the fields') {
       loading.value = false;
@@ -137,11 +137,11 @@ class ExpertSignupModel extends GetxController {
       if (speciality.value.isNotEmpty) {
         specialityError.value = false;
       }
-      Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+      Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
     } else {
       loading.value = false;
       // show the error
-      Utils.snackBar(AppStrings.error, res);
+      Utils.snackBar(AppStrings.error.tr, res);
     }
   }
 }

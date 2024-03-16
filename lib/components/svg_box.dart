@@ -1,6 +1,7 @@
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class SvgBox extends StatelessWidget {
   const SvgBox(
@@ -38,9 +39,15 @@ class SvgBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SvgPicture.asset(imagePath),
-            Text(
-              title,
-              style: Styles.choosePageText(),
+            const SizedBox(
+              height: 10,
+            ),
+            Expanded(
+              child: Text(
+                title.tr,
+                textAlign: TextAlign.center,
+                style: Styles.choosePageText(),
+              ),
             )
           ],
         ),

@@ -83,4 +83,5 @@ class RouteName {
   static const String symptomsPage = '/symptoms_page';
   static const String vetVisitPage = '/vet_visit_page';
   static const String otherAppointPage = '/other_appoint_page';
+  static const String addEventPage = '/add_event_page';
 }

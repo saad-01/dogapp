@@ -21,7 +21,7 @@ class FoundedDogsPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.foundedDogs),
+            CustomAppBar(title: AppStrings.foundedDogs.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -86,7 +86,7 @@ class FoundedDogsPage extends StatelessWidget {
             )),
             // const Spacer(),
             PrimartyButton(
-              title: AppStrings.createReport,
+              title: AppStrings.createReport.tr,
               width: MediaQuery.sizeOf(context).width * 0.81,
               height: 10,
               icon: '',

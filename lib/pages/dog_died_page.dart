@@ -27,7 +27,7 @@ class DogDiedPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.dogDied),
+            CustomAppBar(title: AppStrings.dogDied.tr),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
@@ -35,7 +35,7 @@ class DogDiedPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.reason,
+                        AppStrings.reason.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
@@ -43,7 +43,7 @@ class DogDiedPage extends StatelessWidget {
                       height: 8,
                     ),
                     CustomTextfield(
-                      hintText: AppStrings.typeReason,
+                      hintText: AppStrings.typeReason.tr,
                       obscureText: false,
                       controller: diedVM.reasonController.value,
                       focusNode: diedVM.reasonFocusNode.value,
@@ -60,7 +60,7 @@ class DogDiedPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.dateOfBirth,
+                        AppStrings.dateOfBirth.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
@@ -68,7 +68,7 @@ class DogDiedPage extends StatelessWidget {
                       height: 8,
                     ),
                     CustomTextfield(
-                      hintText: AppStrings.dateFormat,
+                      hintText: AppStrings.dateFormat.tr,
                       obscureText: false,
                       controller: diedVM.birthDateController.value,
                       focusNode: diedVM.birthDateFocusNode.value,
@@ -99,7 +99,7 @@ class DogDiedPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.deathDate,
+                        AppStrings.deathDate.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
@@ -107,7 +107,7 @@ class DogDiedPage extends StatelessWidget {
                       height: 8,
                     ),
                     CustomTextfield(
-                      hintText: AppStrings.dateFormat,
+                      hintText: AppStrings.dateFormat.tr,
                       obscureText: false,
                       keyboardType: TextInputType.none,
                       controller: diedVM.deathDateController.value,
@@ -139,7 +139,7 @@ class DogDiedPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.notes,
+                        AppStrings.notes.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
@@ -147,7 +147,7 @@ class DogDiedPage extends StatelessWidget {
                       height: 8,
                     ),
                     CustomTextfield(
-                      hintText: AppStrings.typeNotes,
+                      hintText: AppStrings.typeNotes.tr,
                       obscureText: false,
                       keyboardType: TextInputType.none,
                       controller: diedVM.notesController.value,
@@ -177,7 +177,7 @@ class DogDiedPage extends StatelessWidget {
             //       width: 15,
             //     ),
             //     Text(
-            //       AppStrings.sendArchive,
+            //       AppStrings.sendArchive.tr,
             //       style: Styles.expertSignupPaget1(),
             //     )
             //   ],
@@ -204,7 +204,7 @@ class DogDiedPage extends StatelessWidget {
             //       width: 15,
             //     ),
             //     Text(
-            //       AppStrings.dontShow,
+            //       AppStrings.dontShow.tr,
             //       style: Styles.expertSignupPaget1(),
             //     )
             //   ],
@@ -214,7 +214,7 @@ class DogDiedPage extends StatelessWidget {
             ),
             Obx(
               () => PrimartyButton(
-                  title: AppStrings.save,
+                  title: AppStrings.save.tr,
                   width: MediaQuery.sizeOf(context).width * 0.81,
                   height: 10,
                   onTap: () {

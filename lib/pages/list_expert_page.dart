@@ -22,7 +22,7 @@ class ListExpertPage extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.selectExpertSingle),
+            CustomAppBar(title: AppStrings.selectExpertSingle.tr),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
@@ -50,7 +50,7 @@ class ListExpertPage extends StatelessWidget {
                           if (docs.isEmpty) {
                             // Return an empty widget if there are no documents
                             return Text(
-                              AppStrings.none,
+                              AppStrings.none.tr,
                               style: Styles.grey16(),
                             );
                           }
@@ -61,8 +61,8 @@ class ListExpertPage extends StatelessWidget {
                                   ExpertItem(
                                     name: doc['name'],
                                     url: doc['photoUrl'],
-                                    expertis: AppStrings.trainExpert,
-                                    filledBtnTitle: AppStrings.relReport,
+                                    expertis: AppStrings.trainExpert.tr,
+                                    filledBtnTitle: AppStrings.relReport.tr,
                                     onPress: () {
                                       expertVM.setData(doc);
                                       Get.back();

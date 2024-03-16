@@ -21,14 +21,14 @@ class AddNumPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.addNum),
+            CustomAppBar(title: AppStrings.addNum.tr),
             const SizedBox(
               height: 10,
             ),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                AppStrings.name,
+                AppStrings.name.tr,
                 style: Styles.expertSignupPaget1(),
               ),
             ),
@@ -50,7 +50,7 @@ class AddNumPage extends StatelessWidget {
                                 addNumVM.nameFocusNode.value,
                                 addNumVM.phoneNumFocusNode.value);
                           },
-                          hintText: AppStrings.typeName,
+                          hintText: AppStrings.typeName.tr,
                           obscureText: false),
                     ),
                     const SizedBox(
@@ -59,7 +59,7 @@ class AddNumPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.yourNumber,
+                        AppStrings.yourNumber.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
@@ -72,7 +72,7 @@ class AddNumPage extends StatelessWidget {
                           focusNode: addNumVM.phoneNumFocusNode.value,
                           isError: addNumVM.numError.value,
                           onFieldSubmitted: (p0) {},
-                          hintText: AppStrings.typeNum,
+                          hintText: AppStrings.typeNum.tr,
                           obscureText: false),
                     ),
                   ],
@@ -83,7 +83,7 @@ class AddNumPage extends StatelessWidget {
             const Spacer(),
             Obx(
               () => PrimartyButton(
-                title: AppStrings.upload,
+                title: AppStrings.upload.tr,
                 width: 150,
                 height: 12,
                 icon: '',

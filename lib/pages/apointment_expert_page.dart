@@ -96,7 +96,7 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const CustomAppBar(title: AppStrings.appointDetail),
+              CustomAppBar(title: AppStrings.appointDetail.tr),
               const SizedBox(
                 height: 20,
               ),
@@ -132,12 +132,12 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                       borderRadius: BorderRadius.circular(10)),
                   indicatorColor: AppColors.primaryColor,
                   splashBorderRadius: BorderRadius.circular(10),
-                  tabs: const <Widget>[
+                  tabs: <Widget>[
                     Tab(
-                      text: AppStrings.detail,
+                      text: AppStrings.detail.tr,
                     ),
                     Tab(
-                      text: AppStrings.profile,
+                      text: AppStrings.profile.tr,
                     ),
                   ],
                 ),
@@ -185,9 +185,9 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                           children: [
                                             Text(
                                               status == 'Approved'
-                                                  ? AppStrings.approved
+                                                  ? AppStrings.approved.tr
                                                   : status == 'Completed'
-                                                      ? AppStrings.completed
+                                                      ? AppStrings.completed.tr
                                                       : '',
                                               style: Styles.primary16U(),
                                             )
@@ -204,7 +204,7 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                           ),
                                         ),
                                         Text(
-                                          vaccType,
+                                          vaccType.tr,
                                           style: Styles.expertSignupPaget1(),
                                         ),
                                         const SizedBox(
@@ -214,10 +214,11 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text('${AppStrings.appointType}:',
+                                            Text(
+                                                '${AppStrings.appointType.tr}:',
                                                 style: Styles.grey14()),
                                             Text(
-                                              type,
+                                              type.tr,
                                               style: Styles.black14(),
                                             ),
                                           ],
@@ -229,7 +230,7 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text('${AppStrings.pet}:',
+                                            Text('${AppStrings.pet.tr}:',
                                                 style: Styles.grey14()),
                                             Obx(
                                               () => Text(
@@ -246,7 +247,7 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text('${AppStrings.date}:',
+                                            Text('${AppStrings.date.tr}:',
                                                 style: Styles.grey14()),
                                             Text(
                                               doc['date'],
@@ -259,7 +260,7 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                         ),
                                         Row(
                                           children: [
-                                            Text('${AppStrings.notes}:',
+                                            Text('${AppStrings.notes.tr}:',
                                                 style: Styles.grey14()),
                                           ],
                                         ),
@@ -298,7 +299,7 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   ExpertDashboardBtn(
-                                    title: AppStrings.reject,
+                                    title: AppStrings.reject.tr,
                                     borderClr: AppColors.redShade,
                                     height: 53,
                                     width:
@@ -310,7 +311,7 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                     },
                                   ),
                                   ExpertDashboardBtn(
-                                    title: AppStrings.approve,
+                                    title: AppStrings.approve.tr,
                                     borderClr: AppColors.primaryColor,
                                     height: 53,
                                     width:
@@ -329,7 +330,7 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   ExpertDashboardBtn(
-                                    title: AppStrings.completed,
+                                    title: AppStrings.completed.tr,
                                     borderClr: AppColors.primaryColor,
                                     height: 53,
                                     width:
@@ -350,7 +351,7 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   ExpertDashboardBtn(
-                                    title: AppStrings.completed,
+                                    title: AppStrings.completed.tr,
                                     borderClr: AppColors.primaryColor,
                                     height: 53,
                                     width:
@@ -399,12 +400,12 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              AppStrings.createFile,
+                                              AppStrings.createFile.tr,
                                               style:
                                                   Styles.expertSignupPaget1(),
                                             ),
                                             Text(
-                                              AppStrings.informParent,
+                                              AppStrings.informParent.tr,
                                               style: Styles.choosePageText(),
                                             ),
                                           ],
@@ -471,7 +472,8 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text('${AppStrings.dogName}:',
+                                                Text(
+                                                    '${AppStrings.dogName.tr}:',
                                                     style: Styles.grey14()),
                                                 Obx(
                                                   () => Text(
@@ -489,7 +491,7 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text('${AppStrings.breed}:',
+                                                Text('${AppStrings.breed.tr}:',
                                                     style: Styles.grey14()),
                                                 Obx(
                                                   () => Text(
@@ -508,7 +510,7 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                                       .spaceBetween,
                                               children: [
                                                 Text(
-                                                    '${AppStrings.dateOfBirth}:',
+                                                    '${AppStrings.dateOfBirth.tr}:',
                                                     style: Styles.grey14()),
                                                 Obx(
                                                   () => Text(
@@ -526,7 +528,7 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text('${AppStrings.gender}:',
+                                                Text('${AppStrings.gender.tr}:',
                                                     style: Styles.grey14()),
                                                 Obx(
                                                   () => Text(
@@ -544,7 +546,7 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text('${AppStrings.weight}:',
+                                                Text('${AppStrings.weight.tr}:',
                                                     style: Styles.grey14()),
                                                 Obx(
                                                   () => Text(
@@ -563,7 +565,7 @@ class _AppointmentExpertPageState extends State<AppointmentExpertPage> {
                                                       .spaceBetween,
                                               children: [
                                                 Text(
-                                                    '${AppStrings.microChipNum}:',
+                                                    '${AppStrings.microChipNum.tr}:',
                                                     style: Styles.grey14()),
                                                 Obx(
                                                   () => Text(

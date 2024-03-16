@@ -20,8 +20,8 @@ class ParentExerciseDetail extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(
-              title: AppStrings.exercises,
+            CustomAppBar(
+              title: AppStrings.exercises.tr,
             ),
             Expanded(
               child: Column(
@@ -64,12 +64,12 @@ class ParentExerciseDetail extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  AppStrings.handFeeding,
+                                  AppStrings.handFeeding.tr,
                                   style: Styles.expertSignupPaget1(),
                                 ),
                                 Expanded(
                                     child: Text(
-                                  AppStrings.handFeedNote,
+                                  AppStrings.handFeedNote.tr,
                                   style: Styles.grey8(),
                                   maxLines: 4,
                                   overflow: TextOverflow.ellipsis,
@@ -128,12 +128,12 @@ class ParentExerciseDetail extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  AppStrings.walk,
+                                  AppStrings.walk.tr,
                                   style: Styles.expertSignupPaget1(),
                                 ),
                                 Expanded(
                                     child: Text(
-                                  AppStrings.handFeedNote,
+                                  AppStrings.handFeedNote.tr,
                                   style: Styles.grey8(),
                                   maxLines: 4,
                                   overflow: TextOverflow.ellipsis,

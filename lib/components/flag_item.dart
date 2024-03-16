@@ -3,9 +3,14 @@ import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class LangaugeWidget extends StatelessWidget {
-  const LangaugeWidget({super.key, required this.img, required this.title, required this.selected});
+  const LangaugeWidget(
+      {super.key,
+      required this.img,
+      required this.title,
+      required this.selected});
   final String img;
   final String title;
   final bool selected;
@@ -28,13 +33,12 @@ class LangaugeWidget extends StatelessWidget {
                 width: 80,
               ),
               Text(
-                title,
+                title.tr,
                 style: Styles.appBarH1(),
               ),
             ],
           ),
-          if(selected)
-          SvgPicture.asset(AssetImages.selectIcon)
+          if (selected) SvgPicture.asset(AssetImages.selectIcon)
         ],
       ),
     );

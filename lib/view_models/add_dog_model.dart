@@ -111,7 +111,7 @@ class AddDogModel extends GetxController {
     if (res == "success") {
       loading.value = false;
       Get.back();
-      Utils.snackBar(AppStrings.success, AppStrings.dogAdded);
+      Utils.snackBar(AppStrings.success.tr, AppStrings.dogAdded.tr);
     } else if (res == "Please enter all the fields") {
       loading.value = false;
       if (nameController.value.text.isEmpty) {
@@ -144,11 +144,11 @@ class AddDogModel extends GetxController {
       if (breed.value.isNotEmpty) {
         breedError.value = false;
       }
-      Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+      Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
     } else {
       // show the error
       loading.value = false;
-      Utils.snackBar(AppStrings.error, res);
+      Utils.snackBar(AppStrings.error.tr, res);
     }
   }
 
@@ -179,7 +179,7 @@ class AddDogModel extends GetxController {
           date.isNotEmpty &&
           gender.isNotEmpty &&
           neutered.isNotEmpty &&
-          breed.isNotEmpty ) {
+          breed.isNotEmpty) {
         String dogId = const Uuid().v1();
 
         DogModel dog = DogModel(

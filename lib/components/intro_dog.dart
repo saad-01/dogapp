@@ -3,6 +3,7 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import '../utils/app_colors.dart';
 
 class IntroDogWidget extends StatelessWidget {
@@ -63,18 +64,18 @@ class IntroDogWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      AppStrings.nameCapital,
+                      AppStrings.nameCapital.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                     Text(
-                      AppStrings.dateFormat,
+                      AppStrings.dateFormat.tr,
                       style: Styles.black10Sub(),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      AppStrings.missNote,
+                      AppStrings.missNote.tr,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.grey10(),
@@ -86,7 +87,7 @@ class IntroDogWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          AppStrings.yourNumber,
+                          AppStrings.yourNumber.tr,
                           style: Styles.grey10(),
                         ),
                         Text('+10000000000', style: Styles.black10Sub())
@@ -99,7 +100,7 @@ class IntroDogWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          AppStrings.seeProfile,
+                          AppStrings.seeProfile.tr,
                           style: Styles.primary12UText(),
                         ),
                         const SizedBox(

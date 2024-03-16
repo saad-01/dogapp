@@ -7,6 +7,7 @@ import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ReleasedReportPage extends StatelessWidget {
   const ReleasedReportPage({super.key});
@@ -19,14 +20,14 @@ class ReleasedReportPage extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.releasedReport),
+            CustomAppBar(title: AppStrings.releasedReport.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
                 children: [
-                  const ExpertItem(
-                      expertis: AppStrings.trainExpert,
-                      filledBtnTitle: AppStrings.seeProfileBtn),
+                  ExpertItem(
+                      expertis: AppStrings.trainExpert.tr,
+                      filledBtnTitle: AppStrings.seeProfileBtn.tr),
                   const SizedBox(
                     height: 36,
                   ),
@@ -64,7 +65,7 @@ class ReleasedReportPage extends StatelessWidget {
                                     height: 70,
                                   ),
                                   Text(
-                                    AppStrings.nameCapital,
+                                    AppStrings.nameCapital.tr,
                                     style: Styles.expertSignupPaget1(),
                                   ),
                                   const SizedBox(
@@ -74,10 +75,10 @@ class ReleasedReportPage extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text('${AppStrings.dogName}:',
+                                      Text('${AppStrings.dogName.tr}:',
                                           style: Styles.grey14()),
                                       Text(
-                                        AppStrings.dogNameH,
+                                        AppStrings.dogNameH.tr,
                                         style: Styles.black14(),
                                       ),
                                     ],
@@ -89,10 +90,10 @@ class ReleasedReportPage extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text('${AppStrings.breed}:',
+                                      Text('${AppStrings.breed.tr}:',
                                           style: Styles.grey14()),
                                       Text(
-                                        AppStrings.breed,
+                                        AppStrings.breed.tr,
                                         style: Styles.black14(),
                                       ),
                                     ],
@@ -104,10 +105,10 @@ class ReleasedReportPage extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text('${AppStrings.dateOfBirth}:',
+                                      Text('${AppStrings.dateOfBirth.tr}:',
                                           style: Styles.grey14()),
                                       Text(
-                                        AppStrings.dateFormat,
+                                        AppStrings.dateFormat.tr,
                                         style: Styles.black14(),
                                       ),
                                     ],
@@ -119,10 +120,10 @@ class ReleasedReportPage extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text('${AppStrings.gender}:',
+                                      Text('${AppStrings.gender.tr}:',
                                           style: Styles.grey14()),
                                       Text(
-                                        AppStrings.gender,
+                                        AppStrings.gender.tr,
                                         style: Styles.black14(),
                                       ),
                                     ],
@@ -134,10 +135,10 @@ class ReleasedReportPage extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text('${AppStrings.weight}:',
+                                      Text('${AppStrings.weight.tr}:',
                                           style: Styles.grey14()),
                                       Text(
-                                        AppStrings.weight,
+                                        AppStrings.weight.tr,
                                         style: Styles.black14(),
                                       ),
                                     ],
@@ -149,10 +150,10 @@ class ReleasedReportPage extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text('${AppStrings.microChipNum}:',
+                                      Text('${AppStrings.microChipNum.tr}:',
                                           style: Styles.grey14()),
                                       Text(
-                                        AppStrings.microChipNum,
+                                        AppStrings.microChipNum.tr,
                                         style: Styles.black14(),
                                       ),
                                     ],
@@ -188,7 +189,7 @@ class ReleasedReportPage extends StatelessWidget {
                     height: 50,
                   ),
                   CustomOutlinedButton(
-                      title: AppStrings.endSharing,
+                      title: AppStrings.endSharing.tr,
                       width: MediaQuery.sizeOf(context).width * 0.8),
                 ],
               ),

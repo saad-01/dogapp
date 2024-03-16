@@ -19,20 +19,20 @@ class AppointmentsPage extends StatelessWidget {
           child: Container(
         padding: const EdgeInsets.all(20),
         child: Column(children: [
-          const CustomAppBar(title: AppStrings.appointments),
+          CustomAppBar(title: AppStrings.appointments.tr),
           Expanded(
               child: SingleChildScrollView(
             child: Column(
               children: [
-                const ExpertItem(
-                    expertis: AppStrings.trainingExpert, filledBtnTitle: ''),
+                ExpertItem(
+                    expertis: AppStrings.trainingExpert.tr, filledBtnTitle: ''),
                 const SizedBox(
                   height: 30,
                 ),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    AppStrings.appointments,
+                    AppStrings.appointments.tr,
                     style: Styles.appBarH1(),
                   ),
                 ),
@@ -40,12 +40,12 @@ class AppointmentsPage extends StatelessWidget {
                   height: 15,
                 ),
                 AppointmentWidget(
-                    type: AppStrings.vaccination,
-                    name: AppStrings.dogName,
-                    date: AppStrings.dateFormat,
-                    time: AppStrings.time,
+                    type: AppStrings.vaccination.tr,
+                    name: AppStrings.dogName.tr,
+                    date: AppStrings.dateFormat.tr,
+                    time: AppStrings.time.tr,
                     image: AssetImages.injectionImage,
-                    title: AppStrings.approved,
+                    title: AppStrings.approved.tr,
                     onPress: () {
                       Get.toNamed(RouteName.appointDetailsPage);
                     },
@@ -54,12 +54,12 @@ class AppointmentsPage extends StatelessWidget {
                   height: 15,
                 ),
                 AppointmentWidget(
-                    type: AppStrings.medicine,
-                    name: AppStrings.dogName,
-                    date: AppStrings.dateFormat,
-                    time: AppStrings.time,
+                    type: AppStrings.medicine.tr,
+                    name: AppStrings.dogName.tr,
+                    date: AppStrings.dateFormat.tr,
+                    time: AppStrings.time.tr,
                     image: AssetImages.medImage,
-                    title: AppStrings.noAction,
+                    title: AppStrings.noAction.tr,
                     onPress: () {
                       Get.toNamed(RouteName.appointDetailsPage);
                     },
@@ -68,12 +68,12 @@ class AppointmentsPage extends StatelessWidget {
                   height: 15,
                 ),
                 AppointmentWidget(
-                    type: AppStrings.vaccination,
-                    name: AppStrings.dogName,
-                    date: AppStrings.dateFormat,
-                    time: AppStrings.time,
+                    type: AppStrings.vaccination.tr,
+                    name: AppStrings.dogName.tr,
+                    date: AppStrings.dateFormat.tr,
+                    time: AppStrings.time.tr,
                     image: AssetImages.injectionImage,
-                    title: AppStrings.approved,
+                    title: AppStrings.approved.tr,
                     onPress: () {
                       Get.toNamed(RouteName.appointDetailsPage);
                     },
@@ -82,12 +82,12 @@ class AppointmentsPage extends StatelessWidget {
                   height: 15,
                 ),
                 AppointmentWidget(
-                    type: AppStrings.medicine,
-                    name: AppStrings.dogName,
-                    date: AppStrings.dateFormat,
-                    time: AppStrings.time,
+                    type: AppStrings.medicine.tr,
+                    name: AppStrings.dogName.tr,
+                    date: AppStrings.dateFormat.tr,
+                    time: AppStrings.time.tr,
                     image: AssetImages.medImage,
-                    title: AppStrings.denied,
+                    title: AppStrings.denied.tr,
                     onPress: () {
                       Get.toNamed(RouteName.appointDetailsPage);
                     },

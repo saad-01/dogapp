@@ -69,19 +69,19 @@ class _ExpertDashboardState extends State<ExpertDashboard> {
                       icon: selectedPage.value == 0
                           ? SvgPicture.asset(AssetImages.homeIcon)
                           : SvgPicture.asset(AssetImages.notActiveHomeIcon),
-                      label: AppStrings.home),
+                      label: AppStrings.home.tr),
                   BottomNavigationBarItem(
                       icon: selectedPage.value == 1
                           ? SvgPicture.asset(AssetImages.activeCalendarIcon)
                           : SvgPicture.asset(
                               AssetImages.calendarIcon,
                             ),
-                      label: AppStrings.calendar),
+                      label: AppStrings.calendar.tr),
                   BottomNavigationBarItem(
                       icon: selectedPage.value == 2
                           ? SvgPicture.asset(AssetImages.activeSettingsIcon)
                           : SvgPicture.asset(AssetImages.settingsIcon),
-                      label: AppStrings.more),
+                      label: AppStrings.more.tr),
                 ]),
           ),
         ),

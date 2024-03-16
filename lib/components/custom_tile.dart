@@ -3,6 +3,7 @@ import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class CustomTile extends StatelessWidget {
   const CustomTile(
@@ -58,7 +59,7 @@ class CustomTile extends StatelessWidget {
                 ],
               ),
               Text(
-                title,
+                title.tr,
                 style: clr == const Color(0xFFFFF2F9)
                     ? Styles.weight()
                     : clr == AppColors.white
@@ -73,6 +74,5 @@ class CustomTile extends StatelessWidget {
         ),
       ),
     );
-  
   }
 }

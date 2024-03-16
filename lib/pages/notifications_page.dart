@@ -3,6 +3,7 @@ import 'package:dogapp/components/cmnt_item.dart';
 import 'package:dogapp/components/miss_dog_item.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../utils/app_colors.dart';
 import '../utils/styles.dart';
@@ -21,7 +22,7 @@ class NotificationsPage extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const CustomAppBar(title: AppStrings.notifications),
+              CustomAppBar(title: AppStrings.notifications.tr),
               Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -54,12 +55,12 @@ class NotificationsPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10)),
                   indicatorColor: AppColors.primaryColor,
                   splashBorderRadius: BorderRadius.circular(10),
-                  tabs: const <Widget>[
+                  tabs: <Widget>[
                     Tab(
-                      text: AppStrings.notifications,
+                      text: AppStrings.notifications.tr,
                     ),
                     Tab(
-                      text: AppStrings.comments,
+                      text: AppStrings.comments.tr,
                     ),
                   ],
                 ),
@@ -67,16 +68,16 @@ class NotificationsPage extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              const Expanded(
+              Expanded(
                   child: TabBarView(children: [
                 SingleChildScrollView(
                   child: Center(
-                    child: MissDogItem(title: AppStrings.missingDog),
+                    child: MissDogItem(title: AppStrings.missingDog.tr),
                   ),
                 ),
                 SingleChildScrollView(
                   child: Center(
-                    child: CommentItem(title: AppStrings.commentTitle),
+                    child: CommentItem(title: AppStrings.commentTitle.tr),
                   ),
                 ),
               ])),

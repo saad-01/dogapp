@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import '../utils/app_colors.dart';
 import '../utils/assets.dart';
 import '../utils/strings.dart';
@@ -57,7 +58,7 @@ class CommentItem extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  AppStrings.nameCapital,
+                  AppStrings.nameCapital.tr,
                   style: Styles.expertSignupPaget1(),
                 ),
                 const SizedBox(
@@ -85,7 +86,7 @@ class CommentItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    title.tr,
                     style: Styles.primaryText(),
                   ),
                   const SizedBox(
@@ -110,7 +111,7 @@ class CommentItem extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerRight,
                     child: Text(
-                      AppStrings.dateFormat,
+                      AppStrings.dateFormat.tr,
                       style: Styles.black10Sub(),
                     ),
                   )

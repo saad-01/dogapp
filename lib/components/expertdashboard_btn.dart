@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class ExpertDashboardBtn extends StatelessWidget {
   const ExpertDashboardBtn(
@@ -60,7 +61,7 @@ class ExpertDashboardBtn extends StatelessWidget {
                             width: 20,
                           ),
                           Text(
-                            title,
+                            title.tr,
                             style: TextStyle(
                               fontSize: 16,
                               color: clr,
@@ -72,7 +73,7 @@ class ExpertDashboardBtn extends StatelessWidget {
                     ],
                   )
                 : Text(
-                    title,
+                    title.tr,
                     style: TextStyle(
                       fontSize: 16,
                       color: clr,

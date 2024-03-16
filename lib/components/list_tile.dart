@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile(
@@ -7,7 +8,8 @@ class CustomListTile extends StatelessWidget {
       this.color,
       this.style,
       required this.trailing,
-      required this.title, this.onPress});
+      required this.title,
+      this.onPress});
   final Color? color;
   final TextStyle? style;
   final String trailing;
@@ -42,7 +44,7 @@ class CustomListTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              title,
+              title.tr,
               style: style,
             ),
             SvgPicture.asset(trailing),

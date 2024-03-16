@@ -36,7 +36,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.otherExpert),
+            CustomAppBar(title: AppStrings.otherExpert.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -60,7 +60,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.dogName,
+                  //     AppStrings.dogName.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -68,7 +68,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   //   height: 8,
                   // ),
                   // const CustomTextfield(
-                  //   hintText: AppStrings.typeDogName,
+                  //   hintText: AppStrings.typeDogName.tr,
                   //   obscureText: false,
                   // ),
                   const SizedBox(
@@ -77,7 +77,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.reasonAppointment,
+                      AppStrings.reasonAppointment.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -86,7 +86,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   ),
                   Obx(
                     () => CustomTextfield(
-                      hintText: AppStrings.typeNotes,
+                      hintText: AppStrings.typeNotes.tr,
                       obscureText: false,
                       isError: otherVM.reasonError.value,
                       onFieldSubmitted: (p0) {
@@ -105,7 +105,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.date,
+                      AppStrings.date.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -115,7 +115,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   Obx(
                     () => CustomTextfield(
                       hintText: otherVM.dateController.value.text == ''
-                          ? AppStrings.dateFormat
+                          ? AppStrings.dateFormat.tr
                           : otherVM.dateController.value.text,
                       obscureText: false,
                       isError: otherVM.dateError.value,
@@ -146,7 +146,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.timeHeading,
+                      AppStrings.timeHeading.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -156,7 +156,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   Obx(
                     () => CustomTextfield(
                       hintText: otherVM.reminderTimeController.value.text == ''
-                          ? AppStrings.time
+                          ? AppStrings.time.tr
                           : otherVM.timeController.value.text,
                       keyboardType: TextInputType.none,
                       isError: otherVM.timeError.value,
@@ -188,7 +188,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.notes,
+                      AppStrings.notes.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -196,7 +196,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                     height: 8,
                   ),
                   CustomTextfield(
-                    hintText: AppStrings.typeNotes,
+                    hintText: AppStrings.typeNotes.tr,
                     obscureText: false,
                     onFieldSubmitted: (p0) {
                       Utils.fieldFocusChange(
@@ -210,7 +210,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.weight,
+                  //     AppStrings.weight.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -227,7 +227,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.doze,
+                  //     AppStrings.doze.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -244,7 +244,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.addFiles,
+                      AppStrings.addFiles.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -254,7 +254,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   Row(
                     children: [
                       AlternatingButton(
-                        title: AppStrings.photo,
+                        title: AppStrings.photo.tr,
                         outlined: false,
                         onPress: () async {
                           await otherVM.pickMultipleImages();
@@ -269,7 +269,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                         width: 10,
                       ),
                       AlternatingButton(
-                        title: AppStrings.files,
+                        title: AppStrings.files.tr,
                         outlined: true,
                         onPress: () async {
                           await otherVM.pickMultipleFiles();
@@ -288,7 +288,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.yourDoc,
+                      AppStrings.yourDoc.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -332,7 +332,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                               trailing:
                                   SvgPicture.asset(AssetImages.nextPrimaryIcon),
                               title: Text(
-                                AppStrings.selectDoc,
+                                AppStrings.selectDoc.tr,
                                 style: Styles.choosePageText(),
                               ),
                               onTap: () {
@@ -341,7 +341,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                             ),
                           )
                         : ExpertItem(
-                            expertis: AppStrings.trainExpert,
+                            expertis: AppStrings.trainExpert.tr,
                             filledBtnTitle: '',
                             name: expertVM.name.value,
                             url: expertVM.url.value,
@@ -352,7 +352,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   ),
 
                   Text(
-                    AppStrings.reminderNoti,
+                    AppStrings.reminderNoti.tr,
                     style: Styles.expertSignupPaget1(),
                   ),
                   const SizedBox(
@@ -361,7 +361,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.date,
+                      AppStrings.date.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -371,7 +371,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   Obx(
                     () => CustomTextfield(
                       hintText: otherVM.reminderDateController.value.text == ''
-                          ? AppStrings.dateFormat
+                          ? AppStrings.dateFormat.tr
                           : otherVM.reminderDateController.value.text,
                       obscureText: false,
                       keyboardType: TextInputType.none,
@@ -402,7 +402,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.timeHeading,
+                      AppStrings.timeHeading.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -412,7 +412,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   Obx(
                     () => CustomTextfield(
                       hintText: otherVM.reminderTimeController.value.text == ''
-                          ? AppStrings.time
+                          ? AppStrings.time.tr
                           : otherVM.reminderTimeController.value.text,
                       // keyboardType: TextInputType.none,
                       controller: otherVM.reminderTimeController.value,
@@ -454,7 +454,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   //       width: 15,
                   //     ),
                   //     Text(
-                  //       AppStrings.sendNoti,
+                  //       AppStrings.sendNoti.tr,
                   //       style: Styles.expertSignupPaget1(),
                   //     )
                   //   ],
@@ -463,7 +463,7 @@ class _OtherReportPageState extends State<OtherReportPage> {
                   //   height: 20,
                   // ),
                   Obx(() => PrimartyButton(
-                      title: AppStrings.request,
+                      title: AppStrings.request.tr,
                       loading: otherVM.loading.value,
                       width: MediaQuery.sizeOf(context).width * 0.75,
                       height: 10,

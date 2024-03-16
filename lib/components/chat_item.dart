@@ -51,11 +51,11 @@ class ChatItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            AppStrings.online,
+            AppStrings.online.tr,
             style: Styles.darkBlue12(),
           ),
           Text(
-            "1 ${AppStrings.message}",
+            "1 ${AppStrings.message.tr}",
             style: Styles.darkBlue12(),
           ),
         ],

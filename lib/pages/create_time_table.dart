@@ -19,7 +19,6 @@ class CreateTimeTable extends StatefulWidget {
 }
 
 class _CreateTimeTableState extends State<CreateTimeTable> {
-
   RxBool showMorning = false.obs;
   RxBool showEvening = false.obs;
   RxBool showMidday = false.obs;
@@ -32,7 +31,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.timeTable),
+            CustomAppBar(title: AppStrings.timeTable.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -79,7 +78,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                 Row(
                                   children: [
                                     Text(
-                                      AppStrings.morning,
+                                      AppStrings.morning.tr,
                                       style: Styles.appBarH1(),
                                     )
                                   ],
@@ -105,7 +104,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      AppStrings.foodName,
+                                      AppStrings.foodName.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                   ),
@@ -113,7 +112,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                     height: 8,
                                   ),
                                   CustomTextfield(
-                                    hintText: AppStrings.typeFood,
+                                    hintText: AppStrings.typeFood.tr,
                                     obscureText: false,
                                     controller: vm.foodNameController.value,
                                     focusNode: vm.foodNameFocusNode.value,
@@ -131,7 +130,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      AppStrings.quantity,
+                                      AppStrings.quantity.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                   ),
@@ -157,7 +156,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      AppStrings.calories,
+                                      AppStrings.calories.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                   ),
@@ -183,7 +182,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      AppStrings.timeHeading,
+                                      AppStrings.timeHeading.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                   ),
@@ -191,24 +190,24 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                     height: 8,
                                   ),
                                   CustomTextfield(
-                                    hintText: AppStrings.time,
+                                    hintText: AppStrings.time.tr,
                                     obscureText: false,
                                     controller: vm.timeController.value,
                                     focusNode: vm.timeFocusNode.value,
                                     isError: vm.timeError.value,
                                     onFieldSubmitted: (p0) {},
                                     suffixIcon: GestureDetector(
-                              onTap: () async {
-                                await vm.selectTime(
-                                    context, vm.timeController.value);
-                               vm.checkMorningTimePeriod();
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(18.0),
-                                child:
-                                    SvgPicture.asset(AssetImages.outlineWatch),
-                              ),
-                            ),
+                                      onTap: () async {
+                                        await vm.selectTime(
+                                            context, vm.timeController.value);
+                                        vm.checkMorningTimePeriod();
+                                      },
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(18.0),
+                                        child: SvgPicture.asset(
+                                            AssetImages.outlineWatch),
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -260,7 +259,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                 Row(
                                   children: [
                                     Text(
-                                      AppStrings.midday,
+                                      AppStrings.midday.tr,
                                       style: Styles.appBarH1(),
                                     )
                                   ],
@@ -283,7 +282,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      AppStrings.foodName,
+                                      AppStrings.foodName.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                   ),
@@ -291,7 +290,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                     height: 8,
                                   ),
                                   CustomTextfield(
-                                    hintText: AppStrings.typeFood,
+                                    hintText: AppStrings.typeFood.tr,
                                     obscureText: false,
                                     controller: vm.foodNameController2.value,
                                     focusNode: vm.foodNameFocusNode2.value,
@@ -309,7 +308,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      AppStrings.quantity,
+                                      AppStrings.quantity.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                   ),
@@ -335,7 +334,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      AppStrings.calories,
+                                      AppStrings.calories.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                   ),
@@ -361,7 +360,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      AppStrings.timeHeading,
+                                      AppStrings.timeHeading.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                   ),
@@ -369,24 +368,24 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                     height: 8,
                                   ),
                                   CustomTextfield(
-                                    hintText: AppStrings.time,
+                                    hintText: AppStrings.time.tr,
                                     obscureText: false,
                                     controller: vm.timeController2.value,
                                     focusNode: vm.timeFocusNode2.value,
                                     isError: vm.timeError2.value,
                                     onFieldSubmitted: (p0) {},
                                     suffixIcon: GestureDetector(
-                              onTap: () async {
-                                await vm.selectTime(
-                                    context, vm.timeController2.value);
-                                vm.checkMidTimePeriod();
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(18.0),
-                                child:
-                                    SvgPicture.asset(AssetImages.outlineWatch),
-                              ),
-                            ),
+                                      onTap: () async {
+                                        await vm.selectTime(
+                                            context, vm.timeController2.value);
+                                        vm.checkMidTimePeriod();
+                                      },
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(18.0),
+                                        child: SvgPicture.asset(
+                                            AssetImages.outlineWatch),
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -438,7 +437,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                 Row(
                                   children: [
                                     Text(
-                                      AppStrings.evening,
+                                      AppStrings.evening.tr,
                                       style: Styles.appBarH1(),
                                     )
                                   ],
@@ -461,7 +460,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      AppStrings.foodName,
+                                      AppStrings.foodName.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                   ),
@@ -469,7 +468,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                     height: 8,
                                   ),
                                   CustomTextfield(
-                                    hintText: AppStrings.typeFood,
+                                    hintText: AppStrings.typeFood.tr,
                                     obscureText: false,
                                     controller: vm.foodNameController3.value,
                                     focusNode: vm.foodNameFocusNode3.value,
@@ -487,7 +486,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      AppStrings.quantity,
+                                      AppStrings.quantity.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                   ),
@@ -513,7 +512,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      AppStrings.calories,
+                                      AppStrings.calories.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                   ),
@@ -539,7 +538,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      AppStrings.timeHeading,
+                                      AppStrings.timeHeading.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                   ),
@@ -547,24 +546,24 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                                     height: 8,
                                   ),
                                   CustomTextfield(
-                                    hintText: AppStrings.time,
+                                    hintText: AppStrings.time.tr,
                                     obscureText: false,
                                     controller: vm.timeController3.value,
                                     focusNode: vm.timeFocusNode3.value,
                                     isError: vm.timeError3.value,
                                     onFieldSubmitted: (p0) {},
                                     suffixIcon: GestureDetector(
-                              onTap: () async {
-                                await vm.selectTime(
-                                    context, vm.timeController3.value);
-                                vm.checkEveningTimePeriod();
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(18.0),
-                                child:
-                                    SvgPicture.asset(AssetImages.outlineWatch),
-                              ),
-                            ),
+                                      onTap: () async {
+                                        await vm.selectTime(
+                                            context, vm.timeController3.value);
+                                        vm.checkEveningTimePeriod();
+                                      },
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(18.0),
+                                        child: SvgPicture.asset(
+                                            AssetImages.outlineWatch),
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -581,7 +580,7 @@ class _CreateTimeTableState extends State<CreateTimeTable> {
                     height: 20,
                   ),
                   PrimartyButton(
-                      title: AppStrings.save,
+                      title: AppStrings.save.tr,
                       width: MediaQuery.sizeOf(context).width * 0.75,
                       height: 10,
                       onTap: () async {

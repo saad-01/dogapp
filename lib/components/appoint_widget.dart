@@ -153,10 +153,9 @@ class StatusWidget extends StatelessWidget {
       ),
       child: Center(
           child: Text(
-        title,
+        title.tr,
         style: approval ? Styles.approvalTxt() : Styles.denialTxt(),
       )),
     );
   }
 }
-

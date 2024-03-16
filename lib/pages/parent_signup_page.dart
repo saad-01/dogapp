@@ -39,7 +39,7 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                 height: 50,
               ),
               Text(
-                AppStrings.setProfileExpert,
+                AppStrings.setProfileExpert.tr,
                 style: Styles.expertSignupPageH1(),
               ),
               const SizedBox(
@@ -82,7 +82,7 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                                           signupVM.selectImage();
                                         },
                                         child: Text(
-                                          AppStrings.uploadYourPhoto,
+                                          AppStrings.uploadYourPhoto.tr,
                                           style: Styles.expertSignupPageH2(),
                                         ),
                                       )
@@ -97,7 +97,7 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          AppStrings.yourName,
+                          AppStrings.yourName.tr,
                           style: Styles.expertSignupPaget1(),
                         ),
                       ),
@@ -106,7 +106,7 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                       ),
                       Obx(
                         () => CustomTextfield(
-                          hintText: AppStrings.typeYourname,
+                          hintText: AppStrings.typeYourname.tr,
                           obscureText: false,
                           isError: signupVM.nameError.value,
                           controller: signupVM.nameController.value,
@@ -129,14 +129,14 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                       ),
                       Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(AppStrings.dateOfBirth,
+                          child: Text(AppStrings.dateOfBirth.tr,
                               style: Styles.expertSignupPaget1())),
                       const SizedBox(
                         height: 8,
                       ),
                       Obx(
                         () => CustomTextfield(
-                          hintText: AppStrings.dateFormat,
+                          hintText: AppStrings.dateFormat.tr,
                           obscureText: false,
                           isError: signupVM.dateError.value,
                           keyboardType: TextInputType.number,
@@ -169,14 +169,14 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                       ),
                       Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(AppStrings.yourMail,
+                          child: Text(AppStrings.yourMail.tr,
                               style: Styles.expertSignupPaget1())),
                       const SizedBox(
                         height: 8,
                       ),
                       Obx(
                         () => CustomTextfield(
-                          hintText: AppStrings.typeYourMail,
+                          hintText: AppStrings.typeYourMail.tr,
                           obscureText: false,
                           isError: signupVM.mailError.value,
                           controller: signupVM.emailController.value,
@@ -199,14 +199,14 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                       ),
                       Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(AppStrings.yourPassword,
+                          child: Text(AppStrings.yourPassword.tr,
                               style: Styles.expertSignupPaget1())),
                       const SizedBox(
                         height: 8,
                       ),
                       Obx(
                         () => CustomTextfield(
-                          hintText: AppStrings.typePassword,
+                          hintText: AppStrings.typePassword.tr,
                           isError: signupVM.passwordError.value,
                           obscureText: signupVM.passwordVisible.value,
                           controller: signupVM.passwordController.value,
@@ -255,14 +255,14 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                       ),
                       Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(AppStrings.yourNumber,
+                          child: Text(AppStrings.yourNumber.tr,
                               style: Styles.expertSignupPaget1())),
                       const SizedBox(
                         height: 8,
                       ),
                       Obx(
                         () => CustomTextfield(
-                          hintText: AppStrings.typeNumber,
+                          hintText: AppStrings.typeNumber.tr,
                           obscureText: false,
                           isError: signupVM.numberError.value,
                           controller: signupVM.numberController.value,
@@ -282,7 +282,7 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                 height: 60,
               ),
               PrimartyButton(
-                title: AppStrings.createButton,
+                title: AppStrings.createButton.tr,
                 loading: signupVM.loading.value,
                 icon: '',
                 width: MediaQuery.sizeOf(context).width * 0.8,
@@ -297,9 +297,9 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    AppStrings.alreadyAccount,
-                    style: TextStyle(
+                  Text(
+                    AppStrings.alreadyAccount.tr,
+                    style: const TextStyle(
                       color: AppColors.black,
                       fontSize: 14,
                     ),
@@ -311,7 +311,7 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                         Get.toNamed(RouteName.loginPage);
                       },
                       child: Text(
-                        AppStrings.login.toUpperCase(),
+                        AppStrings.login.tr.toUpperCase(),
                         style: const TextStyle(
                             color: AppColors.black,
                             decoration: TextDecoration.underline,

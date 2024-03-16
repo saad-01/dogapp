@@ -19,8 +19,8 @@ class EmergencyReport extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(
-              title: AppStrings.emergencyReport,
+            CustomAppBar(
+              title: AppStrings.emergencyReport.tr,
             ),
             const SizedBox(
               height: 20,
@@ -30,11 +30,11 @@ class EmergencyReport extends StatelessWidget {
               height: 10,
             ),
             Text(
-              AppStrings.whatYou.toUpperCase(),
+              AppStrings.whatYou.tr.toUpperCase(),
               style: Styles.expertSignupPageH1(),
             ),
             Text(
-              AppStrings.wantTo.toUpperCase(),
+              AppStrings.wantTo.tr.toUpperCase(),
               style: Styles.choosePageHeading(),
             ),
             const SizedBox(
@@ -48,7 +48,7 @@ class EmergencyReport extends StatelessWidget {
                   onPress: () {
                     Get.toNamed(RouteName.dogBaitPage);
                   },
-                  title: AppStrings.dogBait,
+                  title: AppStrings.dogBait.tr,
                 ),
                 const SizedBox(
                   width: 40,
@@ -58,7 +58,7 @@ class EmergencyReport extends StatelessWidget {
                   onPress: () {
                     Get.toNamed(RouteName.missReportPage);
                   },
-                  title: AppStrings.missingReport,
+                  title: AppStrings.missingReport.tr,
                 ),
               ],
             ),
@@ -73,7 +73,7 @@ class EmergencyReport extends StatelessWidget {
                   onPress: () {
                     Get.toNamed(RouteName.foundedReportPage);
                   },
-                  title: AppStrings.foundOne,
+                  title: AppStrings.foundOne.tr,
                 ),
               ],
             )

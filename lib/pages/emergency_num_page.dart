@@ -22,7 +22,7 @@ class EmergencyNumPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.emergencyNums),
+            CustomAppBar(title: AppStrings.emergencyNums.tr),
             Container(
               // width: 364,
               height: 50,
@@ -124,7 +124,7 @@ class EmergencyNumPage extends StatelessWidget {
                 )),
             const Spacer(),
             PrimartyButton(
-              title: AppStrings.addNum,
+              title: AppStrings.addNum.tr,
               width: 200,
               height: 10,
               icon: '',

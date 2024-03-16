@@ -26,7 +26,7 @@ class _DietPlanPageState extends State<DietPlanPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.dietPlan),
+            CustomAppBar(title: AppStrings.dietPlan.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -34,7 +34,7 @@ class _DietPlanPageState extends State<DietPlanPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.description,
+                      AppStrings.description.tr,
                       style: Styles.appBarH1(),
                     ),
                   ),
@@ -51,7 +51,7 @@ class _DietPlanPageState extends State<DietPlanPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.notes,
+                      AppStrings.notes.tr,
                       style: Styles.appBarH1(),
                     ),
                   ),
@@ -81,7 +81,8 @@ class _DietPlanPageState extends State<DietPlanPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(AppStrings.startDate, style: Styles.grey14()),
+                            Text(AppStrings.startDate.tr,
+                                style: Styles.grey14()),
                             Text(doc['startDate'], style: Styles.black14()),
                           ],
                         ),
@@ -91,7 +92,7 @@ class _DietPlanPageState extends State<DietPlanPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(AppStrings.endDate, style: Styles.grey14()),
+                            Text(AppStrings.endDate.tr, style: Styles.grey14()),
                             Text(doc['endDate'], style: Styles.black14()),
                           ],
                         ),
@@ -132,9 +133,9 @@ class _DietPlanPageState extends State<DietPlanPage> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text(AppStrings.foodName,
+                                            Text(AppStrings.foodName.tr,
                                                 style: Styles.grey14()),
-                                            Text(foodName,
+                                            Text(foodName.tr,
                                                 style: Styles.black14()),
                                           ],
                                         ),
@@ -145,9 +146,9 @@ class _DietPlanPageState extends State<DietPlanPage> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text(AppStrings.calories,
+                                            Text(AppStrings.calories.tr,
                                                 style: Styles.grey14()),
-                                            Text(calories,
+                                            Text(calories.tr,
                                                 style: Styles.black14()),
                                           ],
                                         ),
@@ -158,9 +159,9 @@ class _DietPlanPageState extends State<DietPlanPage> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text(AppStrings.quantity,
+                                            Text(AppStrings.quantity.tr,
                                                 style: Styles.grey14()),
-                                            Text(quantity,
+                                            Text(quantity.tr,
                                                 style: Styles.black14()),
                                           ],
                                         ),
@@ -171,7 +172,7 @@ class _DietPlanPageState extends State<DietPlanPage> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text(AppStrings.timeHeading,
+                                            Text(AppStrings.timeHeading.tr,
                                                 style: Styles.grey14()),
                                             Text(time, style: Styles.black14()),
                                           ],

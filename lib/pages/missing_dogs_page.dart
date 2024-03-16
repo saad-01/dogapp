@@ -21,7 +21,7 @@ class MissingDogsPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.missingDogs),
+            CustomAppBar(title: AppStrings.missingDogs.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -86,7 +86,7 @@ class MissingDogsPage extends StatelessWidget {
             )),
             // const Spacer(),
             PrimartyButton(
-              title: AppStrings.createReport,
+              title: AppStrings.createReport.tr,
               width: MediaQuery.sizeOf(context).width * 0.81,
               height: 10,
               icon: '',

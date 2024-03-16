@@ -139,12 +139,12 @@ class FoundDogModel extends GetxController {
       if (dateController.value.text.isNotEmpty) {
         dateError.value = false;
       }
-      Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+      Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
     }
     if (res == "success") {
       loading.value = false;
       Get.back();
-      Utils.snackBar(AppStrings.success, AppStrings.dogAdded);
+      Utils.snackBar(AppStrings.success.tr, AppStrings.dogAdded.tr);
     } else if (res == "Please enter all the fields") {
       loading.value = false;
       if (yourNameController.value.text.isNotEmpty) {
@@ -177,11 +177,11 @@ class FoundDogModel extends GetxController {
       if (dateController.value.text.isNotEmpty) {
         dateError.value = false;
       }
-      Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+      Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
     } else if (res.isNotEmpty) {
       // show the error
       loading.value = false;
-      Utils.snackBar(AppStrings.error, res);
+      Utils.snackBar(AppStrings.error.tr, res);
     }
   }
 

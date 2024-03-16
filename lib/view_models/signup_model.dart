@@ -59,7 +59,7 @@ class ParentSignupModel extends GetxController {
   }
 
   Future<void> signup() async {
-    loading.value= true;
+    loading.value = true;
     String res = '';
     if (image != null) {
       res = await AuthMethods().signUpUser(
@@ -86,11 +86,11 @@ class ParentSignupModel extends GetxController {
     }
     if (res == "success") {
       // navigate to the home screen
-      loading.value= false;
-      Utils.snackBar(AppStrings.success, AppStrings.loginMsg);
+      loading.value = false;
+      Utils.snackBar(AppStrings.success.tr, AppStrings.loginMsg.tr);
       Get.offAllNamed(RouteName.loginPage);
     } else if (res == 'Please enter all the fields') {
-      loading.value=false;
+      loading.value = false;
       if (nameController.value.text.isEmpty) {
         nameError.value = true;
       }
@@ -121,11 +121,11 @@ class ParentSignupModel extends GetxController {
       if (numberController.value.text.isNotEmpty) {
         numberError.value = false;
       }
-      Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+      Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
     } else {
-      loading.value=false;
+      loading.value = false;
       // show the error
-      Utils.snackBar(AppStrings.error, res);
+      Utils.snackBar(AppStrings.error.tr, res);
     }
   }
 }

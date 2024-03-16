@@ -39,7 +39,7 @@ class AddCmntModel extends GetxController {
         if (cmntController.value.text.isNotEmpty) {
           cmntError.value = false;
         }
-        Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+        Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
       } else {
         await firestore.collection("comments").doc(uid).set({
           'title': titleController.value.text,
@@ -49,7 +49,7 @@ class AddCmntModel extends GetxController {
         });
         loading.value = false;
         Get.back();
-        Utils.snackBar(AppStrings.success, AppStrings.dogAdded);
+        Utils.snackBar(AppStrings.success.tr, AppStrings.dogAdded.tr);
       }
 
       // Set loading back to false after data is added

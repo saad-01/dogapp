@@ -5,6 +5,7 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../utils/app_colors.dart';
 
@@ -19,12 +20,12 @@ class FindTrainExpertPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.trainExpert),
+            CustomAppBar(title: AppStrings.trainExpert.tr),
             const SizedBox(
               height: 10,
             ),
             CustomTextfield(
-              hintText: AppStrings.searchByName,
+              hintText: AppStrings.searchByName.tr,
               obscureText: false,
               suffixIcon: Padding(
                   padding: const EdgeInsets.all(8),
@@ -44,7 +45,7 @@ class FindTrainExpertPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
                   child: Text(
-                    AppStrings.or,
+                    AppStrings.or.tr,
                     style: Styles.lightGrey12(),
                   ),
                 ),
@@ -91,7 +92,7 @@ class FindTrainExpertPage extends StatelessWidget {
                           height: 90,
                         ),
                         Text(
-                          AppStrings.sendInvite,
+                          AppStrings.sendInvite.tr,
                           style: Styles.sliderText(),
                         ),
                         const SizedBox(
@@ -100,7 +101,7 @@ class FindTrainExpertPage extends StatelessWidget {
                         SizedBox(
                           width: 226,
                           child: Text(
-                            AppStrings.sendLocally,
+                            AppStrings.sendLocally.tr,
                             style: Styles.white12(),
                             textAlign: TextAlign.center,
                           ),
@@ -118,10 +119,10 @@ class FindTrainExpertPage extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5)),
                             ),
-                            child: const Center(
+                            child: Center(
                               child: Text(
-                                AppStrings.invite,
-                                style: TextStyle(
+                                AppStrings.invite.tr,
+                                style: const TextStyle(
                                   color: Color(0xFF01637E),
                                   fontSize: 10,
                                 ),

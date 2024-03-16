@@ -29,7 +29,7 @@ class _ExpertFeedPageState extends State<ExpertFeedPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.feedManage),
+            CustomAppBar(title: AppStrings.feedManage.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -67,7 +67,7 @@ class _ExpertFeedPageState extends State<ExpertFeedPage> {
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  AppStrings.foodManagement,
+                                  AppStrings.foodManagement.tr,
                                   style: Styles.primary20G(),
                                 ),
                               ),
@@ -75,7 +75,7 @@ class _ExpertFeedPageState extends State<ExpertFeedPage> {
                                 height: 18,
                               ),
                               Text(
-                                AppStrings.feedNote,
+                                AppStrings.feedNote.tr,
                                 style: Styles.lightGrey12(),
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
@@ -84,11 +84,12 @@ class _ExpertFeedPageState extends State<ExpertFeedPage> {
                                 height: 25,
                               ),
                               PrimartyButton(
-                                  title: AppStrings.addFood,
+                                  title: AppStrings.addFood.tr,
                                   width: 170,
                                   height: 12,
                                   onTap: () {
-                                    Get.toNamed(RouteName.addFoodPage,arguments: doc);
+                                    Get.toNamed(RouteName.addFoodPage,
+                                        arguments: doc);
                                   },
                                   icon: '')
                             ],
@@ -133,12 +134,13 @@ class _ExpertFeedPageState extends State<ExpertFeedPage> {
                         leading: SvgPicture.asset(AssetImages.createPlan),
                         trailing: SvgPicture.asset(AssetImages.nextWhiteIcon),
                         title: Text(
-                          AppStrings.createFoodorDiet,
+                          AppStrings.createFoodorDiet.tr,
                           style: Styles.white16(),
                           textAlign: TextAlign.center,
                         ),
                         onTap: () {
-                          Get.toNamed(RouteName.createDietPlanPage, arguments: doc);
+                          Get.toNamed(RouteName.createDietPlanPage,
+                              arguments: doc);
                         },
                       ),
                     ),

@@ -49,7 +49,7 @@ class TimeTableModel extends GetxController {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   var selectedTime = TimeOfDay.now().obs;
   final RxString title = ''.obs;
-  List<Map<String, dynamic>> categories=[];
+  List<Map<String, dynamic>> categories = [];
 
   Future<void> selectTime(
       BuildContext context, TextEditingController controller) async {
@@ -75,7 +75,7 @@ class TimeTableModel extends GetxController {
       // For example:
     } else {
       // Show a snackbar if the current time is not in the morning range
-      Utils.snackBar(AppStrings.error, AppStrings.selectRightTime);
+      Utils.snackBar(AppStrings.error.tr, AppStrings.selectRightTime.tr);
     }
   }
 
@@ -90,7 +90,7 @@ class TimeTableModel extends GetxController {
     if (currentTime.hour >= morningStart.hour &&
         currentTime.hour < morningEnd.hour) {
     } else {
-      Utils.snackBar(AppStrings.error, AppStrings.selectRightTime);
+      Utils.snackBar(AppStrings.error.tr, AppStrings.selectRightTime.tr);
     }
   }
 
@@ -105,7 +105,7 @@ class TimeTableModel extends GetxController {
     if (currentTime.hour >= morningStart.hour &&
         currentTime.hour < morningEnd.hour) {
     } else {
-      Utils.snackBar(AppStrings.error, AppStrings.selectRightTime);
+      Utils.snackBar(AppStrings.error.tr, AppStrings.selectRightTime.tr);
     }
   }
 
@@ -135,7 +135,7 @@ class TimeTableModel extends GetxController {
           if (caloriesController2.value.text.isNotEmpty) {
             caloriesError2.value = false;
           }
-          Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+          Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
         }
       }
       if (foodNameController3.value.text.isNotEmpty) {
@@ -161,7 +161,7 @@ class TimeTableModel extends GetxController {
           if (caloriesController3.value.text.isNotEmpty) {
             caloriesError3.value = false;
           }
-          Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+          Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
         }
       }
       // Ensure both name and phone number are not empty
@@ -188,14 +188,14 @@ class TimeTableModel extends GetxController {
           if (caloriesController.value.text.isNotEmpty) {
             caloriesError.value = false;
           }
-          Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+          Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
         }
       }
       if (foodNameController.value.text.isEmpty &&
           foodNameController2.value.text.isEmpty &&
           foodNameController3.value.text.isEmpty) {
         loading.value = false;
-        Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+        Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
       } else {
         // await firestore.collection("dogFood").doc(id).set({
         //   'title': title.value,
@@ -249,7 +249,7 @@ class TimeTableModel extends GetxController {
           // Add more categories if needed
         ];
         Get.back();
-        Utils.snackBar(AppStrings.success, AppStrings.dogAdded);
+        Utils.snackBar(AppStrings.success.tr, AppStrings.dogAdded.tr);
       }
 
       // Set loading back to false after data is added

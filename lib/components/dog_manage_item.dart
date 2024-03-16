@@ -3,10 +3,16 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import '../utils/app_colors.dart';
 
 class DogManageWidget extends StatelessWidget {
-  const DogManageWidget({super.key, this.onPress, required this.url, required this.name, required this.date});
+  const DogManageWidget(
+      {super.key,
+      this.onPress,
+      required this.url,
+      required this.name,
+      required this.date});
   final String url;
   final String name;
   final String date;
@@ -62,11 +68,11 @@ class DogManageWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  name,
+                  name.tr,
                   style: Styles.expertSignupPaget1(),
                 ),
                 Text(
-                  date,
+                  date.tr,
                   style: Styles.black10Sub(),
                 ),
                 const SizedBox(
@@ -91,7 +97,7 @@ class DogManageWidget extends StatelessWidget {
                     //           width: 4,
                     //         ),
                     //         Text(
-                    //           AppStrings.sendArchive,
+                    //           AppStrings.sendArchive.tr,
                     //           style: Styles.primary8Txt(),
                     //         ),
                     //         const SizedBox(
@@ -120,7 +126,7 @@ class DogManageWidget extends StatelessWidget {
                                 width: 4,
                               ),
                               Text(
-                                AppStrings.deleteDog,
+                                AppStrings.deleteDog.tr,
                                 style: Styles.red8(),
                               ),
                               const SizedBox(

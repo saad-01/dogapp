@@ -27,7 +27,7 @@ class _AddCommentPageState extends State<AddCommentPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.addComment),
+            CustomAppBar(title: AppStrings.addComment.tr),
             Expanded(
                 child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -37,7 +37,7 @@ class _AddCommentPageState extends State<AddCommentPage> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.title,
+                        AppStrings.title.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
@@ -46,7 +46,7 @@ class _AddCommentPageState extends State<AddCommentPage> {
                     ),
                     Obx(
                       () => CustomTextfield(
-                        hintText: AppStrings.giveTitle,
+                        hintText: AppStrings.giveTitle.tr,
                         obscureText: false,
                         isError: addVM.titleError.value,
                         controller: addVM.titleController.value,
@@ -65,7 +65,7 @@ class _AddCommentPageState extends State<AddCommentPage> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.description,
+                        AppStrings.description.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
@@ -74,7 +74,7 @@ class _AddCommentPageState extends State<AddCommentPage> {
                     ),
                     Obx(
                       () => CustomTextfield(
-                        hintText: AppStrings.makeAnnouncement,
+                        hintText: AppStrings.makeAnnouncement.tr,
                         obscureText: false,
                         isError: addVM.cmntError.value,
                         controller: addVM.cmntController.value,
@@ -110,7 +110,7 @@ class _AddCommentPageState extends State<AddCommentPage> {
                     //       width: 15,
                     //     ),
                     //     Text(
-                    //       AppStrings.visibleToParent,
+                    //       AppStrings.visibleToParent.tr,
                     //       style: Styles.expertSignupPaget1(),
                     //     )
                     //   ],
@@ -149,7 +149,7 @@ class _AddCommentPageState extends State<AddCommentPage> {
                           width: 15,
                         ),
                         Text(
-                          AppStrings.sendNoti,
+                          AppStrings.sendNoti.tr,
                           style: Styles.expertSignupPaget1(),
                         )
                       ],
@@ -158,7 +158,7 @@ class _AddCommentPageState extends State<AddCommentPage> {
                       height: 20,
                     ),
                     Obx(() => PrimartyButton(
-                        title: AppStrings.share,
+                        title: AppStrings.share.tr,
                         width: MediaQuery.sizeOf(context).width * 0.9,
                         height: 10,
                         loading: addVM.loading.value,

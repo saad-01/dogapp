@@ -20,7 +20,6 @@ class AddNumModel extends GetxController {
       // Ensure both name and phone number are not empty
       if (nameController.value.text.isEmpty ||
           phoneNumController.value.text.isEmpty) {
-        
         loading.value = false;
         if (nameController.value.text.isEmpty) {
           nameError.value = true;
@@ -34,7 +33,7 @@ class AddNumModel extends GetxController {
         if (phoneNumController.value.text.isNotEmpty) {
           numError.value = false;
         }
-        Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+        Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
       }
 
       // Add name and phone number to Firestore
@@ -45,7 +44,7 @@ class AddNumModel extends GetxController {
         });
         loading.value = false;
         Get.back();
-        Utils.snackBar(AppStrings.success, AppStrings.dogAdded);
+        Utils.snackBar(AppStrings.success.tr, AppStrings.dogAdded.tr);
       }
 
       // Set loading back to false after data is added

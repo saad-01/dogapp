@@ -165,7 +165,7 @@ class AnitParasiteModel extends GetxController {
         if (timeController.value.text.isNotEmpty) {
           timeError.value = false;
         }
-        Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+        Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
       } else {
         if (multiImageFlag.value) {
           List<String> urlsList =
@@ -196,7 +196,7 @@ class AnitParasiteModel extends GetxController {
         });
         loading.value = false;
         Get.back();
-        Utils.snackBar(AppStrings.success, AppStrings.dogAdded);
+        Utils.snackBar(AppStrings.success.tr, AppStrings.dogAdded.tr);
       }
     } catch (e) {
       loading.value = false;

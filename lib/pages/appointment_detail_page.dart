@@ -34,7 +34,7 @@ class _AppointmentDetailPageState extends State<AppointmentDetailPage> {
   @override
   void initState() {
     getDogName(doc['dogId']);
-   
+
     super.initState();
   }
 
@@ -46,7 +46,7 @@ class _AppointmentDetailPageState extends State<AppointmentDetailPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.appointDetail),
+            CustomAppBar(title: AppStrings.appointDetail.tr),
             const SizedBox(
               height: 20,
             ),
@@ -80,7 +80,7 @@ class _AppointmentDetailPageState extends State<AppointmentDetailPage> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              AppStrings.edit,
+                              AppStrings.edit.tr,
                               style: Styles.primary16U(),
                             )
                           ],
@@ -104,7 +104,7 @@ class _AppointmentDetailPageState extends State<AppointmentDetailPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('${AppStrings.appointType}:',
+                            Text('${AppStrings.appointType.tr}:',
                                 style: Styles.grey14()),
                             Text(
                               doc['type'],
@@ -118,7 +118,8 @@ class _AppointmentDetailPageState extends State<AppointmentDetailPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('${AppStrings.pet}:', style: Styles.grey14()),
+                            Text('${AppStrings.pet.tr}:',
+                                style: Styles.grey14()),
                             Obx(
                               () => Text(
                                 name.value,
@@ -133,7 +134,8 @@ class _AppointmentDetailPageState extends State<AppointmentDetailPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('${AppStrings.date}:', style: Styles.grey14()),
+                            Text('${AppStrings.date.tr}:',
+                                style: Styles.grey14()),
                             Text(
                               doc['date'],
                               style: Styles.black14(),
@@ -145,7 +147,7 @@ class _AppointmentDetailPageState extends State<AppointmentDetailPage> {
                         ),
                         Row(
                           children: [
-                            Text('${AppStrings.notes}:',
+                            Text('${AppStrings.notes.tr}:',
                                 style: Styles.grey14()),
                           ],
                         ),
@@ -208,7 +210,7 @@ class StatusItem extends StatelessWidget {
       ),
       child: Center(
           child: Text(
-        title,
+        title.tr,
         style: approval ? Styles.primary12UText() : Styles.denialTxt(),
       )),
     );

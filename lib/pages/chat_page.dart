@@ -215,12 +215,12 @@ class ChatPage extends StatelessWidget {
                             const SizedBox(
                               width: 20,
                             ),
-                            const Expanded(
+                            Expanded(
                                 child: TextField(
                               decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: AppStrings.connectExperts,
-                                  hintStyle: TextStyle(
+                                  hintText: AppStrings.connectExperts.tr,
+                                  hintStyle: const TextStyle(
                                     color: Color(0x420A0A0A),
                                     fontSize: 14,
                                     fontWeight: FontWeight.w400,

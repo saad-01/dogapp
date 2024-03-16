@@ -21,7 +21,7 @@ class SafetyEmergencyPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.safetyEmergency),
+            CustomAppBar(title: AppStrings.safetyEmergency.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -50,7 +50,7 @@ class SafetyEmergencyPage extends StatelessWidget {
                         leading: SvgPicture.asset(AssetImages.telephone),
                         trailing: SvgPicture.asset(AssetImages.nextBlackIcon),
                         title: Text(
-                          AppStrings.seeEmergencyNum,
+                          AppStrings.seeEmergencyNum.tr,
                           style: Styles.black14(),
                           textAlign: TextAlign.center,
                         ),
@@ -94,14 +94,14 @@ class SafetyEmergencyPage extends StatelessWidget {
                                 height: 90,
                               ),
                               Text(
-                                AppStrings.missingFound,
+                                AppStrings.missingFound.tr,
                                 style: Styles.primary20G(),
                               ),
                               const SizedBox(
                                 height: 5,
                               ),
                               Text(
-                                AppStrings.missingNote,
+                                AppStrings.missingNote.tr,
                                 style: Styles.lightGrey12(),
                                 textAlign: TextAlign.center,
                                 maxLines: 2,
@@ -111,7 +111,7 @@ class SafetyEmergencyPage extends StatelessWidget {
                                 height: 25,
                               ),
                               PrimartyButton(
-                                  title: AppStrings.addReport,
+                                  title: AppStrings.addReport.tr,
                                   width: 170,
                                   height: 12,
                                   onTap: () {
@@ -137,14 +137,14 @@ class SafetyEmergencyPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.impInstructions,
+                      AppStrings.impInstructions.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.emergencyCases,
+                      AppStrings.emergencyCases.tr,
                       style: Styles.lightGrey12(),
                     ),
                   ),
@@ -185,11 +185,11 @@ class SafetyEmergencyPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  AppStrings.inCaseEmergency,
+                                  AppStrings.inCaseEmergency.tr,
                                   style: Styles.expertSignupPaget1(),
                                 ),
                                 Text(
-                                  AppStrings.noteEmergency,
+                                  AppStrings.noteEmergency.tr,
                                   style: Styles.grey8(),
                                 )
                               ],
@@ -209,7 +209,7 @@ class SafetyEmergencyPage extends StatelessWidget {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.notifications,
+                  //     AppStrings.notifications.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -217,7 +217,7 @@ class SafetyEmergencyPage extends StatelessWidget {
                   //   height: 12,
                   // ),
                   // MissDogItem(
-                  //   title: AppStrings.missingDog,
+                  //   title: AppStrings.missingDog.tr,
                   //   onPress: () {
                   //     Get.toNamed(RouteName.missDogProfilePage);
                   //   },
@@ -226,7 +226,7 @@ class SafetyEmergencyPage extends StatelessWidget {
                   //   height: 20,
                   // ),
                   // MissDogItem(
-                  //   title: AppStrings.foundedDog,
+                  //   title: AppStrings.foundedDog.tr,
                   //   onPress: () {
                   //     Get.toNamed(RouteName.foundDogProfilePage);
                   //   },

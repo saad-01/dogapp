@@ -2,6 +2,7 @@ import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../utils/app_colors.dart';
 import '../utils/styles.dart';
@@ -30,7 +31,7 @@ class PdfFileItem extends StatelessWidget {
           SizedBox(
             width: 80,
             child: Text(
-              AppStrings.learnTennis,
+              AppStrings.learnTennis.tr,
               style: Styles.lightgrey8(),
               textAlign: TextAlign.center,
             ),

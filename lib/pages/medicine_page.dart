@@ -37,7 +37,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.medicine),
+            CustomAppBar(title: AppStrings.medicine.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -61,7 +61,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.dogName,
+                  //     AppStrings.dogName.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -69,7 +69,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   //   height: 8,
                   // ),
                   // const CustomTextfield(
-                  //   hintText: AppStrings.typeDogName,
+                  //   hintText: AppStrings.typeDogName.tr,
                   //   obscureText: false,
                   // ),
                   const SizedBox(
@@ -78,7 +78,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.reasonAppointment,
+                      AppStrings.reasonAppointment.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -87,7 +87,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   ),
                   Obx(
                     () => CustomTextfield(
-                      hintText: AppStrings.typeNotes,
+                      hintText: AppStrings.typeNotes.tr,
                       obscureText: false,
                       isError: medVM.reasonError.value,
                       onFieldSubmitted: (p0) {
@@ -106,7 +106,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.date,
+                      AppStrings.date.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -116,7 +116,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   Obx(
                     () => CustomTextfield(
                       hintText: medVM.dateController.value.text == ''
-                          ? AppStrings.dateFormat
+                          ? AppStrings.dateFormat.tr
                           : medVM.dateController.value.text,
                       obscureText: false,
                       isError: medVM.dateError.value,
@@ -131,8 +131,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                       },
                       suffixIcon: GestureDetector(
                         onTap: () {
-                          medVM.selectDate(
-                              context, medVM.dateController.value);
+                          medVM.selectDate(context, medVM.dateController.value);
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(15),
@@ -147,7 +146,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.timeHeading,
+                      AppStrings.timeHeading.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -156,10 +155,9 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   ),
                   Obx(
                     () => CustomTextfield(
-                      hintText:
-                          medVM.reminderTimeController.value.text == ''
-                              ? AppStrings.time
-                              : medVM.timeController.value.text,
+                      hintText: medVM.reminderTimeController.value.text == ''
+                          ? AppStrings.time.tr
+                          : medVM.timeController.value.text,
                       keyboardType: TextInputType.none,
                       isError: medVM.timeError.value,
                       controller: medVM.timeController.value,
@@ -190,7 +188,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.notes,
+                      AppStrings.notes.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -198,7 +196,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                     height: 8,
                   ),
                   CustomTextfield(
-                    hintText: AppStrings.typeNotes,
+                    hintText: AppStrings.typeNotes.tr,
                     obscureText: false,
                     onFieldSubmitted: (p0) {
                       Utils.fieldFocusChange(
@@ -212,7 +210,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.weight,
+                  //     AppStrings.weight.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -229,7 +227,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.doze,
+                  //     AppStrings.doze.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -246,7 +244,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.addFiles,
+                      AppStrings.addFiles.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -256,7 +254,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   Row(
                     children: [
                       AlternatingButton(
-                        title: AppStrings.photo,
+                        title: AppStrings.photo.tr,
                         outlined: false,
                         onPress: () async {
                           await medVM.pickMultipleImages();
@@ -271,7 +269,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                         width: 10,
                       ),
                       AlternatingButton(
-                        title: AppStrings.files,
+                        title: AppStrings.files.tr,
                         outlined: true,
                         onPress: () async {
                           await medVM.pickMultipleFiles();
@@ -290,7 +288,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.yourDoc,
+                      AppStrings.yourDoc.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -334,7 +332,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                               trailing:
                                   SvgPicture.asset(AssetImages.nextPrimaryIcon),
                               title: Text(
-                                AppStrings.selectDoc,
+                                AppStrings.selectDoc.tr,
                                 style: Styles.choosePageText(),
                               ),
                               onTap: () {
@@ -343,7 +341,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                             ),
                           )
                         : ExpertItem(
-                            expertis: AppStrings.trainExpert,
+                            expertis: AppStrings.trainExpert.tr,
                             filledBtnTitle: '',
                             name: expertVM.name.value,
                             url: expertVM.url.value,
@@ -354,7 +352,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   ),
 
                   Text(
-                    AppStrings.reminderNoti,
+                    AppStrings.reminderNoti.tr,
                     style: Styles.expertSignupPaget1(),
                   ),
                   const SizedBox(
@@ -363,7 +361,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.date,
+                      AppStrings.date.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -372,10 +370,9 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   ),
                   Obx(
                     () => CustomTextfield(
-                      hintText:
-                          medVM.reminderDateController.value.text == ''
-                              ? AppStrings.dateFormat
-                              : medVM.reminderDateController.value.text,
+                      hintText: medVM.reminderDateController.value.text == ''
+                          ? AppStrings.dateFormat.tr
+                          : medVM.reminderDateController.value.text,
                       obscureText: false,
                       keyboardType: TextInputType.none,
                       controller: medVM.reminderDateController.value,
@@ -388,8 +385,8 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                       },
                       suffixIcon: GestureDetector(
                         onTap: () {
-                          medVM.selectDate(context,
-                              medVM.reminderDateController.value);
+                          medVM.selectDate(
+                              context, medVM.reminderDateController.value);
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(15),
@@ -405,7 +402,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.timeHeading,
+                      AppStrings.timeHeading.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -414,10 +411,9 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   ),
                   Obx(
                     () => CustomTextfield(
-                      hintText:
-                          medVM.reminderTimeController.value.text == ''
-                              ? AppStrings.time
-                              : medVM.reminderTimeController.value.text,
+                      hintText: medVM.reminderTimeController.value.text == ''
+                          ? AppStrings.time.tr
+                          : medVM.reminderTimeController.value.text,
                       // keyboardType: TextInputType.none,
                       controller: medVM.reminderTimeController.value,
                       focusNode: medVM.reminderTimeFocusNode.value,
@@ -425,8 +421,8 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                       obscureText: false,
                       suffixIcon: GestureDetector(
                         onTap: () async {
-                          await medVM.selectTime(context,
-                              medVM.reminderTimeController.value);
+                          await medVM.selectTime(
+                              context, medVM.reminderTimeController.value);
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(18.0),
@@ -458,7 +454,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   //       width: 15,
                   //     ),
                   //     Text(
-                  //       AppStrings.sendNoti,
+                  //       AppStrings.sendNoti.tr,
                   //       style: Styles.expertSignupPaget1(),
                   //     )
                   //   ],
@@ -467,7 +463,7 @@ class _MedicineReportPageState extends State<MedicineReportPage> {
                   //   height: 20,
                   // ),
                   Obx(() => PrimartyButton(
-                      title: AppStrings.request,
+                      title: AppStrings.request.tr,
                       loading: medVM.loading.value,
                       width: MediaQuery.sizeOf(context).width * 0.75,
                       height: 10,

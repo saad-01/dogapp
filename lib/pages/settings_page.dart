@@ -26,11 +26,13 @@ class _SettingsPageState extends State<SettingsPage> {
   RxString name = ''.obs;
   RxString email = ''.obs;
   RxString photoUrl = ''.obs;
+  RxString role = ''.obs;
   Future<void> getUser() async {
     user = await prefs.getUser();
     name.value = user.name!;
     email.value = user.email!;
     photoUrl.value = user.photoUrl!;
+    role.value = user.role!;
   }
 
   @override
@@ -55,7 +57,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 height: 20,
               ),
               Text(
-                AppStrings.settings,
+                AppStrings.settings.tr,
                 style: Styles.expertSignupPageH1(),
               ),
               const SizedBox(
@@ -126,7 +128,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 height: 35,
               ),
               CustomTile(
-                title: AppStrings.safetyEmergency,
+                title: AppStrings.safetyEmergency.tr,
                 leading: AssetImages.dogBelt,
                 trailing: AssetImages.nextWhiteIcon,
                 clr: const Color(0xFF007F84),
@@ -138,7 +140,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 height: 20,
               ),
               CustomTile(
-                title: AppStrings.gotoCommunity,
+                title: AppStrings.gotoCommunity.tr,
                 leading: AssetImages.communityIcon,
                 trailing: AssetImages.nextWhiteIcon,
                 clr: const Color(0xFFB25423),
@@ -151,7 +153,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               CustomListTile(
                 trailing: AssetImages.nextBlackIcon,
-                title: AppStrings.notifications,
+                title: AppStrings.notifications.tr,
                 color: AppColors.white,
                 style: Styles.expertSignupPaget1(),
                 onPress: () {
@@ -161,30 +163,34 @@ class _SettingsPageState extends State<SettingsPage> {
               const SizedBox(
                 height: 15,
               ),
-              CustomListTile(
-                trailing: AssetImages.nextBlackIcon,
-                title: AppStrings.manageDogs,
-                color: AppColors.white,
-                style: Styles.expertSignupPaget1(),
-                onPress: () {
-                  Get.toNamed(RouteName.dogManagePage);
-                },
+              Obx(
+                () => role.value == 'parent'
+                    ? CustomListTile(
+                        trailing: AssetImages.nextBlackIcon,
+                        title: AppStrings.manageDogs.tr,
+                        color: AppColors.white,
+                        style: Styles.expertSignupPaget1(),
+                        onPress: () {
+                          Get.toNamed(RouteName.dogManagePage);
+                        },
+                      )
+                    : const SizedBox(),
               ),
+              // const SizedBox(
+              //   height: 15,
+              // ),
+              // CustomListTile(
+              //   trailing: AssetImages.nextBlackIcon,
+              //   title: AppStrings.giveFeedback.tr,
+              //   color: AppColors.white,
+              //   style: Styles.expertSignupPaget1(),
+              // ),
               const SizedBox(
                 height: 15,
               ),
               CustomListTile(
                 trailing: AssetImages.nextBlackIcon,
-                title: AppStrings.giveFeedback,
-                color: AppColors.white,
-                style: Styles.expertSignupPaget1(),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              CustomListTile(
-                trailing: AssetImages.nextBlackIcon,
-                title: AppStrings.termsOfUse,
+                title: AppStrings.termsOfUse.tr,
                 color: AppColors.white,
                 style: Styles.expertSignupPaget1(),
               ),
@@ -193,7 +199,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               CustomListTile(
                 trailing: AssetImages.logoutIcon,
-                title: AppStrings.logout,
+                title: AppStrings.logout.tr,
                 color: AppColors.white,
                 style: Styles.primaryText(),
                 onPress: () async {
@@ -206,7 +212,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               CustomListTile(
                 trailing: AssetImages.deleteIcon,
-                title: AppStrings.deleteAccount,
+                title: AppStrings.deleteAccount.tr,
                 color: const Color(0xFFFFEBEB),
                 style: Styles.deleteText(),
               ),

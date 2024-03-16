@@ -39,7 +39,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
             padding: const EdgeInsets.all(15),
             child: Column(
               children: [
-                const CustomAppBar(title: AppStrings.dogsData),
+                CustomAppBar(title: AppStrings.dogsData.tr),
                 Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -72,12 +72,12 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                         borderRadius: BorderRadius.circular(10)),
                     indicatorColor: AppColors.primaryColor,
                     splashBorderRadius: BorderRadius.circular(10),
-                    tabs: const <Widget>[
+                    tabs: <Widget>[
                       Tab(
-                        text: AppStrings.data,
+                        text: AppStrings.data.tr,
                       ),
                       Tab(
-                        text: AppStrings.profile,
+                        text: AppStrings.profile.tr,
                       ),
                     ],
                   ),
@@ -135,11 +135,11 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                                     height: 10,
                                   ),
                                   // Text(
-                                  //   AppStrings.releaseDogData,
+                                  //   AppStrings.releaseDogData.tr,
                                   //   style: Styles.expertSignupPaget1(),
                                   // ),
                                   // Text(
-                                  //   AppStrings.createRelease,
+                                  //   AppStrings.createRelease.tr,
                                   //   style: Styles.subText(),
                                   // ),
                                   // const SizedBox(
@@ -149,7 +149,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                                   //   mainAxisAlignment: MainAxisAlignment.center,
                                   //   children: [
                                   //     ButtonSmall(
-                                  //         title: AppStrings.editRecord,
+                                  //         title: AppStrings.editRecord.tr,
                                   //         icon: AssetImages.editIcon,
                                   //         primaryAlike: false,
                                   //         onPress: () {
@@ -161,7 +161,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                                   //       width: 10,
                                   //     ),
                                   //     ButtonSmall(
-                                  //       title: AppStrings.shareRecord,
+                                  //       title: AppStrings.shareRecord.tr,
                                   //       icon: AssetImages.shareIcon,
                                   //       primaryAlike: true,
                                   //       onPress: () {},
@@ -213,11 +213,11 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              AppStrings.healthData,
+                              AppStrings.healthData.tr,
                               style: Styles.primary20G(),
                             ),
                             Text(
-                              AppStrings.healthSub,
+                              AppStrings.healthSub.tr,
                               style: Styles.lightGrey12(),
                             ),
                             const SizedBox(
@@ -242,7 +242,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                             Align(
                               alignment: Alignment.center,
                               child: PrimartyButton(
-                                title: AppStrings.seePatients,
+                                title: AppStrings.seePatients.tr,
                                 width: 194,
                                 height: 10,
                                 icon: '',
@@ -283,11 +283,11 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              AppStrings.trainingData,
+                              AppStrings.trainingData.tr,
                               style: Styles.primary20G(),
                             ),
                             Text(
-                              AppStrings.healthSub,
+                              AppStrings.healthSub.tr,
                               style: Styles.lightGrey12(),
                             ),
                             const SizedBox(
@@ -296,8 +296,8 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                             Align(
                               alignment: Alignment.center,
                               child: PrimartyButton(
-                                title: AppStrings.seeTrainingFile,
-                                width: 194,
+                                title: AppStrings.seeTrainingFile.tr,
+                                width: 250,
                                 height: 10,
                                 icon: '',
                                 onTap: () {
@@ -319,8 +319,8 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                               onTap: () {
                                 Get.toNamed(RouteName.expertExercisePage);
                               },
-                              child: const ImageWithText(
-                                title: AppStrings.exerciseExpert,
+                              child: ImageWithText(
+                                title: AppStrings.exerciseExpert.tr,
                                 image: AssetImages.excerciseExpert,
                                 clr: AppColors.exercieBox,
                               ),
@@ -332,10 +332,11 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                Get.toNamed(RouteName.expertFeedManagePage,arguments: doc);
+                                Get.toNamed(RouteName.expertFeedManagePage,
+                                    arguments: doc);
                               },
-                              child: const ImageWithText(
-                                title: AppStrings.feedManage,
+                              child: ImageWithText(
+                                title: AppStrings.feedManage.tr,
                                 image: AssetImages.dogFood,
                                 clr: AppColors.foodBox,
                               ),
@@ -347,7 +348,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                         height: 20,
                       ),
                       // CustomTile(
-                      //   title: AppStrings.makeAnnouncement,
+                      //   title: AppStrings.makeAnnouncement.tr,
                       //   leading: AssetImages.speaker,
                       //   trailing: AssetImages.nextBlackIcon,
                       //   clr: AppColors.white,
@@ -361,7 +362,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          AppStrings.weight,
+                          AppStrings.weight.tr,
                           style: Styles.expertSignupPaget1(),
                         ),
                       ),
@@ -380,7 +381,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          AppStrings.reminders,
+                          AppStrings.reminders.tr,
                           style: Styles.expertSignupPaget1(),
                         ),
                       ),
@@ -410,7 +411,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                             if (docs.isEmpty) {
                               // Return an empty widget if there are no documents
                               return Text(
-                                AppStrings.none,
+                                AppStrings.none.tr,
                                 style: Styles.grey16(),
                               );
                             }
@@ -439,7 +440,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                                   children: [
                                     AppointmentWidget(
                                         type: "$vaccType(${doc['type']})",
-                                        name: AppStrings.dogName,
+                                        name: AppStrings.dogName.tr,
                                         id: doc['dogId'],
                                         date: doc['date'],
                                         time: doc['time'],
@@ -542,9 +543,9 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                       //     Column(
                       //       crossAxisAlignment: CrossAxisAlignment.start,
                       //       children: [
-                      //         Text(AppStrings.filesFromExpert,
+                      //         Text(AppStrings.filesFromExpert.tr,
                       //             style: Styles.expertSignupPaget1()),
-                      //         Text(AppStrings.releaseFiles,
+                      //         Text(AppStrings.releaseFiles.tr,
                       //             style: Styles.lightGrey12()),
                       //       ],
                       //     ),
@@ -556,7 +557,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                       //       child: Row(
                       //         children: [
                       //           Text(
-                      //             AppStrings.seeAll,
+                      //             AppStrings.seeAll.tr,
                       //             style: Styles.subYellowText(),
                       //           ),
                       //           const SizedBox(
@@ -615,18 +616,18 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                       //           crossAxisAlignment: CrossAxisAlignment.start,
                       //           children: [
                       //             Text(
-                      //               AppStrings.nameCapital,
+                      //               AppStrings.nameCapital.tr,
                       //               style: Styles.expertSignupPaget1(),
                       //             ),
                       //             Text(
-                      //               "Leptospirosis(${AppStrings.vaccination})",
+                      //               "Leptospirosis(${AppStrings.vaccination.tr})",
                       //               style: Styles.subPrimaryText(),
                       //             ),
                       //             const SizedBox(
                       //               height: 8,
                       //             ),
                       //             Text(
-                      //               AppStrings.note,
+                      //               AppStrings.note.tr,
                       //               style: Styles.noteTxt(),
                       //               maxLines: 2,
                       //               overflow: TextOverflow.ellipsis,
@@ -677,7 +678,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.dogName}:',
+                                    Text('${AppStrings.dogName.tr}:',
                                         style: Styles.grey14()),
                                     Text(
                                       doc['name'],
@@ -692,7 +693,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.breed}:',
+                                    Text('${AppStrings.breed.tr}:',
                                         style: Styles.grey14()),
                                     Text(
                                       doc['breed'],
@@ -707,7 +708,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.dateOfBirth}:',
+                                    Text('${AppStrings.dateOfBirth.tr}:',
                                         style: Styles.grey14()),
                                     Text(
                                       doc['date'],
@@ -722,7 +723,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.gender}:',
+                                    Text('${AppStrings.gender.tr}:',
                                         style: Styles.grey14()),
                                     Text(
                                       doc['gender'],
@@ -737,7 +738,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.weight}:',
+                                    Text('${AppStrings.weight.tr}:',
                                         style: Styles.grey14()),
                                     Text(
                                       doc['weight'],
@@ -752,7 +753,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.microChipNum}:',
+                                    Text('${AppStrings.microChipNum.tr}:',
                                         style: Styles.grey14()),
                                     Text(
                                       doc['microchipNumber'],
@@ -766,7 +767,7 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                               height: 40,
                             ),
                             // PrimartyButton(
-                            //     title: AppStrings.editProfile,
+                            //     title: AppStrings.editProfile.tr,
                             //     width: 180,
                             //     height: 12,
                             //     onTap: () {

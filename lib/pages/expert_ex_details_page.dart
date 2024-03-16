@@ -6,6 +6,7 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class ExpertExDetailsPage extends StatelessWidget {
   const ExpertExDetailsPage({super.key});
@@ -18,7 +19,7 @@ class ExpertExDetailsPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.handFeeding),
+            CustomAppBar(title: AppStrings.handFeeding.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -26,7 +27,7 @@ class ExpertExDetailsPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.description,
+                      AppStrings.description.tr,
                       style: Styles.appBarH1(),
                     ),
                   ),
@@ -43,7 +44,7 @@ class ExpertExDetailsPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.details,
+                      AppStrings.details.tr,
                       style: Styles.appBarH1(),
                     ),
                   ),
@@ -58,7 +59,7 @@ class ExpertExDetailsPage extends StatelessWidget {
                     ),
                     leading: SvgPicture.asset(AssetImages.menu),
                     title: Text(
-                      AppStrings.trainingLevel,
+                      AppStrings.trainingLevel.tr,
                       style: Styles.black14(),
                     ),
                     trailing: SizedBox(
@@ -70,7 +71,7 @@ class ExpertExDetailsPage extends StatelessWidget {
                             width: 6,
                           ),
                           Text(
-                            AppStrings.easy,
+                            AppStrings.easy.tr,
                             style: Styles.black14(),
                           ),
                         ],
@@ -88,7 +89,7 @@ class ExpertExDetailsPage extends StatelessWidget {
                     ),
                     leading: SvgPicture.asset(AssetImages.alarm),
                     title: Text(
-                      AppStrings.trainingLength,
+                      AppStrings.trainingLength.tr,
                       style: Styles.black14(),
                     ),
                     trailing: Text(
@@ -107,7 +108,7 @@ class ExpertExDetailsPage extends StatelessWidget {
                     ),
                     leading: SvgPicture.asset(AssetImages.equipment),
                     title: Text(
-                      AppStrings.equipment,
+                      AppStrings.equipment.tr,
                       style: Styles.black14(),
                     ),
                     trailing: Text(
@@ -121,7 +122,7 @@ class ExpertExDetailsPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.articles,
+                      AppStrings.articles.tr,
                       style: Styles.appBarH1(),
                     ),
                   ),
@@ -142,7 +143,7 @@ class ExpertExDetailsPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.tutorial,
+                      AppStrings.tutorial.tr,
                       style: Styles.appBarH1(),
                     ),
                   ),
@@ -167,7 +168,7 @@ class ExpertExDetailsPage extends StatelessWidget {
                     height: 25,
                   ),
                   PrimartyButton(
-                      title: AppStrings.editExercise,
+                      title: AppStrings.editExercise.tr,
                       width: 250,
                       height: 12,
                       onTap: () {},
@@ -182,6 +183,5 @@ class ExpertExDetailsPage extends StatelessWidget {
         ),
       )),
     );
-
   }
 }

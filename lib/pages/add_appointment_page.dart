@@ -23,8 +23,8 @@ class AddAppointmentPage extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            const CustomAppBar(
-              title: AppStrings.appAppoint,
+            CustomAppBar(
+              title: AppStrings.appAppoint.tr,
             ),
             Expanded(
                 child: SingleChildScrollView(
@@ -42,7 +42,7 @@ class AddAppointmentPage extends StatelessWidget {
                           Get.toNamed(RouteName.vaccinationReportPage,
                               arguments: doc);
                         },
-                        title: AppStrings.vaccination,
+                        title: AppStrings.vaccination.tr,
                       ),
                       const SizedBox(
                         width: 40,
@@ -53,7 +53,7 @@ class AddAppointmentPage extends StatelessWidget {
                           Get.toNamed(RouteName.antiParasitePage,
                               arguments: doc);
                         },
-                        title: AppStrings.antiparasitic,
+                        title: AppStrings.antiparasitic.tr,
                       ),
                     ],
                   ),
@@ -68,7 +68,7 @@ class AddAppointmentPage extends StatelessWidget {
                         onPress: () {
                           Get.toNamed(RouteName.medicinePage, arguments: doc);
                         },
-                        title: AppStrings.medicine,
+                        title: AppStrings.medicine.tr,
                       ),
                       const SizedBox(
                         width: 40,
@@ -78,7 +78,7 @@ class AddAppointmentPage extends StatelessWidget {
                         onPress: () {
                           Get.toNamed(RouteName.symptomsPage, arguments: doc);
                         },
-                        title: AppStrings.symptoms,
+                        title: AppStrings.symptoms.tr,
                       ),
                     ],
                   ),
@@ -93,7 +93,7 @@ class AddAppointmentPage extends StatelessWidget {
                         onPress: () {
                           Get.toNamed(RouteName.vetVisitPage, arguments: doc);
                         },
-                        title: AppStrings.vetVisit,
+                        title: AppStrings.vetVisit.tr,
                       ),
                       const SizedBox(
                         width: 40,
@@ -104,7 +104,7 @@ class AddAppointmentPage extends StatelessWidget {
                           Get.toNamed(RouteName.otherAppointPage,
                               arguments: doc);
                         },
-                        title: AppStrings.otherExpert,
+                        title: AppStrings.otherExpert.tr,
                       ),
                     ],
                   ),
@@ -133,11 +133,11 @@ class AddAppointmentPage extends StatelessWidget {
                       leading: SvgPicture.asset(AssetImages.coloredFile),
                       trailing: SvgPicture.asset(AssetImages.nextPrimaryIcon),
                       title: Text(
-                        AppStrings.patientFiles,
+                        AppStrings.patientFiles.tr,
                         style: Styles.choosePageText(),
                       ),
                       subtitle: Text(
-                        AppStrings.seeAllFiles,
+                        AppStrings.seeAllFiles.tr,
                         style: Styles.lightgrey8(),
                       ),
                       onTap: () {

@@ -28,8 +28,8 @@ class _DogBaitPageState extends State<DogBaitPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(
-              title: AppStrings.dogBait,
+            CustomAppBar(
+              title: AppStrings.dogBait.tr,
             ),
             Image.asset(
               AssetImages.dogBaitLg,
@@ -63,7 +63,7 @@ class _DogBaitPageState extends State<DogBaitPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      AppStrings.addBaitLocation,
+                      AppStrings.addBaitLocation.tr,
                       style: Styles.black14(),
                     ),
                     SvgPicture.asset(AssetImages.location)
@@ -105,7 +105,7 @@ class _DogBaitPageState extends State<DogBaitPage> {
                     width: 15,
                   ),
                   Text(
-                    AppStrings.sendNotiAll,
+                    AppStrings.sendNotiAll.tr,
                     style: Styles.expertSignupPaget1(),
                   )
                 ],
@@ -115,7 +115,7 @@ class _DogBaitPageState extends State<DogBaitPage> {
               height: 20,
             ),
             PrimartyButton(
-                title: AppStrings.share,
+                title: AppStrings.share.tr,
                 width: MediaQuery.sizeOf(context).width * 0.75,
                 height: 10,
                 onTap: () {

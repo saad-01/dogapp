@@ -2,6 +2,7 @@ import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../utils/assets.dart';
 import '../utils/styles.dart';
@@ -47,7 +48,7 @@ class FoodReminderItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                heading,
+                heading.tr,
                 style: Styles.subPrimaryText(),
               ),
               GestureDetector(
@@ -58,7 +59,7 @@ class FoodReminderItem extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        AppStrings.edit,
+                        AppStrings.edit.tr,
                         style: Styles.subYellowText(),
                       ),
                       const SizedBox(
@@ -78,11 +79,11 @@ class FoodReminderItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "${AppStrings.foodName}:",
+                "${AppStrings.foodName.tr}:",
                 style: Styles.lightGrey12(),
               ),
               Text(
-                foodName,
+                foodName.tr,
                 style: Styles.lightGrey12(),
               ),
             ],
@@ -98,7 +99,7 @@ class FoodReminderItem extends StatelessWidget {
                 style: Styles.lightGrey12(),
               ),
               Text(
-                time,
+                time.tr,
                 style: Styles.lightGrey12(),
               ),
             ],

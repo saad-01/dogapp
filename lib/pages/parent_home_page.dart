@@ -51,12 +51,12 @@ class _ParentHomePageState extends State<ParentHomePage> {
                   children: [
                     Obx(
                       () => Text(
-                        "${AppStrings.hey}${name.value}",
+                        "${AppStrings.hey.tr}${name.value}",
                         style: Styles.homeH1(),
                       ),
                     ),
                     Text(
-                      "${AppStrings.welcome}MY DOG!",
+                      "${AppStrings.welcome.tr}MY DOG!",
                       style: Styles.expertSignupPaget1(),
                     ),
                   ],
@@ -122,7 +122,7 @@ class _ParentHomePageState extends State<ParentHomePage> {
                   if (docs.isEmpty) {
                     // Return an empty widget if there are no documents
                     return Text(
-                      AppStrings.none,
+                      AppStrings.none.tr,
                       style: Styles.grey16(),
                     );
                   }
@@ -153,8 +153,8 @@ class _ParentHomePageState extends State<ParentHomePage> {
               height: 20,
             ),
             PrimartyButton(
-              title: AppStrings.addDog,
-              width: 170,
+              title: AppStrings.addDog.tr,
+              width: 180,
               height: 12,
               icon: AssetImages.addWhiteIcon,
               onTap: () {
@@ -168,13 +168,13 @@ class _ParentHomePageState extends State<ParentHomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  AppStrings.upcommingAppointments,
+                  AppStrings.upcommingAppointments.tr,
                   style: Styles.expertSignupPaget1(),
                 ),
                 Row(
                   children: [
                     Text(
-                      AppStrings.seeAll,
+                      AppStrings.seeAll.tr,
                       style: Styles.subYellowText(),
                     ),
                     const SizedBox(
@@ -193,7 +193,7 @@ class _ParentHomePageState extends State<ParentHomePage> {
                   .collection('appointments')
                   .where('parentId',
                       isEqualTo: FirebaseAuth.instance.currentUser!.uid)
-                      .where('releaseFlag', isEqualTo: false)
+                  .where('releaseFlag', isEqualTo: false)
                   .snapshots(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
@@ -212,7 +212,7 @@ class _ParentHomePageState extends State<ParentHomePage> {
                   if (docs.isEmpty) {
                     // Return an empty widget if there are no documents
                     return Text(
-                      AppStrings.none,
+                      AppStrings.none.tr,
                       style: Styles.grey16(),
                     );
                   }
@@ -241,7 +241,7 @@ class _ParentHomePageState extends State<ParentHomePage> {
                         children: [
                           AppointmentWidget(
                               type: "$vaccType(${doc['type']})",
-                              name: AppStrings.dogName,
+                              name: AppStrings.dogName.tr,
                               id: doc['dogId'],
                               date: doc['date'],
                               time: doc['time'],
@@ -266,12 +266,12 @@ class _ParentHomePageState extends State<ParentHomePage> {
               },
             ),
             // AppointmentWidget(
-            //     type: AppStrings.medicine,
-            //     name: AppStrings.dogName,
-            //     date: AppStrings.dateFormat,
-            //     time: AppStrings.time,
+            //     type: AppStrings.medicine.tr,
+            //     name: AppStrings.dogName.tr,
+            //     date: AppStrings.dateFormat.tr,
+            //     time: AppStrings.time.tr,
             //     image: AssetImages.medImage,
-            //     title: AppStrings.denied,
+            //     title: AppStrings.denied.tr,
             //     onPress: () {
             //       Get.toNamed(RouteName.appointDetailsPage);
             //     },

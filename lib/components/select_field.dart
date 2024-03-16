@@ -2,6 +2,7 @@ import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../utils/app_colors.dart';
 
@@ -66,7 +67,7 @@ class SelectTextfield extends StatelessWidget {
             child: DropdownButton<String>(
               isExpanded: true,
               hint: Text(
-                hintText,
+                hintText.tr,
                 style: Styles.expertSignupPaget2(),
               ),
               value: val != '' ? val : null,

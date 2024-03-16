@@ -1,11 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/event_item.dart';
+import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
+
+import '../models/user_model.dart';
+import '../view_models/services/shared_prefence.dart';
 
 class CalendarPage extends StatefulWidget {
   const CalendarPage({super.key});
@@ -19,100 +26,38 @@ class _CalendarPageState extends State<CalendarPage> {
   DateTime _selectedDate = DateTime.now();
   DateTime _focusedDay = DateTime.now();
   List<Event> events = [];
-
-  void _addSampleEvents() {
-    events.add(
-      Event(
-          date: DateTime.now(),
-          title: 'Sample Event',
-          time: '10 - 11',
-          subTitle: 'Test event',
-          location: 'Germany'),
-    );
-    events.add(Event(
-        date: DateTime.utc(2024, 2, 1),
-        title: 'Sample Event',
-        subTitle: 'Test event',
-        location: 'Germany',
-        time: '12 - 13')); // Add time for this event
-    events.add(Event(
-        date: DateTime.utc(2024, 2, 2),
-        title: 'Sample Event',
-        subTitle: 'Test event',
-        location: 'Germany',
-        time: '14 - 15')); // Add time for this event
-    events.add(Event(
-        date: DateTime.utc(2024, 2, 3),
-        title: 'Sample Event',
-        subTitle: 'Test event',
-        location: 'Germany',
-        time: '16 - 17')); // Add time for this event
-    events.add(Event(
-        date: DateTime.utc(2024, 2, 4),
-        title: 'Sample Event',
-        subTitle: 'Test event',
-        location: 'Germany',
-        time: '18 - 19')); // Add time for this event
+  SharedPref prefs = SharedPref();
+  UserModel user = UserModel();
+  RxString role = ''.obs;
+  Future<void> getUser() async {
+    user = await prefs.getUser();
+    role.value = user.role!;
   }
 
-  // Widget buildTimeSlots(List<String> eventsList) {
-  //   List<Widget> timeSlots = [];
+  void _addSampleEvents() {
+    // Assuming you have a reference to your Firebase collection named 'eventsCollection'
+    FirebaseFirestore.instance.collection('events').get().then((querySnapshot) {
+      for (var doc in querySnapshot.docs) {
+        Map<String, dynamic> data = doc.data();
 
-  //   for (int index = 0; index < 24; index++) {
-  //     String hour = (index).toString().padLeft(2, '0');
-  //     String eventsForHour = '';
+        // Convert string values to appropriate types
+        DateTime date = DateFormat('dd.MM.yyyy').parse(data['date']);
+        String title = data['title'];
+        String subTitle = data['subtitle'];
+        String location = data['location'];
+        String time = data['time'];
 
-  //     for (String event in eventsList) {
-  //       if (event.startsWith('$hour ')) {
-  //         eventsForHour += '$event\n';
-  //       }
-  //     }
-
-  //     // Check if eventsForHour is not empty and it starts with the hour
-  //     if (eventsForHour.isNotEmpty && eventsForHour.startsWith('$hour ')) {
-  //       timeSlots.add(
-  //         Column(
-  //           crossAxisAlignment: CrossAxisAlignment.start,
-  //           children: [
-  //             Text(
-  //               '$hour:00',
-  //               style: Styles.black14(),
-  //             ),
-  //             const Divider(),
-  //             const SizedBox(height: 8),
-  //             const EventItem(
-  //                 title: "Dog's Race",
-  //                 subTitle: "Friendly Match",
-  //                 location: "Location: Birmingham",
-  //                 time: "10 am - 11 am"),
-  //           ],
-  //         ),
-  //       );
-  //     } else {
-  //       timeSlots.add(
-  //         Container(
-  //           margin: const EdgeInsets.symmetric(vertical: 8),
-  //           child: Column(
-  //             crossAxisAlignment: CrossAxisAlignment.start,
-  //             children: [
-  //               Text(
-  //                 '$hour:00',
-  //                 style: Styles.black14(),
-  //               ),
-  //               const Divider(),
-  //               const SizedBox(height: 8),
-  //             ],
-  //           ),
-  //         ),
-  //       );
-  //     }
-  //   }
-
-  //   return Column(
-  //     crossAxisAlignment: CrossAxisAlignment.start,
-  //     children: timeSlots,
-  //   );
-  // }
+        // Create Event object and add it to your events list
+        events.add(Event(
+          date: date,
+          title: title,
+          subTitle: subTitle,
+          location: location,
+          time: time,
+        ));
+      }
+    });
+  }
 
   List<Widget> buildTimeSlots(List<Event> events, DateTime selectedDate) {
     List<Widget> timeSlots = [];
@@ -173,6 +118,7 @@ class _CalendarPageState extends State<CalendarPage> {
   void initState() {
     super.initState();
     _addSampleEvents();
+    getUser();
   }
 
   @override
@@ -185,7 +131,7 @@ class _CalendarPageState extends State<CalendarPage> {
           child: Column(
             children: [
               Text(
-                AppStrings.eventCalendar,
+                AppStrings.eventCalendar.tr,
                 style: Styles.appBarH1(),
               ),
               TableCalendar(
@@ -245,6 +191,22 @@ class _CalendarPageState extends State<CalendarPage> {
               ),
               const SizedBox(
                 height: 50,
+              ),
+              Obx(
+                () => role.value == 'expert'
+                    ? GestureDetector(
+                        onTap: () {
+                          Get.toNamed(RouteName.addEventPage);
+                        },
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            AppStrings.addEvent.tr,
+                            style: Styles.primary12UText(),
+                          ),
+                        ),
+                      )
+                    : const SizedBox(),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

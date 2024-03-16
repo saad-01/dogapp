@@ -44,7 +44,7 @@ class _AddDogPageState extends State<AddDogPage> {
                 height: 50,
               ),
               Text(
-                AppStrings.setProfile,
+                AppStrings.setProfile.tr,
                 style: Styles.expertSignupPageH1(),
               ),
               const SizedBox(
@@ -90,7 +90,7 @@ class _AddDogPageState extends State<AddDogPage> {
                                   addDogVM.selectImage();
                                 },
                                 child: Text(
-                                  AppStrings.uploadDog,
+                                  AppStrings.uploadDog.tr,
                                   style: Styles.expertSignupPageH2(),
                                 ),
                               )
@@ -109,7 +109,7 @@ class _AddDogPageState extends State<AddDogPage> {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          AppStrings.dogsName,
+                          AppStrings.dogsName.tr,
                           style: Styles.expertSignupPaget1(),
                         ),
                       ),
@@ -118,7 +118,7 @@ class _AddDogPageState extends State<AddDogPage> {
                       ),
                       Obx(
                         () => CustomTextfield(
-                          hintText: AppStrings.typeDogName,
+                          hintText: AppStrings.typeDogName.tr,
                           obscureText: false,
                           isError: addDogVM.nameError.value,
                           controller: addDogVM.nameController.value,
@@ -136,7 +136,7 @@ class _AddDogPageState extends State<AddDogPage> {
                       ),
                       Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(AppStrings.dateOfBirth,
+                          child: Text(AppStrings.dateOfBirth.tr,
                               style: Styles.expertSignupPaget1())),
                       const SizedBox(
                         height: 8,
@@ -144,7 +144,7 @@ class _AddDogPageState extends State<AddDogPage> {
                       Obx(
                         () => CustomTextfield(
                           hintText: addDogVM.dateController.value.text == ''
-                              ? AppStrings.dateFormat
+                              ? AppStrings.dateFormat.tr
                               : addDogVM.dateController.value.text,
                           obscureText: false,
                           isError: addDogVM.dateError.value,
@@ -173,14 +173,14 @@ class _AddDogPageState extends State<AddDogPage> {
                       ),
                       Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(AppStrings.weight,
+                          child: Text(AppStrings.weight.tr,
                               style: Styles.expertSignupPaget1())),
                       const SizedBox(
                         height: 8,
                       ),
                       Obx(
                         () => CustomTextfield(
-                          hintText: AppStrings.typeWeight,
+                          hintText: AppStrings.typeWeight.tr,
                           obscureText: false,
                           controller: addDogVM.weightController.value,
                           focusNode: addDogVM.weightFocusNode.value,
@@ -197,7 +197,7 @@ class _AddDogPageState extends State<AddDogPage> {
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: Text(AppStrings.microChipNum,
+                        child: Text(AppStrings.microChipNum.tr,
                             style: Styles.expertSignupPaget1()),
                       ),
                       const SizedBox(
@@ -205,7 +205,7 @@ class _AddDogPageState extends State<AddDogPage> {
                       ),
                       Obx(
                         () => CustomTextfield(
-                          hintText: AppStrings.typeChipNumber,
+                          hintText: AppStrings.typeChipNumber.tr,
                           obscureText: false,
                           controller: addDogVM.microchipNumberController.value,
                           focusNode: addDogVM.microchipNumberFocusNode.value,
@@ -217,7 +217,7 @@ class _AddDogPageState extends State<AddDogPage> {
                       ),
                       Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(AppStrings.breed,
+                          child: Text(AppStrings.breed.tr,
                               style: Styles.expertSignupPaget1())),
                       const SizedBox(
                         height: 8,
@@ -260,7 +260,7 @@ class _AddDogPageState extends State<AddDogPage> {
                                 Obx(
                                   () => Text(
                                     breedsVM.breed.value == ''
-                                        ? AppStrings.selectBreed
+                                        ? AppStrings.selectBreed.tr
                                         : breedsVM.breed.value,
                                     style: Styles.expertSignupPaget2(),
                                   ),
@@ -283,7 +283,7 @@ class _AddDogPageState extends State<AddDogPage> {
                   )),
               Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(AppStrings.gender,
+                  child: Text(AppStrings.gender.tr,
                       style: Styles.expertSignupPaget1())),
               const SizedBox(
                 height: 8,
@@ -292,7 +292,7 @@ class _AddDogPageState extends State<AddDogPage> {
                 () => SelectTextfield(
                   val: addDogVM.gender.value,
                   isError: addDogVM.genderError.value,
-                  hintText: AppStrings.typeGender,
+                  hintText: AppStrings.typeGender.tr,
                   items: [
                     DropdownMenuItem(
                         value: 'Male',
@@ -302,7 +302,7 @@ class _AddDogPageState extends State<AddDogPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text(AppStrings.male),
+                            Text(AppStrings.male.tr),
                             const SizedBox(
                               width: 5,
                             ),
@@ -320,7 +320,7 @@ class _AddDogPageState extends State<AddDogPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text(AppStrings.female),
+                            Text(AppStrings.female.tr),
                             const SizedBox(
                               width: 5,
                             ),
@@ -338,7 +338,7 @@ class _AddDogPageState extends State<AddDogPage> {
               ),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text(AppStrings.neutered,
+                child: Text(AppStrings.neutered.tr,
                     style: Styles.expertSignupPaget1()),
               ),
               const SizedBox(
@@ -348,20 +348,20 @@ class _AddDogPageState extends State<AddDogPage> {
                 () => SelectTextfield(
                   val: addDogVM.neutered.value,
                   isError: addDogVM.neuteredError.value,
-                  hintText: AppStrings.neuteredHint,
+                  hintText: AppStrings.neuteredHint.tr,
                   items: [
                     DropdownMenuItem(
                         onTap: () {
                           addDogVM.neutered.value = 'Yes';
                         },
                         value: 'Yes',
-                        child: const Text(AppStrings.yes)),
+                        child: Text(AppStrings.yes.tr)),
                     DropdownMenuItem(
                         onTap: () {
                           addDogVM.neutered.value = 'No';
                         },
                         value: 'No',
-                        child: const Text(AppStrings.no)),
+                        child: Text(AppStrings.no.tr)),
                   ],
                 ),
               ),
@@ -370,8 +370,8 @@ class _AddDogPageState extends State<AddDogPage> {
               ),
               Align(
                 alignment: Alignment.centerLeft,
-                child:
-                    Text(AppStrings.color, style: Styles.expertSignupPaget1()),
+                child: Text(AppStrings.color.tr,
+                    style: Styles.expertSignupPaget1()),
               ),
               const SizedBox(
                 height: 8,
@@ -401,7 +401,7 @@ class _AddDogPageState extends State<AddDogPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              AppStrings.typeColor,
+                              AppStrings.typeColor.tr,
                               style: Styles.expertSignupPaget2(),
                             ),
                             GestureDetector(
@@ -409,7 +409,7 @@ class _AddDogPageState extends State<AddDogPage> {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return AlertDialog(
-                                    title: const Text(AppStrings.pickColor),
+                                    title: Text(AppStrings.pickColor.tr),
                                     content: SingleChildScrollView(
                                       child: ColorPicker(
                                         pickerColor: AppColors.white,
@@ -432,7 +432,7 @@ class _AddDogPageState extends State<AddDogPage> {
                                           }
                                           Get.back();
                                         },
-                                        child: const Text(AppStrings.ok),
+                                        child: Text(AppStrings.ok.tr),
                                       ),
                                     ],
                                   );
@@ -481,7 +481,7 @@ class _AddDogPageState extends State<AddDogPage> {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return AlertDialog(
-                                    title: const Text(AppStrings.pickColor),
+                                    title: Text(AppStrings.pickColor.tr),
                                     content: SingleChildScrollView(
                                       child: ColorPicker(
                                         pickerColor: AppColors.white,
@@ -504,7 +504,7 @@ class _AddDogPageState extends State<AddDogPage> {
                                           }
                                           Get.back();
                                         },
-                                        child: const Text(AppStrings.ok),
+                                        child: Text(AppStrings.ok.tr),
                                       ),
                                     ],
                                   );
@@ -529,7 +529,7 @@ class _AddDogPageState extends State<AddDogPage> {
                 () => PrimartyButton(
                   loading: addDogVM.loading.value,
                   icon: '',
-                  title: AppStrings.createButton,
+                  title: AppStrings.createButton.tr,
                   width: MediaQuery.sizeOf(context).width * 0.8,
                   height: 10,
                   onTap: () async {

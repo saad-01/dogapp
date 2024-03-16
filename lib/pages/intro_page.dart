@@ -71,8 +71,8 @@ class _IntroPageState extends State<IntroPage> {
                             SvgPicture.asset(
                               AssetImages.whiteGlobe,
                             ),
-                            const Text(AppStrings.lang,
-                                style: TextStyle(
+                            Text(AppStrings.lang.tr,
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 14,
                                   fontWeight: FontWeight.w300,
@@ -105,11 +105,11 @@ class _IntroPageState extends State<IntroPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      AppStrings.firstSliderHeading,
+                                      AppStrings.firstSliderHeading.tr,
                                       style: Styles.sliderHeading(),
                                     ),
                                     Text(
-                                      AppStrings.firstSliderText,
+                                      AppStrings.firstSliderText.tr,
                                       style: Styles.sliderText(),
                                     ),
                                   ],
@@ -122,11 +122,11 @@ class _IntroPageState extends State<IntroPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      AppStrings.sliderHeading2,
+                                      AppStrings.sliderHeading2.tr,
                                       style: Styles.sliderHeading(),
                                     ),
                                     Text(
-                                      AppStrings.slidertxt2,
+                                      AppStrings.slidertxt2.tr,
                                       style: Styles.sliderText(),
                                     ),
                                   ],
@@ -139,11 +139,11 @@ class _IntroPageState extends State<IntroPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      AppStrings.sliderHeading3,
+                                      AppStrings.sliderHeading3.tr,
                                       style: Styles.sliderHeading(),
                                     ),
                                     Text(
-                                      AppStrings.slidertxt3,
+                                      AppStrings.slidertxt3.tr,
                                       style: Styles.sliderText(),
                                     ),
                                   ],

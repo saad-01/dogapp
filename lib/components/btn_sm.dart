@@ -1,6 +1,7 @@
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class ButtonSmall extends StatelessWidget {
   const ButtonSmall(
@@ -8,7 +9,8 @@ class ButtonSmall extends StatelessWidget {
       this.color,
       required this.title,
       required this.icon,
-      required this.primaryAlike, this.onPress});
+      required this.primaryAlike,
+      this.onPress});
   final Color? color;
   final String title;
   final String icon;
@@ -47,9 +49,14 @@ class ButtonSmall extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            Text(
-              title,
-              style: primaryAlike ? Styles.primary14() : Styles.grey14(),
+            SizedBox(
+              width: 80,
+              child: Text(
+                title.tr,
+                style: primaryAlike ? Styles.primary14() : Styles.grey14(),
+                overflow: TextOverflow.ellipsis, // Handle text overflow
+                maxLines: 1,
+              ),
             ),
           ],
         ),

@@ -42,9 +42,12 @@ class CustomAppBar extends StatelessWidget {
             const SizedBox(
               width: 60,
             ),
-            Text(
-              title,
-              style: Styles.appBarH1(),
+            Expanded(
+              child: Text(
+                title.tr,
+                textAlign: TextAlign.center,
+                style: Styles.appBarH1(),
+              ),
             ),
           ],
         ),

@@ -5,6 +5,7 @@ import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../components/alternating_btn.dart';
 import '../components/textfield.dart';
@@ -24,7 +25,7 @@ class AddTrainingPage extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const CustomAppBar(title: AppStrings.createTraining),
+              CustomAppBar(title: AppStrings.createTraining.tr),
               Expanded(
                   child: SingleChildScrollView(
                 child: Column(
@@ -45,7 +46,7 @@ class AddTrainingPage extends StatelessWidget {
                           width: 5,
                         ),
                         Text(
-                          AppStrings.uploadPhoto,
+                          AppStrings.uploadPhoto.tr,
                           style: Styles.expertSignupPageH2(),
                         )
                       ],
@@ -56,15 +57,15 @@ class AddTrainingPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.trainingTitle,
+                        AppStrings.trainingTitle.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
                     const SizedBox(
                       height: 8,
                     ),
-                    const CustomTextfield(
-                      hintText: AppStrings.giveTraining,
+                    CustomTextfield(
+                      hintText: AppStrings.giveTraining.tr,
                       obscureText: false,
                     ),
                     const SizedBox(
@@ -73,15 +74,15 @@ class AddTrainingPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.trainingNote,
+                        AppStrings.trainingNote.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
                     const SizedBox(
                       height: 8,
                     ),
-                    const CustomTextfield(
-                      hintText: AppStrings.shortNote,
+                    CustomTextfield(
+                      hintText: AppStrings.shortNote.tr,
                       obscureText: false,
                     ),
                     const SizedBox(
@@ -90,14 +91,14 @@ class AddTrainingPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.trainLength,
+                        AppStrings.trainLength.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
                     const SizedBox(
                       height: 8,
                     ),
-                    const CustomTextfield(
+                    CustomTextfield(
                       hintText: '00:00:00',
                       obscureText: false,
                     ),
@@ -107,15 +108,15 @@ class AddTrainingPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.neededEquipment,
+                        AppStrings.neededEquipment.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
                     const SizedBox(
                       height: 8,
                     ),
-                    const CustomTextfield(
-                      hintText: AppStrings.listDown,
+                    CustomTextfield(
+                      hintText: AppStrings.listDown.tr,
                       obscureText: false,
                     ),
                     const SizedBox(
@@ -124,7 +125,7 @@ class AddTrainingPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.trainingLevel,
+                        AppStrings.trainingLevel.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
@@ -145,15 +146,15 @@ class AddTrainingPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.eligibility,
+                        AppStrings.eligibility.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
                     const SizedBox(
                       height: 8,
                     ),
-                    const CustomTextfield(
-                      hintText: AppStrings.hintEligibilty,
+                    CustomTextfield(
+                      hintText: AppStrings.hintEligibilty.tr,
                       obscureText: false,
                     ),
                     const SizedBox(
@@ -162,7 +163,7 @@ class AddTrainingPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.category,
+                        AppStrings.category.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
@@ -186,7 +187,7 @@ class AddTrainingPage extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    Text(AppStrings.material,
+                    Text(AppStrings.material.tr,
                         style: Styles.expertSignupPageH1()),
                     const SizedBox(
                       height: 20,
@@ -224,12 +225,12 @@ class AddTrainingPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10)),
                         indicatorColor: AppColors.primaryColor,
                         splashBorderRadius: BorderRadius.circular(10),
-                        tabs: const <Widget>[
+                        tabs: <Widget>[
                           Tab(
-                            text: AppStrings.dayByday,
+                            text: AppStrings.dayByday.tr,
                           ),
                           Tab(
-                            text: AppStrings.general,
+                            text: AppStrings.general.tr,
                           ),
                         ],
                       ),
@@ -351,7 +352,7 @@ class AddTrainingPage extends StatelessWidget {
                                       Align(
                                         alignment: Alignment.centerLeft,
                                         child: Text(
-                                          AppStrings.description,
+                                          AppStrings.description.tr,
                                           style: Styles.expertSignupPaget1(),
                                         ),
                                       ),
@@ -384,8 +385,8 @@ class AddTrainingPage extends StatelessWidget {
                                               border: InputBorder.none,
                                               hintStyle:
                                                   Styles.expertSignupPaget2(),
-                                              hintText:
-                                                  AppStrings.giveDescription),
+                                              hintText: AppStrings
+                                                  .giveDescription.tr),
                                         ),
                                       ),
                                       const SizedBox(
@@ -394,7 +395,7 @@ class AddTrainingPage extends StatelessWidget {
                                       Align(
                                         alignment: Alignment.centerLeft,
                                         child: Text(
-                                          AppStrings.uploadFiles,
+                                          AppStrings.uploadFiles.tr,
                                           style: Styles.expertSignupPaget1(),
                                         ),
                                       ),
@@ -404,7 +405,7 @@ class AddTrainingPage extends StatelessWidget {
                                       Row(
                                         children: [
                                           AlternatingButton(
-                                            title: AppStrings.media,
+                                            title: AppStrings.media.tr,
                                             outlined: false,
                                             width: 139,
                                             height: 54,
@@ -416,7 +417,7 @@ class AddTrainingPage extends StatelessWidget {
                                             width: 10,
                                           ),
                                           AlternatingButton(
-                                            title: AppStrings.files,
+                                            title: AppStrings.files.tr,
                                             outlined: true,
                                             width: 139,
                                             height: 54,
@@ -437,7 +438,7 @@ class AddTrainingPage extends StatelessWidget {
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  AppStrings.description,
+                                  AppStrings.description.tr,
                                   style: Styles.expertSignupPaget1(),
                                 ),
                               ),
@@ -469,7 +470,8 @@ class AddTrainingPage extends StatelessWidget {
                                     decoration: InputDecoration(
                                         border: InputBorder.none,
                                         hintStyle: Styles.expertSignupPaget2(),
-                                        hintText: AppStrings.giveDescription),
+                                        hintText:
+                                            AppStrings.giveDescription.tr),
                                   ),
                                 ),
                               ),
@@ -479,7 +481,7 @@ class AddTrainingPage extends StatelessWidget {
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  AppStrings.uploadFiles,
+                                  AppStrings.uploadFiles.tr,
                                   style: Styles.expertSignupPaget1(),
                                 ),
                               ),
@@ -489,7 +491,7 @@ class AddTrainingPage extends StatelessWidget {
                               Row(
                                 children: [
                                   AlternatingButton(
-                                    title: AppStrings.media,
+                                    title: AppStrings.media.tr,
                                     outlined: false,
                                     width: 139,
                                     height: 54,
@@ -501,7 +503,7 @@ class AddTrainingPage extends StatelessWidget {
                                     width: 10,
                                   ),
                                   AlternatingButton(
-                                    title: AppStrings.files,
+                                    title: AppStrings.files.tr,
                                     outlined: true,
                                     width: 139,
                                     height: 54,
@@ -520,7 +522,7 @@ class AddTrainingPage extends StatelessWidget {
                       height: 30,
                     ),
                     PrimartyButton(
-                        title: AppStrings.post,
+                        title: AppStrings.post.tr,
                         width: MediaQuery.sizeOf(context).width * 0.75,
                         height: 10,
                         icon: ''),

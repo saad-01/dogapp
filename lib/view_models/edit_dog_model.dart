@@ -43,21 +43,20 @@ class EditDogModel extends GetxController {
   }
 
   Future<void> selectDate(BuildContext context) async {
-  final DateTime? pickedDate = await showDatePicker(
-    context: context,
-    initialDate: DateTime.now(),
-    firstDate: DateTime(1900),
-    lastDate: DateTime.now(),
-  );
+    final DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
 
-  if (pickedDate != null && pickedDate != _selectedDate) {
-    _selectedDate = pickedDate;
-    // Format the date using the desired format (DD.MM.YYYY)
-    String formattedDate = DateFormat('dd.MM.yyyy').format(pickedDate);
-    dateController.value.text = formattedDate;
+    if (pickedDate != null && pickedDate != _selectedDate) {
+      _selectedDate = pickedDate;
+      // Format the date using the desired format (DD.MM.YYYY)
+      String formattedDate = DateFormat('dd.MM.yyyy').format(pickedDate);
+      dateController.value.text = formattedDate;
+    }
   }
-}
-
 
   void addColor(Color color) {
     selectedColors.add(color);
@@ -83,11 +82,11 @@ class EditDogModel extends GetxController {
     );
     if (res == "success") {
       Get.back();
-      Utils.snackBar(AppStrings.success, AppStrings.dogAdded);
+      Utils.snackBar(AppStrings.success.tr, AppStrings.dogAdded.tr);
       return res;
     } else {
       // show the error
-      Utils.snackBar(AppStrings.error, res);
+      Utils.snackBar(AppStrings.error.tr, res);
       return res;
     }
   }

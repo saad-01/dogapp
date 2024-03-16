@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import '../utils/app_colors.dart';
 import '../utils/assets.dart';
 import '../utils/styles.dart';
 
 class FileItem extends StatelessWidget {
-  const FileItem({super.key, this.onPress, required this.name, required this.date, required this.time, required this.url, required this.note, required this.vaccType, required this.type});
+  const FileItem(
+      {super.key,
+      this.onPress,
+      required this.name,
+      required this.date,
+      required this.time,
+      required this.url,
+      required this.note,
+      required this.vaccType,
+      required this.type});
   final void Function()? onPress;
   final String name;
   final String date;
@@ -62,7 +72,7 @@ class FileItem extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  name,
+                  name.tr,
                   style: Styles.expertSignupPaget1(),
                 ),
               ],
@@ -89,14 +99,14 @@ class FileItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        date,
+                        date.tr,
                         style: Styles.appointSub(),
                       ),
                       const SizedBox(
                         width: 15,
                       ),
                       Text(
-                        time,
+                        time.tr,
                         style: Styles.appointSub(),
                       ),
                     ],
@@ -105,7 +115,7 @@ class FileItem extends StatelessWidget {
                     height: 8,
                   ),
                   Text(
-                    note,
+                    note.tr,
                     style: Styles.appointSub(),
                   ),
                 ],

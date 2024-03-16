@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 10,
                         ),
                         Text(
-                          AppStrings.login.toUpperCase(),
+                          AppStrings.login.tr.toUpperCase(),
                           style: const TextStyle(
                             color: AppColors.white,
                             fontSize: 28,
@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                                 children: [
                                   Obx(
                                     () => CustomTextfield(
-                                      hintText: AppStrings.typeYourMail,
+                                      hintText: AppStrings.typeYourMail.tr,
                                       obscureText: false,
                                       isError: loginVM.mailError.value,
                                       controller: loginVM.emailController.value,
@@ -127,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                   Obx(
                                     () => CustomTextfield(
-                                      hintText: AppStrings.typePassword,
+                                      hintText: AppStrings.typePassword.tr,
                                       isError: loginVM.passwordError.value,
                                       obscureText:
                                           loginVM.passwordVisible.value,
@@ -186,10 +186,10 @@ class _LoginPageState extends State<LoginPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: GestureDetector(
                               onTap: () {},
-                              child: const Text(
-                                AppStrings.forgetPass,
+                              child: Text(
+                                AppStrings.forgetPass.tr,
                                 maxLines: 2,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: AppColors.white,
                                   decorationColor: AppColors.white,
                                   fontSize: 14,
@@ -202,7 +202,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           Obx(
                             () => IntroBtn(
-                              title: AppStrings.login,
+                              title: AppStrings.login.tr,
                               clr: AppColors.yellowColor,
                               showIcon: false,
                               onPress: () async {
@@ -217,8 +217,8 @@ class _LoginPageState extends State<LoginPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Text(
-                                AppStrings.noAccount,
+                              Text(
+                                AppStrings.noAccount.tr,
                                 style: TextStyle(
                                   color: AppColors.white,
                                   fontSize: 14,
@@ -231,7 +231,7 @@ class _LoginPageState extends State<LoginPage> {
                                     Get.toNamed(RouteName.chooseProfilePage);
                                   },
                                   child: Text(
-                                    AppStrings.signup.toUpperCase(),
+                                    AppStrings.signup.tr.toUpperCase(),
                                     style: const TextStyle(
                                         color: AppColors.white,
                                         decoration: TextDecoration.underline,

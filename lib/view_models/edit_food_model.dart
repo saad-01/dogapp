@@ -60,7 +60,7 @@ class EditFoodModel extends GetxController {
           timeController.value.text.isEmpty ||
           reminderTimeController.value.text.isEmpty) {
         loading.value = false;
-        Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+        Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
       } else {
         await docRef.update({
           'title': title.value,
@@ -72,7 +72,7 @@ class EditFoodModel extends GetxController {
         });
         loading.value = false;
         Get.back();
-        Utils.snackBar(AppStrings.success, AppStrings.dogAdded);
+        Utils.snackBar(AppStrings.success.tr, AppStrings.dogAdded.tr);
       }
 
       // Set loading back to false after data is added

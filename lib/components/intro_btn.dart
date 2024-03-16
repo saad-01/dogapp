@@ -1,6 +1,7 @@
 import 'package:dogapp/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 import '../utils/styles.dart';
 
@@ -55,14 +56,14 @@ class IntroBtn extends StatelessWidget {
                           SvgPicture.asset(icon!),
                           const SizedBox(width: 40),
                           Text(
-                            title,
+                            title.tr,
                             style: Styles.black14(),
                           ),
                         ],
                       )
                     : Center(
                         child: Text(
-                          title,
+                          title.tr,
                           style: Styles.appBarH1(),
                         ),
                       )
@@ -72,14 +73,14 @@ class IntroBtn extends StatelessWidget {
                       SvgPicture.asset(icon!),
                       const SizedBox(width: 40),
                       Text(
-                        title,
+                        title.tr,
                         style: Styles.black14(),
                       ),
                     ],
                   )
                 : Center(
                     child: Text(
-                      title,
+                      title.tr,
                       style: Styles.appBarH1(),
                     ),
                   ),

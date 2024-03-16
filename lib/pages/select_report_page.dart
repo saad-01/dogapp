@@ -18,18 +18,18 @@ class SelectReportPage extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            const CustomAppBar(
-              title: AppStrings.selectReport,
+            CustomAppBar(
+              title: AppStrings.selectReport.tr,
             ),
             const SizedBox(
               height: 50,
             ),
             Text(
-              AppStrings.whichRU,
+              AppStrings.whichRU.tr,
               style: Styles.appBarH1(),
             ),
             Text(
-              editFlag ? AppStrings.wantToEdit : AppStrings.wantRelease,
+              editFlag ? AppStrings.wantToEdit.tr : AppStrings.wantRelease.tr,
               style: Styles.choosePageHeading(),
             ),
             const SizedBox(
@@ -47,7 +47,7 @@ class SelectReportPage extends StatelessWidget {
                       Get.toNamed(RouteName.reportDetailsPage);
                     }
                   },
-                  title: AppStrings.trainReport,
+                  title: AppStrings.trainReport.tr,
                 ),
                 const SizedBox(
                   width: 40,
@@ -57,7 +57,7 @@ class SelectReportPage extends StatelessWidget {
                   onPress: () {
                     Get.toNamed(RouteName.listExpertPage);
                   },
-                  title: AppStrings.physioReport,
+                  title: AppStrings.physioReport.tr,
                 ),
               ],
             ),
@@ -72,7 +72,7 @@ class SelectReportPage extends StatelessWidget {
                   onPress: () {
                     Get.toNamed(RouteName.selectEditReport, arguments: true);
                   },
-                  title: AppStrings.nutriReport,
+                  title: AppStrings.nutriReport.tr,
                 ),
                 const SizedBox(
                   width: 40,
@@ -84,7 +84,7 @@ class SelectReportPage extends StatelessWidget {
                       RouteName.selectExpertPage,
                     );
                   },
-                  title: AppStrings.otherExpert,
+                  title: AppStrings.otherExpert.tr,
                 ),
               ],
             )

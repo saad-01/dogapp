@@ -13,9 +13,9 @@ class DeleteDog {
       // Delete the document
       await docRef.delete();
       Get.back();
-      Utils.snackBar(AppStrings.success,AppStrings.dogdeleted);
+      Utils.snackBar(AppStrings.success.tr, AppStrings.dogdeleted.tr);
     } catch (e) {
-      Utils.snackBar(AppStrings.error,e.toString());
+      Utils.snackBar(AppStrings.error.tr, e.toString());
     }
   }
 }

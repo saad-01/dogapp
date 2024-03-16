@@ -61,10 +61,8 @@ class DietModel extends GetxController {
         if (endController.value.text.isNotEmpty) {
           endError.value = false;
         }
-        Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+        Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
       } else {
-        
-
         await firestore.collection("dietPlans").doc(id).set({
           'description': descripController.value.text,
           'startDate': startController.value.text,
@@ -75,7 +73,7 @@ class DietModel extends GetxController {
         });
         loading.value = false;
         Get.back();
-        Utils.snackBar(AppStrings.success, AppStrings.dogAdded);
+        Utils.snackBar(AppStrings.success.tr, AppStrings.dogAdded.tr);
       }
 
       // Set loading back to false after data is added

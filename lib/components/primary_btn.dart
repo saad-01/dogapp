@@ -2,6 +2,7 @@ import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class PrimartyButton extends StatelessWidget {
   const PrimartyButton(
@@ -27,7 +28,7 @@ class PrimartyButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         child: Ink(
           width: width,
-          padding: EdgeInsets.symmetric(vertical: height),
+          padding: EdgeInsets.symmetric(vertical: height, horizontal: 5),
           decoration: ShapeDecoration(
             gradient: const LinearGradient(
               begin: Alignment(-1.00, -0.03),
@@ -63,9 +64,14 @@ class PrimartyButton extends StatelessWidget {
                           const SizedBox(
                             width: 10,
                           ),
-                        Text(
-                          title,
-                          style: Styles.btnStyle1(),
+                        Expanded(
+                          child: Text(
+                            title.tr,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            textAlign: TextAlign.center,
+                            style: Styles.btnStyle1(),
+                          ),
                         ),
                       ],
                     )
@@ -77,9 +83,14 @@ class PrimartyButton extends StatelessWidget {
                       const SizedBox(
                         width: 10,
                       ),
-                    Text(
-                      title,
-                      style: Styles.btnStyle1(),
+                    Expanded(
+                      child: Text(
+                        title.tr,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        style: Styles.btnStyle1(),
+                      ),
                     ),
                   ],
                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import '../utils/assets.dart';
 import '../utils/strings.dart';
 import '../utils/styles.dart';
@@ -12,7 +13,7 @@ class DietPlanWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:onPress,
+      onTap: onPress,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 18),
         height: 101,
@@ -41,11 +42,11 @@ class DietPlanWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    AppStrings.dietPlan,
+                    AppStrings.dietPlan.tr,
                     style: Styles.expertSignupPaget1(),
                   ),
                   Text(
-                    description,
+                    description.tr,
                     style: Styles.grey8(),
                     maxLines: 3,
                   )

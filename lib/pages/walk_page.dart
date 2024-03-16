@@ -5,8 +5,6 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/view_models/walk_stats_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../components/btn_sm.dart';
 import '../utils/app_colors.dart';
 import '../utils/assets.dart';
 import '../utils/styles.dart';
@@ -29,98 +27,11 @@ class _WalkPageState extends State<WalkPage> {
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.walk),
+           CustomAppBar(title: AppStrings.walk.tr),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Stack(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 15),
-                          child: Container(
-                            padding: const EdgeInsets.only(
-                                top: 25, left: 15, right: 15, bottom: 25),
-                            decoration: ShapeDecoration(
-                              color: AppColors.white,
-                              shape: RoundedRectangleBorder(
-                                side: BorderSide(
-                                  width: 0.50,
-                                  color: Colors.black
-                                      .withOpacity(0.11999999731779099),
-                                ),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              shadows: const [
-                                BoxShadow(
-                                  color: Color(0x0F000000),
-                                  blurRadius: 8,
-                                  offset: Offset(0, 2),
-                                  spreadRadius: 0,
-                                )
-                              ],
-                            ),
-                            child: Column(
-                              children: [
-                                const SizedBox(
-                                  height: 50,
-                                ),
-                                Text(
-                                  AppStrings.nameCapital,
-                                  style: Styles.expertSignupPaget1(),
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  AppStrings.releaseDogData,
-                                  style: Styles.expertSignupPaget1(),
-                                ),
-                                Text(
-                                  AppStrings.createRelease,
-                                  style: Styles.subText(),
-                                ),
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const ButtonSmall(
-                                        title: AppStrings.editRecord,
-                                        icon: AssetImages.editIcon,
-                                        primaryAlike: false,
-                                        color: AppColors.white),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    ButtonSmall(
-                                      title: AppStrings.shareRecord,
-                                      icon: AssetImages.shareIcon,
-                                      primaryAlike: true,
-                                      color: AppColors.primaryColor
-                                          .withOpacity(0.15),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 0,
-                          right: 0,
-                          top: 0,
-                          child: SizedBox(
-                            height: 86,
-                            width: 86,
-                            child: Image.asset(
-                              AssetImages.dogItemPng,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
                     const SizedBox(
                       height: 20,
                     ),
@@ -190,7 +101,7 @@ class _WalkPageState extends State<WalkPage> {
                                               height: 10,
                                             ),
                                             Text(
-                                              AppStrings.totalDistance,
+                                              AppStrings.totalDistance.tr,
                                               style: Styles.noteTxt(),
                                             ),
                                           ],
@@ -244,7 +155,7 @@ class _WalkPageState extends State<WalkPage> {
                                                     height: 10,
                                                   ),
                                                   Text(
-                                                    AppStrings.totalSteps,
+                                                    AppStrings.totalSteps.tr,
                                                     style: Styles.noteTxt(),
                                                   ),
                                                 ],
@@ -263,7 +174,7 @@ class _WalkPageState extends State<WalkPage> {
                                                     height: 10,
                                                   ),
                                                   Text(
-                                                    AppStrings.duration,
+                                                    AppStrings.duration.tr,
                                                     style: Styles.noteTxt(),
                                                   ),
                                                 ],
@@ -278,7 +189,7 @@ class _WalkPageState extends State<WalkPage> {
                               );
                             } else {
                               return Text(
-                                AppStrings.none,
+                                AppStrings.none.tr,
                                 style: Styles.grey16(),
                               );
                             }
@@ -341,7 +252,7 @@ class _WalkPageState extends State<WalkPage> {
                                                 MainAxisAlignment.center,
                                             children: [
                                               Text(
-                                                AppStrings.recentWalk,
+                                                AppStrings.recentWalk.tr,
                                                 style: Styles.noteTxt(),
                                               ),
                                               const SizedBox(
@@ -388,7 +299,7 @@ class _WalkPageState extends State<WalkPage> {
                                                         height: 10,
                                                       ),
                                                       Text(
-                                                        AppStrings.minutes,
+                                                        AppStrings.minutes.tr,
                                                         style: Styles.noteTxt(),
                                                       ),
                                                     ],
@@ -410,7 +321,7 @@ class _WalkPageState extends State<WalkPage> {
                                                         height: 10,
                                                       ),
                                                       Text(
-                                                        AppStrings.steps,
+                                                        AppStrings.steps.tr,
                                                         style: Styles.noteTxt(),
                                                       ),
                                                     ],
@@ -421,7 +332,7 @@ class _WalkPageState extends State<WalkPage> {
                                           );
                                         } else {
                                           return Text(
-                                            AppStrings.none,
+                                            AppStrings.none.tr,
                                             style: Styles.grey16(),
                                           );
                                         }
@@ -439,7 +350,7 @@ class _WalkPageState extends State<WalkPage> {
                       height: 40,
                     ),
                     AlternatingButton(
-                        title: AppStrings.addRecordManually,
+                        title: AppStrings.addRecordManually.tr,
                         outlined: true,
                         width: MediaQuery.sizeOf(context).width,
                         height: 62,
@@ -477,7 +388,7 @@ class _WalkPageState extends State<WalkPage> {
                     //       AssetImages.swipe,
                     //     ),
                     //     child: Text(
-                    //       AppStrings.swipe,
+                    //       AppStrings.swipe.tr,
                     //       style: Styles.black14(),
                     //     ),
                     //     onSwipeEnd: () {

@@ -7,6 +7,7 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class MissedProfilePage extends StatelessWidget {
   const MissedProfilePage({super.key});
@@ -22,7 +23,7 @@ class MissedProfilePage extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             child: Column(
               children: [
-                const CustomAppBar(title: AppStrings.missingDogProfile),
+                CustomAppBar(title: AppStrings.missingDogProfile.tr),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Column(
@@ -59,13 +60,13 @@ class MissedProfilePage extends StatelessWidget {
                                       height: 50,
                                     ),
                                     Text(
-                                      AppStrings.nameCapital,
+                                      AppStrings.nameCapital.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                     SizedBox(
                                       width: 246,
                                       child: Text(
-                                        AppStrings.lostNote,
+                                        AppStrings.lostNote.tr,
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                         style: Styles.subText(),
@@ -112,12 +113,12 @@ class MissedProfilePage extends StatelessWidget {
                                         indicatorColor: AppColors.primaryColor,
                                         splashBorderRadius:
                                             BorderRadius.circular(10),
-                                        tabs: const <Widget>[
+                                        tabs: <Widget>[
                                           Tab(
-                                            text: AppStrings.dogsData,
+                                            text: AppStrings.dogsData.tr,
                                           ),
                                           Tab(
-                                            text: AppStrings.parentsData,
+                                            text: AppStrings.parentsData.tr,
                                           ),
                                         ],
                                       ),
@@ -177,10 +178,10 @@ class MissedProfilePage extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text('${AppStrings.breed}:',
+                                          Text('${AppStrings.breed.tr}:',
                                               style: Styles.grey14()),
                                           Text(
-                                            AppStrings.breed,
+                                            AppStrings.breed.tr,
                                             style: Styles.black14(),
                                           ),
                                         ],
@@ -192,10 +193,10 @@ class MissedProfilePage extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text('${AppStrings.gender}:',
+                                          Text('${AppStrings.gender.tr}:',
                                               style: Styles.grey14()),
                                           Text(
-                                            AppStrings.gender,
+                                            AppStrings.gender.tr,
                                             style: Styles.black14(),
                                           ),
                                         ],
@@ -207,10 +208,10 @@ class MissedProfilePage extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text('${AppStrings.weight}:',
+                                          Text('${AppStrings.weight.tr}:',
                                               style: Styles.grey14()),
                                           Text(
-                                            AppStrings.weight,
+                                            AppStrings.weight.tr,
                                             style: Styles.black14(),
                                           ),
                                         ],
@@ -222,10 +223,10 @@ class MissedProfilePage extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text('${AppStrings.microChipNum}:',
+                                          Text('${AppStrings.microChipNum.tr}:',
                                               style: Styles.grey14()),
                                           Text(
-                                            AppStrings.microChipNum,
+                                            AppStrings.microChipNum.tr,
                                             style: Styles.black14(),
                                           ),
                                         ],
@@ -237,10 +238,10 @@ class MissedProfilePage extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text('${AppStrings.lostDate}:',
+                                          Text('${AppStrings.lostDate.tr}:',
                                               style: Styles.grey14()),
                                           Text(
-                                            AppStrings.dateFormat,
+                                            AppStrings.dateFormat.tr,
                                             style: Styles.black14(),
                                           ),
                                         ],
@@ -261,7 +262,7 @@ class MissedProfilePage extends StatelessWidget {
                                             width: 20,
                                           ),
                                           Text(
-                                            AppStrings.seeMap,
+                                            AppStrings.seeMap.tr,
                                             style: Styles.primary20U(),
                                           )
                                         ],
@@ -304,7 +305,8 @@ class MissedProfilePage extends StatelessWidget {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text('${AppStrings.parentName}:',
+                                              Text(
+                                                  '${AppStrings.parentName.tr}:',
                                                   style: Styles.grey14()),
                                               Text(
                                                 'Name here',
@@ -319,7 +321,8 @@ class MissedProfilePage extends StatelessWidget {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text('${AppStrings.yourNumber}:',
+                                              Text(
+                                                  '${AppStrings.yourNumber.tr}:',
                                                   style: Styles.grey14()),
                                               Text(
                                                 '+1000000000',
@@ -334,10 +337,10 @@ class MissedProfilePage extends StatelessWidget {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text('${AppStrings.address}:',
+                                              Text('${AppStrings.address.tr}:',
                                                   style: Styles.grey14()),
                                               Text(
-                                                AppStrings.addressHere,
+                                                AppStrings.addressHere.tr,
                                                 style: Styles.black14(),
                                               ),
                                             ],
@@ -349,14 +352,14 @@ class MissedProfilePage extends StatelessWidget {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text('${AppStrings.notes}:',
+                                              Text('${AppStrings.notes.tr}:',
                                                   style: Styles.grey14()),
                                             ],
                                           ),
                                           Align(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
-                                              AppStrings.lostNote,
+                                              AppStrings.lostNote.tr,
                                               maxLines: 2,
                                               overflow: TextOverflow.ellipsis,
                                               style: Styles.lightGrey12(),
@@ -378,7 +381,7 @@ class MissedProfilePage extends StatelessWidget {
                           height: 30,
                         ),
                         AlternatingButton(
-                            title: AppStrings.shareDog,
+                            title: AppStrings.shareDog.tr,
                             outlined: true,
                             width: MediaQuery.sizeOf(context).width * 0.81,
                             height: 50,
@@ -388,7 +391,7 @@ class MissedProfilePage extends StatelessWidget {
                           height: 20,
                         ),
                         PrimartyButton(
-                            title: AppStrings.chatParent,
+                            title: AppStrings.chatParent.tr,
                             width: MediaQuery.sizeOf(context).width * 0.81,
                             height: 12,
                             icon: ''),

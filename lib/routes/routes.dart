@@ -1,6 +1,7 @@
 import 'package:dogapp/pages/add_appointment_page.dart';
 import 'package:dogapp/pages/add_comment_page.dart';
 import 'package:dogapp/pages/add_dog.dart';
+import 'package:dogapp/pages/add_event_page.dart';
 import 'package:dogapp/pages/add_food_page.dart';
 import 'package:dogapp/pages/add_num_page.dart';
 import 'package:dogapp/pages/add_reminder_page.dart';
@@ -560,6 +561,12 @@ class AppRoutes {
         GetPage(
           name: RouteName.otherAppointPage,
           page: () => const OtherReportPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.addEventPage,
+          page: () => const AddEventPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.rightToLeft,
         ),

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../utils/strings.dart';
 import '../utils/styles.dart';
 
 class EventItem extends StatelessWidget {
-  const EventItem({super.key, required this.title, required this.subTitle, required this.location, required this.time});
+  const EventItem(
+      {super.key,
+      required this.title,
+      required this.subTitle,
+      required this.location,
+      required this.time});
   final String title;
   final String subTitle;
   final String location;
@@ -40,7 +46,7 @@ class EventItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      title,
+                      title.tr,
                       style: Styles.primaryText()
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
@@ -48,7 +54,7 @@ class EventItem extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      subTitle,
+                      subTitle.tr,
                       style: Styles.black14(),
                     ),
                     Text(
@@ -59,7 +65,7 @@ class EventItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          time,
+                          time.tr,
                           style: Styles.black14(),
                         ),
                         GestureDetector(
@@ -67,7 +73,7 @@ class EventItem extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              AppStrings.setReminder,
+                              AppStrings.setReminder.tr,
                               style: Styles.primary12UText(),
                             ),
                           ),

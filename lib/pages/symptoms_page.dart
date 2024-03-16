@@ -37,7 +37,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.symptoms),
+            CustomAppBar(title: AppStrings.symptoms.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -61,7 +61,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.dogName,
+                  //     AppStrings.dogName.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -69,7 +69,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   //   height: 8,
                   // ),
                   // const CustomTextfield(
-                  //   hintText: AppStrings.typeDogName,
+                  //   hintText: AppStrings.typeDogName.tr,
                   //   obscureText: false,
                   // ),
                   const SizedBox(
@@ -78,7 +78,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.reasonAppointment,
+                      AppStrings.reasonAppointment.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -87,7 +87,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   ),
                   Obx(
                     () => CustomTextfield(
-                      hintText: AppStrings.typeNotes,
+                      hintText: AppStrings.typeNotes.tr,
                       obscureText: false,
                       isError: symptomsVM.reasonError.value,
                       onFieldSubmitted: (p0) {
@@ -106,7 +106,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.date,
+                      AppStrings.date.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -116,7 +116,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   Obx(
                     () => CustomTextfield(
                       hintText: symptomsVM.dateController.value.text == ''
-                          ? AppStrings.dateFormat
+                          ? AppStrings.dateFormat.tr
                           : symptomsVM.dateController.value.text,
                       obscureText: false,
                       isError: symptomsVM.dateError.value,
@@ -147,7 +147,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.timeHeading,
+                      AppStrings.timeHeading.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -158,7 +158,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                     () => CustomTextfield(
                       hintText:
                           symptomsVM.reminderTimeController.value.text == ''
-                              ? AppStrings.time
+                              ? AppStrings.time.tr
                               : symptomsVM.timeController.value.text,
                       keyboardType: TextInputType.none,
                       isError: symptomsVM.timeError.value,
@@ -190,7 +190,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.notes,
+                      AppStrings.notes.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -198,7 +198,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                     height: 8,
                   ),
                   CustomTextfield(
-                    hintText: AppStrings.typeNotes,
+                    hintText: AppStrings.typeNotes.tr,
                     obscureText: false,
                     onFieldSubmitted: (p0) {
                       Utils.fieldFocusChange(
@@ -212,7 +212,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.weight,
+                  //     AppStrings.weight.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -229,7 +229,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.doze,
+                  //     AppStrings.doze.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -246,7 +246,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.addFiles,
+                      AppStrings.addFiles.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -256,7 +256,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   Row(
                     children: [
                       AlternatingButton(
-                        title: AppStrings.photo,
+                        title: AppStrings.photo.tr,
                         outlined: false,
                         onPress: () async {
                           await symptomsVM.pickMultipleImages();
@@ -271,7 +271,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                         width: 10,
                       ),
                       AlternatingButton(
-                        title: AppStrings.files,
+                        title: AppStrings.files.tr,
                         outlined: true,
                         onPress: () async {
                           await symptomsVM.pickMultipleFiles();
@@ -290,7 +290,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.yourDoc,
+                      AppStrings.yourDoc.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -334,7 +334,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                               trailing:
                                   SvgPicture.asset(AssetImages.nextPrimaryIcon),
                               title: Text(
-                                AppStrings.selectDoc,
+                                AppStrings.selectDoc.tr,
                                 style: Styles.choosePageText(),
                               ),
                               onTap: () {
@@ -343,7 +343,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                             ),
                           )
                         : ExpertItem(
-                            expertis: AppStrings.trainExpert,
+                            expertis: AppStrings.trainExpert.tr,
                             filledBtnTitle: '',
                             name: expertVM.name.value,
                             url: expertVM.url.value,
@@ -354,7 +354,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   ),
 
                   Text(
-                    AppStrings.reminderNoti,
+                    AppStrings.reminderNoti.tr,
                     style: Styles.expertSignupPaget1(),
                   ),
                   const SizedBox(
@@ -363,7 +363,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.date,
+                      AppStrings.date.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -374,7 +374,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                     () => CustomTextfield(
                       hintText:
                           symptomsVM.reminderDateController.value.text == ''
-                              ? AppStrings.dateFormat
+                              ? AppStrings.dateFormat.tr
                               : symptomsVM.reminderDateController.value.text,
                       obscureText: false,
                       keyboardType: TextInputType.none,
@@ -388,8 +388,8 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                       },
                       suffixIcon: GestureDetector(
                         onTap: () {
-                          symptomsVM.selectDate(context,
-                              symptomsVM.reminderDateController.value);
+                          symptomsVM.selectDate(
+                              context, symptomsVM.reminderDateController.value);
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(15),
@@ -405,7 +405,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.timeHeading,
+                      AppStrings.timeHeading.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -416,7 +416,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                     () => CustomTextfield(
                       hintText:
                           symptomsVM.reminderTimeController.value.text == ''
-                              ? AppStrings.time
+                              ? AppStrings.time.tr
                               : symptomsVM.reminderTimeController.value.text,
                       // keyboardType: TextInputType.none,
                       controller: symptomsVM.reminderTimeController.value,
@@ -425,8 +425,8 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                       obscureText: false,
                       suffixIcon: GestureDetector(
                         onTap: () async {
-                          await symptomsVM.selectTime(context,
-                              symptomsVM.reminderTimeController.value);
+                          await symptomsVM.selectTime(
+                              context, symptomsVM.reminderTimeController.value);
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(18.0),
@@ -458,7 +458,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   //       width: 15,
                   //     ),
                   //     Text(
-                  //       AppStrings.sendNoti,
+                  //       AppStrings.sendNoti.tr,
                   //       style: Styles.expertSignupPaget1(),
                   //     )
                   //   ],
@@ -467,7 +467,7 @@ class _SymptomsReportPageState extends State<SymptomsReportPage> {
                   //   height: 20,
                   // ),
                   Obx(() => PrimartyButton(
-                      title: AppStrings.request,
+                      title: AppStrings.request.tr,
                       loading: symptomsVM.loading.value,
                       width: MediaQuery.sizeOf(context).width * 0.75,
                       height: 10,

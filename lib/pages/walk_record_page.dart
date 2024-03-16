@@ -19,9 +19,9 @@ class WalkRecordPage extends StatelessWidget {
       body: SafeArea(
           child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 20, left: 20, right: 20.0),
-            child: CustomAppBar(title: AppStrings.walkRecord),
+          Padding(
+            padding: const EdgeInsets.only(top: 20, left: 20, right: 20.0),
+            child: CustomAppBar(title: AppStrings.walkRecord.tr),
           ),
           Expanded(
               child: Image.asset(
@@ -62,7 +62,7 @@ class WalkRecordPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         AlternatingButton(
-                          title: AppStrings.pause,
+                          title: AppStrings.pause.tr,
                           outlined: true,
                           width: 130,
                           height: 54,
@@ -74,7 +74,7 @@ class WalkRecordPage extends StatelessWidget {
                           width: 10,
                         ),
                         AlternatingButton(
-                          title: AppStrings.stops,
+                          title: AppStrings.stops.tr,
                           outlined: false,
                           width: 130,
                           height: 54,
@@ -88,7 +88,7 @@ class WalkRecordPage extends StatelessWidget {
                       height: 25,
                     ),
                     AlternatingButton(
-                      title: AppStrings.complete,
+                      title: AppStrings.complete.tr,
                       outlined: true,
                       width: 270,
                       height: 54,
@@ -119,7 +119,7 @@ class WalkRecordPage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          AppStrings.duration,
+                          AppStrings.duration.tr,
                           style: Styles.expertSignupPaget1(),
                         ),
                       ],
@@ -137,7 +137,7 @@ class WalkRecordPage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          AppStrings.distance,
+                          AppStrings.distance.tr,
                           style: Styles.expertSignupPaget1(),
                         ),
                       ],

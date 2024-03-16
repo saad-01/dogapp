@@ -24,16 +24,15 @@ class MapPageState extends State<MapPage> {
     );
   }
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(20.0),
-              child: CustomAppBar(title: AppStrings.mapView),
+              child: CustomAppBar(title: AppStrings.mapView.tr),
             ),
             Expanded(
               child: FutureBuilder(

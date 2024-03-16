@@ -17,7 +17,8 @@ class DiedDogModel extends GetxController {
   final notesFocusNode = FocusNode().obs;
   final deathDateFocusNode = FocusNode().obs;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
-Future<void> selectDate(BuildContext context, Rx<TextEditingController> controller) async {
+  Future<void> selectDate(
+      BuildContext context, Rx<TextEditingController> controller) async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
@@ -26,8 +27,8 @@ Future<void> selectDate(BuildContext context, Rx<TextEditingController> controll
     );
     String formattedDate = DateFormat('dd.MM.yyyy').format(pickedDate!);
     controller.value.text = formattedDate;
-    
   }
+
   Future<void> addReason(String dogId) async {
     try {
       loading.value = true; // Set loading to true while adding data
@@ -37,7 +38,7 @@ Future<void> selectDate(BuildContext context, Rx<TextEditingController> controll
           birthDateController.value.text.isEmpty ||
           deathDateController.value.text.isEmpty) {
         loading.value = false;
-        Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+        Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
       } else {
         await firestore.collection("dogDied").doc(dogId).set({
           'reason': reasonController.value.text,
@@ -49,14 +50,14 @@ Future<void> selectDate(BuildContext context, Rx<TextEditingController> controll
         DeleteDog().deleteDog(dogId);
         loading.value = false;
         Get.back();
-        Utils.snackBar(AppStrings.success, AppStrings.dogdeleted);
+        Utils.snackBar(AppStrings.success.tr, AppStrings.dogdeleted.tr);
       }
 
       // Set loading back to false after data is added
     } catch (e) {
       loading.value =
           false; // Ensure loading is set back to false in case of error
-      Utils.snackBar(AppStrings.error, e.toString());
+      Utils.snackBar(AppStrings.error.tr, e.toString());
       // Handle error, such as showing an error message to the user
     }
   }

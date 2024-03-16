@@ -49,12 +49,12 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
                   children: [
                     Obx(
                       () => Text(
-                        "${AppStrings.hey}${name.value}",
+                        "${AppStrings.hey.tr}${name.value}",
                         style: Styles.homeH1(),
                       ),
                     ),
                     Text(
-                      "${AppStrings.welcome}MY DOG!",
+                      "${AppStrings.welcome.tr}MY DOG!",
                       style: Styles.expertSignupPaget1(),
                     ),
                   ],
@@ -102,7 +102,7 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                AppStrings.underCare,
+                AppStrings.underCare.tr,
                 style: Styles.expertSignupPaget1(),
               ),
             ),
@@ -136,7 +136,7 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
                 });
                 if (dogIds.isEmpty) {
                   return Text(
-                    AppStrings.none,
+                    AppStrings.none.tr,
                     style: Styles.grey16(),
                   );
                 }
@@ -159,7 +159,7 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
                         }
                         if (!dogSnapshot.hasData || !dogSnapshot.data!.exists) {
                           return Text(
-                            AppStrings.none,
+                            AppStrings.none.tr,
                             style: Styles.grey16(),
                           );
                         }
@@ -212,13 +212,13 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  AppStrings.requests,
+                  AppStrings.requests.tr,
                   style: Styles.expertSignupPaget1(),
                 ),
                 // Row(
                 //   children: [
                 //     Text(
-                //       AppStrings.seeAll,
+                //       AppStrings.seeAll.tr,
                 //       style: Styles.subYellowText(),
                 //     ),
                 //     const SizedBox(
@@ -254,7 +254,7 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
                   if (docs.isEmpty) {
                     // Return an empty widget if there are no documents
                     return Text(
-                      AppStrings.none,
+                      AppStrings.none.tr,
                       style: Styles.grey16(),
                     );
                   }
@@ -283,7 +283,7 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
                         children: [
                           AppointmentWidget(
                               type: "$vaccType(${doc['type']})",
-                              name: AppStrings.dogName,
+                              name: AppStrings.dogName.tr,
                               id: doc['dogId'],
                               date: doc['date'],
                               time: doc['time'],

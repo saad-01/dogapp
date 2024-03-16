@@ -49,7 +49,7 @@ class WalkModel extends GetxController {
         if (stepsController.value.text.isNotEmpty) {
           stepsError.value = false;
         }
-        Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+        Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
       } else {
         await firestore.collection("walks").doc(uid).set({
           'distance': distanceController.value.text,
@@ -61,7 +61,7 @@ class WalkModel extends GetxController {
         });
         loading.value = false;
         Get.back();
-        Utils.snackBar(AppStrings.success, AppStrings.dogAdded);
+        Utils.snackBar(AppStrings.success.tr, AppStrings.dogAdded.tr);
       }
 
       // Set loading back to false after data is added

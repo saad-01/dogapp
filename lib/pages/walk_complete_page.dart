@@ -2,6 +2,7 @@ import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../components/select_field.dart';
 import '../components/textfield.dart';
@@ -18,7 +19,7 @@ class WalkCompletePage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.walkComplete),
+            CustomAppBar(title: AppStrings.walkComplete.tr),
             Expanded(
               child: Column(
                 children: [
@@ -28,7 +29,7 @@ class WalkCompletePage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.weather,
+                      AppStrings.weather.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -54,7 +55,7 @@ class WalkCompletePage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.walkingTrack,
+                      AppStrings.walkingTrack.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -80,7 +81,7 @@ class WalkCompletePage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.dogCondition,
+                      AppStrings.dogCondition.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -94,7 +95,7 @@ class WalkCompletePage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.comment,
+                      AppStrings.comment.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -103,8 +104,11 @@ class WalkCompletePage extends StatelessWidget {
                   ),
                   const CustomTextfield(hintText: '', obscureText: false),
                   const Spacer(),
-                  const PrimartyButton(
-                      title: AppStrings.save, width: 260, height: 12, icon: ''),
+                  PrimartyButton(
+                      title: AppStrings.save.tr,
+                      width: 260,
+                      height: 12,
+                      icon: ''),
                   const SizedBox(
                     height: 10,
                   ),

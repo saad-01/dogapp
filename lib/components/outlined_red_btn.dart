@@ -1,6 +1,7 @@
 import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomOutlinedButton extends StatelessWidget {
   const CustomOutlinedButton(
@@ -33,7 +34,7 @@ class CustomOutlinedButton extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              title,
+              title.tr,
               style: Styles.maroon20(),
             ),
           ),

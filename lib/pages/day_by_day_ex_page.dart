@@ -4,6 +4,7 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../components/expert_item.dart';
 
@@ -18,14 +19,14 @@ class DayByDayExPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.trainingProgram),
+            CustomAppBar(title: AppStrings.trainingProgram.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
                 children: [
-                  const ExpertItem(
-                      expertis: AppStrings.preparedByExpert,
-                      filledBtnTitle: AppStrings.seeProfileBtn),
+                   ExpertItem(
+                      expertis: AppStrings.preparedByExpert.tr,
+                      filledBtnTitle: AppStrings.seeProfileBtn.tr),
                   const SizedBox(
                     height: 20,
                   ),
@@ -51,11 +52,11 @@ class DayByDayExPage extends StatelessWidget {
                       width: 34,
                     ),
                     subtitle: Text(
-                      AppStrings.trainingNotes,
+                      AppStrings.trainingNotes.tr,
                       style: Styles.lightgrey8(),
                     ),
                     title: Text(
-                      AppStrings.highFive,
+                      AppStrings.highFive.tr,
                       style: Styles.black14(),
                     ),
                     trailing: SvgPicture.asset(AssetImages.nextBlackIcon),
@@ -83,11 +84,11 @@ class DayByDayExPage extends StatelessWidget {
                       AssetImages.lock,
                     ),
                     subtitle: Text(
-                      AppStrings.trainingNotes,
+                      AppStrings.trainingNotes.tr,
                       style: Styles.lightgrey8(),
                     ),
                     title: Text(
-                      AppStrings.highFive,
+                      AppStrings.highFive.tr,
                       style: Styles.black14(),
                     ),
                     trailing: SvgPicture.asset(AssetImages.nextBlackIcon),
@@ -105,11 +106,11 @@ class DayByDayExPage extends StatelessWidget {
                       AssetImages.lock,
                     ),
                     subtitle: Text(
-                      AppStrings.trainingNotes,
+                      AppStrings.trainingNotes.tr,
                       style: Styles.lightgrey8(),
                     ),
                     title: Text(
-                      AppStrings.highFive,
+                      AppStrings.highFive.tr,
                       style: Styles.black14(),
                     ),
                     trailing: SvgPicture.asset(AssetImages.nextBlackIcon),

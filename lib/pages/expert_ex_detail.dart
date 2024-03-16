@@ -20,8 +20,8 @@ class ExpertExerciseDetails extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(
-              title: AppStrings.exercises,
+            CustomAppBar(
+              title: AppStrings.exercises.tr,
             ),
             Expanded(
               child: Column(
@@ -64,12 +64,12 @@ class ExpertExerciseDetails extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  AppStrings.handFeeding,
+                                  AppStrings.handFeeding.tr,
                                   style: Styles.expertSignupPaget1(),
                                 ),
                                 Expanded(
                                     child: Text(
-                                  AppStrings.handFeedNote,
+                                  AppStrings.handFeedNote.tr,
                                   style: Styles.grey8(),
                                   maxLines: 4,
                                   overflow: TextOverflow.ellipsis,
@@ -123,12 +123,12 @@ class ExpertExerciseDetails extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                AppStrings.walk,
+                                AppStrings.walk.tr,
                                 style: Styles.expertSignupPaget1(),
                               ),
                               Expanded(
                                   child: Text(
-                                AppStrings.handFeedNote,
+                                AppStrings.handFeedNote.tr,
                                 style: Styles.grey8(),
                                 maxLines: 4,
                                 overflow: TextOverflow.ellipsis,
@@ -153,7 +153,7 @@ class ExpertExerciseDetails extends StatelessWidget {
                   ),
                   const Spacer(),
                   PrimartyButton(
-                      title: AppStrings.addExercise,
+                      title: AppStrings.addExercise.tr,
                       width: 250,
                       height: 15,
                       onTap: () {

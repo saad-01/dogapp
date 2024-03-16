@@ -21,7 +21,7 @@ class DogManagementPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.management),
+            CustomAppBar(title: AppStrings.management.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -48,7 +48,7 @@ class DogManagementPage extends StatelessWidget {
                         if (docs.isEmpty) {
                           // Return an empty widget if there are no documents
                           return Text(
-                            AppStrings.none,
+                            AppStrings.none.tr,
                             style: Styles.grey16(),
                           );
                         }
@@ -61,7 +61,8 @@ class DogManagementPage extends StatelessWidget {
                                   date: doc['date'],
                                   url: doc['photoUrl'],
                                   onPress: () {
-                                    Get.toNamed(RouteName.reasonPage, arguments: doc);
+                                    Get.toNamed(RouteName.reasonPage,
+                                        arguments: doc);
                                   },
                                 ),
                                 const SizedBox(

@@ -33,7 +33,7 @@ class EditFoodPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.addFood),
+            CustomAppBar(title: AppStrings.addFood.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -57,7 +57,7 @@ class EditFoodPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.foodName,
+                      AppStrings.foodName.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -65,7 +65,7 @@ class EditFoodPage extends StatelessWidget {
                     height: 8,
                   ),
                   CustomTextfield(
-                    hintText: AppStrings.typeFood,
+                    hintText: AppStrings.typeFood.tr,
                     obscureText: false,
                     controller: foodVM.foodNameController.value,
                     focusNode: foodVM.foodNameFocusNode.value,
@@ -82,7 +82,7 @@ class EditFoodPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.timeHeading,
+                      AppStrings.timeHeading.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -92,7 +92,7 @@ class EditFoodPage extends StatelessWidget {
                   Obx(
                     () => CustomTextfield(
                       hintText: foodVM.timeController.value.text == ''
-                          ? AppStrings.time
+                          ? AppStrings.time.tr
                           : foodVM.timeController.value.text,
                       obscureText: false,
                       keyboardType: TextInputType.none,
@@ -123,7 +123,7 @@ class EditFoodPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.notes,
+                      AppStrings.notes.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -131,7 +131,7 @@ class EditFoodPage extends StatelessWidget {
                     height: 8,
                   ),
                   CustomTextfield(
-                    hintText: AppStrings.typeNotes,
+                    hintText: AppStrings.typeNotes.tr,
                     obscureText: false,
                     controller: foodVM.notesController.value,
                     focusNode: foodVM.notesFocusNode.value,
@@ -143,7 +143,7 @@ class EditFoodPage extends StatelessWidget {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.foodOutside,
+                  //     AppStrings.foodOutside.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -164,7 +164,7 @@ class EditFoodPage extends StatelessWidget {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.weight,
+                  //     AppStrings.weight.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -179,7 +179,7 @@ class EditFoodPage extends StatelessWidget {
                     height: 40,
                   ),
                   Text(
-                    AppStrings.reminderNoti,
+                    AppStrings.reminderNoti.tr,
                     style: Styles.expertSignupPaget1(),
                   ),
                   const SizedBox(
@@ -188,7 +188,7 @@ class EditFoodPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.day,
+                      AppStrings.day.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -198,17 +198,17 @@ class EditFoodPage extends StatelessWidget {
                   Obx(
                     () => SelectTextfield(
                       val: foodVM.day.value,
-                      hintText: AppStrings.typeGender,
+                      hintText: AppStrings.typeGender.tr,
                       items: [
                         DropdownMenuItem(
                             value: 'Never',
                             onTap: () {
                               foodVM.day.value = "Never";
                             },
-                            child: const Row(
+                            child:Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(AppStrings.never),
+                                Text(AppStrings.never.tr),
                               ],
                             )),
                         DropdownMenuItem(
@@ -216,10 +216,10 @@ class EditFoodPage extends StatelessWidget {
                             onTap: () {
                               foodVM.day.value = "Monday";
                             },
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(AppStrings.monday),
+                                Text(AppStrings.monday.tr),
                               ],
                             )),
                         DropdownMenuItem(
@@ -227,10 +227,10 @@ class EditFoodPage extends StatelessWidget {
                             onTap: () {
                               foodVM.day.value = "Tuesday";
                             },
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(AppStrings.tuesday),
+                                Text(AppStrings.tuesday.tr),
                               ],
                             )),
                         DropdownMenuItem(
@@ -238,10 +238,10 @@ class EditFoodPage extends StatelessWidget {
                             onTap: () {
                               foodVM.day.value = "Wednesday";
                             },
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(AppStrings.wednesday),
+                                Text(AppStrings.wednesday.tr),
                               ],
                             )),
                         DropdownMenuItem(
@@ -249,10 +249,10 @@ class EditFoodPage extends StatelessWidget {
                             onTap: () {
                               foodVM.day.value = "Thursday";
                             },
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(AppStrings.thursday),
+                                Text(AppStrings.thursday.tr),
                               ],
                             )),
                         DropdownMenuItem(
@@ -260,10 +260,10 @@ class EditFoodPage extends StatelessWidget {
                             onTap: () {
                               foodVM.day.value = "Friday";
                             },
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(AppStrings.friday),
+                                Text(AppStrings.friday.tr),
                               ],
                             )),
                         DropdownMenuItem(
@@ -271,10 +271,10 @@ class EditFoodPage extends StatelessWidget {
                             onTap: () {
                               foodVM.day.value = "Saturday";
                             },
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(AppStrings.saturday),
+                                Text(AppStrings.saturday.tr),
                               ],
                             )),
                         DropdownMenuItem(
@@ -282,10 +282,10 @@ class EditFoodPage extends StatelessWidget {
                             onTap: () {
                               foodVM.day.value = "Sunday";
                             },
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(AppStrings.sunday),
+                                Text(AppStrings.sunday.tr),
                               ],
                             )),
                         DropdownMenuItem(
@@ -293,10 +293,10 @@ class EditFoodPage extends StatelessWidget {
                             onTap: () {
                               foodVM.day.value = "Everyday";
                             },
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(AppStrings.everyday),
+                                Text(AppStrings.everyday.tr),
                               ],
                             )),
                         DropdownMenuItem(
@@ -304,10 +304,10 @@ class EditFoodPage extends StatelessWidget {
                             onTap: () {
                               foodVM.day.value = "Weekdays";
                             },
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(AppStrings.weekdays),
+                                Text(AppStrings.weekdays.tr),
                               ],
                             )),
                         DropdownMenuItem(
@@ -315,10 +315,10 @@ class EditFoodPage extends StatelessWidget {
                             onTap: () {
                               foodVM.day.value = "Weekend";
                             },
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(AppStrings.weekend),
+                                Text(AppStrings.weekend.tr),
                               ],
                             )),
                       ],
@@ -330,7 +330,7 @@ class EditFoodPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.timeHeading,
+                      AppStrings.timeHeading.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -340,7 +340,7 @@ class EditFoodPage extends StatelessWidget {
                   Obx(
                     () => CustomTextfield(
                       hintText: foodVM.reminderTimeController.value.text == ''
-                          ? AppStrings.time
+                          ? AppStrings.time.tr
                           : foodVM.reminderTimeController.value.text,
                       keyboardType: TextInputType.none,
                       controller: foodVM.reminderTimeController.value,
@@ -365,7 +365,7 @@ class EditFoodPage extends StatelessWidget {
                   Obx(
                     () => PrimartyButton(
                         loading: foodVM.loading.value,
-                        title: AppStrings.edit,
+                        title: AppStrings.edit.tr,
                         width: MediaQuery.sizeOf(context).width * 0.75,
                         height: 10,
                         onTap: () async {

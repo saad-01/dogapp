@@ -1,6 +1,7 @@
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../components/primary_btn.dart';
 import '../components/textfield.dart';
@@ -17,7 +18,7 @@ class MakeAnnouncementPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.makeAnnouncement),
+            CustomAppBar(title: AppStrings.makeAnnouncement.tr),
             Expanded(
                 child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -27,15 +28,15 @@ class MakeAnnouncementPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.title,
+                        AppStrings.title.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
                     const SizedBox(
                       height: 8,
                     ),
-                    const CustomTextfield(
-                      hintText: AppStrings.giveTitle,
+                    CustomTextfield(
+                      hintText: AppStrings.giveTitle.tr,
                       obscureText: false,
                     ),
                     const SizedBox(
@@ -44,15 +45,15 @@ class MakeAnnouncementPage extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.description,
+                        AppStrings.description.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
                     const SizedBox(
                       height: 8,
                     ),
-                    const CustomTextfield(
-                      hintText: AppStrings.makeAnnouncement,
+                    CustomTextfield(
+                      hintText: AppStrings.makeAnnouncement.tr,
                       obscureText: false,
                     ),
                   ],
@@ -78,7 +79,7 @@ class MakeAnnouncementPage extends StatelessWidget {
                           width: 15,
                         ),
                         Text(
-                          AppStrings.sendNoti,
+                          AppStrings.sendNoti.tr,
                           style: Styles.expertSignupPaget1(),
                         )
                       ],
@@ -87,7 +88,7 @@ class MakeAnnouncementPage extends StatelessWidget {
                       height: 20,
                     ),
                     PrimartyButton(
-                        title: AppStrings.share,
+                        title: AppStrings.share.tr,
                         width: MediaQuery.sizeOf(context).width * 0.9,
                         height: 10,
                         icon: '')
@@ -99,6 +100,5 @@ class MakeAnnouncementPage extends StatelessWidget {
         ),
       )),
     );
-  
   }
 }

@@ -4,6 +4,7 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class SliderButton extends StatelessWidget {
   const SliderButton({super.key, required this.backFlag, this.onPress});
@@ -44,7 +45,7 @@ class SliderButton extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      AppStrings.next,
+                      AppStrings.next.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                     const SizedBox(

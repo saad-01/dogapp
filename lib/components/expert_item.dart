@@ -6,6 +6,7 @@ import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class ExpertItem extends StatelessWidget {
   const ExpertItem(
@@ -13,7 +14,8 @@ class ExpertItem extends StatelessWidget {
       required this.expertis,
       required this.filledBtnTitle,
       this.onPress,
-      this.name, this.url});
+      this.name,
+      this.url});
   final String expertis;
   final String filledBtnTitle;
   final String? name;
@@ -59,7 +61,8 @@ class ExpertItem extends StatelessWidget {
                   height: 67,
                   decoration: ShapeDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(url??'https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png'),
+                      image: NetworkImage(url ??
+                          'https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png'),
                       fit: BoxFit.cover,
                     ),
                     shape: const OvalBorder(
@@ -91,7 +94,7 @@ class ExpertItem extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.sizeOf(context).width * 0.55,
                       child: Text(
-                        AppStrings.expertAbout,
+                        AppStrings.expertAbout.tr,
                         style: Styles.grey8(),
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
@@ -108,7 +111,7 @@ class ExpertItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 AlternatingButton(
-                  title: AppStrings.chat,
+                  title: AppStrings.chat.tr,
                   outlined: true,
                   withIcon: false,
                   width: 102,

@@ -30,8 +30,8 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const CustomAppBar(
-                title: AppStrings.exercises,
+              CustomAppBar(
+                title: AppStrings.exercises.tr,
               ),
               Container(
                 padding:
@@ -65,12 +65,12 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                       borderRadius: BorderRadius.circular(10)),
                   indicatorColor: AppColors.primaryColor,
                   splashBorderRadius: BorderRadius.circular(10),
-                  tabs: const <Widget>[
+                  tabs: <Widget>[
                     Tab(
-                      text: AppStrings.training,
+                      text: AppStrings.training.tr,
                     ),
                     Tab(
-                      text: AppStrings.experts,
+                      text: AppStrings.experts.tr,
                     ),
                   ],
                 ),
@@ -86,7 +86,7 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                         child: Column(
                           children: [
                             CustomTile(
-                              title: AppStrings.exercises,
+                              title: AppStrings.exercises.tr,
                               leading: AssetImages.swimDog,
                               trailing: AssetImages.nextBlackIcon,
                               clr: AppColors.white,
@@ -98,7 +98,7 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                               height: 20,
                             ),
                             CustomTile(
-                              title: AppStrings.games,
+                              title: AppStrings.games.tr,
                               leading: AssetImages.playDog,
                               trailing: AssetImages.nextBlackIcon,
                               clr: AppColors.white,
@@ -110,7 +110,7 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                               height: 20,
                             ),
                             CustomTile(
-                              title: AppStrings.goodManners,
+                              title: AppStrings.goodManners.tr,
                               leading: AssetImages.tickDog,
                               trailing: AssetImages.nextBlackIcon,
                               clr: AppColors.white,
@@ -125,7 +125,8 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                               color: Colors.transparent,
                               child: InkWell(
                                 onTap: () {
-                                  Get.toNamed(RouteName.walkPage,arguments: doc);
+                                  Get.toNamed(RouteName.walkPage,
+                                      arguments: doc);
                                 },
                                 borderRadius: BorderRadius.circular(8),
                                 child: Ink(
@@ -166,7 +167,7 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                                         ],
                                       ),
                                       Text(
-                                        AppStrings.walkRouts,
+                                        AppStrings.walkRouts.tr,
                                         style: Styles.white18(),
                                       ),
                                       SvgPicture.asset(
@@ -182,7 +183,7 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                             Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  AppStrings.trainingPrograms,
+                                  AppStrings.trainingPrograms.tr,
                                   style: Styles.expertSignupPaget1(),
                                 )),
                             const SizedBox(
@@ -227,12 +228,12 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          AppStrings.stopBitting,
+                                          AppStrings.stopBitting.tr,
                                           style: Styles.white16(),
                                         ),
                                         Expanded(
                                             child: Text(
-                                          AppStrings.bittingNote,
+                                          AppStrings.bittingNote.tr,
                                           style: Styles.white8(),
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
@@ -255,7 +256,7 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              AppStrings.theory,
+                                              AppStrings.theory.tr,
                                               style: Styles.white8(),
                                             ),
                                             Text(
@@ -282,7 +283,7 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              AppStrings.exercises,
+                                              AppStrings.exercises.tr,
                                               style: Styles.white8(),
                                             ),
                                             Text(
@@ -348,12 +349,12 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          AppStrings.payAttention,
+                                          AppStrings.payAttention.tr,
                                           style: Styles.white16(),
                                         ),
                                         Expanded(
                                             child: Text(
-                                          AppStrings.payAttenNote,
+                                          AppStrings.payAttenNote.tr,
                                           style: Styles.white8(),
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
@@ -376,7 +377,7 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              AppStrings.theory,
+                                              AppStrings.theory.tr,
                                               style: Styles.white8(),
                                             ),
                                             Text(
@@ -403,7 +404,7 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              AppStrings.exercises,
+                                              AppStrings.exercises.tr,
                                               style: Styles.white8(),
                                             ),
                                             Text(
@@ -475,11 +476,11 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          AppStrings.findExpert,
+                                          AppStrings.findExpert.tr,
                                           style: Styles.sliderText(),
                                         ),
                                         Text(
-                                          AppStrings.availExperts,
+                                          AppStrings.availExperts.tr,
                                           style: Styles.white12(),
                                         ),
                                         Material(
@@ -493,10 +494,10 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                                                   borderRadius:
                                                       BorderRadius.circular(5)),
                                             ),
-                                            child: const Center(
+                                            child: Center(
                                               child: Text(
-                                                AppStrings.find,
-                                                style: TextStyle(
+                                                AppStrings.find.tr,
+                                                style: const TextStyle(
                                                   color: AppColors.darkBrown,
                                                   fontSize: 10,
                                                 ),
@@ -515,7 +516,7 @@ class _ParentExercisePageState extends State<ParentExercisePage> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                AppStrings.yourDogExperts,
+                                AppStrings.yourDogExperts.tr,
                                 style: Styles.expertSignupPaget1(),
                               ),
                             ),

@@ -35,7 +35,7 @@ class _CreateDietPlanState extends State<CreateDietPlan> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.createPlan),
+            CustomAppBar(title: AppStrings.createPlan.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -46,7 +46,7 @@ class _CreateDietPlanState extends State<CreateDietPlan> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.description,
+                      AppStrings.description.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -54,7 +54,7 @@ class _CreateDietPlanState extends State<CreateDietPlan> {
                     height: 8,
                   ),
                   CustomTextfield(
-                    hintText: AppStrings.typeNotes,
+                    hintText: AppStrings.typeNotes.tr,
                     obscureText: false,
                     controller: vm.descripController.value,
                     focusNode: vm.descripFocusNode.value,
@@ -70,7 +70,7 @@ class _CreateDietPlanState extends State<CreateDietPlan> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.startDate,
+                      AppStrings.startDate.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -79,7 +79,7 @@ class _CreateDietPlanState extends State<CreateDietPlan> {
                   ),
                   CustomTextfield(
                     hintText: vm.startController.value.text == ''
-                        ? AppStrings.dateFormat
+                        ? AppStrings.dateFormat.tr
                         : vm.startController.value.text,
                     obscureText: false,
                     controller: vm.startController.value,
@@ -105,7 +105,7 @@ class _CreateDietPlanState extends State<CreateDietPlan> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.endDate,
+                      AppStrings.endDate.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -114,7 +114,7 @@ class _CreateDietPlanState extends State<CreateDietPlan> {
                   ),
                   CustomTextfield(
                     hintText: vm.endController.value.text == ''
-                        ? AppStrings.dateFormat
+                        ? AppStrings.dateFormat.tr
                         : vm.endController.value.text,
                     obscureText: false,
                     controller: vm.endController.value,
@@ -137,14 +137,14 @@ class _CreateDietPlanState extends State<CreateDietPlan> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.createTimeTable,
+                      AppStrings.createTimeTable.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.createDetailedTb,
+                      AppStrings.createDetailedTb.tr,
                       style: Styles.lightGrey12(),
                     ),
                   ),
@@ -181,7 +181,7 @@ class _CreateDietPlanState extends State<CreateDietPlan> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      AppStrings.morning,
+                                      AppStrings.morning.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                     Text(
@@ -198,7 +198,7 @@ class _CreateDietPlanState extends State<CreateDietPlan> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      AppStrings.midday,
+                                      AppStrings.midday.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                     Text(
@@ -215,7 +215,7 @@ class _CreateDietPlanState extends State<CreateDietPlan> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      AppStrings.evening,
+                                      AppStrings.evening.tr,
                                       style: Styles.expertSignupPaget1(),
                                     ),
                                     Text(
@@ -260,7 +260,7 @@ class _CreateDietPlanState extends State<CreateDietPlan> {
                                 children: [
                                   SvgPicture.asset(AssetImages.timeTable),
                                   Text(
-                                    AppStrings.createTimeTable,
+                                    AppStrings.createTimeTable.tr,
                                     style: Styles.expertSignupPaget1(),
                                   ),
                                   SvgPicture.asset(AssetImages.nextBlackIcon),
@@ -291,7 +291,7 @@ class _CreateDietPlanState extends State<CreateDietPlan> {
                   //       width: 15,
                   //     ),
                   //     Text(
-                  //       AppStrings.sendNoti,
+                  //       AppStrings.sendNoti.tr,
                   //       style: Styles.expertSignupPaget1(),
                   //     )
                   //   ],
@@ -300,7 +300,7 @@ class _CreateDietPlanState extends State<CreateDietPlan> {
                     height: 20,
                   ),
                   Obx(() => PrimartyButton(
-                      title: AppStrings.share,
+                      title: AppStrings.share.tr,
                       width: MediaQuery.sizeOf(context).width * 0.75,
                       height: 10,
                       loading: vm.loading.value,

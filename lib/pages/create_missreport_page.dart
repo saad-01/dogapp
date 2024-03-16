@@ -34,7 +34,7 @@ class CreateMissingReport extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.missingReport),
+            CustomAppBar(title: AppStrings.missingReport.tr),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
@@ -74,7 +74,7 @@ class CreateMissingReport extends StatelessWidget {
                                         missVM.selectImage();
                                       },
                                       child: Text(
-                                        AppStrings.uploadDog,
+                                        AppStrings.uploadDog.tr,
                                         style: Styles.expertSignupPageH2(),
                                       ),
                                     )
@@ -89,7 +89,7 @@ class CreateMissingReport extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        AppStrings.dogsName,
+                        AppStrings.dogsName.tr,
                         style: Styles.expertSignupPaget1(),
                       ),
                     ),
@@ -102,7 +102,7 @@ class CreateMissingReport extends StatelessWidget {
                           children: [
                             Obx(
                               () => CustomTextfield(
-                                hintText: AppStrings.typeDogName,
+                                hintText: AppStrings.typeDogName.tr,
                                 obscureText: false,
                                 isError: missVM.nameError.value,
                                 controller: missVM.nameController.value,
@@ -120,7 +120,7 @@ class CreateMissingReport extends StatelessWidget {
                             ),
                             Align(
                                 alignment: Alignment.centerLeft,
-                                child: Text(AppStrings.age,
+                                child: Text(AppStrings.age.tr,
                                     style: Styles.expertSignupPaget1())),
                             const SizedBox(
                               height: 8,
@@ -142,7 +142,7 @@ class CreateMissingReport extends StatelessWidget {
                             ),
                             Align(
                                 alignment: Alignment.centerLeft,
-                                child: Text(AppStrings.gender,
+                                child: Text(AppStrings.gender.tr,
                                     style: Styles.expertSignupPaget1())),
                             const SizedBox(
                               height: 8,
@@ -150,7 +150,7 @@ class CreateMissingReport extends StatelessWidget {
                             Obx(
                               () => SelectTextfield(
                                 val: missVM.gender.value,
-                                hintText: AppStrings.typeGender,
+                                hintText: AppStrings.typeGender.tr,
                                 items: [
                                   DropdownMenuItem(
                                       value: 'Male',
@@ -161,7 +161,7 @@ class CreateMissingReport extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          const Text(AppStrings.male),
+                                          Text(AppStrings.male.tr),
                                           const SizedBox(
                                             width: 5,
                                           ),
@@ -181,7 +181,7 @@ class CreateMissingReport extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          const Text(AppStrings.female),
+                                          Text(AppStrings.female.tr),
                                           const SizedBox(
                                             width: 5,
                                           ),
@@ -200,13 +200,13 @@ class CreateMissingReport extends StatelessWidget {
                             ),
                             Align(
                                 alignment: Alignment.centerLeft,
-                                child: Text(AppStrings.weight,
+                                child: Text(AppStrings.weight.tr,
                                     style: Styles.expertSignupPaget1())),
                             const SizedBox(
                               height: 8,
                             ),
                             CustomTextfield(
-                              hintText: AppStrings.typeWeight,
+                              hintText: AppStrings.typeWeight.tr,
                               obscureText: false,
                               controller: missVM.weightController.value,
                               focusNode: missVM.weightFocusNode.value,
@@ -222,14 +222,14 @@ class CreateMissingReport extends StatelessWidget {
                             ),
                             Align(
                               alignment: Alignment.centerLeft,
-                              child: Text(AppStrings.microChipNum,
+                              child: Text(AppStrings.microChipNum.tr,
                                   style: Styles.expertSignupPaget1()),
                             ),
                             const SizedBox(
                               height: 8,
                             ),
                             CustomTextfield(
-                              hintText: AppStrings.typeChipNumber,
+                              hintText: AppStrings.typeChipNumber.tr,
                               obscureText: false,
                               controller:
                                   missVM.microchipNumberController.value,
@@ -246,14 +246,14 @@ class CreateMissingReport extends StatelessWidget {
                             ),
                             Align(
                                 alignment: Alignment.centerLeft,
-                                child: Text(AppStrings.lostDate,
+                                child: Text(AppStrings.lostDate.tr,
                                     style: Styles.expertSignupPaget1())),
                             const SizedBox(
                               height: 8,
                             ),
                             Obx(
                               () => CustomTextfield(
-                                hintText: AppStrings.dateFormat,
+                                hintText: AppStrings.dateFormat.tr,
                                 obscureText: false,
                                 isError: missVM.dateError.value,
                                 keyboardType: TextInputType.none,
@@ -277,7 +277,7 @@ class CreateMissingReport extends StatelessWidget {
                             ),
                             Align(
                                 alignment: Alignment.centerLeft,
-                                child: Text(AppStrings.breed,
+                                child: Text(AppStrings.breed.tr,
                                     style: Styles.expertSignupPaget1())),
                             const SizedBox(
                               height: 8,
@@ -325,7 +325,7 @@ class CreateMissingReport extends StatelessWidget {
                                       Obx(
                                         () => Text(
                                           breeds.breed.value == ''
-                                              ? AppStrings.selectBreed
+                                              ? AppStrings.selectBreed.tr
                                               : breeds.breed.value,
                                           style: Styles.expertSignupPaget2(),
                                         ),
@@ -346,7 +346,7 @@ class CreateMissingReport extends StatelessWidget {
                             ),
                             Align(
                               alignment: Alignment.centerLeft,
-                              child: Text(AppStrings.color,
+                              child: Text(AppStrings.color.tr,
                                   style: Styles.expertSignupPaget1()),
                             ),
                             const SizedBox(
@@ -389,7 +389,7 @@ class CreateMissingReport extends StatelessWidget {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            AppStrings.typeColor,
+                                            AppStrings.typeColor.tr,
                                             style: Styles.expertSignupPaget2(),
                                           ),
                                           GestureDetector(
@@ -397,8 +397,8 @@ class CreateMissingReport extends StatelessWidget {
                                               context: context,
                                               builder: (BuildContext context) {
                                                 return AlertDialog(
-                                                  title: const Text(
-                                                      AppStrings.pickColor),
+                                                  title: Text(
+                                                      AppStrings.pickColor.tr),
                                                   content:
                                                       SingleChildScrollView(
                                                     child: ColorPicker(
@@ -427,8 +427,8 @@ class CreateMissingReport extends StatelessWidget {
                                                         }
                                                         Get.back();
                                                       },
-                                                      child: const Text(
-                                                          AppStrings.ok),
+                                                      child: Text(
+                                                          AppStrings.ok.tr),
                                                     ),
                                                   ],
                                                 );
@@ -486,8 +486,8 @@ class CreateMissingReport extends StatelessWidget {
                                               context: context,
                                               builder: (BuildContext context) {
                                                 return AlertDialog(
-                                                  title: const Text(
-                                                      AppStrings.pickColor),
+                                                  title: Text(
+                                                      AppStrings.pickColor.tr),
                                                   content:
                                                       SingleChildScrollView(
                                                     child: ColorPicker(
@@ -516,8 +516,8 @@ class CreateMissingReport extends StatelessWidget {
                                                         }
                                                         Get.back();
                                                       },
-                                                      child: const Text(
-                                                          AppStrings.ok),
+                                                      child: Text(
+                                                          AppStrings.ok.tr),
                                                     ),
                                                   ],
                                                 );
@@ -540,7 +540,7 @@ class CreateMissingReport extends StatelessWidget {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                AppStrings.yourName,
+                                AppStrings.yourName.tr,
                                 style: Styles.expertSignupPaget1(),
                               ),
                             ),
@@ -549,7 +549,7 @@ class CreateMissingReport extends StatelessWidget {
                             ),
                             Obx(
                               () => CustomTextfield(
-                                hintText: AppStrings.typeYourname,
+                                hintText: AppStrings.typeYourname.tr,
                                 obscureText: false,
                                 isError: missVM.yourNameError.value,
                                 controller: missVM.yourNameController.value,
@@ -567,14 +567,14 @@ class CreateMissingReport extends StatelessWidget {
                             ),
                             Align(
                                 alignment: Alignment.centerLeft,
-                                child: Text(AppStrings.yourAddress,
+                                child: Text(AppStrings.yourAddress.tr,
                                     style: Styles.expertSignupPaget1())),
                             const SizedBox(
                               height: 8,
                             ),
                             Obx(
                               () => CustomTextfield(
-                                hintText: AppStrings.typeAddress,
+                                hintText: AppStrings.typeAddress.tr,
                                 obscureText: false,
                                 isError: missVM.addressError.value,
                                 controller: missVM.addressController.value,
@@ -592,14 +592,14 @@ class CreateMissingReport extends StatelessWidget {
                             ),
                             Align(
                                 alignment: Alignment.centerLeft,
-                                child: Text(AppStrings.yourNumber,
+                                child: Text(AppStrings.yourNumber.tr,
                                     style: Styles.expertSignupPaget1())),
                             const SizedBox(
                               height: 8,
                             ),
                             Obx(
                               () => CustomTextfield(
-                                hintText: AppStrings.typeNumber,
+                                hintText: AppStrings.typeNumber.tr,
                                 obscureText: false,
                                 isError: missVM.numberError.value,
                                 controller: missVM.phoneNumController.value,
@@ -617,13 +617,13 @@ class CreateMissingReport extends StatelessWidget {
                             ),
                             Align(
                                 alignment: Alignment.centerLeft,
-                                child: Text(AppStrings.notes,
+                                child: Text(AppStrings.notes.tr,
                                     style: Styles.expertSignupPaget1())),
                             const SizedBox(
                               height: 8,
                             ),
                             CustomTextfield(
-                              hintText: AppStrings.typeNotes,
+                              hintText: AppStrings.typeNotes.tr,
                               obscureText: false,
                               controller: missVM.notesController.value,
                               focusNode: missVM.notesFocusNode.value,
@@ -634,13 +634,13 @@ class CreateMissingReport extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    Text(AppStrings.multiplePhotos,
+                    Text(AppStrings.multiplePhotos.tr,
                         style: Styles.expertSignupPaget1()),
                     const SizedBox(
                       height: 15,
                     ),
                     AlternatingButton(
-                        title: AppStrings.photo,
+                        title: AppStrings.photo.tr,
                         outlined: false,
                         width: 140,
                         height: 54,
@@ -686,7 +686,7 @@ class CreateMissingReport extends StatelessWidget {
                             width: 15,
                           ),
                           Text(
-                            AppStrings.sendNotiAll,
+                            AppStrings.sendNotiAll.tr,
                             style: Styles.expertSignupPaget1(),
                           )
                         ],
@@ -698,7 +698,7 @@ class CreateMissingReport extends StatelessWidget {
                     Obx(
                       () => PrimartyButton(
                         icon: '',
-                        title: AppStrings.share,
+                        title: AppStrings.share.tr,
                         width: MediaQuery.sizeOf(context).width * 0.8,
                         height: 10,
                         loading: missVM.loading.value,

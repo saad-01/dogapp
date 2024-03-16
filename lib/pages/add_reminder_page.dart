@@ -2,6 +2,7 @@ import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../components/select_field.dart';
 import '../components/textfield.dart';
@@ -18,13 +19,13 @@ class AddReminderPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.addReminder),
+            CustomAppBar(title: AppStrings.addReminder.tr),
             Expanded(
               child: Column(
                 children: [
                   Align(
                       alignment: Alignment.centerLeft,
-                      child: Text(AppStrings.reminderName,
+                      child: Text(AppStrings.reminderName.tr,
                           style: Styles.expertSignupPaget1())),
                   const SizedBox(
                     height: 8,
@@ -38,13 +39,13 @@ class AddReminderPage extends StatelessWidget {
                   ),
                   Align(
                       alignment: Alignment.centerLeft,
-                      child: Text(AppStrings.timeHeading,
+                      child: Text(AppStrings.timeHeading.tr,
                           style: Styles.expertSignupPaget1())),
                   const SizedBox(
                     height: 8,
                   ),
-                  const CustomTextfield(
-                    hintText: AppStrings.typeTime,
+                  CustomTextfield(
+                    hintText: AppStrings.typeTime.tr,
                     obscureText: false,
                   ),
                   const SizedBox(
@@ -52,7 +53,7 @@ class AddReminderPage extends StatelessWidget {
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(AppStrings.repeat,
+                    child: Text(AppStrings.repeat.tr,
                         style: Styles.expertSignupPaget1()),
                   ),
                   const SizedBox(
@@ -72,8 +73,11 @@ class AddReminderPage extends StatelessWidget {
                     ],
                   ),
                   const Spacer(),
-                  const PrimartyButton(
-                      title: AppStrings.sett, width: 270, height: 12, icon: ''),
+                  PrimartyButton(
+                      title: AppStrings.sett.tr,
+                      width: 270,
+                      height: 12,
+                      icon: ''),
                   const SizedBox(
                     height: 10,
                   )

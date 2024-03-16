@@ -95,12 +95,12 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                       borderRadius: BorderRadius.circular(10)),
                   indicatorColor: AppColors.primaryColor,
                   splashBorderRadius: BorderRadius.circular(10),
-                  tabs: const <Widget>[
+                  tabs:<Widget>[
                     Tab(
-                      text: AppStrings.detail,
+                      text: AppStrings.detail.tr,
                     ),
                     Tab(
-                      text: AppStrings.profile,
+                      text: AppStrings.profile.tr,
                     ),
                   ],
                 ),
@@ -163,7 +163,7 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                                           ),
                                         ),
                                         Text(
-                                          vaccType,
+                                          vaccType.tr,
                                           style: Styles.expertSignupPaget1(),
                                         ),
                                         const SizedBox(
@@ -173,10 +173,11 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text('${AppStrings.appointType}:',
+                                            Text(
+                                                '${AppStrings.appointType.tr}:',
                                                 style: Styles.grey14()),
                                             Text(
-                                              type,
+                                              type.tr,
                                               style: Styles.black14(),
                                             ),
                                           ],
@@ -188,7 +189,7 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text('${AppStrings.pet}:',
+                                            Text('${AppStrings.pet.tr}:',
                                                 style: Styles.grey14()),
                                             Text(
                                               dog['name'],
@@ -203,7 +204,7 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text('${AppStrings.date}:',
+                                            Text('${AppStrings.date.tr}:',
                                                 style: Styles.grey14()),
                                             Text(
                                               doc['date'],
@@ -216,7 +217,7 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                                         ),
                                         Row(
                                           children: [
-                                            Text('${AppStrings.notes}:',
+                                            Text('${AppStrings.notes.tr}:',
                                                 style: Styles.grey14()),
                                           ],
                                         ),
@@ -253,7 +254,7 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                               ),
                               Row(
                                 children: [
-                                  Text('${AppStrings.comments}:',
+                                  Text('${AppStrings.comments.tr}:',
                                       style: Styles.grey14()),
                                 ],
                               ),
@@ -279,7 +280,7 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                                     if (docs.isEmpty) {
                                       // Return an empty widget if there are no documents
                                       return Text(
-                                        AppStrings.none,
+                                        AppStrings.none.tr,
                                         style: Styles.grey16(),
                                       );
                                     }
@@ -314,7 +315,7 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                             //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             //   children: [
                             //     ExpertDashboardBtn(
-                            //       title: AppStrings.completed,
+                            //       title: AppStrings.completed.tr,
                             //       borderClr: AppColors.primaryColor,
                             //       height: 53,
                             //       width:
@@ -362,11 +363,11 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                             //                 CrossAxisAlignment.start,
                             //             children: [
                             //               Text(
-                            //                 AppStrings.createFile,
+                            //                 AppStrings.createFile.tr,
                             //                 style: Styles.expertSignupPaget1(),
                             //               ),
                             //               Text(
-                            //                 AppStrings.informParent,
+                            //                 AppStrings.informParent.tr,
                             //                 style: Styles.choosePageText(),
                             //               ),
                             //             ],
@@ -432,7 +433,8 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text('${AppStrings.dogName}:',
+                                                Text(
+                                                    '${AppStrings.dogName.tr}:',
                                                     style: Styles.grey14()),
                                                 Text(
                                                   dog['name'],
@@ -448,7 +450,7 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text('${AppStrings.breed}:',
+                                                Text('${AppStrings.breed.tr}:',
                                                     style: Styles.grey14()),
                                                 Text(
                                                   dog['breed'],
@@ -465,7 +467,7 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                                                       .spaceBetween,
                                               children: [
                                                 Text(
-                                                    '${AppStrings.dateOfBirth}:',
+                                                    '${AppStrings.dateOfBirth.tr}:',
                                                     style: Styles.grey14()),
                                                 Text(
                                                   dog['date'],
@@ -481,7 +483,7 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text('${AppStrings.gender}:',
+                                                Text('${AppStrings.gender.tr}:',
                                                     style: Styles.grey14()),
                                                 Text(
                                                   dog['gender'],
@@ -497,7 +499,7 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text('${AppStrings.weight}:',
+                                                Text('${AppStrings.weight.tr}:',
                                                     style: Styles.grey14()),
                                                 Text(
                                                   dog['weight'],
@@ -514,7 +516,7 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                                                       .spaceBetween,
                                               children: [
                                                 Text(
-                                                    '${AppStrings.microChipNum}:',
+                                                    '${AppStrings.microChipNum.tr}:',
                                                     style: Styles.grey14()),
                                                 Text(
                                                   dog['microchipNumber'],
@@ -556,7 +558,7 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                 ),
               ),
               PrimartyButton(
-                  title: AppStrings.addComment,
+                  title: AppStrings.addComment.tr,
                   width: MediaQuery.sizeOf(context).width * 0.75,
                   height: 10,
                   onTap: () {

@@ -9,6 +9,7 @@ import 'package:dogapp/view_models/services/notification_services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 
 class SplashPage extends StatefulWidget {
@@ -97,7 +98,7 @@ class _SplashPageState extends State<SplashPage> {
                 children: [
                   SvgPicture.asset(AssetImages.dogImage),
                   Text(
-                    AppStrings.myDog,
+                    AppStrings.myDog.tr,
                     style: Styles.splashHeading(),
                   ),
                 ],

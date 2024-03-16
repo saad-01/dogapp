@@ -35,8 +35,10 @@ class SignupPage extends StatelessWidget {
                   )),
                 ),
                 Positioned(
-                    top: 20,
-                    left: (MediaQuery.sizeOf(context).width / 2) - (270 / 2),
+                    child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
                     child: Column(
                       children: [
                         Container(
@@ -60,19 +62,23 @@ class SignupPage extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          AppStrings.loginORsignup.toUpperCase(),
+                          AppStrings.loginORsignup.tr.toUpperCase(),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                             color: AppColors.white,
                             fontSize: 28,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 280,
                           child: Text(
-                            AppStrings.signupTxt,
+                            AppStrings.signupTxt.tr,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            maxLines: 4,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
                               color: AppColors.white,
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
@@ -80,7 +86,9 @@ class SignupPage extends StatelessWidget {
                           ),
                         )
                       ],
-                    )),
+                    ),
+                  ),
+                )),
                 Positioned(
                     bottom: 0,
                     left: 0,
@@ -99,7 +107,7 @@ class SignupPage extends StatelessWidget {
                       child: Column(
                         children: [
                           IntroBtn(
-                            title: AppStrings.google,
+                            title: AppStrings.google.tr,
                             clr: AppColors.white,
                             showIcon: true,
                             icon: AssetImages.google,
@@ -108,20 +116,20 @@ class SignupPage extends StatelessWidget {
                             },
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
-                          const Text(
-                            AppStrings.or,
-                            style: TextStyle(
+                          Text(
+                            AppStrings.or.tr,
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 14,
                             ),
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
                           IntroBtn(
-                            title: AppStrings.mail,
+                            title: AppStrings.mail.tr,
                             clr: AppColors.yellowColor,
                             icon: AssetImages.mail,
                             showIcon: true,
@@ -130,14 +138,14 @@ class SignupPage extends StatelessWidget {
                             },
                           ),
                           const SizedBox(
-                            height: 8,
+                            height: 5,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Text(
-                                AppStrings.alreadyAccount,
-                                style: TextStyle(
+                              Text(
+                                AppStrings.alreadyAccount.tr,
+                                style: const TextStyle(
                                   color: AppColors.white,
                                   fontSize: 14,
                                 ),
@@ -149,7 +157,7 @@ class SignupPage extends StatelessWidget {
                                     Get.toNamed(RouteName.loginPage);
                                   },
                                   child: Text(
-                                    AppStrings.login.toUpperCase(),
+                                    AppStrings.login.tr.toUpperCase(),
                                     style: const TextStyle(
                                         color: AppColors.white,
                                         decoration: TextDecoration.underline,
@@ -162,12 +170,12 @@ class SignupPage extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
-                          const Text(
-                            AppStrings.agreeing,
+                          Text(
+                            AppStrings.agreeing.tr,
                             maxLines: 2,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: AppColors.white,
                               fontSize: 14,
                             ),
@@ -177,8 +185,9 @@ class SignupPage extends StatelessWidget {
                             child: GestureDetector(
                               onTap: () {},
                               child: Text(
-                                AppStrings.policy.toUpperCase(),
+                                AppStrings.policy.tr.toUpperCase(),
                                 maxLines: 2,
+                                textAlign: TextAlign.center,
                                 style: const TextStyle(
                                     color: AppColors.white,
                                     decoration: TextDecoration.underline,

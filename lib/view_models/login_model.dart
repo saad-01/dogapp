@@ -66,7 +66,7 @@ class LoginModel extends GetxController {
         loading.value = false;
       } else {
         loading.value = false;
-        Utils.snackBar(AppStrings.error, AppStrings.incorrect);
+        Utils.snackBar(AppStrings.error.tr, AppStrings.incorrect.tr);
       }
     } else {
       loading.value = false;
@@ -82,7 +82,7 @@ class LoginModel extends GetxController {
       if (passwordController.value.text.isNotEmpty) {
         passwordError.value = false;
       }
-      Utils.snackBar(AppStrings.error, AppStrings.fillAll);
+      Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
     }
   }
 }

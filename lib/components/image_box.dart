@@ -1,5 +1,6 @@
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ImageBox extends StatelessWidget {
   const ImageBox(
@@ -37,9 +38,12 @@ class ImageBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset(imagePath),
-            Text(
-              title,
-              style: Styles.choosePageText(),
+            Expanded(
+              child: Text(
+                title.tr,
+                textAlign: TextAlign.center,
+                style: Styles.choosePageText(),
+              ),
             )
           ],
         ),

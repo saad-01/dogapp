@@ -26,7 +26,7 @@ class _AddWalkPageState extends State<AddWalkPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.addManual),
+            CustomAppBar(title: AppStrings.addManual.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -37,7 +37,7 @@ class _AddWalkPageState extends State<AddWalkPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.distance,
+                      AppStrings.distance.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -63,7 +63,7 @@ class _AddWalkPageState extends State<AddWalkPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.duration,
+                      AppStrings.duration.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -90,7 +90,7 @@ class _AddWalkPageState extends State<AddWalkPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.steps,
+                      AppStrings.steps.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -112,7 +112,7 @@ class _AddWalkPageState extends State<AddWalkPage> {
                   Obx(
                     () => PrimartyButton(
                         loading: vm.loading.value,
-                        title: AppStrings.save,
+                        title: AppStrings.save.tr,
                         width: MediaQuery.sizeOf(context).width * 0.75,
                         height: 12,
                         onTap: () async {

@@ -24,7 +24,7 @@ class ReasonPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.deleteDog),
+            CustomAppBar(title: AppStrings.deleteDog.tr),
             Expanded(
               child: SizedBox(
                 height: MediaQuery.sizeOf(context).height,
@@ -32,11 +32,11 @@ class ReasonPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      AppStrings.selectReason.toUpperCase(),
+                      AppStrings.selectReason.tr.toUpperCase(),
                       style: Styles.black28(),
                     ),
                     Text(
-                      AppStrings.whyReason.toUpperCase(),
+                      AppStrings.whyReason.tr.toUpperCase(),
                       style: Styles.lightGrey12(),
                     ),
                     const SizedBox(
@@ -50,7 +50,7 @@ class ReasonPage extends StatelessWidget {
                           onPress: () {
                             Get.toNamed(RouteName.dogDiedPage, arguments: doc);
                           },
-                          title: AppStrings.dogDied,
+                          title: AppStrings.dogDied.tr,
                         ),
                         const SizedBox(
                           width: 40,
@@ -60,7 +60,7 @@ class ReasonPage extends StatelessWidget {
                           onPress: () {
                             DeleteDog().deleteDog(dogId);
                           },
-                          title: AppStrings.otherReason,
+                          title: AppStrings.otherReason.tr,
                         ),
                       ],
                     ),

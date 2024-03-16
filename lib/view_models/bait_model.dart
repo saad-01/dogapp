@@ -15,14 +15,14 @@ class BaitModel extends GetxController {
       Marker(
         markerId: MarkerId(DateTime.now().toString()), // Unique marker ID
         position: position,
-        infoWindow: const InfoWindow(title: AppStrings.dogBait),
+        infoWindow: InfoWindow(title: AppStrings.dogBait.tr),
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
       ),
     );
     FirebaseFirestore.instance.collection('markers').add({
       'latitude': position.latitude,
       'longitude': position.longitude,
-      'title': AppStrings.dogBait,
+      'title': AppStrings.dogBait.tr,
       // Add any other relevant data you want to store
     }).then((value) {
       if (kDebugMode) {
@@ -34,6 +34,6 @@ class BaitModel extends GetxController {
       }
     });
     Get.back();
-    Utils.snackBar(AppStrings.success, AppStrings.dogAdded);
+    Utils.snackBar(AppStrings.success.tr, AppStrings.dogAdded.tr);
   }
 }

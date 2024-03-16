@@ -7,15 +7,18 @@ import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import 'view_models/services/localization.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   PermissionStatus locationStatus = await Permission.location.status;
-  
+
   // Only request permission if it's not granted or permanentlyDenied
-  if (locationStatus != PermissionStatus.granted && locationStatus != PermissionStatus.permanentlyDenied) {
+  if (locationStatus != PermissionStatus.granted &&
+      locationStatus != PermissionStatus.permanentlyDenied) {
     // Request location permission
     await Permission.location.request();
   }
@@ -45,6 +48,10 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       getPages: AppRoutes.appRoutes(),
+      translations: AppTranslation(),
+      locale: AppTranslation.locale,
+      fallbackLocale: AppTranslation.fallbackLocale,
+      translationsKeys: AppTranslation.translationsKeys,
     );
   }
 }

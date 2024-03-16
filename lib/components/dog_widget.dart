@@ -3,6 +3,7 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import '../utils/app_colors.dart';
 import 'pic_container.dart';
 
@@ -63,49 +64,49 @@ class DogWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    name.tr,
                     style: Styles.expertSignupPaget1(),
                   ),
                   Text(
-                    date,
+                    date.tr,
                     style: Styles.black10Sub(),
                   ),
                   const SizedBox(
                     height: 15,
                   ),
-                  const Row(
-                    children: [
-                      DogItemInfo(
-                        title: AppStrings.appointments,
-                        icon: AssetImages.dogItemCalendar,
-                        number: '2',
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      DogItemInfo(
-                        title: AppStrings.msgs,
-                        icon: AssetImages.dogItemMsg,
-                        number: '0',
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const SizedBox(
-                    width: 86,
-                    child: DogItemInfo(
-                      title: AppStrings.reminders,
-                      icon: AssetImages.dogItemClock,
-                      number: '0',
-                    ),
-                  ),
+                  // Row(
+                  //   children: [
+                  //     DogItemInfo(
+                  //       title: AppStrings.appointments.tr,
+                  //       icon: AssetImages.dogItemCalendar,
+                  //       number: '2',
+                  //     ),
+                  //     const SizedBox(
+                  //       width: 5,
+                  //     ),
+                  //     DogItemInfo(
+                  //       title: AppStrings.msgs.tr,
+                  //       icon: AssetImages.dogItemMsg,
+                  //       number: '0',
+                  //     ),
+                  //   ],
+                  // ),
+                  // const SizedBox(
+                  //   height: 10,
+                  // ),
+                  // SizedBox(
+                  //   width: 86,
+                  //   child: DogItemInfo(
+                  //     title: AppStrings.reminders.tr,
+                  //     icon: AssetImages.dogItemClock,
+                  //     number: '0',
+                  //   ),
+                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        AppStrings.seeProfile,
+                        AppStrings.seeProfile.tr,
                         style: Styles.primary12UText(),
                       ),
                       const SizedBox(
@@ -155,14 +156,14 @@ class DogItemInfo extends StatelessWidget {
                     width: 4,
                   ),
                   Text(
-                    title,
+                    title.tr,
                     style: Styles.primary8Txt(),
                   ),
                   const SizedBox(
                     width: 4,
                   ),
                   Text(
-                    number,
+                    number.tr,
                     style: Styles.primary8Txt(),
                   ),
                 ]),

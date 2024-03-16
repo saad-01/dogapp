@@ -4,6 +4,7 @@ import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 import '../components/textfield.dart';
 import '../components/training_streak.dart';
@@ -22,7 +23,7 @@ class ReportEditPage extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       child: Column(
         children: [
-          const CustomAppBar(title: AppStrings.editReport),
+          CustomAppBar(title: AppStrings.editReport.tr),
           Expanded(
               child: SingleChildScrollView(
             child: Column(
@@ -67,7 +68,7 @@ class ReportEditPage extends StatelessWidget {
                                   height: 50,
                                 ),
                                 Text(
-                                  AppStrings.nameCapital,
+                                  AppStrings.nameCapital.tr,
                                   style: Styles.expertSignupPaget1(),
                                 ),
                                 const SizedBox(
@@ -77,10 +78,10 @@ class ReportEditPage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.dogName}:',
+                                    Text('${AppStrings.dogName.tr}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.dogNameH,
+                                      AppStrings.dogNameH.tr,
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -92,10 +93,10 @@ class ReportEditPage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.breed}:',
+                                    Text('${AppStrings.breed.tr}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.breed,
+                                      AppStrings.breed.tr,
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -107,10 +108,10 @@ class ReportEditPage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.dateOfBirth}:',
+                                    Text('${AppStrings.dateOfBirth.tr}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.dateFormat,
+                                      AppStrings.dateFormat.tr,
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -122,10 +123,10 @@ class ReportEditPage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.gender}:',
+                                    Text('${AppStrings.gender.tr}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.gender,
+                                      AppStrings.gender.tr,
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -137,10 +138,10 @@ class ReportEditPage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.weight}:',
+                                    Text('${AppStrings.weight.tr}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.weight,
+                                      AppStrings.weight.tr,
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -152,10 +153,10 @@ class ReportEditPage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.microChipNum}:',
+                                    Text('${AppStrings.microChipNum.tr}:',
                                         style: Styles.grey14()),
                                     Text(
-                                      AppStrings.microChipNum,
+                                      AppStrings.microChipNum.tr,
                                       style: Styles.black14(),
                                     ),
                                   ],
@@ -199,7 +200,7 @@ class ReportEditPage extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    AppStrings.anyHealthIssue,
+                    AppStrings.anyHealthIssue.tr,
                     style: Styles.expertSignupPaget1(),
                   ),
                 ),
@@ -207,7 +208,7 @@ class ReportEditPage extends StatelessWidget {
                   height: 8,
                 ),
                 CustomTextfield(
-                  hintText: AppStrings.hintHealthIssues,
+                  hintText: AppStrings.hintHealthIssues.tr,
                   obscureText: false,
                   suffixIcon: Padding(
                     padding: const EdgeInsets.all(18.0),
@@ -220,7 +221,7 @@ class ReportEditPage extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    AppStrings.totalAppointments,
+                    AppStrings.totalAppointments.tr,
                     style: Styles.expertSignupPaget1(),
                   ),
                 ),
@@ -237,15 +238,15 @@ class ReportEditPage extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    AppStrings.recentDiseases,
+                    AppStrings.recentDiseases.tr,
                     style: Styles.expertSignupPaget1(),
                   ),
                 ),
                 const SizedBox(
                   height: 8,
                 ),
-                const CustomTextfield(
-                  hintText: AppStrings.hintRecentDisease,
+                CustomTextfield(
+                  hintText: AppStrings.hintRecentDisease.tr,
                   obscureText: false,
                 ),
                 const SizedBox(
@@ -254,7 +255,7 @@ class ReportEditPage extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    AppStrings.dogBehaviour,
+                    AppStrings.dogBehaviour.tr,
                     style: Styles.expertSignupPaget1(),
                   ),
                 ),
@@ -262,7 +263,7 @@ class ReportEditPage extends StatelessWidget {
                   height: 8,
                 ),
                 CustomTextfield(
-                  hintText: AppStrings.hintDogBehaviour,
+                  hintText: AppStrings.hintDogBehaviour.tr,
                   obscureText: false,
                   suffixIcon: Padding(
                     padding: const EdgeInsets.all(18.0),
@@ -275,7 +276,7 @@ class ReportEditPage extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    AppStrings.addFiles,
+                    AppStrings.addFiles.tr,
                     style: Styles.expertSignupPaget1(),
                   ),
                 ),
@@ -285,7 +286,7 @@ class ReportEditPage extends StatelessWidget {
                 Row(
                   children: [
                     AlternatingButton(
-                      title: AppStrings.photo,
+                      title: AppStrings.photo.tr,
                       outlined: false,
                       width: 139,
                       height: 54,
@@ -297,7 +298,7 @@ class ReportEditPage extends StatelessWidget {
                       width: 10,
                     ),
                     AlternatingButton(
-                      title: AppStrings.files,
+                      title: AppStrings.files.tr,
                       outlined: true,
                       width: 139,
                       height: 54,
@@ -311,7 +312,7 @@ class ReportEditPage extends StatelessWidget {
                   height: 70,
                 ),
                 AlternatingButton(
-                    title: AppStrings.save,
+                    title: AppStrings.save.tr,
                     outlined: true,
                     width: MediaQuery.sizeOf(context).width * 0.75,
                     height: 52,
@@ -321,7 +322,7 @@ class ReportEditPage extends StatelessWidget {
                   height: 20,
                 ),
                 PrimartyButton(
-                    title: AppStrings.share,
+                    title: AppStrings.share.tr,
                     width: MediaQuery.sizeOf(context).width * 0.75,
                     height: 12,
                     icon: ''),

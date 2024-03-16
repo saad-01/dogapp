@@ -34,7 +34,7 @@ class DogDetailsPage extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             child: Column(
               children: [
-                const CustomAppBar(title: AppStrings.dogsData),
+                CustomAppBar(title: AppStrings.dogsData.tr),
                 Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -67,12 +67,12 @@ class DogDetailsPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10)),
                     indicatorColor: AppColors.primaryColor,
                     splashBorderRadius: BorderRadius.circular(10),
-                    tabs: const <Widget>[
+                    tabs: <Widget>[
                       Tab(
-                        text: AppStrings.data,
+                        text: AppStrings.data.tr,
                       ),
                       Tab(
-                        text: AppStrings.profile,
+                        text: AppStrings.profile.tr,
                       ),
                     ],
                   ),
@@ -125,11 +125,12 @@ class DogDetailsPage extends StatelessWidget {
                                     height: 10,
                                   ),
                                   Text(
-                                    AppStrings.releaseDogData,
+                                    AppStrings.releaseDogData.tr,
                                     style: Styles.expertSignupPaget1(),
                                   ),
                                   Text(
-                                    AppStrings.createRelease,
+                                    AppStrings.createRelease.tr,
+                                    textAlign: TextAlign.center,
                                     style: Styles.subText(),
                                   ),
                                   const SizedBox(
@@ -139,7 +140,7 @@ class DogDetailsPage extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       ButtonSmall(
-                                          title: AppStrings.editRecord,
+                                          title: AppStrings.editRecord.tr,
                                           icon: AssetImages.editIcon,
                                           primaryAlike: false,
                                           onPress: () {
@@ -151,10 +152,14 @@ class DogDetailsPage extends StatelessWidget {
                                         width: 10,
                                       ),
                                       ButtonSmall(
-                                        title: AppStrings.shareRecord,
+                                        title: AppStrings.shareRecord.tr,
                                         icon: AssetImages.shareIcon,
                                         primaryAlike: true,
-                                        onPress: () {},
+                                        onPress: () {
+                                          Get.toNamed(
+                                              RouteName.addAppointmentPage,
+                                              arguments: doc);
+                                        },
                                         color: AppColors.shareBtnClr,
                                       ),
                                     ],
@@ -203,11 +208,11 @@ class DogDetailsPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              AppStrings.healthData,
+                              AppStrings.healthData.tr,
                               style: Styles.primary20G(),
                             ),
                             Text(
-                              AppStrings.healthSub,
+                              AppStrings.healthSub.tr,
                               style: Styles.lightGrey12(),
                             ),
                             const SizedBox(
@@ -232,7 +237,7 @@ class DogDetailsPage extends StatelessWidget {
                             Align(
                               alignment: Alignment.center,
                               child: PrimartyButton(
-                                title: AppStrings.appAppoint,
+                                title: AppStrings.appAppoint.tr,
                                 width: 242,
                                 height: 12,
                                 icon: '',
@@ -254,10 +259,11 @@ class DogDetailsPage extends StatelessWidget {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                Get.toNamed(RouteName.parentExPage,arguments: doc);
+                                Get.toNamed(RouteName.parentExPage,
+                                    arguments: doc);
                               },
-                              child: const ImageWithText(
-                                title: AppStrings.exerciseExpert,
+                              child: ImageWithText(
+                                title: AppStrings.exerciseExpert.tr,
                                 image: AssetImages.excerciseExpert,
                                 clr: AppColors.exercieBox,
                               ),
@@ -272,8 +278,8 @@ class DogDetailsPage extends StatelessWidget {
                                 Get.toNamed(RouteName.feedManagePage,
                                     arguments: doc);
                               },
-                              child: const ImageWithText(
-                                title: AppStrings.feedManage,
+                              child: ImageWithText(
+                                title: AppStrings.feedManage.tr,
                                 image: AssetImages.dogFood,
                                 clr: AppColors.foodBox,
                               ),
@@ -287,7 +293,7 @@ class DogDetailsPage extends StatelessWidget {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          AppStrings.weight,
+                          AppStrings.weight.tr,
                           style: Styles.expertSignupPaget1(),
                         ),
                       ),
@@ -306,7 +312,7 @@ class DogDetailsPage extends StatelessWidget {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          AppStrings.reminders,
+                          AppStrings.reminders.tr,
                           style: Styles.expertSignupPaget1(),
                         ),
                       ),
@@ -317,7 +323,7 @@ class DogDetailsPage extends StatelessWidget {
                         stream: FirebaseFirestore.instance
                             .collection('appointments')
                             .where('dogId', isEqualTo: doc['dogId'])
-                            .where('releaseFlag',isEqualTo: false)
+                            .where('releaseFlag', isEqualTo: false)
                             .snapshots(),
                         builder: (context, snapshot) {
                           if (snapshot.connectionState ==
@@ -336,7 +342,7 @@ class DogDetailsPage extends StatelessWidget {
                             if (docs.isEmpty) {
                               // Return an empty widget if there are no documents
                               return Text(
-                                AppStrings.none,
+                                AppStrings.none.tr,
                                 style: Styles.grey16(),
                               );
                             }
@@ -365,7 +371,7 @@ class DogDetailsPage extends StatelessWidget {
                                   children: [
                                     AppointmentWidget(
                                         type: "$vaccType(${doc['type']})",
-                                        name: AppStrings.dogName,
+                                        name: AppStrings.dogName.tr,
                                         id: doc['dogId'],
                                         date: doc['date'],
                                         time: doc['time'],
@@ -377,7 +383,8 @@ class DogDetailsPage extends StatelessWidget {
                                               arguments: doc);
                                         },
                                         approvalFlag:
-                                            doc['status'] == 'Approved' || doc['status'] == 'Completed'
+                                            doc['status'] == 'Approved' ||
+                                                    doc['status'] == 'Completed'
                                                 ? true
                                                 : false),
                                     const SizedBox(
@@ -435,11 +442,12 @@ class DogDetailsPage extends StatelessWidget {
                                     height: 10,
                                   ),
                                   Text(
-                                    AppStrings.releaseDogData,
+                                    AppStrings.releaseDogData.tr,
                                     style: Styles.expertSignupPaget1(),
                                   ),
                                   Text(
-                                    AppStrings.createRelease,
+                                    AppStrings.createRelease.tr,
+                                    textAlign: TextAlign.center,
                                     style: Styles.subText(),
                                   ),
                                   const SizedBox(
@@ -449,7 +457,7 @@ class DogDetailsPage extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       ButtonSmall(
-                                          title: AppStrings.editRecord,
+                                          title: AppStrings.editRecord.tr,
                                           icon: AssetImages.editIcon,
                                           primaryAlike: false,
                                           onPress: () {
@@ -461,10 +469,14 @@ class DogDetailsPage extends StatelessWidget {
                                         width: 10,
                                       ),
                                       ButtonSmall(
-                                        title: AppStrings.shareRecord,
+                                        title: AppStrings.shareRecord.tr,
                                         icon: AssetImages.shareIcon,
                                         primaryAlike: true,
-                                        onPress: () {},
+                                        onPress: () {
+                                          Get.toNamed(
+                                              RouteName.addAppointmentPage,
+                                              arguments: doc);
+                                        },
                                         color: AppColors.shareBtnClr,
                                       ),
                                     ],
@@ -485,114 +497,114 @@ class DogDetailsPage extends StatelessWidget {
                           )
                         ],
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(AppStrings.filesFromExpert,
-                                  style: Styles.expertSignupPaget1()),
-                              Text(AppStrings.releaseFiles,
-                                  style: Styles.lightGrey12()),
-                            ],
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Get.toNamed(RouteName.selectReportPage,
-                                  arguments: false);
-                            },
-                            child: Row(
-                              children: [
-                                Text(
-                                  AppStrings.seeAll,
-                                  style: Styles.subYellowText(),
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                SvgPicture.asset(AssetImages.nextYellowIcon)
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(15),
-                        decoration: ShapeDecoration(
-                          color: const Color(0xFFFFFAF2),
-                          shape: RoundedRectangleBorder(
-                            side: const BorderSide(
-                                width: 0.50, color: Color(0x3F737373)),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          shadows: const [
-                            BoxShadow(
-                              color: Color(0x0F000000),
-                              blurRadius: 6,
-                              offset: Offset(-2, 2),
-                              spreadRadius: 0,
-                            )
-                          ],
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              width: 86,
-                              height: 86,
-                              decoration: ShapeDecoration(
-                                image: const DecorationImage(
-                                  image: AssetImage(AssetImages.dogItem),
-                                  fit: BoxFit.cover,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  side: const BorderSide(
-                                      width: 1.50, color: Color(0xFF1FAB89)),
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    AppStrings.nameCapital,
-                                    style: Styles.expertSignupPaget1(),
-                                  ),
-                                  Text(
-                                    "Leptospirosis(${AppStrings.vaccination})",
-                                    style: Styles.subPrimaryText(),
-                                  ),
-                                  const SizedBox(
-                                    height: 8,
-                                  ),
-                                  Text(
-                                    AppStrings.note,
-                                    style: Styles.noteTxt(),
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SvgPicture.asset(AssetImages.slider),
+                      // const SizedBox(
+                      //   height: 20,
+                      // ),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //   children: [
+                      //     Column(
+                      //       crossAxisAlignment: CrossAxisAlignment.start,
+                      //       children: [
+                      //         Text(AppStrings.filesFromExpert.tr,
+                      //             style: Styles.expertSignupPaget1()),
+                      //         Text(AppStrings.releaseFiles.tr,
+                      //             style: Styles.lightGrey12()),
+                      //       ],
+                      //     ),
+                      //     InkWell(
+                      //       onTap: () {
+                      //         Get.toNamed(RouteName.selectReportPage,
+                      //             arguments: false);
+                      //       },
+                      //       child: Row(
+                      //         children: [
+                      //           Text(
+                      //             AppStrings.seeAll.tr,
+                      //             style: Styles.subYellowText(),
+                      //           ),
+                      //           const SizedBox(
+                      //             width: 10,
+                      //           ),
+                      //           SvgPicture.asset(AssetImages.nextYellowIcon)
+                      //         ],
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
+                      // const SizedBox(
+                      //   height: 15,
+                      // ),
+                      // Container(
+                      //   padding: const EdgeInsets.all(15),
+                      //   decoration: ShapeDecoration(
+                      //     color: const Color(0xFFFFFAF2),
+                      //     shape: RoundedRectangleBorder(
+                      //       side: const BorderSide(
+                      //           width: 0.50, color: Color(0x3F737373)),
+                      //       borderRadius: BorderRadius.circular(8),
+                      //     ),
+                      //     shadows: const [
+                      //       BoxShadow(
+                      //         color: Color(0x0F000000),
+                      //         blurRadius: 6,
+                      //         offset: Offset(-2, 2),
+                      //         spreadRadius: 0,
+                      //       )
+                      //     ],
+                      //   ),
+                      //   child: Row(
+                      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //     children: [
+                      //       Container(
+                      //         width: 86,
+                      //         height: 86,
+                      //         decoration: ShapeDecoration(
+                      //           image: const DecorationImage(
+                      //             image: AssetImage(AssetImages.dogItem),
+                      //             fit: BoxFit.cover,
+                      //           ),
+                      //           shape: RoundedRectangleBorder(
+                      //             side: const BorderSide(
+                      //                 width: 1.50, color: Color(0xFF1FAB89)),
+                      //             borderRadius: BorderRadius.circular(6),
+                      //           ),
+                      //         ),
+                      //       ),
+                      //       const SizedBox(
+                      //         width: 10,
+                      //       ),
+                      //       Expanded(
+                      //         child: Column(
+                      //           crossAxisAlignment: CrossAxisAlignment.start,
+                      //           children: [
+                      //             Text(
+                      //               AppStrings.nameCapital.tr,
+                      //               style: Styles.expertSignupPaget1(),
+                      //             ),
+                      //             Text(
+                      //               "Leptospirosis(${AppStrings.vaccination.tr})",
+                      //               style: Styles.subPrimaryText(),
+                      //             ),
+                      //             const SizedBox(
+                      //               height: 8,
+                      //             ),
+                      //             Text(
+                      //               AppStrings.note.tr,
+                      //               style: Styles.noteTxt(),
+                      //               maxLines: 2,
+                      //               overflow: TextOverflow.ellipsis,
+                      //             ),
+                      //           ],
+                      //         ),
+                      //       )
+                      //     ],
+                      //   ),
+                      // ),
+                      // const SizedBox(
+                      //   height: 20,
+                      // ),
+                      // SvgPicture.asset(AssetImages.slider),
                       const SizedBox(
                         height: 20,
                       ),
@@ -629,7 +641,7 @@ class DogDetailsPage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.dogName}:',
+                                    Text('${AppStrings.dogName.tr}:',
                                         style: Styles.grey14()),
                                     Text(
                                       doc['name'],
@@ -644,7 +656,7 @@ class DogDetailsPage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.breed}:',
+                                    Text('${AppStrings.breed.tr}:',
                                         style: Styles.grey14()),
                                     Text(
                                       doc['breed'],
@@ -659,7 +671,7 @@ class DogDetailsPage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.dateOfBirth}:',
+                                    Text('${AppStrings.dateOfBirth.tr}:',
                                         style: Styles.grey14()),
                                     Text(
                                       doc['date'],
@@ -674,7 +686,7 @@ class DogDetailsPage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.gender}:',
+                                    Text('${AppStrings.gender.tr}:',
                                         style: Styles.grey14()),
                                     Text(
                                       doc['gender'],
@@ -689,7 +701,7 @@ class DogDetailsPage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.weight}:',
+                                    Text('${AppStrings.weight.tr}:',
                                         style: Styles.grey14()),
                                     Text(
                                       doc['weight'],
@@ -704,7 +716,7 @@ class DogDetailsPage extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('${AppStrings.microChipNum}:',
+                                    Text('${AppStrings.microChipNum.tr}:',
                                         style: Styles.grey14()),
                                     Text(
                                       doc['microchipNumber'],
@@ -718,7 +730,7 @@ class DogDetailsPage extends StatelessWidget {
                               height: 40,
                             ),
                             PrimartyButton(
-                                title: AppStrings.editProfile,
+                                title: AppStrings.editProfile.tr,
                                 width: 180,
                                 height: 12,
                                 onTap: () {

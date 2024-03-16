@@ -43,9 +43,9 @@ class _CommunityPageState extends State<CommunityPage>
       body: SafeArea(
           child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-            child: CustomAppBar(title: AppStrings.community),
+          Padding(
+            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+            child: CustomAppBar(title: AppStrings.community.tr),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -92,11 +92,11 @@ class _CommunityPageState extends State<CommunityPage>
                             ? SvgPicture.asset(AssetImages.whiteComm)
                             : SvgPicture.asset(AssetImages.blackComm),
                       ),
-                      const Tab(
-                        text: AppStrings.chats,
+                      Tab(
+                        text: AppStrings.chats.tr,
                       ),
-                      const Tab(
-                        text: AppStrings.groups,
+                      Tab(
+                        text: AppStrings.groups.tr,
                       ),
                     ],
                   ),
@@ -188,12 +188,13 @@ class _CommunityPageState extends State<CommunityPage>
                                       const SizedBox(
                                         width: 20,
                                       ),
-                                      const Expanded(
+                                      Expanded(
                                           child: TextField(
                                         decoration: InputDecoration(
                                             border: InputBorder.none,
-                                            hintText: AppStrings.connectExperts,
-                                            hintStyle: TextStyle(
+                                            hintText:
+                                                AppStrings.connectExperts.tr,
+                                            hintStyle: const TextStyle(
                                               color: Color(0x420A0A0A),
                                               fontSize: 14,
                                               fontWeight: FontWeight.w400,
@@ -234,7 +235,7 @@ class _CommunityPageState extends State<CommunityPage>
                                 child: Align(
                                   alignment: Alignment.centerLeft,
                                   child: Text(
-                                    AppStrings.chats,
+                                    AppStrings.chats.tr,
                                     style: Styles.appBarH1(),
                                   ),
                                 ),
@@ -266,8 +267,8 @@ class _CommunityPageState extends State<CommunityPage>
                     const Spacer(
                       flex: 1,
                     ),
-                    const PrimartyButton(
-                        title: AppStrings.addChat,
+                    PrimartyButton(
+                        title: AppStrings.addChat.tr,
                         width: 260,
                         height: 12,
                         icon: AssetImages.addWhiteIcon),
@@ -284,13 +285,13 @@ class _CommunityPageState extends State<CommunityPage>
                       height: 100,
                     ),
                     Text(
-                      AppStrings.newGroups.toUpperCase(),
+                      AppStrings.newGroups.tr.toUpperCase(),
                       style: Styles.black28(),
                     ),
                     SizedBox(
                       width: 200,
                       child: Text(
-                        AppStrings.addNewGrps.toUpperCase(),
+                        AppStrings.addNewGrps.tr.toUpperCase(),
                         style: Styles.lightGrey12(),
                         textAlign: TextAlign.center,
                       ),
@@ -304,7 +305,7 @@ class _CommunityPageState extends State<CommunityPage>
                         ImageBox(
                           imagePath: AssetImages.died,
                           onPress: () {},
-                          title: AppStrings.findGroup,
+                          title: AppStrings.findGroup.tr,
                         ),
                         const SizedBox(
                           width: 40,
@@ -314,7 +315,7 @@ class _CommunityPageState extends State<CommunityPage>
                           onPress: () {
                             // Get.toNamed(RouteName.missReportPage);
                           },
-                          title: AppStrings.createGroup,
+                          title: AppStrings.createGroup.tr,
                         ),
                       ],
                     ),

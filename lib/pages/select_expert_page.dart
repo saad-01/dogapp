@@ -18,8 +18,8 @@ class SelectExpertPage extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-            const CustomAppBar(
-              title: AppStrings.selectExpert,
+            CustomAppBar(
+              title: AppStrings.selectExpert.tr,
             ),
             Expanded(
               child: SingleChildScrollView(
@@ -29,11 +29,11 @@ class SelectExpertPage extends StatelessWidget {
                       height: 50,
                     ),
                     Text(
-                      AppStrings.whoRU,
+                      AppStrings.whoRU.tr,
                       style: Styles.appBarH1(),
                     ),
                     Text(
-                      AppStrings.lookingFor,
+                      AppStrings.lookingFor.tr,
                       style: Styles.choosePageHeading(),
                     ),
                     const SizedBox(
@@ -49,7 +49,7 @@ class SelectExpertPage extends StatelessWidget {
                                 arguments: 'Training');
                             // Get.offNamed(RouteName.findTrainExpertPage);
                           },
-                          title: AppStrings.trainExpert,
+                          title: AppStrings.trainExpert.tr,
                         ),
                         const SizedBox(
                           width: 40,
@@ -58,9 +58,9 @@ class SelectExpertPage extends StatelessWidget {
                           imagePath: AssetImages.physioExpert,
                           onPress: () {
                             Get.offNamed(RouteName.listExpertPage,
-                                arguments: AppStrings.physioExpert);
+                                arguments: AppStrings.physioExpert.tr);
                           },
-                          title: AppStrings.physioExpert,
+                          title: AppStrings.physioExpert.tr,
                         ),
                       ],
                     ),
@@ -74,9 +74,9 @@ class SelectExpertPage extends StatelessWidget {
                           imagePath: AssetImages.nutriExpert,
                           onPress: () {
                             Get.offNamed(RouteName.listExpertPage,
-                                arguments: AppStrings.nutriExpert);
+                                arguments: AppStrings.nutriExpert.tr);
                           },
-                          title: AppStrings.nutriExpert,
+                          title: AppStrings.nutriExpert.tr,
                         ),
                         const SizedBox(
                           width: 40,
@@ -85,9 +85,9 @@ class SelectExpertPage extends StatelessWidget {
                           imagePath: AssetImages.vetExpert,
                           onPress: () {
                             Get.offNamed(RouteName.listExpertPage,
-                                arguments: AppStrings.vetExpert);
+                                arguments: AppStrings.vetExpert.tr);
                           },
-                          title: AppStrings.vetExpert,
+                          title: AppStrings.vetExpert.tr,
                         ),
                       ],
                     ),
@@ -103,7 +103,7 @@ class SelectExpertPage extends StatelessWidget {
                             Get.offNamed(RouteName.listExpertPage,
                                 arguments: 'other');
                           },
-                          title: AppStrings.otherExpert,
+                          title: AppStrings.otherExpert.tr,
                         ),
                       ],
                     ),

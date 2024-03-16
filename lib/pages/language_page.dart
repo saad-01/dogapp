@@ -1,5 +1,7 @@
 import 'package:dogapp/components/flag_item.dart';
 import 'package:dogapp/components/intro_btn.dart';
+import 'package:dogapp/view_models/language_model.dart';
+import 'package:dogapp/view_models/services/localization.dart';
 import 'package:flutter/material.dart';
 import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/assets.dart';
@@ -9,14 +11,17 @@ import 'package:get/get.dart';
 
 import '../utils/app_colors.dart';
 
-class SelectLanguagePage extends StatelessWidget {
+class SelectLanguagePage extends StatefulWidget {
   const SelectLanguagePage({super.key});
 
   @override
+  State<SelectLanguagePage> createState() => _SelectLanguagePageState();
+}
+
+class _SelectLanguagePageState extends State<SelectLanguagePage> {
+  final LanguageController controller = Get.put(LanguageController());
+  @override
   Widget build(BuildContext context) {
-    RxBool german = false.obs;
-    RxBool english = true.obs;
-    RxBool french = false.obs;
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -40,8 +45,10 @@ class SelectLanguagePage extends StatelessWidget {
                   )),
                 ),
                 Positioned(
-                    top: 50,
-                    left: (MediaQuery.sizeOf(context).width / 2) - (210 / 2),
+                    child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20),
                     child: Column(
                       children: [
                         Container(
@@ -65,7 +72,7 @@ class SelectLanguagePage extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          AppStrings.selectLang.toUpperCase(),
+                          AppStrings.selectLang.tr.toUpperCase(),
                           style: const TextStyle(
                             color: AppColors.white,
                             fontSize: 28,
@@ -73,7 +80,9 @@ class SelectLanguagePage extends StatelessWidget {
                           ),
                         )
                       ],
-                    )),
+                    ),
+                  ),
+                )),
                 Positioned(
                     bottom: 0,
                     left: 0,
@@ -93,48 +102,51 @@ class SelectLanguagePage extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              german.value = true;
-                              english.value = false;
-                              french.value = false;
+                              AppTranslation.changeLocale('de');
                             },
-                            child: Obx(() => LangaugeWidget(
-                                selected: german.value,
+                            child: LangaugeWidget(
+                                selected: AppTranslation.locale ==
+                                        const Locale('de', '')
+                                    ? true
+                                    : false,
                                 img: AssetImages.german,
-                                title: AppStrings.german)),
+                                title: AppStrings.german.tr),
                           ),
                           const SizedBox(
                             height: 30,
                           ),
                           GestureDetector(
                             onTap: () {
-                              german.value = false;
-                              english.value = true;
-                              french.value = false;
+                              AppTranslation.changeLocale('enUS');
                             },
-                            child: Obx(() => LangaugeWidget(
-                                selected: english.value,
+                            child: LangaugeWidget(
+                                selected: AppTranslation.locale ==
+                                        const Locale('enUS', '')
+                                    ? true
+                                    : false,
                                 img: AssetImages.english,
-                                title: AppStrings.english)),
+                                title: AppStrings.english.tr),
                           ),
                           const SizedBox(
                             height: 30,
                           ),
                           GestureDetector(
                             onTap: () {
-                              german.value = false;
-                              english.value = false;
-                              french.value = true;
+                              AppTranslation.changeLocale('fr');
                             },
-                            child: Obx(() => LangaugeWidget(
-                                selected: french.value,
+                            child: LangaugeWidget(
+                                selected: AppTranslation.locale ==
+                                        const Locale('fr', '')
+                                    ? true
+                                    : false,
                                 img: AssetImages.french,
-                                title: AppStrings.french)),
+                                title: AppStrings.french.tr),
                           ),
                           const SizedBox(
                             height: 30,
                           ),
                           IntroBtn(
-                            title: AppStrings.next,
+                            title: AppStrings.next.tr,
                             clr: AppColors.yellowColor,
                             showIcon: false,
                             onPress: () {

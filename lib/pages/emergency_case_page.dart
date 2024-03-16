@@ -5,6 +5,7 @@ import 'package:dogapp/components/pdf_file_item.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class EmergencyCasePage extends StatelessWidget {
   const EmergencyCasePage({super.key});
@@ -17,13 +18,13 @@ class EmergencyCasePage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.caseOfEmergency),
+            CustomAppBar(title: AppStrings.caseOfEmergency.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
                 children: [
-                  const ExpertItem(
-                      expertis: AppStrings.preparedByExpert,
+                  ExpertItem(
+                      expertis: AppStrings.preparedByExpert.tr,
                       filledBtnTitle: ''),
                   const SizedBox(
                     height: 30,
@@ -31,7 +32,7 @@ class EmergencyCasePage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.description,
+                      AppStrings.description.tr,
                       style: Styles.appBarH1(),
                     ),
                   ),
@@ -48,7 +49,7 @@ class EmergencyCasePage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.articles,
+                      AppStrings.articles.tr,
                       style: Styles.appBarH1(),
                     ),
                   ),
@@ -67,7 +68,7 @@ class EmergencyCasePage extends StatelessWidget {
                     height: 20,
                   ),
                   AlternatingButton(
-                      title: AppStrings.share,
+                      title: AppStrings.share.tr,
                       outlined: true,
                       width: MediaQuery.sizeOf(context).width * 0.81,
                       height: 52,

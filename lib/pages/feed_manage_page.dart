@@ -26,7 +26,7 @@ class FeedManagePage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.feedManage),
+            CustomAppBar(title: AppStrings.feedManage.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -64,7 +64,7 @@ class FeedManagePage extends StatelessWidget {
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  AppStrings.foodManagement,
+                                  AppStrings.foodManagement.tr,
                                   style: Styles.primary20G(),
                                 ),
                               ),
@@ -72,7 +72,7 @@ class FeedManagePage extends StatelessWidget {
                                 height: 8,
                               ),
                               Text(
-                                AppStrings.feedNote,
+                                AppStrings.feedNote.tr,
                                 style: Styles.lightGrey12(),
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
@@ -81,8 +81,8 @@ class FeedManagePage extends StatelessWidget {
                                 height: 25,
                               ),
                               PrimartyButton(
-                                  title: AppStrings.addFood,
-                                  width: 170,
+                                  title: AppStrings.addFood.tr,
+                                  width: 210,
                                   height: 12,
                                   onTap: () {
                                     Get.toNamed(RouteName.addFoodPage,
@@ -110,7 +110,7 @@ class FeedManagePage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.dailFoodReminders,
+                      AppStrings.dailFoodReminders.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -139,7 +139,7 @@ class FeedManagePage extends StatelessWidget {
                         if (docs.isEmpty) {
                           // Return an empty widget if there are no documents
                           return Text(
-                            AppStrings.none,
+                            AppStrings.none.tr,
                             style: Styles.grey16(),
                           );
                         }
@@ -156,7 +156,7 @@ class FeedManagePage extends StatelessWidget {
                                       Get.toNamed(RouteName.editFoodPage,
                                           arguments: doc);
                                     },
-                                    timeHeading: AppStrings.timeHeading,
+                                    timeHeading: AppStrings.timeHeading.tr,
                                     time: doc['time']),
                                 const SizedBox(
                                   height: 10,
@@ -174,7 +174,7 @@ class FeedManagePage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.planDogExperts,
+                      AppStrings.planDogExperts.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -203,7 +203,7 @@ class FeedManagePage extends StatelessWidget {
                         if (docs.isEmpty) {
                           // Return an empty widget if there are no documents
                           return Text(
-                            AppStrings.none,
+                            AppStrings.none.tr,
                             style: Styles.grey16(),
                           );
                         }

@@ -13,11 +13,12 @@ class AppointExpertModel extends GetxController {
         'status': status,
       });
       Get.back();
-      Utils.snackBar(AppStrings.success, AppStrings.success);
+      Utils.snackBar(AppStrings.success.tr, AppStrings.success.tr);
     } catch (e) {
-      Utils.snackBar(AppStrings.error, AppStrings.error);
+      Utils.snackBar(AppStrings.error.tr, AppStrings.error.tr);
     }
   }
+
   release(String id) async {
     DocumentReference docRef = firestore.collection('appointments').doc(id);
     try {
@@ -25,9 +26,9 @@ class AppointExpertModel extends GetxController {
         'releaseFlag': true,
       });
       Get.back();
-      Utils.snackBar(AppStrings.success, AppStrings.success);
+      Utils.snackBar(AppStrings.success.tr, AppStrings.success.tr);
     } catch (e) {
-      Utils.snackBar(AppStrings.error, AppStrings.error);
+      Utils.snackBar(AppStrings.error.tr, AppStrings.error.tr);
     }
   }
 }

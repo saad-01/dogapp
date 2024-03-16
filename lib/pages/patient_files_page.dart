@@ -26,7 +26,7 @@ class _PatientFilesPageState extends State<PatientFilesPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.patientFiles),
+            CustomAppBar(title: AppStrings.patientFiles.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -54,7 +54,7 @@ class _PatientFilesPageState extends State<PatientFilesPage> {
                           if (docs.isEmpty) {
                             // Return an empty widget if there are no documents
                             return Text(
-                              AppStrings.none,
+                              AppStrings.none.tr,
                               style: Styles.grey16(),
                             );
                           }

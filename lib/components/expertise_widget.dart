@@ -3,6 +3,7 @@ import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class ExpertiseWidget extends StatelessWidget {
   const ExpertiseWidget({super.key, required this.title});
@@ -25,7 +26,7 @@ class ExpertiseWidget extends StatelessWidget {
             width: 8,
           ),
           Text(
-            title,
+            title.tr,
             style: Styles.primary8Txt(),
           ),
         ],

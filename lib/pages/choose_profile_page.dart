@@ -29,7 +29,7 @@ class _ChooseProfilePageState extends State<ChooseProfilePage> {
             height: 20,
           ),
           Text(
-            AppStrings.choosePageHeading,
+            AppStrings.choosePageHeading.tr,
             style: Styles.choosePageHeading(),
           ),
           const SizedBox(
@@ -50,7 +50,7 @@ class _ChooseProfilePageState extends State<ChooseProfilePage> {
                     height: 10,
                   ),
                   Text(
-                    AppStrings.dogsParent,
+                    AppStrings.dogsParent.tr,
                     style: Styles.choosePageText(),
                   )
                 ],
@@ -70,7 +70,7 @@ class _ChooseProfilePageState extends State<ChooseProfilePage> {
                     height: 10,
                   ),
                   Text(
-                    AppStrings.dogsExpert,
+                    AppStrings.dogsExpert.tr,
                     style: Styles.choosePageText(),
                   ),
                 ],

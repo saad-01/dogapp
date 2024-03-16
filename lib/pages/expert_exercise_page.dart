@@ -22,15 +22,15 @@ class ExpertExercisePage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(
-              title: AppStrings.exercises,
+            CustomAppBar(
+              title: AppStrings.exercises.tr,
             ),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   children: [
                     CustomTile(
-                      title: AppStrings.exercises,
+                      title: AppStrings.exercises.tr,
                       leading: AssetImages.swimDog,
                       trailing: AssetImages.nextBlackIcon,
                       clr: AppColors.white,
@@ -42,7 +42,7 @@ class ExpertExercisePage extends StatelessWidget {
                       height: 20,
                     ),
                     CustomTile(
-                      title: AppStrings.games,
+                      title: AppStrings.games.tr,
                       leading: AssetImages.playDog,
                       trailing: AssetImages.nextBlackIcon,
                       clr: AppColors.white,
@@ -54,7 +54,7 @@ class ExpertExercisePage extends StatelessWidget {
                       height: 20,
                     ),
                     CustomTile(
-                      title: AppStrings.goodManners,
+                      title: AppStrings.goodManners.tr,
                       leading: AssetImages.tickDog,
                       trailing: AssetImages.nextBlackIcon,
                       clr: AppColors.white,
@@ -68,7 +68,7 @@ class ExpertExercisePage extends StatelessWidget {
                     Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          AppStrings.trainingPrograms,
+                          AppStrings.trainingPrograms.tr,
                           style: Styles.expertSignupPaget1(),
                         )),
                     const SizedBox(
@@ -109,12 +109,12 @@ class ExpertExercisePage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  AppStrings.stopBitting,
+                                  AppStrings.stopBitting.tr,
                                   style: Styles.white16(),
                                 ),
                                 Expanded(
                                     child: Text(
-                                  AppStrings.bittingNote,
+                                  AppStrings.bittingNote.tr,
                                   style: Styles.white8(),
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
@@ -136,7 +136,7 @@ class ExpertExercisePage extends StatelessWidget {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      AppStrings.theory,
+                                      AppStrings.theory.tr,
                                       style: Styles.white8(),
                                     ),
                                     Text(
@@ -162,7 +162,7 @@ class ExpertExercisePage extends StatelessWidget {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      AppStrings.exercises,
+                                      AppStrings.exercises.tr,
                                       style: Styles.white8(),
                                     ),
                                     Text(
@@ -224,12 +224,12 @@ class ExpertExercisePage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  AppStrings.payAttention,
+                                  AppStrings.payAttention.tr,
                                   style: Styles.white16(),
                                 ),
                                 Expanded(
                                     child: Text(
-                                  AppStrings.payAttenNote,
+                                  AppStrings.payAttenNote.tr,
                                   style: Styles.white8(),
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
@@ -251,7 +251,7 @@ class ExpertExercisePage extends StatelessWidget {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      AppStrings.theory,
+                                      AppStrings.theory.tr,
                                       style: Styles.white8(),
                                     ),
                                     Text(
@@ -277,7 +277,7 @@ class ExpertExercisePage extends StatelessWidget {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      AppStrings.exercises,
+                                      AppStrings.exercises.tr,
                                       style: Styles.white8(),
                                     ),
                                     Text(
@@ -305,7 +305,7 @@ class ExpertExercisePage extends StatelessWidget {
                       height: 24,
                     ),
                     PrimartyButton(
-                        title: AppStrings.addTraining,
+                        title: AppStrings.addTraining.tr,
                         width: 250,
                         height: 15,
                         onTap: () {

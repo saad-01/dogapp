@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../utils/app_colors.dart';
 import '../utils/styles.dart';
@@ -17,7 +18,7 @@ class RequestedWidget extends StatelessWidget {
       ),
       child: Center(
           child: Text(
-        title,
+        title.tr,
         style: Styles.yellow8U(),
       )),
     );

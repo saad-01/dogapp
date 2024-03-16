@@ -37,7 +37,7 @@ class _VetReportPageState extends State<VetReportPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.vetVisit),
+            CustomAppBar(title: AppStrings.vetVisit.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -61,7 +61,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.dogName,
+                  //     AppStrings.dogName.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -69,7 +69,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   //   height: 8,
                   // ),
                   // const CustomTextfield(
-                  //   hintText: AppStrings.typeDogName,
+                  //   hintText: AppStrings.typeDogName.tr,
                   //   obscureText: false,
                   // ),
                   const SizedBox(
@@ -78,7 +78,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.reasonAppointment,
+                      AppStrings.reasonAppointment.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -87,7 +87,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   ),
                   Obx(
                     () => CustomTextfield(
-                      hintText: AppStrings.typeNotes,
+                      hintText: AppStrings.typeNotes.tr,
                       obscureText: false,
                       isError: vetVM.reasonError.value,
                       onFieldSubmitted: (p0) {
@@ -106,7 +106,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.date,
+                      AppStrings.date.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -116,7 +116,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   Obx(
                     () => CustomTextfield(
                       hintText: vetVM.dateController.value.text == ''
-                          ? AppStrings.dateFormat
+                          ? AppStrings.dateFormat.tr
                           : vetVM.dateController.value.text,
                       obscureText: false,
                       isError: vetVM.dateError.value,
@@ -146,7 +146,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.timeHeading,
+                      AppStrings.timeHeading.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -156,7 +156,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   Obx(
                     () => CustomTextfield(
                       hintText: vetVM.reminderTimeController.value.text == ''
-                          ? AppStrings.time
+                          ? AppStrings.time.tr
                           : vetVM.timeController.value.text,
                       keyboardType: TextInputType.none,
                       isError: vetVM.timeError.value,
@@ -188,7 +188,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.notes,
+                      AppStrings.notes.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -196,7 +196,7 @@ class _VetReportPageState extends State<VetReportPage> {
                     height: 8,
                   ),
                   CustomTextfield(
-                    hintText: AppStrings.typeNotes,
+                    hintText: AppStrings.typeNotes.tr,
                     obscureText: false,
                     onFieldSubmitted: (p0) {
                       Utils.fieldFocusChange(
@@ -210,7 +210,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.weight,
+                  //     AppStrings.weight.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -227,7 +227,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   // Align(
                   //   alignment: Alignment.centerLeft,
                   //   child: Text(
-                  //     AppStrings.doze,
+                  //     AppStrings.doze.tr,
                   //     style: Styles.expertSignupPaget1(),
                   //   ),
                   // ),
@@ -244,7 +244,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.addFiles,
+                      AppStrings.addFiles.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -254,7 +254,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   Row(
                     children: [
                       AlternatingButton(
-                        title: AppStrings.photo,
+                        title: AppStrings.photo.tr,
                         outlined: false,
                         onPress: () async {
                           await vetVM.pickMultipleImages();
@@ -269,7 +269,7 @@ class _VetReportPageState extends State<VetReportPage> {
                         width: 10,
                       ),
                       AlternatingButton(
-                        title: AppStrings.files,
+                        title: AppStrings.files.tr,
                         outlined: true,
                         onPress: () async {
                           await vetVM.pickMultipleFiles();
@@ -288,7 +288,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.yourDoc,
+                      AppStrings.yourDoc.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -332,7 +332,7 @@ class _VetReportPageState extends State<VetReportPage> {
                               trailing:
                                   SvgPicture.asset(AssetImages.nextPrimaryIcon),
                               title: Text(
-                                AppStrings.selectDoc,
+                                AppStrings.selectDoc.tr,
                                 style: Styles.choosePageText(),
                               ),
                               onTap: () {
@@ -341,7 +341,7 @@ class _VetReportPageState extends State<VetReportPage> {
                             ),
                           )
                         : ExpertItem(
-                            expertis: AppStrings.trainExpert,
+                            expertis: AppStrings.trainExpert.tr,
                             filledBtnTitle: '',
                             name: expertVM.name.value,
                             url: expertVM.url.value,
@@ -352,7 +352,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   ),
 
                   Text(
-                    AppStrings.reminderNoti,
+                    AppStrings.reminderNoti.tr,
                     style: Styles.expertSignupPaget1(),
                   ),
                   const SizedBox(
@@ -361,7 +361,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.date,
+                      AppStrings.date.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -371,7 +371,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   Obx(
                     () => CustomTextfield(
                       hintText: vetVM.reminderDateController.value.text == ''
-                          ? AppStrings.dateFormat
+                          ? AppStrings.dateFormat.tr
                           : vetVM.reminderDateController.value.text,
                       obscureText: false,
                       keyboardType: TextInputType.none,
@@ -402,7 +402,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.timeHeading,
+                      AppStrings.timeHeading.tr,
                       style: Styles.expertSignupPaget1(),
                     ),
                   ),
@@ -412,7 +412,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   Obx(
                     () => CustomTextfield(
                       hintText: vetVM.reminderTimeController.value.text == ''
-                          ? AppStrings.time
+                          ? AppStrings.time.tr
                           : vetVM.reminderTimeController.value.text,
                       // keyboardType: TextInputType.none,
                       controller: vetVM.reminderTimeController.value,
@@ -454,7 +454,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   //       width: 15,
                   //     ),
                   //     Text(
-                  //       AppStrings.sendNoti,
+                  //       AppStrings.sendNoti.tr,
                   //       style: Styles.expertSignupPaget1(),
                   //     )
                   //   ],
@@ -463,7 +463,7 @@ class _VetReportPageState extends State<VetReportPage> {
                   //   height: 20,
                   // ),
                   Obx(() => PrimartyButton(
-                      title: AppStrings.request,
+                      title: AppStrings.request.tr,
                       loading: vetVM.loading.value,
                       width: MediaQuery.sizeOf(context).width * 0.75,
                       height: 10,

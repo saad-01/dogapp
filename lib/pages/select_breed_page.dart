@@ -31,7 +31,7 @@ class SelectBreedPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.titleSelectBreed),
+            CustomAppBar(title: AppStrings.titleSelectBreed.tr),
             Container(
               // width: 364,
               height: 50,

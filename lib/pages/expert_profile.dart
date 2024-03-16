@@ -24,7 +24,7 @@ class ExpertProfilePage extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const CustomAppBar(title: AppStrings.expertProfile),
+              CustomAppBar(title: AppStrings.expertProfile.tr),
               const SizedBox(
                 height: 20,
               ),
@@ -60,12 +60,12 @@ class ExpertProfilePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10)),
                   indicatorColor: AppColors.primaryColor,
                   splashBorderRadius: BorderRadius.circular(10),
-                  tabs: const <Widget>[
+                  tabs:<Widget>[
                     Tab(
-                      text: AppStrings.profile,
+                      text: AppStrings.profile.tr,
                     ),
                     Tab(
-                      text: AppStrings.sharedData,
+                      text: AppStrings.sharedData.tr,
                     ),
                   ],
                 ),
@@ -135,10 +135,10 @@ class ExpertProfilePage extends StatelessWidget {
                                                       .spaceBetween,
                                               children: [
                                                 Text(
-                                                    '${AppStrings.dateOfBirth}:',
+                                                    '${AppStrings.dateOfBirth.tr}:',
                                                     style: Styles.grey14()),
                                                 Text(
-                                                  AppStrings.dateFormat,
+                                                  AppStrings.dateFormat.tr,
                                                   style: Styles.black14(),
                                                 ),
                                               ],
@@ -151,27 +151,10 @@ class ExpertProfilePage extends StatelessWidget {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text('${AppStrings.gender}:',
+                                                Text('${AppStrings.gender.tr}:',
                                                     style: Styles.grey14()),
                                                 Text(
-                                                  AppStrings.gender,
-                                                  style: Styles.black14(),
-                                                ),
-                                              ],
-                                            ),
-                                            const SizedBox(
-                                              height: 18,
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(
-                                                    '${AppStrings.expertSpeciality}:',
-                                                    style: Styles.grey14()),
-                                                Text(
-                                                  AppStrings.expertSpeciality,
+                                                  AppStrings.gender.tr,
                                                   style: Styles.black14(),
                                                 ),
                                               ],
@@ -185,7 +168,25 @@ class ExpertProfilePage extends StatelessWidget {
                                                       .spaceBetween,
                                               children: [
                                                 Text(
-                                                    '${AppStrings.totalTrainings}:',
+                                                    '${AppStrings.expertSpeciality.tr}:',
+                                                    style: Styles.grey14()),
+                                                Text(
+                                                  AppStrings
+                                                      .expertSpeciality.tr,
+                                                  style: Styles.black14(),
+                                                ),
+                                              ],
+                                            ),
+                                            const SizedBox(
+                                              height: 18,
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                    '${AppStrings.totalTrainings.tr}:',
                                                     style: Styles.grey14()),
                                                 Text(
                                                   '00',
@@ -198,17 +199,17 @@ class ExpertProfilePage extends StatelessWidget {
                                         const SizedBox(
                                           height: 40,
                                         ),
-                                        const Row(
+                                        Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             ButtonSmall(
-                                                title: AppStrings.saveRecord,
+                                                title: AppStrings.saveRecord.tr,
                                                 icon: AssetImages.save,
                                                 primaryAlike: false,
                                                 color: AppColors.white),
                                             ButtonSmall(
-                                              title: AppStrings.shareRecord,
+                                              title: AppStrings.shareRecord.tr,
                                               icon: AssetImages.shareIcon,
                                               primaryAlike: true,
                                               color: AppColors.shareBtnClr,
@@ -268,7 +269,7 @@ class ExpertProfilePage extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    AppStrings.healthData,
+                                    AppStrings.healthData.tr,
                                     style: Styles.black14(),
                                   ),
                                   GestureDetector(
@@ -327,7 +328,7 @@ class ExpertProfilePage extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    AppStrings.trainingData,
+                                    AppStrings.trainingData.tr,
                                     style: Styles.black14(),
                                   ),
                                   GestureDetector(

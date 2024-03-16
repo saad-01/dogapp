@@ -3,16 +3,16 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../utils/app_colors.dart';
 
 class TrainingStreakWidget extends StatelessWidget {
   const TrainingStreakWidget({super.key});
 
-@override
+  @override
   Widget build(BuildContext context) {
     return Container(
-      width: 382,
       height: 145,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: ShapeDecoration(
@@ -37,72 +37,67 @@ class TrainingStreakWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppStrings.trainingStreak,
+            AppStrings.trainingStreak.tr,
             style: Styles.primaryText(),
           ),
           const SizedBox(
             height: 15,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    SvgPicture.asset(AssetImages.currentStreak),
-                    const SizedBox(
-                      height: 18,
-                    ),
-                    Text(
-                      AppStrings.days0,
-                      style: Styles.black14(),
-                    ),
-                    Text(
-                      AppStrings.currentStreak,
-                      style: Styles.black10Sub(),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    SvgPicture.asset(AssetImages.longStreak),
-                    const SizedBox(
-                      height: 18,
-                    ),
-                    Text(
-                      AppStrings.days1,
-                      style: Styles.black14(),
-                    ),
-                    Text(
-                      AppStrings.longestStreak,
-                      style: Styles.black10Sub(),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    SvgPicture.asset(AssetImages.stopWatch),
-                    const SizedBox(
-                      height: 18,
-                    ),
-                    Text(
-                      AppStrings.timeStamp,
-                      style: Styles.black14(),
-                    ),
-                    Text(
-                      AppStrings.timeTrained,
-                      style: Styles.black10Sub(),
-                    )
-                  ],
-                ),
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  SvgPicture.asset(AssetImages.currentStreak),
+                  const SizedBox(
+                    height: 18,
+                  ),
+                  Text(
+                    AppStrings.days0.tr,
+                    style: Styles.black14(),
+                  ),
+                  Text(
+                    AppStrings.currentStreak.tr,
+                    style: Styles.black10Sub(),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  SvgPicture.asset(AssetImages.longStreak),
+                  const SizedBox(
+                    height: 18,
+                  ),
+                  Text(
+                    AppStrings.days1.tr,
+                    style: Styles.black14(),
+                  ),
+                  Text(
+                    AppStrings.longestStreak.tr,
+                    style: Styles.black10Sub(),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  SvgPicture.asset(AssetImages.stopWatch),
+                  const SizedBox(
+                    height: 18,
+                  ),
+                  Text(
+                    AppStrings.timeStamp.tr,
+                    style: Styles.black14(),
+                  ),
+                  Text(
+                    AppStrings.timeTrained.tr,
+                    style: Styles.black10Sub(),
+                  )
+                ],
+              ),
+            ],
           ),
         ],
       ),
     );
   }
-
-
 }

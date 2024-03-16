@@ -69,7 +69,7 @@ class ListExpertItem extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              AppStrings.appointments,
+                              AppStrings.appointments.tr,
                               style: Styles.primary8Txt(),
                             ),
                             const SizedBox(
@@ -101,7 +101,7 @@ class ListExpertItem extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              AppStrings.releasedReport,
+                              AppStrings.releasedReport.tr,
                               style: Styles.primary8Txt(),
                             ),
                             const SizedBox(
@@ -122,7 +122,7 @@ class ListExpertItem extends StatelessWidget {
               Row(
                 children: [
                   AlternatingButton(
-                    title: AppStrings.seeProfile,
+                    title: AppStrings.seeProfile.tr,
                     outlined: true,
                     withIcon: false,
                     width: 80,
@@ -136,7 +136,7 @@ class ListExpertItem extends StatelessWidget {
                     width: 5,
                   ),
                   AlternatingButton(
-                    title: AppStrings.chat,
+                    title: AppStrings.chat.tr,
                     outlined: false,
                     withIcon: false,
                     width: 80,

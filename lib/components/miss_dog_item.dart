@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import '../utils/app_colors.dart';
 import '../utils/assets.dart';
 import '../utils/strings.dart';
@@ -57,7 +58,7 @@ class MissDogItem extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  AppStrings.nameCapital,
+                  AppStrings.nameCapital.tr,
                   style: Styles.expertSignupPaget1(),
                 ),
               ],
@@ -74,7 +75,7 @@ class MissDogItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    title.tr,
                     style: Styles.primaryText(),
                   ),
                   const SizedBox(
@@ -84,7 +85,7 @@ class MissDogItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        AppStrings.color,
+                        AppStrings.color.tr,
                         style: Styles.lightGrey12(),
                       ),
                       const SizedBox(
@@ -103,14 +104,14 @@ class MissDogItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        AppStrings.breed,
+                        AppStrings.breed.tr,
                         style: Styles.lightGrey12(),
                       ),
                       const SizedBox(
                         width: 15,
                       ),
                       Text(
-                        AppStrings.breed,
+                        AppStrings.breed.tr,
                         style: Styles.lightGrey12(),
                       ),
                     ],
@@ -122,15 +123,17 @@ class MissDogItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        AppStrings.lostDate,
+                        AppStrings.lostDate.tr,
                         style: Styles.lightGrey12(),
                       ),
                       const SizedBox(
                         width: 15,
                       ),
-                      Text(
-                        AppStrings.dateFormat,
-                        style: Styles.lightGrey12(),
+                      Expanded(
+                        child: Text(
+                          AppStrings.dateFormat.tr,
+                          style: Styles.lightGrey12(),
+                        ),
                       ),
                     ],
                   ),
@@ -141,15 +144,17 @@ class MissDogItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        AppStrings.lostAddress,
+                        AppStrings.lostAddress.tr,
                         style: Styles.lightGrey12(),
                       ),
                       const SizedBox(
                         width: 15,
                       ),
-                      Text(
-                        'Address here',
-                        style: Styles.lightGrey12(),
+                      Expanded(
+                        child: Text(
+                          'Address here',
+                          style: Styles.lightGrey12(),
+                        ),
                       ),
                     ],
                   ),

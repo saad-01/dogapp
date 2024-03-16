@@ -6,6 +6,7 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class ExerciseDetailPage extends StatelessWidget {
   const ExerciseDetailPage({super.key});
@@ -18,7 +19,7 @@ class ExerciseDetailPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            const CustomAppBar(title: AppStrings.handFeeding),
+            CustomAppBar(title: AppStrings.handFeeding.tr),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -26,7 +27,7 @@ class ExerciseDetailPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.description,
+                      AppStrings.description.tr,
                       style: Styles.appBarH1(),
                     ),
                   ),
@@ -43,76 +44,89 @@ class ExerciseDetailPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.details,
+                      AppStrings.details.tr,
                       style: Styles.appBarH1(),
                     ),
                   ),
                   const SizedBox(
                     height: 15,
                   ),
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                          width: 0.50, color: Color(0xFFD7D7D7)),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    leading: SvgPicture.asset(AssetImages.menu),
-                    title: Text(
-                      AppStrings.trainingLevel,
-                      style: Styles.black14(),
-                    ),
-                    trailing: SizedBox(
-                      width: 50,
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(AssetImages.primaryCircle),
-                          const SizedBox(
-                            width: 6,
-                          ),
-                          Text(
-                            AppStrings.easy,
-                            style: Styles.black14(),
-                          ),
-                        ],
+                  Material(
+                    color: Colors.transparent,
+                    child: ListTile(
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                            width: 0.50, color: Color(0xFFD7D7D7)),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      leading: SvgPicture.asset(AssetImages.menu),
+                      title: Text(
+                        AppStrings.trainingLevel.tr,
+                        style: Styles.black14(),
+                      ),
+                      trailing: SizedBox(
+                        width: 50,
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(AssetImages.primaryCircle),
+                            const SizedBox(
+                              width: 6,
+                            ),
+                            Expanded(
+                              child: Text(
+                                AppStrings.easy.tr,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: Styles.black14(),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(
                     height: 15,
                   ),
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                          width: 0.50, color: Color(0xFFD7D7D7)),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    leading: SvgPicture.asset(AssetImages.alarm),
-                    title: Text(
-                      AppStrings.trainingLength,
-                      style: Styles.black14(),
-                    ),
-                    trailing: Text(
-                      '3 min',
-                      style: Styles.black14(),
+                  Material(
+                    color: Colors.transparent,
+                    child: ListTile(
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                            width: 0.50, color: Color(0xFFD7D7D7)),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      leading: SvgPicture.asset(AssetImages.alarm),
+                      title: Text(
+                        AppStrings.trainingLength.tr,
+                        style: Styles.black14(),
+                      ),
+                      trailing: Text(
+                        '3 min',
+                        style: Styles.black14(),
+                      ),
                     ),
                   ),
                   const SizedBox(
                     height: 15,
                   ),
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                          width: 0.50, color: Color(0xFFD7D7D7)),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    leading: SvgPicture.asset(AssetImages.equipment),
-                    title: Text(
-                      AppStrings.equipment,
-                      style: Styles.black14(),
-                    ),
-                    trailing: Text(
-                      'treats, clicker',
-                      style: Styles.black14(),
+                  Material(
+                    color: Colors.transparent,
+                    child: ListTile(
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                            width: 0.50, color: Color(0xFFD7D7D7)),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      leading: SvgPicture.asset(AssetImages.equipment),
+                      title: Text(
+                        AppStrings.equipment.tr,
+                        style: Styles.black14(),
+                      ),
+                      trailing: Text(
+                        'treats, clicker',
+                        style: Styles.black14(),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -121,7 +135,7 @@ class ExerciseDetailPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.articles,
+                      AppStrings.articles.tr,
                       style: Styles.appBarH1(),
                     ),
                   ),
@@ -142,7 +156,7 @@ class ExerciseDetailPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      AppStrings.tutorial,
+                      AppStrings.tutorial.tr,
                       style: Styles.appBarH1(),
                     ),
                   ),
@@ -167,8 +181,8 @@ class ExerciseDetailPage extends StatelessWidget {
                     height: 25,
                   ),
                   PrimartyButton(
-                      title: AppStrings.completeExercise,
-                      width: 250,
+                      title: AppStrings.completeExercise.tr,
+                      width: 200,
                       height: 12,
                       onTap: () {},
                       icon: ''),
