@@ -2,6 +2,7 @@ import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/chat_item.dart';
 import 'package:dogapp/components/comm_msg.dart';
 import 'package:dogapp/components/primary_btn.dart';
+import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:flutter/material.dart';
@@ -271,6 +272,9 @@ class _CommunityPageState extends State<CommunityPage>
                         title: AppStrings.addChat.tr,
                         width: 260,
                         height: 12,
+                        onTap: () {
+                          Get.toNamed(RouteName.addChatPage);
+                        },
                         icon: AssetImages.addWhiteIcon),
                     const SizedBox(
                       height: 10,

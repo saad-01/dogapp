@@ -79,6 +79,7 @@ import 'package:dogapp/pages/walk_page.dart';
 import 'package:dogapp/pages/walk_record_page.dart';
 import 'package:get/get.dart';
 
+import '../pages/add_chat_page.dart';
 import '../pages/edit_dog_page.dart';
 import 'route_names.dart';
 
@@ -567,6 +568,12 @@ class AppRoutes {
         GetPage(
           name: RouteName.addEventPage,
           page: () => const AddEventPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.addChatPage,
+          page: () => const AddChatPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.rightToLeft,
         ),

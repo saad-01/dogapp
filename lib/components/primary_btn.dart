@@ -64,7 +64,8 @@ class PrimartyButton extends StatelessWidget {
                           const SizedBox(
                             width: 10,
                           ),
-                        Expanded(
+                        SizedBox(
+                          width: width * 0.5,
                           child: Text(
                             title.tr,
                             maxLines: 1,
@@ -83,7 +84,8 @@ class PrimartyButton extends StatelessWidget {
                       const SizedBox(
                         width: 10,
                       ),
-                    Expanded(
+                    SizedBox(
+                      width: width * 0.5,
                       child: Text(
                         title.tr,
                         maxLines: 1,

@@ -1,15 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/routes/route_names.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:uuid/uuid.dart';
 import '../components/appoint_widget.dart';
 import '../components/dog_widget.dart';
 import '../utils/app_colors.dart';
 import '../utils/assets.dart';
 import '../utils/strings.dart';
 import '../utils/styles.dart';
+import '../view_models/services/notification_services.dart';
 import '../view_models/services/shared_prefence.dart';
 
 class ExpertHomePage extends StatefulWidget {
@@ -25,9 +28,50 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
   Future<void> getName() async {
     name.value = (await pref.getNameFromSharedPreferences())!;
   }
+  NotificationServices notificationServices = NotificationServices();
+  Future<void> sendNoti() async {
+    // tokens.add(
+    //     "f83mqeSkR0SlvGP-bCytW2:APA91bGVQB-X1LuXvgaP0x10cb0vZBk29ZPGLJcHpIEmQabUFDFfYxk6H2Vhyfq1Xf3KDtFvpELnj27UI-lrmMGNUsBSIPQhIft4nsuT-hME17_hKmdc9Wrf8e6tYQl-lhk1qUFDncMT");
+    notificationServices.requestNotificationPermission();
+    notificationServices.isTokenRefresh();
+    notificationServices.getDeviceToken().then((value) async {
+      final FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+      // Query the Firestore collection to check if the token exists
+      QuerySnapshot tokenSnapshot = await firestore
+          .collection("tokens")
+          .where('token', isEqualTo: value)
+          .get();
+
+      // If the token doesn't exist in the database, insert it
+      if (tokenSnapshot.docs.isEmpty) {
+        String id = const Uuid().v1();
+
+        await firestore.collection("tokens").doc(id).set({
+          'token': value,
+          'id': id,
+          'uid': FirebaseAuth.instance.currentUser!.uid,
+        });
+
+        if (kDebugMode) {
+          print('Device Token');
+          print(value);
+        }
+      } else {
+        // Token already exists, handle as needed
+        if (kDebugMode) {
+          print('Token already exists');
+        }
+      }
+    });
+
+    // await FirebaseAPIServices().sendPushNotifications(
+    //     title: "add values", body: "add values", token: tokens);
+  }
 
   @override
   void initState() {
+    sendNoti();
     getName();
     super.initState();
   }
