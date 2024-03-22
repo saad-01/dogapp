@@ -4,8 +4,8 @@ import '../utils/app_colors.dart';
 import '../utils/styles.dart';
 
 class RecievedMsg extends StatelessWidget {
-  const RecievedMsg({super.key});
-
+  const RecievedMsg({super.key, required this.msg});
+  final String msg;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -14,8 +14,7 @@ class RecievedMsg extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              width: 159,
-              height: 45,
+              padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 23),
               decoration: const ShapeDecoration(
                 color: AppColors.white,
                 shape: RoundedRectangleBorder(
@@ -37,18 +36,18 @@ class RecievedMsg extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  "Hey, I am good.",
+                  msg,
                   style: Styles.black14(),
                 ),
               ),
             ),
-            const SizedBox(
-              height: 5,
-            ),
-            Text(
-              '10:28 AM',
-              style: Styles.black10Sub(),
-            ),
+            // const SizedBox(
+            //   height: 5,
+            // ),
+            // Text(
+            //   '10:28 AM',
+            //   style: Styles.black10Sub(),
+            // ),
           ],
         ),
       ],
