@@ -49,7 +49,7 @@ class _IntroPageState extends State<IntroPage> {
                     left: 20,
                     child: GestureDetector(
                       onTap: () {
-                        Get.offNamed(RouteName.languagePage);
+                        Get.toNamed(RouteName.languagePage);
                       },
                       child: Container(
                         width: 151,

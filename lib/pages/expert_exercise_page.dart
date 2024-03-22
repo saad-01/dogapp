@@ -11,8 +11,15 @@ import '../components/custom_tile.dart';
 import '../utils/app_colors.dart';
 import '../utils/assets.dart';
 
-class ExpertExercisePage extends StatelessWidget {
+class ExpertExercisePage extends StatefulWidget {
   const ExpertExercisePage({super.key});
+
+  @override
+  State<ExpertExercisePage> createState() => _ExpertExercisePageState();
+}
+
+class _ExpertExercisePageState extends State<ExpertExercisePage> {
+  final doc = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +42,8 @@ class ExpertExercisePage extends StatelessWidget {
                       trailing: AssetImages.nextBlackIcon,
                       clr: AppColors.white,
                       onPress: () {
-                        Get.toNamed(RouteName.expertExDetailPage);
+                        Get.toNamed(RouteName.expertExDetailPage,
+                            arguments: doc);
                       },
                     ),
                     const SizedBox(
@@ -309,7 +317,8 @@ class ExpertExercisePage extends StatelessWidget {
                         width: 250,
                         height: 15,
                         onTap: () {
-                          Get.toNamed(RouteName.addTrainingPage);
+                          Get.toNamed(RouteName.addTrainingPage,
+                              arguments: doc);
                         },
                         icon: AssetImages.addWhiteIcon),
                     const SizedBox(

@@ -1,10 +1,10 @@
 import 'package:dogapp/components/appbar.dart';
-import 'package:dogapp/components/chat_item.dart';
 import 'package:dogapp/components/comm_msg.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
+import 'package:dogapp/view_models/community_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -23,8 +23,10 @@ class _CommunityPageState extends State<CommunityPage>
     with SingleTickerProviderStateMixin {
   RxInt index = 0.obs;
   late TabController _tabController;
+  final vm = Get.put(CommunityModel());
   @override
   void initState() {
+    vm.getUsersWithChats();
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
     _tabController.addListener(_handleTabChange);
@@ -244,22 +246,9 @@ class _CommunityPageState extends State<CommunityPage>
                               const SizedBox(
                                 height: 15,
                               ),
-                              const ChatItem(),
-                              const SizedBox(
-                                height: 4,
-                              ),
-                              const ChatItem(),
-                              const SizedBox(
-                                height: 4,
-                              ),
-                              const ChatItem(),
-                              const SizedBox(
-                                height: 4,
-                              ),
-                              const ChatItem(),
-                              const SizedBox(
-                                height: 4,
-                              ),
+                              Column(
+                                children: vm.userWidgets,
+                              )
                             ],
                           ),
                         ),

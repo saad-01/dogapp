@@ -9,6 +9,7 @@ class AppStrings {
   static String get choosePageHeading => "choosePageHeading".tr;
   static String get dogsParent => "dogsParent".tr;
   static String get dogsExpert => "dogsExpert".tr;
+  static String get start => "start".tr;
   //signupPages
   static String get setProfileExpert => "setProfileExpert".tr;
   static String get uploadYourPhoto => "uploadYourPhoto".tr;
@@ -25,8 +26,10 @@ class AppStrings {
   static String get expertSpeciality => "expertSpeciality".tr;
   static String get typeSpeciality => "typeSpeciality".tr;
   static String get yourPassword => "yourPassword".tr;
+  static String get confirmPassword => "confirmPassword".tr;
   static String get typePassword => "typePassword".tr;
   static String get createButton => "createButton".tr;
+  static String get verifyMail => "verifyMail".tr;
   //dashboardparent
   static String get hey => "hey".tr;
   static String get welcome => "welcome".tr;
@@ -404,6 +407,7 @@ class AppStrings {
   static String get dogAdded => "dogAdded".tr;
   static String get dogdeleted => "dogdeleted".tr;
   static String get fillAll => "fillAll".tr;
+  static String get passwordSame => "passwordSame".tr;
   static String get none => "none".tr;
   static String get never => "never".tr;
   static String get monday => "monday".tr;
@@ -439,4 +443,12 @@ class AppStrings {
   static String get giveSubTitle => "giveSubTitle".tr;
   static String get location => "location".tr;
   static String get addLocation => "addLocation".tr;
+  static String get lblEasy => "lblEasy".tr;
+  static String get medium => "medium".tr;
+  static String get difficult => "difficultt".tr;
+  static String get selectLevel => "selectLevel".tr;
+  static String get selectCategory => "selectCategory".tr;
+  static String get daily => "daily".tr;
+  static String get once => "once".tr;
+  static String get mondayFriday => "monday_friday".tr;
 }

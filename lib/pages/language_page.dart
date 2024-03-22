@@ -2,6 +2,7 @@ import 'package:dogapp/components/flag_item.dart';
 import 'package:dogapp/components/intro_btn.dart';
 import 'package:dogapp/view_models/language_model.dart';
 import 'package:dogapp/view_models/services/localization.dart';
+import 'package:dogapp/view_models/services/shared_prefence.dart';
 import 'package:flutter/material.dart';
 import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/assets.dart';
@@ -103,6 +104,7 @@ class _SelectLanguagePageState extends State<SelectLanguagePage> {
                           GestureDetector(
                             onTap: () {
                               AppTranslation.changeLocale('de');
+                              SharedPref().setLang('de');
                             },
                             child: LangaugeWidget(
                                 selected: AppTranslation.locale ==
@@ -118,6 +120,7 @@ class _SelectLanguagePageState extends State<SelectLanguagePage> {
                           GestureDetector(
                             onTap: () {
                               AppTranslation.changeLocale('enUS');
+                              SharedPref().setLang('enUS');
                             },
                             child: LangaugeWidget(
                                 selected: AppTranslation.locale ==
@@ -133,6 +136,7 @@ class _SelectLanguagePageState extends State<SelectLanguagePage> {
                           GestureDetector(
                             onTap: () {
                               AppTranslation.changeLocale('fr');
+                              SharedPref().setLang('fr');
                             },
                             child: LangaugeWidget(
                                 selected: AppTranslation.locale ==

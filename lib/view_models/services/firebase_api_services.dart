@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class FirebaseAPIServices {
-  final String key="AAAAgYJteF0:APA91bFvTR-M__u9GX-ApSPcie4GIHpKOhQ1H18KYQrRvEaKL7RVlXkfPtPUjeKjC754qG7dt8iGi0MF8SPp4GfQ8Vh_1d1R1pKa0J8HXzkTtO89CIebnr9hae1zhdRIwBXJPdWrMGXD";
+  final String key="AAAgYJteF0:APA91bFvTR-M__u9GX-ApSPcie4GIHpKOhQ1H18KYQrRvEaKL7RVlXkfPtPUjeKjC754qG7dt8iGi0MF8SPp4GfQ8Vh_1d1R1pKa0J8HXzkTtO89CIebnr9hae1zhdRIwBXJPdWrMGXD";
   sendPushNotifications({required String title,
     required String body,
     required List<String> token,}) async {
@@ -44,6 +44,29 @@ class FirebaseAPIServices {
     } catch (e) {
       // Handle network and other errors here.
       print('Error: $e');
+    }
+  }
+  sendNotification(List<String> tokens, String? msg, String name) async {
+    for (var token in tokens) {
+      await http.post(
+      Uri.parse('https://fcm.googleapis.com/fcm/send'),
+      headers: <String, String>{
+        'Content-Type': 'application/json',
+        'Authorization':
+            'key=AAAAgYJteF0:APA91bFvTR-M__u9GX-ApSPcie4GIHpKOhQ1H18KYQrRvEaKL7RVlXkfPtPUjeKjC754qG7dt8iGi0MF8SPp4GfQ8Vh_1d1R1pKa0J8HXzkTtO89CIebnr9hae1zhdRIwBXJPdWrMGXD',
+      },
+      body: jsonEncode(
+        <String, dynamic>{
+          'notification': <String, dynamic>{
+            'body': '$msg',
+            'title': name,
+          },
+          'priority': 'high',
+          'data': <String, dynamic>{},
+          'to': token
+        },
+      ),
+    );
     }
   }
 }

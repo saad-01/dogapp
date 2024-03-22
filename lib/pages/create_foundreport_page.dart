@@ -223,7 +223,7 @@ class CreateFoundReport extends StatelessWidget {
                                 hintText: AppStrings.dateFormat.tr,
                                 obscureText: false,
                                 isError: foundVM.dateError.value,
-                                keyboardType: TextInputType.number,
+                                keyboardType: TextInputType.none,
                                 controller: foundVM.dateController.value,
                                 focusNode: foundVM.dateFocusNode.value,
                                 onFieldSubmitted: (p0) {},

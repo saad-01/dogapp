@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dogapp/view_models/services/firebase_api_services.dart';
 import 'package:dogapp/view_models/services/storage_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -107,6 +108,26 @@ class FoundDogModel extends GetxController {
           notes: notesController.value.text,
           uid: uid!,
           file: image!);
+      List<String> tokenList = [];
+      CollectionReference tokensCollection =
+          FirebaseFirestore.instance.collection('tokens');
+
+      // Get snapshot of documents in the collection
+      QuerySnapshot querySnapshot = await tokensCollection.get();
+
+      // Iterate over the documents and extract tokens
+      for (var doc in querySnapshot.docs) {
+        // Assuming 'token' is the field name in your document
+        String token = doc
+            .get('token')
+            .toString(); // Adjust field name as per your structure
+        tokenList.add(token);
+      }
+      await FirebaseAPIServices().sendNotification(
+        tokenList,
+        "Microchip Number: ${microchipNumberController.value.text}",
+        "Founded Dog",
+      );
     } else {
       loading.value = false;
       if (yourNameController.value.text.isNotEmpty) {
@@ -228,6 +249,7 @@ class FoundDogModel extends GetxController {
           dogId: dogId,
           microchipNumber: microChipNumber,
           urls: jsonEncode(urls),
+          remove: false
         );
 
         // adding user in our database

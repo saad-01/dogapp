@@ -95,7 +95,7 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                       borderRadius: BorderRadius.circular(10)),
                   indicatorColor: AppColors.primaryColor,
                   splashBorderRadius: BorderRadius.circular(10),
-                  tabs:<Widget>[
+                  tabs: <Widget>[
                     Tab(
                       text: AppStrings.detail.tr,
                     ),
@@ -247,67 +247,65 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
                                     ))
                               ],
                             ),
-                            if (doc['parentId'] ==
-                                FirebaseAuth.instance.currentUser!.uid) ...[
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                children: [
-                                  Text('${AppStrings.comments.tr}:',
-                                      style: Styles.grey14()),
-                                ],
-                              ),
-                              StreamBuilder(
-                                stream: FirebaseFirestore.instance
-                                    .collection('comments')
-                                    .where('appointId', isEqualTo: doc['id'])
-                                    .snapshots(),
-                                builder: (context, snapshot) {
-                                  if (snapshot.connectionState ==
-                                      ConnectionState.waiting) {
-                                    // While data is being fetched, show a loading indicator
-                                    return const CircularProgressIndicator(
-                                      color: AppColors.primaryColor,
-                                    );
-                                  } else if (snapshot.hasError) {
-                                    // If an error occurs during data retrieval, display an error message
-                                    return Text('Error: ${snapshot.error}');
-                                  } else {
-                                    // If data retrieval is successful, build the UI with the fetched data
-                                    final List<QueryDocumentSnapshot> docs =
-                                        snapshot.data!.docs;
-                                    if (docs.isEmpty) {
-                                      // Return an empty widget if there are no documents
-                                      return Text(
-                                        AppStrings.none.tr,
-                                        style: Styles.grey16(),
-                                      );
-                                    }
-                                    return Column(
-                                      children: docs.map((docu) {
-                                        return Column(
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Expanded(
-                                                  child: Text(docu['comment'],
-                                                      style: Styles
-                                                          .choosePageText()),
-                                                ),
-                                              ],
-                                            ),
-                                            const SizedBox(
-                                              height: 5,
-                                            ),
-                                          ],
-                                        );
-                                      }).toList(),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                Text('${AppStrings.comments.tr}:',
+                                    style: Styles.grey14()),
+                              ],
+                            ),
+                            StreamBuilder(
+                              stream: FirebaseFirestore.instance
+                                  .collection('comments')
+                                  .where('appointId', isEqualTo: doc['id'])
+                                  .snapshots(),
+                              builder: (context, snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  // While data is being fetched, show a loading indicator
+                                  return const CircularProgressIndicator(
+                                    color: AppColors.primaryColor,
+                                  );
+                                } else if (snapshot.hasError) {
+                                  // If an error occurs during data retrieval, display an error message
+                                  return Text('Error: ${snapshot.error}');
+                                } else {
+                                  // If data retrieval is successful, build the UI with the fetched data
+                                  final List<QueryDocumentSnapshot> docs =
+                                      snapshot.data!.docs;
+                                  if (docs.isEmpty) {
+                                    // Return an empty widget if there are no documents
+                                    return Text(
+                                      AppStrings.none.tr,
+                                      style: Styles.grey16(),
                                     );
                                   }
-                                },
-                              ),
-                            ],
+                                  return Column(
+                                    children: docs.map((docu) {
+                                      return Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: Text(docu['comment'],
+                                                    style: Styles
+                                                        .choosePageText()),
+                                              ),
+                                            ],
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                        ],
+                                      );
+                                    }).toList(),
+                                  );
+                                }
+                              },
+                            ),
+
                             const SizedBox(
                               height: 30,
                             ),

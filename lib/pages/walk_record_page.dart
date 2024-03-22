@@ -1,17 +1,30 @@
 import 'package:dogapp/components/alternating_btn.dart';
 import 'package:dogapp/components/appbar.dart';
-import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
+import 'package:dogapp/view_models/walk_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
 import '../utils/app_colors.dart';
 
-class WalkRecordPage extends StatelessWidget {
+class WalkRecordPage extends StatefulWidget {
   const WalkRecordPage({super.key});
+
+  @override
+  State<WalkRecordPage> createState() => _WalkRecordPageState();
+}
+
+class _WalkRecordPageState extends State<WalkRecordPage> {
+  final vm = Get.put(WalkModel());
+  final doc = Get.arguments;
+  @override
+  void initState() {
+    super.initState();
+    vm.reset();
+    vm.startLocationUpdates();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,27 +74,27 @@ class WalkRecordPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        AlternatingButton(
-                          title: AppStrings.pause.tr,
-                          outlined: true,
-                          width: 130,
-                          height: 54,
-                          withIcon: false,
-                          style: Styles.primary20(),
-                          onPress: () {},
-                        ),
+                        Obx(() => AlternatingButton(
+                              title: AppStrings.pause.tr,
+                              outlined: true,
+                              width: 130,
+                              height: 54,
+                              withIcon: false,
+                              style: Styles.primary20(),
+                              onPress: vm.isRunning.value ? vm.pause : null,
+                            )),
                         const SizedBox(
                           width: 10,
                         ),
-                        AlternatingButton(
-                          title: AppStrings.stops.tr,
-                          outlined: false,
-                          width: 130,
-                          height: 54,
-                          withIcon: false,
-                          style: Styles.sliderText(),
-                          onPress: () {},
-                        ),
+                        Obx(() => AlternatingButton(
+                              title: AppStrings.start.tr,
+                              outlined: false,
+                              width: 130,
+                              height: 54,
+                              withIcon: false,
+                              style: Styles.sliderText(),
+                              onPress: vm.isRunning.value ? null : vm.start,
+                            )),
                       ],
                     ),
                     const SizedBox(
@@ -95,8 +108,8 @@ class WalkRecordPage extends StatelessWidget {
                       withIcon: true,
                       icon: AssetImages.pause,
                       style: Styles.primaryText(),
-                      onPress: () {
-                        Get.toNamed(RouteName.walkCompletePage);
+                      onPress: () async {
+                        await vm.autoAddWalk(doc['dogId']);
                       },
                     ),
                     const SizedBox(
@@ -112,12 +125,12 @@ class WalkRecordPage extends StatelessWidget {
                     Column(
                       children: [
                         Image.asset(AssetImages.duration),
-                        Text(
-                          "00:00:00",
-                          style: Styles.primaryText().copyWith(
-                            fontSize: 32,
-                          ),
-                        ),
+                        Obx(() => Text(
+                              vm.elapsedTime.value,
+                              style: Styles.primaryText().copyWith(
+                                fontSize: 32,
+                              ),
+                            )),
                         Text(
                           AppStrings.duration.tr,
                           style: Styles.expertSignupPaget1(),
@@ -130,12 +143,12 @@ class WalkRecordPage extends StatelessWidget {
                     Column(
                       children: [
                         SvgPicture.asset(AssetImages.distance),
-                        Text(
-                          "5,53km",
-                          style: Styles.primaryText().copyWith(
-                            fontSize: 32,
-                          ),
-                        ),
+                        Obx(() => Text(
+                              vm.totalDistance.value.toStringAsFixed(2),
+                              style: Styles.primaryText().copyWith(
+                                fontSize: 32,
+                              ),
+                            )),
                         Text(
                           AppStrings.distance.tr,
                           style: Styles.expertSignupPaget1(),

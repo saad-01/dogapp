@@ -13,14 +13,16 @@ class AppTranslation extends Translations {
   @override
   Map<String, Map<String, String>> get keys => translationsKeys;
   static void changeLocale(String lang) {
-    locale = Locale(lang,'');
+    locale = Locale(lang, '');
     Get.updateLocale(locale);
   }
 }
 // \w+\s*=\s*("[^"]*"(\s*[\n\r]+\s*".*?")*)
 
 final Map<String, String> enUS = {
-  'myDog': "MY DOG",
+  'myDog': "PfotenPlan",
+  'addFiles': 'Add Files',
+  'start': 'Start',
   'firstSliderHeading': "Train your Dog!",
   'firstSliderText':
       "Record training times, type of exercises, progress and performance evaluation. Recording of walks, length, location and additional annotations.",
@@ -42,6 +44,7 @@ final Map<String, String> enUS = {
   'expertSpeciality': "Speciality",
   'typeSpeciality': "Type your field",
   'yourPassword': "Password",
+  'confirmPassword': "Confirm password",
   'typePassword': "Type your password",
   'createButton': "Create",
   'hey': "Hey! ",
@@ -464,10 +467,22 @@ final Map<String, String> enUS = {
   'giveSubTitle': "Give subtitle",
   'location': "Location",
   'addLocation': "Add venue",
+  'lblEasy': "Easy",
+  'medium': "Medium",
+  'difficult': "Difficultt",
+  'selectLevel': "Select Level",
+  'selectCategory': "Select Category",
+  'daily': "Daily",
+  'once': "Once",
+  'monday_friday': "Monday to Friday",
+  'passwordSame': "Password and confirm password should be same",
+  'verifyMail': "Email is not verified. Please verify your email."
 };
 final Map<String, String> fr = {
- 'myDog': "MY DOG",
+  'myDog': "PfotenPlan",
   'firstSliderHeading': "Entraînez votre chien!",
+  'addFiles': 'Ajouter des fichier',
+  'start': 'Démarrer',
   'firstSliderText':
       "Enregistrez les horaires d'entraînement, le type d'exercices, les progrès et l'évaluation des performances. Enregistrement des promenades, de la durée, de l'emplacement et des annotations supplémentaires.",
   'choosePageHeading': "QUI ÊTES-VOUS?",
@@ -488,6 +503,7 @@ final Map<String, String> fr = {
   'expertSpeciality': "Spécialité",
   'typeSpeciality': "Indiquez votre domaine",
   'yourPassword': "Mot de passe",
+  'confirmPassword': "Confirmez le mot de passe",
   'typePassword': "Tapez votre mot de passe",
   'createButton': "Créer",
   'hey': "Bonjour! ",
@@ -915,10 +931,15 @@ final Map<String, String> fr = {
   'giveSubTitle': "Donner un sous-titre",
   'location': "Emplacement",
   'addLocation': "Ajouter un lieu",
+  'verifyMail': "L'e-mail n'est pas vérifié. Veuillez vérifier votre e-mail.",
+  'passwordSame':
+      "Le mot de passe et la confirmation du mot de passe doivent être identiques"
 };
 final Map<String, String> de = {
-  'myDog': "MY DOG",
+  'myDog': "PfotenPlan",
   'firstSliderHeading': "Trainiere deinen Hund!",
+  'addFiles': 'Dateien hinzufügen',
+  'start': 'Starten',
   'firstSliderText':
       "Aufzeichnung von Trainingszeiten, Art der Übungen, Fortschritt und Leistungsbewertung. Aufzeichnung von Spaziergängen, Länge, Standort und zusätzlichen Anmerkungen.",
   'choosePageHeading': "WER BIST DU?",
@@ -939,6 +960,7 @@ final Map<String, String> de = {
   'expertSpeciality': "Spezialgebiet",
   'typeSpeciality': "Ihr Fachgebiet angeben",
   'yourPassword': "Passwort",
+  'confirmPassword': "Bestätigen Sie das Passwort ",
   'typePassword': "Geben Sie Ihr Passwort ein",
   'createButton': "Erstellen",
   'hey': "Hey! ",
@@ -1367,4 +1389,7 @@ final Map<String, String> de = {
   'giveSubTitle': "Untertitel angeben",
   'location': "Ort",
   'addLocation': "Ort hinzufügen",
+  'verifyMail':
+      "E-Mail wurde nicht verifiziert. Bitte überprüfen Sie Ihre E-Mail.",
+  'passwordSame': "Password und Bestätigungspasswort müssen übereinstimmen"
 };

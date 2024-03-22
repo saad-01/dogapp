@@ -1,11 +1,23 @@
 import 'package:dogapp/models/expert_model.dart';
 import 'package:dogapp/models/user_model.dart';
+import 'package:dogapp/view_models/services/localization.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref {
   Future<void> saveUidToSharedPreferences(String uid) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('userUid', uid);
+  }
+
+  Future<void> setLang(String lang) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('locale', lang);
+  }
+
+  Future<void> getLang() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? lang = prefs.getString('locale');
+    AppTranslation.changeLocale(lang!);
   }
 
   Future<bool> saveUser(UserModel responseModel) async {

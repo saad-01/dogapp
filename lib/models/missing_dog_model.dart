@@ -17,6 +17,7 @@ class MissingDogModel {
   final String? colors;
   final String? urls;
   final String? gender;
+  final bool? remove;
   MissingDogModel({
     this.dogId,
     this.uid,
@@ -34,27 +35,29 @@ class MissingDogModel {
     this.notes,
     this.age,
     this.urls,
+    this.remove,
   });
   static MissingDogModel fromSnap(DocumentSnapshot snap) {
     var snapshot = snap.data() as Map<String, dynamic>;
 
     return MissingDogModel(
-      name: snapshot["name"],
-      uid: snapshot["uid"],
-      dogId: snapshot["dogId"],
-      photoUrl: snapshot["photoUrl"],
-      microchipNumber: snapshot["microchipNumber"],
-      lostDate: snapshot["lostDate"],
-      weight: snapshot["weight"],
-      breed: snapshot["breed"],
-      gender: snapshot["gender"],
-      colors: snapshot["colors"],
-      urls: snapshot["urls"],
-      yourName: snapshot["parentName"],
-      address: snapshot["address"],
-      phoneNum: snapshot["phoneNumber"],
-      age: snapshot["age"],
-    );
+        name: snapshot["name"],
+        uid: snapshot["uid"],
+        dogId: snapshot["dogId"],
+        photoUrl: snapshot["photoUrl"],
+        microchipNumber: snapshot["microchipNumber"],
+        lostDate: snapshot["lostDate"],
+        weight: snapshot["weight"],
+        breed: snapshot["breed"],
+        gender: snapshot["gender"],
+        colors: snapshot["colors"],
+        urls: snapshot["urls"],
+        notes: snapshot["notes"],
+        yourName: snapshot["parentName"],
+        address: snapshot["address"],
+        phoneNum: snapshot["phoneNumber"],
+        age: snapshot["age"],
+        remove: snapshot["remove"]);
   }
 
   Map<String, dynamic> toJson() => {
@@ -69,9 +72,11 @@ class MissingDogModel {
         "gender": gender,
         "colors": colors,
         "urls": urls,
+        "notes": notes,
         "yourName": yourName,
         "address": address,
         "phoneNum": phoneNum,
         "age": age,
+        "remove": remove
       };
 }

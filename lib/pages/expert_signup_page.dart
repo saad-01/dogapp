@@ -216,7 +216,7 @@ class _ExpertSignupPageState extends State<ExpertSignupPage> {
                     Utils.fieldFocusChange(
                         context,
                         signupVM.passwordFocusNode.value,
-                        signupVM.numberFocusNode.value);
+                        signupVM.cpasswordFocusNode.value);
                   },
                   suffixIcon: signupVM.passwordVisible.value
                       ? GestureDetector(
@@ -238,6 +238,62 @@ class _ExpertSignupPageState extends State<ExpertSignupPage> {
                               signupVM.passwordVisible.value = false;
                             } else {
                               signupVM.passwordVisible.value = true;
+                            }
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(Icons.visibility_off),
+                          )),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(AppStrings.confirmPassword.tr,
+                      style: Styles.expertSignupPaget1())),
+              const SizedBox(
+                height: 8,
+              ),
+              Obx(
+                () => CustomTextfield(
+                  hintText: AppStrings.typePassword.tr,
+                  isError: signupVM.cpasswordError.value,
+                  obscureText: signupVM.cpasswordVisible.value,
+                  controller: signupVM.cpasswordController.value,
+                  focusNode: signupVM.cpasswordFocusNode.value,
+                  onFieldSubmitted: (p0) {
+                    if (p0.isEmpty) {
+                      signupVM.cpasswordError.value = true;
+                    } else {
+                      signupVM.cpasswordError.value = false;
+                    }
+                    Utils.fieldFocusChange(
+                        context,
+                        signupVM.cpasswordFocusNode.value,
+                        signupVM.numberFocusNode.value);
+                  },
+                  suffixIcon: signupVM.cpasswordVisible.value
+                      ? GestureDetector(
+                          onTap: () {
+                            if (signupVM.cpasswordVisible.value) {
+                              signupVM.cpasswordVisible.value = false;
+                            } else {
+                              signupVM.cpasswordVisible.value = true;
+                            }
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(Icons.visibility),
+                          ),
+                        )
+                      : GestureDetector(
+                          onTap: () {
+                            if (signupVM.cpasswordVisible.value) {
+                              signupVM.cpasswordVisible.value = false;
+                            } else {
+                              signupVM.cpasswordVisible.value = true;
                             }
                           },
                           child: const Padding(
@@ -369,16 +425,16 @@ class _ExpertSignupPageState extends State<ExpertSignupPage> {
               const SizedBox(
                 height: 60,
               ),
-              PrimartyButton(
-                icon: '',
-                loading: signupVM.loading.value,
-                title: AppStrings.createButton.tr,
-                width: MediaQuery.sizeOf(context).width * 0.8,
-                height: 10,
-                onTap: () async {
-                  await signupVM.signup();
-                },
-              ),
+              Obx(() => PrimartyButton(
+                    icon: '',
+                    loading: signupVM.loading.value,
+                    title: AppStrings.createButton.tr,
+                    width: MediaQuery.sizeOf(context).width * 0.8,
+                    height: 10,
+                    onTap: () async {
+                      await signupVM.signup();
+                    },
+                  )),
               const SizedBox(
                 height: 20,
               ),
@@ -387,7 +443,7 @@ class _ExpertSignupPageState extends State<ExpertSignupPage> {
                 children: [
                   Text(
                     AppStrings.alreadyAccount.tr,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColors.black,
                       fontSize: 14,
                     ),

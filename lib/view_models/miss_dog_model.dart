@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dogapp/view_models/services/firebase_api_services.dart';
 import 'package:dogapp/view_models/services/storage_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -102,9 +103,52 @@ class MissDogModel extends GetxController {
         selectedColors.map((color) => color.value.toRadixString(16)).toList();
     SharedPref pref = SharedPref();
     String? uid = await pref.getUidFromSharedPreferences();
-    String res = '';
-    if (image != null) {
-      res = await addDog(
+        if (nameController.value.text.isEmpty ||
+        yourNameController.value.text.isEmpty ||
+        addressController.value.text.isEmpty ||
+        phoneNumController.value.text.isEmpty ||
+        dateController.value.text.isEmpty ||
+        image == null) {
+      loading.value = false;
+      if (nameController.value.text.isNotEmpty) {
+        nameError.value = false;
+      }
+      if (nameController.value.text.isEmpty) {
+        nameError.value = true;
+      }
+      if (yourNameController.value.text.isNotEmpty) {
+        yourNameError.value = false;
+      }
+      if (yourNameController.value.text.isEmpty) {
+        yourNameError.value = true;
+      }
+      if (addressController.value.text.isEmpty) {
+        addressError.value = true;
+      }
+      if (addressController.value.text.isNotEmpty) {
+        addressError.value = false;
+      }
+      if (phoneNumController.value.text.isNotEmpty) {
+        numberError.value = false;
+      }
+      if (phoneNumController.value.text.isEmpty) {
+        numberError.value = true;
+      }
+      if (selectedColors.isEmpty) {
+        colorError.value = true;
+      }
+      if (selectedColors.isNotEmpty) {
+        colorError.value = false;
+      }
+      if (dateController.value.text.isEmpty) {
+        dateError.value = true;
+      }
+      if (dateController.value.text.isNotEmpty) {
+        dateError.value = false;
+      }
+      Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
+    } else {
+      await addDog(
           name: nameController.value.text,
           date: dateController.value.text,
           weight: weightController.value.text,
@@ -120,93 +164,9 @@ class MissDogModel extends GetxController {
           notes: notesController.value.text,
           uid: uid!,
           file: image!);
-    } else {
-      loading.value = false;
-      if (nameController.value.text.isNotEmpty) {
-        nameError.value = false;
-      }
-      if (nameController.value.text.isEmpty) {
-        nameError.value = true;
-      }
-      if (yourNameController.value.text.isNotEmpty) {
-        yourNameError.value = false;
-      }
-      if (yourNameController.value.text.isEmpty) {
-        yourNameError.value = true;
-      }
-      if (addressController.value.text.isEmpty) {
-        addressError.value = true;
-      }
-      if (addressController.value.text.isNotEmpty) {
-        addressError.value = false;
-      }
-      if (phoneNumController.value.text.isNotEmpty) {
-        numberError.value = false;
-      }
-      if (phoneNumController.value.text.isEmpty) {
-        numberError.value = true;
-      }
-      if (selectedColors.isEmpty) {
-        colorError.value = true;
-      }
-      if (selectedColors.isNotEmpty) {
-        colorError.value = false;
-      }
-      if (dateController.value.text.isEmpty) {
-        dateError.value = true;
-      }
-      if (dateController.value.text.isNotEmpty) {
-        dateError.value = false;
-      }
-      Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
-    }
-    if (res == "success") {
       loading.value = false;
       Get.back();
       Utils.snackBar(AppStrings.success.tr, AppStrings.dogAdded.tr);
-    } else if (res == "Please enter all the fields") {
-      loading.value = false;
-      if (nameController.value.text.isNotEmpty) {
-        nameError.value = false;
-      }
-      if (nameController.value.text.isEmpty) {
-        nameError.value = true;
-      }
-      if (yourNameController.value.text.isNotEmpty) {
-        yourNameError.value = false;
-      }
-      if (yourNameController.value.text.isEmpty) {
-        yourNameError.value = true;
-      }
-      if (addressController.value.text.isEmpty) {
-        addressError.value = true;
-      }
-      if (addressController.value.text.isNotEmpty) {
-        addressError.value = false;
-      }
-      if (phoneNumController.value.text.isNotEmpty) {
-        numberError.value = false;
-      }
-      if (phoneNumController.value.text.isEmpty) {
-        numberError.value = true;
-      }
-      if (selectedColors.isEmpty) {
-        colorError.value = true;
-      }
-      if (selectedColors.isNotEmpty) {
-        colorError.value = false;
-      }
-      if (dateController.value.text.isEmpty) {
-        dateError.value = true;
-      }
-      if (dateController.value.text.isNotEmpty) {
-        dateError.value = false;
-      }
-      Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
-    } else if (res.isNotEmpty) {
-      // show the error
-      loading.value = false;
-      Utils.snackBar(AppStrings.error.tr, res);
     }
   }
 
@@ -230,52 +190,58 @@ class MissDogModel extends GetxController {
     String res = "Some error Occurred";
     try {
       List<String> urls = [];
-      if (name.isNotEmpty &&
-          microChipNumber.isNotEmpty &&
-          weight.isNotEmpty &&
-          date.isNotEmpty &&
-          gender.isNotEmpty &&
-          age.isNotEmpty &&
-          breed.isNotEmpty &&
-          colors.isNotEmpty &&
-          yourName.isNotEmpty &&
-          address.isNotEmpty &&
-          phoneNum.isNotEmpty &&
-          imageFlag.value) {
-        String photoUrl = await StorageMethods()
-            .uploadImageToStorage('missDogPics', file, true);
-        if (multiImageFlag.value) {
-          urls =
-              await StorageMethods().uploadPhotos(photos, uid, 'missDogPics');
-        }
-        String dogId = const Uuid().v1();
 
-        MissingDogModel dog = MissingDogModel(
-          name: name,
-          lostDate: date,
-          weight: weight,
-          gender: gender,
-          colors: jsonEncode(colors),
-          yourName: yourName,
-          phoneNum: phoneNum,
-          address: address,
-          notes: notes,
-          age: age,
-          photoUrl: photoUrl,
-          breed: breed,
-          uid: uid,
-          dogId: dogId,
-          microchipNumber: microChipNumber,
-          urls: jsonEncode(urls),
-        );
-
-        // adding user in our database
-        await _firestore.collection("missingDogs").doc(dogId).set(dog.toJson());
-
-        res = "success";
-      } else {
-        res = "Please enter all the fields";
+      String photoUrl = await StorageMethods()
+          .uploadImageToStorage('missDogPics', file, true);
+      if (multiImageFlag.value) {
+        urls = await StorageMethods().uploadPhotos(photos, uid, 'missDogPics');
       }
+      String dogId = const Uuid().v1();
+
+      MissingDogModel dog = MissingDogModel(
+        name: name,
+        lostDate: date,
+        weight: weight,
+        gender: gender,
+        colors: jsonEncode(colors),
+        yourName: yourName,
+        phoneNum: phoneNum,
+        address: address,
+        notes: notes,
+        age: age,
+        photoUrl: photoUrl,
+        breed: breed,
+        uid: uid,
+        dogId: dogId,
+        microchipNumber: microChipNumber,
+        urls: jsonEncode(urls),
+        remove: false
+      );
+
+      // adding user in our database
+      await _firestore.collection("missingDogs").doc(dogId).set(dog.toJson());
+      List<String> tokenList = [];
+      CollectionReference tokensCollection =
+          FirebaseFirestore.instance.collection('tokens');
+
+      // Get snapshot of documents in the collection
+      QuerySnapshot querySnapshot = await tokensCollection.get();
+
+      // Iterate over the documents and extract tokens
+      for (var doc in querySnapshot.docs) {
+        // Assuming 'token' is the field name in your document
+        String token = doc
+            .get('token')
+            .toString(); // Adjust field name as per your structure
+        tokenList.add(token);
+      }
+      await FirebaseAPIServices().sendNotification(
+        tokenList,
+        "Contact: ${phoneNumController.value.text}",
+        "Missing Dog",
+      );
+
+      res = "success";
     } catch (err) {
       return err.toString();
     }

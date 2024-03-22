@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 
@@ -10,16 +13,81 @@ import '../utils/utils.dart';
 class WalkModel extends GetxController {
   final distanceController = TextEditingController().obs;
   final durationController = TextEditingController().obs;
-  final stepsController = TextEditingController().obs;
   final distanceFocusNode = FocusNode().obs;
   final durationFocusNode = FocusNode().obs;
-  final stepsFocusNode = FocusNode().obs;
   final RxBool loading = false.obs;
   final RxBool distanceError = false.obs;
   final RxBool durationError = false.obs;
-  final RxBool stepsError = false.obs;
   final RxBool checkbox = false.obs;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  RxDouble totalDistance = 0.0.obs;
+  Position? previousLocation;
+  var stopwatch = Stopwatch();
+  var isRunning = false.obs;
+  var elapsedTime = '00:00:00'.obs;
+  get timeElapsed => stopwatch.elapsed;
+  void start() {
+    stopwatch.start();
+    isRunning.value = true;
+    updateUI();
+  }
+
+  void pause() {
+    stopwatch.stop();
+    isRunning.value = false;
+  }
+
+  void reset() {
+    stopwatch.reset();
+    isRunning.value = false;
+    updateUI();
+  }
+
+  void updateUI() {
+    // Update UI every second while stopwatch is running
+    if (isRunning.value) {
+      Timer.periodic(const Duration(seconds: 1), (_) {
+        if (!isRunning.value) return;
+        Duration duration = stopwatch.elapsed;
+        elapsedTime.value =
+            '${(duration.inMinutes).toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
+      });
+    }
+  }
+
+  Future<void> startLocationUpdates() async {
+    LocationPermission permission = await Geolocator.requestPermission();
+    if (permission == LocationPermission.denied) {
+      if (kDebugMode) {
+        print('Location permission denied');
+      }
+      return;
+    }
+
+    Geolocator.getPositionStream(
+      locationSettings:
+          AndroidSettings(accuracy: LocationAccuracy.best, distanceFilter: 5),
+    ).listen((Position position) {
+      if (previousLocation != null) {
+        double distanceInMeters = Geolocator.distanceBetween(
+          previousLocation!.latitude,
+          previousLocation!.longitude,
+          position.latitude,
+          position.longitude,
+        );
+        double distanceInKm = distanceInMeters / 1000;
+        totalDistance.value += distanceInKm;
+      }
+      previousLocation = position;
+    });
+  }
+
+  Future<void> autoAddWalk(String id) async {
+    distanceController.value.text = totalDistance.value.toStringAsFixed(2);
+    durationController.value.text = elapsedTime.value;
+
+    await addWalk(id);
+  }
 
   Future<void> addWalk(String id) async {
     String uid = const Uuid().v1();
@@ -28,7 +96,6 @@ class WalkModel extends GetxController {
 
       // Ensure both name and phone number are not empty
       if (distanceController.value.text.isEmpty ||
-          stepsController.value.text.isEmpty ||
           durationController.value.text.isEmpty) {
         loading.value = false;
         if (distanceController.value.text.isEmpty) {
@@ -37,17 +104,11 @@ class WalkModel extends GetxController {
         if (durationController.value.text.isEmpty) {
           durationError.value = true;
         }
-        if (stepsController.value.text.isEmpty) {
-          stepsError.value = true;
-        }
         if (distanceController.value.text.isNotEmpty) {
           distanceError.value = false;
         }
         if (durationController.value.text.isNotEmpty) {
           durationError.value = false;
-        }
-        if (stepsController.value.text.isNotEmpty) {
-          stepsError.value = false;
         }
         Utils.snackBar(AppStrings.error.tr, AppStrings.fillAll.tr);
       } else {
@@ -55,7 +116,6 @@ class WalkModel extends GetxController {
           'distance': distanceController.value.text,
           'id': uid,
           'duration': durationController.value.text,
-          'steps': stepsController.value.text,
           'dogId': id,
           'timestamp': FieldValue.serverTimestamp(),
         });

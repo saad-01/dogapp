@@ -255,8 +255,8 @@ class CreateMissingReport extends StatelessWidget {
                               () => CustomTextfield(
                                 hintText: AppStrings.dateFormat.tr,
                                 obscureText: false,
-                                isError: missVM.dateError.value,
                                 keyboardType: TextInputType.none,
+                                isError: missVM.dateError.value,
                                 controller: missVM.dateController.value,
                                 focusNode: missVM.dateFocusNode.value,
                                 onFieldSubmitted: (p0) {},

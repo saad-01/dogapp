@@ -26,8 +26,9 @@ class DietModel extends GetxController {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime(
+          DateTime.now().year + 10), // or any other future date you prefer
     );
     String formattedDate = DateFormat('dd.MM.yyyy').format(pickedDate!);
     controller.text = formattedDate;

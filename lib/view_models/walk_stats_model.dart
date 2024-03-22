@@ -3,8 +3,7 @@ import 'package:get/get.dart';
 
 class WalkStatsModel extends GetxController {
   double totalDistance = 0.0;
-    int totalSteps = 0;
-    Duration totalDuration = const Duration();
+  Duration totalDuration = const Duration();
   Future<QueryDocumentSnapshot<Object?>?> getMostRecentWalk(String id) async {
     // Query the 'walks' collection and order by timestamp field in descending order
     QuerySnapshot querySnapshot = await FirebaseFirestore.instance
@@ -28,8 +27,6 @@ class WalkStatsModel extends GetxController {
         .where('dogId', isEqualTo: id)
         .get();
 
-    
-
     for (var doc in querySnapshot.docs) {
       // Sum distance (assuming distance is stored as a string representing a number)
       if (doc['distance'] != null && doc['distance'] is String) {
@@ -38,10 +35,6 @@ class WalkStatsModel extends GetxController {
       }
 
       // Sum steps (assuming steps is stored as a string representing an integer)
-      if (doc['steps'] != null && doc['steps'] is String) {
-        int steps = int.tryParse(doc['steps'])!;
-        totalSteps += steps;
-      }
 
       // Sum duration (assuming duration is stored as a string in 'MM:SS' format)
       if (doc['duration'] != null && doc['duration'] is String) {
@@ -56,7 +49,6 @@ class WalkStatsModel extends GetxController {
 
 // Now you have the total values for distance, steps, and duration
     print('Total Distance: $totalDistance');
-    print('Total Steps: $totalSteps');
     print(
         'Total Duration: ${totalDuration.inMinutes}:${totalDuration.inSeconds.remainder(60)}');
 

@@ -4,6 +4,8 @@ import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/view_models/walk_stats_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:flutter_swipe_button/flutter_swipe_button.dart';
 import 'package:get/get.dart';
 import '../utils/app_colors.dart';
 import '../utils/assets.dart';
@@ -27,7 +29,7 @@ class _WalkPageState extends State<WalkPage> {
         padding: const EdgeInsets.all(15),
         child: Column(
           children: [
-           CustomAppBar(title: AppStrings.walk.tr),
+            CustomAppBar(title: AppStrings.walk.tr),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
@@ -55,56 +57,58 @@ class _WalkPageState extends State<WalkPage> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Container(
-                                        height: 128,
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 26,
-                                        ),
-                                        decoration: ShapeDecoration(
-                                          color: AppColors.white,
-                                          shape: RoundedRectangleBorder(
-                                            side: BorderSide(
-                                              width: 0.50,
-                                              color: AppColors.black
-                                                  .withOpacity(
-                                                      0.11999999731779099),
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8),
+                                      Expanded(
+                                        child: Container(
+                                          height: 128,
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 26,
                                           ),
-                                          shadows: const [
-                                            BoxShadow(
-                                              color: Color(0x1E000000),
-                                              blurRadius: 8,
-                                              offset: Offset(0, 0),
-                                              spreadRadius: 0,
+                                          decoration: ShapeDecoration(
+                                            color: AppColors.white,
+                                            shape: RoundedRectangleBorder(
+                                              side: BorderSide(
+                                                width: 0.50,
+                                                color: AppColors.black
+                                                    .withOpacity(
+                                                        0.11999999731779099),
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
                                             ),
-                                          ],
-                                        ),
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              vm.totalDistance.toString(),
-                                              style: Styles.primary24(),
-                                            ),
-                                            const SizedBox(
-                                              height: 5,
-                                            ),
-                                            Text(
-                                              'Km',
-                                              style:
-                                                  Styles.expertSignupPageH1(),
-                                            ),
-                                            const SizedBox(
-                                              height: 10,
-                                            ),
-                                            Text(
-                                              AppStrings.totalDistance.tr,
-                                              style: Styles.noteTxt(),
-                                            ),
-                                          ],
+                                            shadows: const [
+                                              BoxShadow(
+                                                color: Color(0x1E000000),
+                                                blurRadius: 8,
+                                                offset: Offset(0, 0),
+                                                spreadRadius: 0,
+                                              ),
+                                            ],
+                                          ),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                vm.totalDistance.toString(),
+                                                style: Styles.primary24(),
+                                              ),
+                                              const SizedBox(
+                                                height: 5,
+                                              ),
+                                              Text(
+                                                'Km',
+                                                style:
+                                                    Styles.expertSignupPageH1(),
+                                              ),
+                                              const SizedBox(
+                                                height: 10,
+                                              ),
+                                              Text(
+                                                AppStrings.totalDistance.tr,
+                                                style: Styles.noteTxt(),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       const SizedBox(
@@ -139,27 +143,28 @@ class _WalkPageState extends State<WalkPage> {
                                           ),
                                           child: Row(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                                MainAxisAlignment.center,
                                             children: [
-                                              Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Image.asset(
-                                                      AssetImages.footPrint),
-                                                  Text(
-                                                    vm.totalSteps.toString(),
-                                                    style: Styles.primary24(),
-                                                  ),
-                                                  const SizedBox(
-                                                    height: 10,
-                                                  ),
-                                                  Text(
-                                                    AppStrings.totalSteps.tr,
-                                                    style: Styles.noteTxt(),
-                                                  ),
-                                                ],
-                                              ),
+                                              // Column(
+                                              //   mainAxisAlignment:
+                                              //       MainAxisAlignment.center,
+                                              //   children: [
+                                              //     Image.asset(
+                                              //         AssetImages.footPrint),
+                                              //     Text(
+                                              //       vm.totalSteps.toString(),
+                                              //       style: Styles.primary24(),
+                                              //     ),
+                                              //     const SizedBox(
+                                              //       height: 10,
+                                              //     ),
+                                              //     Text(
+                                              //       AppStrings.totalSteps.tr,
+                                              //       style: Styles.noteTxt(),
+                                              //     ),
+                                              //   ],
+                                              // ),
+
                                               Column(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
@@ -260,8 +265,7 @@ class _WalkPageState extends State<WalkPage> {
                                               ),
                                               Row(
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
+                                                    MainAxisAlignment.center,
                                                 children: [
                                                   Column(
                                                     mainAxisAlignment:
@@ -304,28 +308,28 @@ class _WalkPageState extends State<WalkPage> {
                                                       ),
                                                     ],
                                                   ),
-                                                  const SizedBox(
-                                                    width: 20,
-                                                  ),
-                                                  Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
-                                                        data['steps'],
-                                                        style:
-                                                            Styles.primary24(),
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 10,
-                                                      ),
-                                                      Text(
-                                                        AppStrings.steps.tr,
-                                                        style: Styles.noteTxt(),
-                                                      ),
-                                                    ],
-                                                  ),
+                                                  // const SizedBox(
+                                                  //   width: 20,
+                                                  // ),
+                                                  // Column(
+                                                  //   mainAxisAlignment:
+                                                  //       MainAxisAlignment
+                                                  //           .center,
+                                                  //   children: [
+                                                  //     Text(
+                                                  //       data['steps'],
+                                                  //       style:
+                                                  //           Styles.primary24(),
+                                                  //     ),
+                                                  //     const SizedBox(
+                                                  //       height: 10,
+                                                  //     ),
+                                                  //     Text(
+                                                  //       AppStrings.steps.tr,
+                                                  //       style: Styles.noteTxt(),
+                                                  //     ),
+                                                  //   ],
+                                                  // ),
                                                 ],
                                               ),
                                             ],
@@ -366,36 +370,36 @@ class _WalkPageState extends State<WalkPage> {
                     const SizedBox(
                       height: 10,
                     ),
-                    // Container(
-                    //   height: 62,
-                    //   decoration: ShapeDecoration(
-                    //     color: AppColors.white,
-                    //     shape: RoundedRectangleBorder(
-                    //       side: BorderSide(
-                    //         width: 0.50,
-                    //         color: AppColors.black
-                    //             .withOpacity(0.11999999731779099),
-                    //       ),
-                    //       borderRadius: BorderRadius.circular(8),
-                    //     ),
-                    //   ),
-                    //   child: SwipeButton(
-                    //     height: 60,
-                    //     borderRadius: BorderRadius.circular(8),
-                    //     activeThumbColor: AppColors.primaryColor,
-                    //     activeTrackColor: Colors.white,
-                    //     thumb: SvgPicture.asset(
-                    //       AssetImages.swipe,
-                    //     ),
-                    //     child: Text(
-                    //       AppStrings.swipe.tr,
-                    //       style: Styles.black14(),
-                    //     ),
-                    //     onSwipeEnd: () {
-                    //       Get.toNamed(RouteName.walkRecordPage);
-                    //     },
-                    //   ),
-                    // ),
+                    Container(
+                      height: 62,
+                      decoration: ShapeDecoration(
+                        color: AppColors.white,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            width: 0.50,
+                            color: AppColors.black
+                                .withOpacity(0.11999999731779099),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: SwipeButton(
+                        height: 60,
+                        borderRadius: BorderRadius.circular(8),
+                        activeThumbColor: AppColors.primaryColor,
+                        activeTrackColor: Colors.white,
+                        thumb: SvgPicture.asset(
+                          AssetImages.swipe,
+                        ),
+                        child: Text(
+                          AppStrings.swipe.tr,
+                          style: Styles.black14(),
+                        ),
+                        onSwipeEnd: () {
+                          Get.toNamed(RouteName.walkRecordPage, arguments: doc);
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),

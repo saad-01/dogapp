@@ -7,9 +7,22 @@ import '../utils/strings.dart';
 import '../utils/styles.dart';
 
 class MissDogItem extends StatelessWidget {
-  const MissDogItem({super.key, this.onPress, required this.title});
+  const MissDogItem(
+      {super.key,
+      this.onPress,
+      required this.title,
+      required this.name,
+      required this.date,
+      required this.address,
+      required this.image,
+      required this.selectedColors});
   final void Function()? onPress;
   final String title;
+  final String name;
+  final String date;
+  final String address;
+  final String image;
+  final RxList<Color> selectedColors;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -43,8 +56,8 @@ class MissDogItem extends StatelessWidget {
                   width: 86,
                   height: 86,
                   decoration: ShapeDecoration(
-                    image: const DecorationImage(
-                      image: AssetImage(AssetImages.dogItem),
+                    image: DecorationImage(
+                      image: NetworkImage(image),
                       fit: BoxFit.cover,
                     ),
                     shape: RoundedRectangleBorder(
@@ -58,7 +71,7 @@ class MissDogItem extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  AppStrings.nameCapital.tr,
+                  name,
                   style: Styles.expertSignupPaget1(),
                 ),
               ],
@@ -91,28 +104,27 @@ class MissDogItem extends StatelessWidget {
                       const SizedBox(
                         width: 15,
                       ),
-                      Text(
-                        'Gray',
-                        style: Styles.lightGrey12(),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 4,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        AppStrings.breed.tr,
-                        style: Styles.lightGrey12(),
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Text(
-                        AppStrings.breed.tr,
-                        style: Styles.lightGrey12(),
+                      Row(
+                        children: List.generate(
+                          selectedColors.length,
+                          (index) => Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 5.0, vertical: 5),
+                            child: Container(
+                              width: 20,
+                              height: 20,
+                              decoration: ShapeDecoration(
+                                color: selectedColors[index],
+                                shape: const OvalBorder(
+                                  side: BorderSide(
+                                    width: 0.50,
+                                    strokeAlign: BorderSide.strokeAlignOutside,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -131,7 +143,7 @@ class MissDogItem extends StatelessWidget {
                       ),
                       Expanded(
                         child: Text(
-                          AppStrings.dateFormat.tr,
+                          date,
                           style: Styles.lightGrey12(),
                         ),
                       ),
@@ -152,7 +164,7 @@ class MissDogItem extends StatelessWidget {
                       ),
                       Expanded(
                         child: Text(
-                          'Address here',
+                          address,
                           style: Styles.lightGrey12(),
                         ),
                       ),

@@ -28,6 +28,7 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
   Future<void> getName() async {
     name.value = (await pref.getNameFromSharedPreferences())!;
   }
+
   NotificationServices notificationServices = NotificationServices();
   Future<void> sendNoti() async {
     // tokens.add(
@@ -113,24 +114,24 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
                         padding: const EdgeInsets.only(top: 5.0, right: 5),
                         child: SvgPicture.asset(AssetImages.bellIcon),
                       ),
-                      Positioned(
-                          right: 0,
-                          child: Container(
-                            width: 12,
-                            height: 12,
-                            decoration: const ShapeDecoration(
-                              color: AppColors.primaryColor,
-                              shape: OvalBorder(),
-                            ),
-                            child: const Align(
-                              alignment: Alignment.topCenter,
-                              child: Text(
-                                "2",
-                                style: TextStyle(
-                                    fontSize: 8, color: AppColors.white),
-                              ),
-                            ),
-                          ))
+                      // Positioned(
+                      //     right: 0,
+                      //     child: Container(
+                      //       width: 12,
+                      //       height: 12,
+                      //       decoration: const ShapeDecoration(
+                      //         color: AppColors.primaryColor,
+                      //         shape: OvalBorder(),
+                      //       ),
+                      //       child: const Align(
+                      //         alignment: Alignment.topCenter,
+                      //         child: Text(
+                      //           "2",
+                      //           style: TextStyle(
+                      //               fontSize: 8, color: AppColors.white),
+                      //         ),
+                      //       ),
+                      //     ))
                     ],
                   ),
                 )

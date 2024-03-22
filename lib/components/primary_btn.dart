@@ -1,6 +1,7 @@
 import 'package:dogapp/utils/app_colors.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -84,8 +85,7 @@ class PrimartyButton extends StatelessWidget {
                       const SizedBox(
                         width: 10,
                       ),
-                    SizedBox(
-                      width: width * 0.5,
+                    Flexible(
                       child: Text(
                         title.tr,
                         maxLines: 1,

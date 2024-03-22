@@ -12,6 +12,7 @@ import 'services/auth_services.dart';
 class ExpertSignupModel extends GetxController {
   final nameController = TextEditingController().obs;
   final passwordController = TextEditingController().obs;
+  final cpasswordController = TextEditingController().obs;
   final emailController = TextEditingController().obs;
   final dateController = TextEditingController().obs;
   final numberController = TextEditingController().obs;
@@ -20,14 +21,17 @@ class ExpertSignupModel extends GetxController {
   final RxString role = 'expert'.obs;
   final RxString photoUrl = ''.obs;
   final RxBool passwordVisible = true.obs;
+  final RxBool cpasswordVisible = true.obs;
   final RxBool nameError = false.obs;
   final RxBool mailError = false.obs;
   final RxBool dateError = false.obs;
   final RxBool passwordError = false.obs;
+  final RxBool cpasswordError = false.obs;
   final RxBool numberError = false.obs;
   final RxBool specialityError = false.obs;
   final nameFocusNode = FocusNode().obs;
   final passwordFocusNode = FocusNode().obs;
+  final cpasswordFocusNode = FocusNode().obs;
   final emailFocusNode = FocusNode().obs;
   final dateFocusNode = FocusNode().obs;
   final numberFocusNode = FocusNode().obs;
@@ -67,28 +71,32 @@ class ExpertSignupModel extends GetxController {
   Future<void> signup() async {
     loading.value = true;
     String res = '';
-    if (image != null) {
-      res = await AuthMethods().signUpExpert(
+    if (passwordController.value.text == cpasswordController.value.text) {
+      if (image != null) {
+        res = await AuthMethods().signUpExpert(
+            email: emailController.value.text,
+            password: passwordController.value.text,
+            name: nameController.value.text,
+            number: numberController.value.text,
+            role: role.value,
+            date: dateController.value.text,
+            qualification: qualificationController.value.text,
+            speciality: speciality.value,
+            file: image!);
+      } else {
+        res = await AuthMethods().signUpExpert(
           email: emailController.value.text,
           password: passwordController.value.text,
           name: nameController.value.text,
           number: numberController.value.text,
           role: role.value,
-          date: dateController.value.text,
           qualification: qualificationController.value.text,
           speciality: speciality.value,
-          file: image!);
+          date: dateController.value.text,
+        );
+      }
     } else {
-      res = await AuthMethods().signUpExpert(
-        email: emailController.value.text,
-        password: passwordController.value.text,
-        name: nameController.value.text,
-        number: numberController.value.text,
-        role: role.value,
-        qualification: qualificationController.value.text,
-        speciality: speciality.value,
-        date: dateController.value.text,
-      );
+      Utils.snackBar(AppStrings.error.tr, AppStrings.passwordSame.tr);
     }
 
     if (kDebugMode) {
@@ -113,6 +121,9 @@ class ExpertSignupModel extends GetxController {
       if (passwordController.value.text.isEmpty) {
         passwordError.value = true;
       }
+      if (cpasswordController.value.text.isEmpty) {
+        cpasswordError.value = true;
+      }
       if (speciality.value.isEmpty) {
         specialityError.value = true;
       }
@@ -130,6 +141,9 @@ class ExpertSignupModel extends GetxController {
       }
       if (passwordController.value.text.isNotEmpty) {
         passwordError.value = false;
+      }
+      if (cpasswordController.value.text.isNotEmpty) {
+        cpasswordError.value = false;
       }
       if (numberController.value.text.isNotEmpty) {
         numberError.value = false;

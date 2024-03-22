@@ -107,11 +107,11 @@ class OtherApppointModel extends GetxController {
   Future<void> selectDate(
       BuildContext context, TextEditingController controller) async {
     final DateTime? pickedDate = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
+  context: context,
+  initialDate: DateTime.now(),
+  firstDate: DateTime.now(),
+  lastDate: DateTime(DateTime.now().year + 10), // or any other future date you prefer
+);
 
     if (pickedDate != null && pickedDate != _selectedDate) {
       _selectedDate = pickedDate;
@@ -175,7 +175,7 @@ class OtherApppointModel extends GetxController {
           }
         }
         if (multiFileFlag.value) {
-          uploadFiles(id);
+          await uploadFiles(id);
         }
         await firestore.collection("appointments").doc(id).set({
           'reminderDate': reminderDateController.value.text,

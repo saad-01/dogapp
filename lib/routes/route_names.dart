@@ -85,4 +85,5 @@ class RouteName {
   static const String otherAppointPage = '/other_appoint_page';
   static const String addEventPage = '/add_event_page';
   static const String addChatPage = '/add_chat_page';
+  static const String pdfPage = '/pdf_page';
 }

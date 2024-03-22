@@ -64,6 +64,9 @@ class LoginModel extends GetxController {
           Get.offAllNamed(RouteName.expertDashboardPage);
         }
         loading.value = false;
+      } else if (res == AppStrings.verifyMail) {
+        loading.value = false;
+        Utils.snackBar(AppStrings.error, AppStrings.verifyMail);
       } else {
         loading.value = false;
         Utils.snackBar(AppStrings.error.tr, AppStrings.incorrect.tr);

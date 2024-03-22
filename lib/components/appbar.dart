@@ -13,6 +13,7 @@ class CustomAppBar extends StatelessWidget {
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             InkWell(
               onTap: () {
@@ -39,9 +40,6 @@ class CustomAppBar extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(
-              width: 60,
-            ),
             Expanded(
               child: Text(
                 title.tr,
@@ -49,6 +47,7 @@ class CustomAppBar extends StatelessWidget {
                 style: Styles.appBarH1(),
               ),
             ),
+            const SizedBox(),
           ],
         ),
         const SizedBox(

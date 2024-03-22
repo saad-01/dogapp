@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/pdf_file_item.dart';
 import 'package:dogapp/components/primary_btn.dart';
+import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
@@ -8,8 +11,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-class ExpertExDetailsPage extends StatelessWidget {
+class ExpertExDetailsPage extends StatefulWidget {
   const ExpertExDetailsPage({super.key});
+
+  @override
+  State<ExpertExDetailsPage> createState() => _ExpertExDetailsPageState();
+}
+
+class _ExpertExDetailsPageState extends State<ExpertExDetailsPage> {
+  final doc = Get.arguments;
+  List<dynamic> urlsList = [];
+  List<String> imageList = [];
+  List<String> fileList = [];
+  void separateLists(List<dynamic> firebaseList) {
+    for (var item in firebaseList) {
+      String url = item[0];
+      String type = item[1];
+      if (type == 'image') {
+        imageList.add(url);
+      } else if (type == 'file') {
+        fileList.add(url);
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    urlsList = jsonDecode(doc['urls']);
+    separateLists(urlsList);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +50,7 @@ class ExpertExDetailsPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            CustomAppBar(title: AppStrings.handFeeding.tr),
+            CustomAppBar(title: doc['title']),
             Expanded(
                 child: SingleChildScrollView(
               child: Column(
@@ -34,7 +65,7 @@ class ExpertExDetailsPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Lorem ipsum dolor sit amet consectetur. Massa sagittis eget enim mauris sem id diam in. Lorem ipsum dolor sit amet consectetur. Massa sagittis eget enim mauris sem id diam in. Lorem ipsum dolor sit amet consectetur. Massa sagittis eget enim mauris sem id diam in. Lorem ipsum dolor sit amet consectetur. Massa sagittis eget enim mauris sem id diam in. Lorem ipsum dolor sit amet consectetur. Massa sagittis eget enim mauris sem id diam in. Lorem ipsum dolor sit amet consectetur. Massa sagittis eget enim mauris sem id diam in.',
+                      doc['description'],
                       style: Styles.choosePageText(),
                     ),
                   ),
@@ -51,69 +82,75 @@ class ExpertExDetailsPage extends StatelessWidget {
                   const SizedBox(
                     height: 15,
                   ),
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                          width: 0.50, color: Color(0xFFD7D7D7)),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    leading: SvgPicture.asset(AssetImages.menu),
-                    title: Text(
-                      AppStrings.trainingLevel.tr,
-                      style: Styles.black14(),
-                    ),
-                    trailing: SizedBox(
-                      width: 50,
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(AssetImages.primaryCircle),
-                          const SizedBox(
-                            width: 6,
-                          ),
-                          Text(
-                            AppStrings.easy.tr,
-                            style: Styles.black14(),
-                          ),
-                        ],
+                  Material(
+                    child: ListTile(
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                            width: 0.50, color: Color(0xFFD7D7D7)),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      leading: SvgPicture.asset(AssetImages.menu),
+                      title: Text(
+                        AppStrings.trainingLevel.tr,
+                        style: Styles.black14(),
+                      ),
+                      trailing: SizedBox(
+                        width: 50,
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(AssetImages.primaryCircle),
+                            const SizedBox(
+                              width: 6,
+                            ),
+                            Text(
+                              doc['level'],
+                              style: Styles.black14(),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(
                     height: 15,
                   ),
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                          width: 0.50, color: Color(0xFFD7D7D7)),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    leading: SvgPicture.asset(AssetImages.alarm),
-                    title: Text(
-                      AppStrings.trainingLength.tr,
-                      style: Styles.black14(),
-                    ),
-                    trailing: Text(
-                      '3 min',
-                      style: Styles.black14(),
+                  Material(
+                    child: ListTile(
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                            width: 0.50, color: Color(0xFFD7D7D7)),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      leading: SvgPicture.asset(AssetImages.alarm),
+                      title: Text(
+                        AppStrings.trainingLength.tr,
+                        style: Styles.black14(),
+                      ),
+                      trailing: Text(
+                        doc['length'],
+                        style: Styles.black14(),
+                      ),
                     ),
                   ),
                   const SizedBox(
                     height: 15,
                   ),
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                          width: 0.50, color: Color(0xFFD7D7D7)),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    leading: SvgPicture.asset(AssetImages.equipment),
-                    title: Text(
-                      AppStrings.equipment.tr,
-                      style: Styles.black14(),
-                    ),
-                    trailing: Text(
-                      'treats, clicker',
-                      style: Styles.black14(),
+                  Material(
+                    child: ListTile(
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                            width: 0.50, color: Color(0xFFD7D7D7)),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      leading: SvgPicture.asset(AssetImages.equipment),
+                      title: Text(
+                        AppStrings.equipment.tr,
+                        style: Styles.black14(),
+                      ),
+                      trailing: Text(
+                        doc['equipment'],
+                        style: Styles.black14(),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -129,13 +166,21 @@ class ExpertExDetailsPage extends StatelessWidget {
                   const SizedBox(
                     height: 15,
                   ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      PdfFileItem(),
-                      PdfFileItem(),
-                      PdfFileItem(),
-                    ],
+                  SizedBox(
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 90,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: fileList.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return PdfFileItem(
+                          onTap: () {
+                            Get.toNamed(RouteName.pdfPage,
+                                arguments: fileList[index]);
+                          },
+                        );
+                      },
+                    ),
                   ),
                   const SizedBox(
                     height: 15,
@@ -150,20 +195,36 @@ class ExpertExDetailsPage extends StatelessWidget {
                   const SizedBox(
                     height: 15,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(AssetImages.videoTutorial),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(child: Image.asset(AssetImages.videoTutorial2)),
-                    ],
+                  SizedBox(
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 158,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: imageList.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        print(imageList.length);
+                        return Container(
+                          padding: const EdgeInsets.only(right: 14),
+                          height: 158,
+                          width: 258,
+                          child: Image.network(
+                            imageList[index],
+                            fit: BoxFit.cover,
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  SvgPicture.asset(AssetImages.slider),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     Image.asset(AssetImages.videoTutorial),
+                  //     const SizedBox(
+                  //       width: 10,
+                  //     ),
+                  //     Expanded(child: Image.asset(AssetImages.videoTutorial2)),
+                  //   ],
+                  // ),
                   const SizedBox(
                     height: 25,
                   ),

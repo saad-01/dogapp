@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../utils/strings.dart';
 import '../utils/styles.dart';
 
 class EventItem extends StatelessWidget {
@@ -68,16 +66,18 @@ class EventItem extends StatelessWidget {
                           time.tr,
                           style: Styles.black14(),
                         ),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              AppStrings.setReminder.tr,
-                              style: Styles.primary12UText(),
-                            ),
-                          ),
-                        ),
+                        // GestureDetector(
+                        //   onTap: () {
+                        //     Get.toNamed(RouteName.addReminder);
+                        //   },
+                        //   child: Padding(
+                        //     padding: const EdgeInsets.all(8.0),
+                        //     child: Text(
+                        //       AppStrings.setReminder.tr,
+                        //       style: Styles.primary12UText(),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     )
                   ],

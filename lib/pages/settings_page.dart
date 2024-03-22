@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/list_tile.dart';
 import 'package:dogapp/components/pic_container.dart';
 import 'package:dogapp/routes/route_names.dart';
@@ -7,6 +8,7 @@ import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:dogapp/view_models/services/auth_services.dart';
 import 'package:dogapp/view_models/services/shared_prefence.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -215,6 +217,14 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: AppStrings.deleteAccount.tr,
                 color: const Color(0xFFFFEBEB),
                 style: Styles.deleteText(),
+                onPress: () async {
+                  await FirebaseFirestore.instance
+                      .collection('users')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .delete();
+                  AuthMethods auth = AuthMethods();
+                  await auth.signOut();
+                },
               ),
             ],
           ),

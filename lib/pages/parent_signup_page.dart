@@ -220,7 +220,7 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                             Utils.fieldFocusChange(
                                 context,
                                 signupVM.passwordFocusNode.value,
-                                signupVM.numberFocusNode.value);
+                                signupVM.cpasswordFocusNode.value);
                           },
                           suffixIcon: signupVM.passwordVisible.value
                               ? GestureDetector(
@@ -242,6 +242,62 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                                       signupVM.passwordVisible.value = false;
                                     } else {
                                       signupVM.passwordVisible.value = true;
+                                    }
+                                  },
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Icon(Icons.visibility_off),
+                                  )),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(AppStrings.confirmPassword.tr,
+                              style: Styles.expertSignupPaget1())),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Obx(
+                        () => CustomTextfield(
+                          hintText: AppStrings.typePassword.tr,
+                          isError: signupVM.cpasswordError.value,
+                          obscureText: signupVM.cpasswordVisible.value,
+                          controller: signupVM.cpasswordController.value,
+                          focusNode: signupVM.cpasswordFocusNode.value,
+                          onFieldSubmitted: (p0) {
+                            if (p0.isEmpty) {
+                              signupVM.cpasswordError.value = true;
+                            } else {
+                              signupVM.cpasswordError.value = false;
+                            }
+                            Utils.fieldFocusChange(
+                                context,
+                                signupVM.cpasswordFocusNode.value,
+                                signupVM.numberFocusNode.value);
+                          },
+                          suffixIcon: signupVM.cpasswordVisible.value
+                              ? GestureDetector(
+                                  onTap: () {
+                                    if (signupVM.cpasswordVisible.value) {
+                                      signupVM.cpasswordVisible.value = false;
+                                    } else {
+                                      signupVM.cpasswordVisible.value = true;
+                                    }
+                                  },
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Icon(Icons.visibility),
+                                  ),
+                                )
+                              : GestureDetector(
+                                  onTap: () {
+                                    if (signupVM.cpasswordVisible.value) {
+                                      signupVM.cpasswordVisible.value = false;
+                                    } else {
+                                      signupVM.cpasswordVisible.value = true;
                                     }
                                   },
                                   child: const Padding(
@@ -281,7 +337,7 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
               const SizedBox(
                 height: 60,
               ),
-              PrimartyButton(
+             Obx(() =>  PrimartyButton(
                 title: AppStrings.createButton.tr,
                 loading: signupVM.loading.value,
                 icon: '',
@@ -290,7 +346,7 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                 onTap: () {
                   signupVM.signup();
                 },
-              ),
+              )),
               const SizedBox(
                 height: 20,
               ),

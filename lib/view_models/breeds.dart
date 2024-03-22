@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class Breeds extends GetxController {
-  final List<String> dogBreeds = [
+  final RxList<String> dogBreeds = [
     'Affenpinscher',
     'Afghan Hound',
     'Airedale Terriers',
@@ -264,7 +264,7 @@ class Breeds extends GetxController {
     'Wire-haired dachshund',
     'Rhodesian Ridgeback',
     'Giant Schnauzer',
-    'rottweiler',
+    'Rottweiler',
     'Russkiy Toy',
     'Saarloos Wolfhound',
     'Saluki',
@@ -330,7 +330,6 @@ class Breeds extends GetxController {
     'Miniature Schnauzer',
     'Pomeranian',
     'Toy Poodle',
-  ];
+  ].obs;
   final RxString breed = ''.obs;
-
 }

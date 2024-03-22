@@ -75,35 +75,8 @@ class _AddWalkPageState extends State<AddWalkPage> {
                         controller: vm.durationController.value,
                         focusNode: vm.durationFocusNode.value,
                         isError: vm.durationError.value,
-                        onFieldSubmitted: (p0) {
-                          Utils.fieldFocusChange(
-                              context,
-                              vm.durationFocusNode.value,
-                              vm.stepsFocusNode.value);
-                        },
-                        hintText: '00:00',
-                        obscureText: false),
-                  ),
-                  const SizedBox(
-                    height: 18,
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      AppStrings.steps.tr,
-                      style: Styles.expertSignupPaget1(),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Obx(
-                    () => CustomTextfield(
-                        controller: vm.stepsController.value,
-                        focusNode: vm.stepsFocusNode.value,
-                        isError: vm.stepsError.value,
                         onFieldSubmitted: (p0) {},
-                        hintText: '0',
+                        hintText: '00:00',
                         obscureText: false),
                   ),
                   const SizedBox(

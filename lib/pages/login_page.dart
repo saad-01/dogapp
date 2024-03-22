@@ -180,23 +180,23 @@ class _LoginPageState extends State<LoginPage> {
                                 ],
                               )),
                           const SizedBox(
-                            height: 10,
+                            height: 20,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: GestureDetector(
-                              onTap: () {},
-                              child: Text(
-                                AppStrings.forgetPass.tr,
-                                maxLines: 2,
-                                style: const TextStyle(
-                                  color: AppColors.white,
-                                  decorationColor: AppColors.white,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                          ),
+                          // Padding(
+                          //   padding: const EdgeInsets.all(8.0),
+                          //   child: GestureDetector(
+                          //     onTap: () {},
+                          //     child: Text(
+                          //       AppStrings.forgetPass.tr,
+                          //       maxLines: 2,
+                          //       style: const TextStyle(
+                          //         color: AppColors.white,
+                          //         decorationColor: AppColors.white,
+                          //         fontSize: 14,
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
                           const SizedBox(
                             height: 30,
                           ),
@@ -219,7 +219,7 @@ class _LoginPageState extends State<LoginPage> {
                             children: [
                               Text(
                                 AppStrings.noAccount.tr,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: AppColors.white,
                                   fontSize: 14,
                                 ),

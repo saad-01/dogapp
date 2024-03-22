@@ -13,6 +13,7 @@ class FoundedDogModel {
   final String? colors;
   final String? urls;
   final String? gender;
+  final bool? remove;
   FoundedDogModel({
     this.dogId,
     this.uid,
@@ -26,6 +27,7 @@ class FoundedDogModel {
     this.phoneNum,
     this.notes,
     this.urls,
+    this.remove,
   });
   static FoundedDogModel fromSnap(DocumentSnapshot snap) {
     var snapshot = snap.data() as Map<String, dynamic>;
@@ -39,9 +41,11 @@ class FoundedDogModel {
       gender: snapshot["gender"],
       colors: snapshot["colors"],
       urls: snapshot["urls"],
+      notes: snapshot["notes"],
       yourName: snapshot["parentName"],
       address: snapshot["address"],
       phoneNum: snapshot["phoneNumber"],
+      remove: snapshot["remove"]
     );
   }
 
@@ -56,6 +60,8 @@ class FoundedDogModel {
         "urls": urls,
         "yourName": yourName,
         "address": address,
+        "notes":notes,
         "phoneNum": phoneNum,
+        "remove":remove
       };
 }

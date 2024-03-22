@@ -301,7 +301,8 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                                 height: 10,
                                 icon: '',
                                 onTap: () {
-                                  Get.toNamed(RouteName.expertExercisePage);
+                                  Get.toNamed(RouteName.expertExercisePage,
+                                      arguments: doc);
                                 },
                               ),
                             ),
@@ -317,7 +318,8 @@ class _ExpertDogDetailsPageState extends State<ExpertDogDetailsPage> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                Get.toNamed(RouteName.expertExercisePage);
+                                Get.toNamed(RouteName.expertExercisePage,
+                                    arguments: doc);
                               },
                               child: ImageWithText(
                                 title: AppStrings.exerciseExpert.tr,

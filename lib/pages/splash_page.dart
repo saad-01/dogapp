@@ -4,6 +4,7 @@ import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/styles.dart';
 import 'package:dogapp/view_models/services/auth_services.dart';
+import 'package:dogapp/view_models/services/shared_prefence.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -18,13 +19,10 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   List<String> tokens = [];
 
-  
-
-
   @override
   void initState() {
     AuthMethods auth = AuthMethods();
-
+    SharedPref().getLang();
     Timer(
       const Duration(seconds: 5),
       () {

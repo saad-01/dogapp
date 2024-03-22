@@ -8,23 +8,45 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../utils/styles.dart';
 
-class SelectBreedPage extends StatelessWidget {
+class SelectBreedPage extends StatefulWidget {
   const SelectBreedPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final TextEditingController searchController = TextEditingController();
+  State<SelectBreedPage> createState() => _SelectBreedPageState();
+}
 
-    final RxList<String> filteredItems = <String>[].obs;
+class _SelectBreedPageState extends State<SelectBreedPage> {
+  final breeds = Get.put(Breeds());
+  final RxString searchQuery = ''.obs;
 
-    final breeds = Get.put(Breeds());
-    void filterList(String query) {
-      filteredItems.assignAll(
-        breeds.dogBreeds.where((item) => item.contains(query)),
-      );
+  // Filtered list to hold the search results
+  final RxList<String> filteredItems = <String>[].obs;
+  @override
+  void initState() {
+    filterList('');
+    super.initState();
+  }
+
+  // Function to filter the list based on search query
+  void filterList(String query) {
+    if (query.isEmpty) {
+      // If search query is empty, show all items
+      filteredItems.assignAll(breeds.dogBreeds);
+    } else {
+      List<String> filteredItem = <String>[].obs;
+      // Filter items based on search query
+      print(query);
+      filteredItem.assignAll(breeds.dogBreeds
+          .where((breed) => breed.toLowerCase().contains(query.toLowerCase())));
+      filteredItems.value = filteredItem;
+      filteredItem = [];
+      print(filteredItems);
     }
+  }
 
-    filteredItems.addAll(breeds.dogBreeds);
+  final TextEditingController searchController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
           child: Container(
@@ -61,6 +83,9 @@ class SelectBreedPage extends StatelessWidget {
                     child: TextField(
                       obscureText: false,
                       controller: searchController,
+                      // onSubmitted: (value) {
+                      //   filterList(value);
+                      // },
                       onChanged: (query) => filterList(query),
                       decoration: InputDecoration(
                           border: InputBorder.none,
@@ -81,12 +106,12 @@ class SelectBreedPage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return ListTile(
                       title: Text(
-                        breeds.dogBreeds[index],
+                        filteredItems[index],
                         style: Styles.expertSignupPaget1(),
                       ),
                       onTap: () {
                         // Add your onTap logic here
-                        breeds.breed.value = breeds.dogBreeds[index];
+                        breeds.breed.value = filteredItems[index];
 
                         Get.back();
                       },

@@ -30,6 +30,7 @@ class _ParentHomePageState extends State<ParentHomePage> {
   Future<void> getName() async {
     name.value = (await pref.getNameFromSharedPreferences())!;
   }
+
   NotificationServices notificationServices = NotificationServices();
   Future<void> sendNoti() async {
     // tokens.add(
@@ -66,10 +67,8 @@ class _ParentHomePageState extends State<ParentHomePage> {
         }
       }
     });
-
-    // await FirebaseAPIServices().sendPushNotifications(
-    //     title: "add values", body: "add values", token: tokens);
   }
+
   @override
   void initState() {
     sendNoti();
@@ -114,24 +113,24 @@ class _ParentHomePageState extends State<ParentHomePage> {
                         padding: const EdgeInsets.only(top: 5.0, right: 5),
                         child: SvgPicture.asset(AssetImages.bellIcon),
                       ),
-                      Positioned(
-                          right: 0,
-                          child: Container(
-                            width: 12,
-                            height: 12,
-                            decoration: const ShapeDecoration(
-                              color: AppColors.primaryColor,
-                              shape: OvalBorder(),
-                            ),
-                            child: const Align(
-                              alignment: Alignment.topCenter,
-                              child: Text(
-                                "2",
-                                style: TextStyle(
-                                    fontSize: 8, color: AppColors.white),
-                              ),
-                            ),
-                          ))
+                      // Positioned(
+                      //     right: 0,
+                      //     child: Container(
+                      //       width: 12,
+                      //       height: 12,
+                      //       decoration: const ShapeDecoration(
+                      //         color: AppColors.primaryColor,
+                      //         shape: OvalBorder(),
+                      //       ),
+                      //       child: const Align(
+                      //         alignment: Alignment.topCenter,
+                      //         child: Text(
+                      //           "2",
+                      //           style: TextStyle(
+                      //               fontSize: 8, color: AppColors.white),
+                      //         ),
+                      //       ),
+                      //     ))
                     ],
                   ),
                 )
@@ -214,18 +213,18 @@ class _ParentHomePageState extends State<ParentHomePage> {
                   AppStrings.upcommingAppointments.tr,
                   style: Styles.expertSignupPaget1(),
                 ),
-                Row(
-                  children: [
-                    Text(
-                      AppStrings.seeAll.tr,
-                      style: Styles.subYellowText(),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    SvgPicture.asset(AssetImages.nextYellowIcon)
-                  ],
-                ),
+                // Row(
+                //   children: [
+                //     Text(
+                //       AppStrings.seeAll.tr,
+                //       style: Styles.subYellowText(),
+                //     ),
+                //     const SizedBox(
+                //       width: 10,
+                //     ),
+                //     SvgPicture.asset(AssetImages.nextYellowIcon)
+                //   ],
+                // ),
               ],
             ),
             const SizedBox(
@@ -236,7 +235,7 @@ class _ParentHomePageState extends State<ParentHomePage> {
                   .collection('appointments')
                   .where('parentId',
                       isEqualTo: FirebaseAuth.instance.currentUser!.uid)
-                  .where('releaseFlag', isEqualTo: false)
+                  // .where('releaseFlag', isEqualTo: false)
                   .snapshots(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {

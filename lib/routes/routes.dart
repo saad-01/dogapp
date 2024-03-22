@@ -60,6 +60,7 @@ import 'package:dogapp/pages/parent_exercise_detail_page.dart';
 import 'package:dogapp/pages/parent_exercise_page.dart';
 import 'package:dogapp/pages/parent_signup_page.dart';
 import 'package:dogapp/pages/patient_files_page.dart';
+import 'package:dogapp/pages/pdf_page.dart';
 import 'package:dogapp/pages/reason_page.dart';
 import 'package:dogapp/pages/released_report_page.dart';
 import 'package:dogapp/pages/released_reports_page.dart';
@@ -574,6 +575,12 @@ class AppRoutes {
         GetPage(
           name: RouteName.addChatPage,
           page: () => const AddChatPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.pdfPage,
+          page: () => const PdfPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.rightToLeft,
         ),
