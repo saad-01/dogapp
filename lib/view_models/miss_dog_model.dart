@@ -41,6 +41,7 @@ class MissDogModel extends GetxController {
   RxBool checkbox = false.obs;
   RxBool nameError = false.obs;
   RxBool addressError = false.obs;
+  RxBool imageError = false.obs;
   RxBool numberError = false.obs;
   RxBool colorError = false.obs;
   RxBool dateError = false.obs;
@@ -103,13 +104,19 @@ class MissDogModel extends GetxController {
         selectedColors.map((color) => color.value.toRadixString(16)).toList();
     SharedPref pref = SharedPref();
     String? uid = await pref.getUidFromSharedPreferences();
-        if (nameController.value.text.isEmpty ||
+    if (nameController.value.text.isEmpty ||
         yourNameController.value.text.isEmpty ||
         addressController.value.text.isEmpty ||
         phoneNumController.value.text.isEmpty ||
         dateController.value.text.isEmpty ||
-        image == null) {
+        imageFlag.value == false) {
       loading.value = false;
+      if (imageFlag.value) {
+        imageError.value = false;
+      }
+      if (!imageFlag.value) {
+        imageError.value = true;
+      }
       if (nameController.value.text.isNotEmpty) {
         nameError.value = false;
       }
@@ -199,24 +206,23 @@ class MissDogModel extends GetxController {
       String dogId = const Uuid().v1();
 
       MissingDogModel dog = MissingDogModel(
-        name: name,
-        lostDate: date,
-        weight: weight,
-        gender: gender,
-        colors: jsonEncode(colors),
-        yourName: yourName,
-        phoneNum: phoneNum,
-        address: address,
-        notes: notes,
-        age: age,
-        photoUrl: photoUrl,
-        breed: breed,
-        uid: uid,
-        dogId: dogId,
-        microchipNumber: microChipNumber,
-        urls: jsonEncode(urls),
-        remove: false
-      );
+          name: name,
+          lostDate: date,
+          weight: weight,
+          gender: gender,
+          colors: jsonEncode(colors),
+          yourName: yourName,
+          phoneNum: phoneNum,
+          address: address,
+          notes: notes,
+          age: age,
+          photoUrl: photoUrl,
+          breed: breed,
+          uid: uid,
+          dogId: dogId,
+          microchipNumber: microChipNumber,
+          urls: jsonEncode(urls),
+          remove: false);
 
       // adding user in our database
       await _firestore.collection("missingDogs").doc(dogId).set(dog.toJson());

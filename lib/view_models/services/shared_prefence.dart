@@ -24,6 +24,7 @@ class SharedPref {
     SharedPreferences sp = await SharedPreferences.getInstance();
     sp.setString('name', responseModel.name.toString());
     sp.setString('email', responseModel.email.toString());
+    sp.setString('password', responseModel.password.toString());
     sp.setString('uid', responseModel.id.toString());
     sp.setString('role', responseModel.role.toString());
     sp.setString('photoUrl', responseModel.photoUrl.toString());
@@ -36,6 +37,7 @@ class SharedPref {
   Future<UserModel> getUser() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     String? email = sp.getString('email');
+    String? password = sp.getString('password');
     String? name = sp.getString('name');
     String? role = sp.getString('role');
     String? date = sp.getString('date');
@@ -45,6 +47,7 @@ class SharedPref {
     return UserModel(
         name: name,
         email: email,
+        password: password,
         phoneNumber: phoneNumber,
         date: date,
         role: role,
@@ -55,6 +58,7 @@ class SharedPref {
     SharedPreferences sp = await SharedPreferences.getInstance();
     sp.setString('name', responseModel.name.toString());
     sp.setString('email', responseModel.email.toString());
+    sp.setString('password', responseModel.password.toString());
     sp.setString('uid', responseModel.id.toString());
     sp.setString('role', responseModel.role.toString());
     sp.setString('photoUrl', responseModel.photoUrl.toString());
@@ -69,6 +73,7 @@ class SharedPref {
   Future<ExpertModel> getExpert() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     String? email = sp.getString('email');
+    String? password = sp.getString('password');
     String? name = sp.getString('name');
     String? role = sp.getString('role');
     String? date = sp.getString('date');
@@ -80,6 +85,7 @@ class SharedPref {
     return ExpertModel(
         name: name,
         email: email,
+        password: password,
         phoneNumber: phoneNumber,
         date: date,
         role: role,

@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class ExpertModel {
   final String? id;
   final String? email;
+  final String? password;
   final String? photoUrl;
   final String? date;
   final String? phoneNumber;
@@ -17,6 +18,7 @@ class ExpertModel {
     this.name,
     this.id,
     this.email,
+    this.password,
     this.role,
     this.qualification,
     this.speciality,
@@ -28,6 +30,7 @@ class ExpertModel {
       name: snapshot["name"],
       id: snapshot["id"],
       email: snapshot["email"],
+      password: snapshot["password"],
       photoUrl: snapshot["photoUrl"],
       phoneNumber: snapshot["phoneNumber"],
       date: snapshot["date"],
@@ -41,6 +44,7 @@ class ExpertModel {
         "name": name,
         "uid": id,
         "email": email,
+        "password": password,
         "photoUrl": photoUrl,
         "phoneNumber": phoneNumber,
         "date": date,

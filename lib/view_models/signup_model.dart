@@ -62,13 +62,21 @@ class ParentSignupModel extends GetxController {
     }
   }
 
+  RegExp emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+  bool isValidEmail(String email) {
+    return emailRegExp.hasMatch(email);
+  }
+
   Future<void> signup() async {
     loading.value = true;
     String res = '';
-    if (passwordController.value.text == cpasswordController.value.text) {
+    String mail = emailController.value.text.trim();
+    bool valid = isValidEmail(mail);
+    if (passwordController.value.text == cpasswordController.value.text &&
+        valid) {
       if (image != null) {
         res = await AuthMethods().signUpUser(
-            email: emailController.value.text,
+            email: mail,
             password: passwordController.value.text,
             name: nameController.value.text,
             number: numberController.value.text,
@@ -77,7 +85,7 @@ class ParentSignupModel extends GetxController {
             file: image!);
       } else {
         res = await AuthMethods().signUpUser(
-          email: emailController.value.text,
+          email: mail,
           password: passwordController.value.text,
           name: nameController.value.text,
           number: numberController.value.text,
@@ -105,7 +113,7 @@ class ParentSignupModel extends GetxController {
       if (dateController.value.text.isEmpty) {
         dateError.value = true;
       }
-      if (emailController.value.text.isEmpty) {
+      if (mail.isEmpty) {
         mailError.value = true;
       }
       if (passwordController.value.text.isEmpty) {
@@ -123,7 +131,7 @@ class ParentSignupModel extends GetxController {
       if (dateController.value.text.isNotEmpty) {
         dateError.value = false;
       }
-      if (emailController.value.text.isNotEmpty) {
+      if (mail.isNotEmpty) {
         mailError.value = false;
       }
       if (passwordController.value.text.isNotEmpty) {

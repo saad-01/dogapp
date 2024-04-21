@@ -19,10 +19,17 @@ class LoginModel extends GetxController {
   final RxBool passwordError = false.obs;
   final passwordFocusNode = FocusNode().obs;
   final emailFocusNode = FocusNode().obs;
+  RegExp emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+  bool isValidEmail(String email) {
+    return emailRegExp.hasMatch(email);
+  }
+
   Future<void> loginUser() async {
     loading.value = true;
+    String mail = emailController.value.text.trim();
+    bool valid = isValidEmail(mail);
     if (emailController.value.text.isNotEmpty &&
-        passwordController.value.text.isNotEmpty) {
+        passwordController.value.text.isNotEmpty && valid) {
       String res = '';
       res = await AuthMethods().loginUser(
           email: emailController.value.text.trim(),
@@ -41,6 +48,7 @@ class LoginModel extends GetxController {
               photoUrl: userData['photoUrl'],
               date: userData['date'],
               role: userData['role'],
+              password: userData['password'],
               phoneNumber: userData['phoneNumber'],
               name: userData['name'],
               id: userData['uid'],
@@ -56,6 +64,7 @@ class LoginModel extends GetxController {
               phoneNumber: userData['phoneNumber'],
               name: userData['name'],
               id: userData['uid'],
+              password: userData['password'],
               qualification: userData['qualification'],
               speciality: userData['speciality'],
               email: userData['email']);

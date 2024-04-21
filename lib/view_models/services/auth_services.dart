@@ -78,6 +78,7 @@ class AuthMethods {
           id: cred.user!.uid,
           photoUrl: photoUrl,
           email: email,
+          password: password,
           date: date,
           phoneNumber: number,
           role: role,
@@ -138,6 +139,7 @@ class AuthMethods {
           id: cred.user!.uid,
           photoUrl: photoUrl,
           email: email,
+          password: password,
           date: date,
           phoneNumber: number,
           role: role,
@@ -203,23 +205,49 @@ class AuthMethods {
     Get.offAllNamed(RouteName.introPage);
   }
 
-  Future<void> isLogin() async {
-  User? user = _auth.currentUser;
-  if (user == null) {
-    // User is signed out
-    Get.offNamed(RouteName.introPage);
-  } else {
-    // User is signed in
-    SharedPref pref = SharedPref();
-    String? role = await pref.getRoleFromSharedPreferences();
-    if (role == 'parent') {
-      Get.offNamed(RouteName.parentDashboardPage);
-    } else if (role == 'expert') {
-      Get.offNamed(RouteName.expertDashboardPage);
-    } else {
-      Get.offNamed(RouteName.introPage);
+  Future<void> deleteUser() async {
+    try {
+      User user = _auth.currentUser!;
+      model.UserModel userModel = await SharedPref().getUser();
+      print(userModel.email);
+      print(userModel.password);
+      if (userModel.role == 'parent') {
+        AuthCredential cred = EmailAuthProvider.credential(
+            email: userModel.email!, password: userModel.password!);
+        print("this is ${cred.providerId}");
+        await user.reauthenticateWithCredential(cred);
+        await user.delete();
+        debugPrint('User deleted successfully.');
+      } else {
+        model_ex.ExpertModel expert = await SharedPref().getExpert();
+        AuthCredential cred = EmailAuthProvider.credential(
+            email: expert.email!, password: expert.password!);
+        print("this is $cred");
+        await user.reauthenticateWithCredential(cred);
+        await user.delete();
+        debugPrint('User deleted successfully.');
+      }
+    } catch (e) {
+      debugPrint('Failed to delete user: $e');
     }
   }
-}
 
+  Future<void> isLogin() async {
+    User? user = _auth.currentUser;
+    if (user == null) {
+      // User is signed out
+      Get.offNamed(RouteName.introPage);
+    } else {
+      // User is signed in
+      SharedPref pref = SharedPref();
+      String? role = await pref.getRoleFromSharedPreferences();
+      if (role == 'parent') {
+        Get.offNamed(RouteName.parentDashboardPage);
+      } else if (role == 'expert') {
+        Get.offNamed(RouteName.expertDashboardPage);
+      } else {
+        Get.offNamed(RouteName.introPage);
+      }
+    }
+  }
 }

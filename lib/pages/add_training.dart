@@ -338,7 +338,7 @@ class _AddTrainingPageState extends State<AddTrainingPage> {
                           } else {
                             vm.subCategory.value = 'general';
                           }
-                          print("This is value: ${vm.subCategory.value}");
+                          debugPrint("This is value: ${vm.subCategory.value}");
                         },
                         tabs: <Widget>[
                           Tab(

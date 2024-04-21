@@ -479,6 +479,11 @@ final Map<String, String> enUS = {
   'verifyMail': "Email is not verified. Please verify your email."
 };
 final Map<String, String> fr = {
+  'lblEasy': "Facile",
+  'medium': "Moyen",
+  'difficult': "Difficile",
+  'selectLevel': "Sélectionner le niveau",
+  'selectCategory': "Sélectionner la catégorie",
   'myDog': "PfotenPlan",
   'firstSliderHeading': "Entraînez votre chien!",
   'addFiles': 'Ajouter des fichier',
@@ -936,6 +941,11 @@ final Map<String, String> fr = {
       "Le mot de passe et la confirmation du mot de passe doivent être identiques"
 };
 final Map<String, String> de = {
+  'lblEasy': "Leicht",
+  'medium': "Mittel",
+  'difficult': "Schwierig",
+  'selectLevel': "Schwierigkeitsgrad auswählen",
+  'selectCategory': "Kategorie auswählen",
   'myDog': "PfotenPlan",
   'firstSliderHeading': "Trainiere deinen Hund!",
   'addFiles': 'Dateien hinzufügen',

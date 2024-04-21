@@ -73,10 +73,13 @@ class CreateMissingReport extends StatelessWidget {
                                       onTap: () {
                                         missVM.selectImage();
                                       },
-                                      child: Text(
-                                        AppStrings.uploadDog.tr,
-                                        style: Styles.expertSignupPageH2(),
-                                      ),
+                                      child: Obx(() => Text(
+                                            AppStrings.uploadDog.tr,
+                                            style: missVM.imageError.value
+                                                ? Styles.expertSignupPageH2()
+                                                    .copyWith(color: Colors.red)
+                                                : Styles.expertSignupPageH2(),
+                                          )),
                                     )
                                   ],
                                 ),

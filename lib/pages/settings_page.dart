@@ -223,7 +223,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       .doc(FirebaseAuth.instance.currentUser!.uid)
                       .delete();
                   AuthMethods auth = AuthMethods();
-                  await auth.signOut();
+                  await auth.deleteUser();
                 },
               ),
             ],
