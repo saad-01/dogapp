@@ -23,6 +23,7 @@ class MissDogModel extends GetxController {
   final weightController = TextEditingController().obs;
   final dateController = TextEditingController().obs;
   final microchipNumberController = TextEditingController().obs;
+  final colorController = TextEditingController().obs;
 
   final nameFocusNode = FocusNode().obs;
   final ageFocusNode = FocusNode().obs;
@@ -33,6 +34,7 @@ class MissDogModel extends GetxController {
   final addressFocusNode = FocusNode().obs;
   final phoneNumFocusNode = FocusNode().obs;
   final microchipNumberFocusNode = FocusNode().obs;
+  final colorFocusNode = FocusNode().obs;
 
   final RxString photoUrl = ''.obs;
   final RxString breed = ''.obs;
@@ -100,8 +102,6 @@ class MissDogModel extends GetxController {
 
   Future<void> createDog() async {
     loading.value = true;
-    List<String> colorHexList =
-        selectedColors.map((color) => color.value.toRadixString(16)).toList();
     SharedPref pref = SharedPref();
     String? uid = await pref.getUidFromSharedPreferences();
     if (nameController.value.text.isEmpty ||
@@ -141,10 +141,10 @@ class MissDogModel extends GetxController {
       if (phoneNumController.value.text.isEmpty) {
         numberError.value = true;
       }
-      if (selectedColors.isEmpty) {
+      if (colorController.value.text.isEmpty) {
         colorError.value = true;
       }
-      if (selectedColors.isNotEmpty) {
+      if (colorController.value.text.isNotEmpty) {
         colorError.value = false;
       }
       if (dateController.value.text.isEmpty) {
@@ -163,7 +163,7 @@ class MissDogModel extends GetxController {
           microChipNumber: microchipNumberController.value.text,
           gender: gender.value,
           age: ageController.value.text,
-          colors: colorHexList,
+          colors: colorController.value.text,
           photos: photos,
           yourName: yourNameController.value.text,
           phoneNum: phoneNumController.value.text,
@@ -189,7 +189,7 @@ class MissDogModel extends GetxController {
     required String address,
     required String phoneNum,
     required String? notes,
-    required List<String> colors,
+    required String colors,
     required List<XFile> photos,
     required String uid,
     required XFile file,
@@ -210,7 +210,7 @@ class MissDogModel extends GetxController {
           lostDate: date,
           weight: weight,
           gender: gender,
-          colors: jsonEncode(colors),
+          colors: colors,
           yourName: yourName,
           phoneNum: phoneNum,
           address: address,

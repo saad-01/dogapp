@@ -25,7 +25,7 @@ class EmergencyNumPage extends StatelessWidget {
             CustomAppBar(title: AppStrings.emergencyNums.tr),
             Container(
               // width: 364,
-              height: 50,
+              // height: 50,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               decoration: ShapeDecoration(
                 color: AppColors.white,

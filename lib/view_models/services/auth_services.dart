@@ -42,6 +42,24 @@ class AuthMethods {
     }
   }
 
+  Future<void> sendPasswordResetEmail(String email) async {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user != null && !user.emailVerified) {
+      try {
+        await _auth.sendPasswordResetEmail(email: email);
+
+        if (kDebugMode) {
+          print('Verification email sent');
+        }
+      } catch (e) {
+        if (kDebugMode) {
+          print('Error sending verification email: $e');
+        }
+        // Handle error sending verification email
+      }
+    }
+  }
+
   Future<String> signUpUser({
     required String email,
     required String password,
@@ -236,7 +254,7 @@ class AuthMethods {
     User? user = _auth.currentUser;
     if (user == null) {
       // User is signed out
-      Get.offNamed(RouteName.introPage);
+      Get.offNamed(RouteName.languagePage);
     } else {
       // User is signed in
       SharedPref pref = SharedPref();

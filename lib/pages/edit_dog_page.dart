@@ -40,14 +40,8 @@ class EditDogPage extends StatelessWidget {
     breedsVM.breed.value = doc['breed'];
     addDogVM.gender.value = doc['gender'];
     addDogVM.neutered.value = doc['neutered'];
-    List<dynamic> clrs = jsonDecode(doc['colors']);
-    addDogVM.colorsList = List<String>.from(clrs);
-    addDogVM.selectedColors.value = addDogVM.colorsList.map((hex) {
-      // Parse the hex string to an integer
-      int value = int.parse(hex, radix: 16);
-      // Create a Color object from the integer value
-      return Color(value);
-    }).toList();
+    addDogVM.colorController.value = TextEditingController(text: doc['colors']);
+
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -225,6 +219,24 @@ class EditDogPage extends StatelessWidget {
                         height: 20,
                       ),
                       Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(AppStrings.color.tr,
+                            style: Styles.expertSignupPaget1()),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      CustomTextfield(
+                        hintText: AppStrings.typeColor.tr,
+                        obscureText: false,
+                        controller: addDogVM.colorController.value,
+                        focusNode: addDogVM.colorFocusNode.value,
+                        onFieldSubmitted: (p0) {},
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Align(
                           alignment: Alignment.centerLeft,
                           child: Text(AppStrings.breed.tr,
                               style: Styles.expertSignupPaget1())),
@@ -361,170 +373,6 @@ class EditDogPage extends StatelessWidget {
                                 value: 'No',
                                 child: Text(AppStrings.no.tr)),
                           ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(AppStrings.color.tr,
-                            style: Styles.expertSignupPaget1()),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Obx(
-                        () => Container(
-                          height: 56,
-                          padding: const EdgeInsets.only(left: 15, right: 15),
-                          decoration: ShapeDecoration(
-                            color: AppColors.white,
-                            shape: RoundedRectangleBorder(
-                              side: const BorderSide(
-                                  width: 0.50, color: Color(0x3F737373)),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            shadows: const [
-                              BoxShadow(
-                                color: Color(0x0F000000),
-                                blurRadius: 6,
-                                offset: Offset(-2, 2),
-                                spreadRadius: 0,
-                              )
-                            ],
-                          ),
-                          child: addDogVM.selectedColors.isEmpty
-                              ? Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      AppStrings.typeColor.tr,
-                                      style: Styles.expertSignupPaget2(),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () => showDialog(
-                                        context: context,
-                                        builder: (BuildContext context) {
-                                          return AlertDialog(
-                                            title:
-                                                Text(AppStrings.pickColor.tr),
-                                            content: SingleChildScrollView(
-                                              child: ColorPicker(
-                                                pickerColor: AppColors.white,
-                                                onColorChanged: (Color color) {
-                                                  // Store the selected color temporarily
-                                                  selectedColor = color;
-                                                },
-                                                pickerAreaHeightPercent: 0.8,
-                                              ),
-                                            ),
-                                            actions: <Widget>[
-                                              TextButton(
-                                                onPressed: () {
-                                                  if (selectedColor != null) {
-                                                    // Add the selected color to your list
-                                                    addDogVM.addColor(
-                                                        selectedColor!);
-
-                                                    // Reset the selectedColor variable for the next selection
-                                                    selectedColor = null;
-                                                  }
-                                                  Get.back();
-                                                },
-                                                child: Text(AppStrings.ok.tr),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(6.0),
-                                        child: SvgPicture.asset(
-                                            AssetImages.addIcon),
-                                      ),
-                                    )
-                                  ],
-                                )
-                              : Row(
-                                  children: [
-                                    Expanded(
-                                      child: ListView.builder(
-                                        scrollDirection: Axis.horizontal,
-                                        itemCount:
-                                            addDogVM.selectedColors.length,
-                                        itemBuilder: (context, index) {
-                                          return Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 5.0, vertical: 5),
-                                            child: GestureDetector(
-                                              onTap: () =>
-                                                  addDogVM.removeColor(index),
-                                              child: Container(
-                                                width: 40,
-                                                height: 40,
-                                                decoration: ShapeDecoration(
-                                                  color: addDogVM
-                                                      .selectedColors[index],
-                                                  shape: const OvalBorder(
-                                                    side: BorderSide(
-                                                      width: 0.50,
-                                                      strokeAlign: BorderSide
-                                                          .strokeAlignOutside,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () => showDialog(
-                                        context: context,
-                                        builder: (BuildContext context) {
-                                          return AlertDialog(
-                                            title:
-                                                Text(AppStrings.pickColor.tr),
-                                            content: SingleChildScrollView(
-                                              child: ColorPicker(
-                                                pickerColor: AppColors.white,
-                                                onColorChanged: (Color color) {
-                                                  // Store the selected color temporarily
-                                                  selectedColor = color;
-                                                },
-                                                pickerAreaHeightPercent: 0.8,
-                                              ),
-                                            ),
-                                            actions: <Widget>[
-                                              TextButton(
-                                                onPressed: () {
-                                                  if (selectedColor != null) {
-                                                    // Add the selected color to your list
-                                                    addDogVM.addColor(
-                                                        selectedColor!);
-
-                                                    // Reset the selectedColor variable for the next selection
-                                                    selectedColor = null;
-                                                  }
-                                                  Get.back();
-                                                },
-                                                child: Text(AppStrings.ok.tr),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(6.0),
-                                        child: SvgPicture.asset(
-                                            AssetImages.addIcon),
-                                      ),
-                                    )
-                                  ],
-                                ),
                         ),
                       ),
                       const SizedBox(

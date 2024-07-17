@@ -216,6 +216,26 @@ class _AddDogPageState extends State<AddDogPage> {
                         height: 20,
                       ),
                       Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(AppStrings.color.tr,
+                            style: Styles.expertSignupPaget1()),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Obx(
+                        () => CustomTextfield(
+                          hintText: AppStrings.typeColor.tr,
+                          obscureText: false,
+                          controller: addDogVM.colorController.value,
+                          focusNode: addDogVM.colorFocusNode.value,
+                          onFieldSubmitted: (p0) {},
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Align(
                           alignment: Alignment.centerLeft,
                           child: Text(AppStrings.breed.tr,
                               style: Styles.expertSignupPaget1())),
@@ -365,160 +385,161 @@ class _AddDogPageState extends State<AddDogPage> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(AppStrings.color.tr,
-                    style: Styles.expertSignupPaget1()),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              Obx(
-                () => Container(
-                  height: 56,
-                  padding: const EdgeInsets.only(left: 15, right: 15),
-                  decoration: ShapeDecoration(
-                    color: AppColors.white,
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                          width: 0.50, color: Color(0x3F737373)),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    shadows: const [
-                      BoxShadow(
-                        color: Color(0x0F000000),
-                        blurRadius: 6,
-                        offset: Offset(-2, 2),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                  child: addDogVM.selectedColors.isEmpty
-                      ? Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              AppStrings.typeColor.tr,
-                              style: Styles.expertSignupPaget2(),
-                            ),
-                            GestureDetector(
-                              onTap: () => showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: Text(AppStrings.pickColor.tr),
-                                    content: SingleChildScrollView(
-                                      child: ColorPicker(
-                                        pickerColor: AppColors.white,
-                                        onColorChanged: (Color color) {
-                                          // Store the selected color temporarily
-                                          selectedColor = color;
-                                        },
-                                        pickerAreaHeightPercent: 0.8,
-                                      ),
-                                    ),
-                                    actions: <Widget>[
-                                      TextButton(
-                                        onPressed: () {
-                                          if (selectedColor != null) {
-                                            // Add the selected color to your list
-                                            addDogVM.addColor(selectedColor!);
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // Align(
+              //   alignment: Alignment.centerLeft,
+              //   child: Text(AppStrings.color.tr,
+              //       style: Styles.expertSignupPaget1()),
+              // ),
+              // const SizedBox(
+              //   height: 8,
+              // ),
+              // Obx(
+              //   () => Container(
+              //     height: 56,
+              //     padding: const EdgeInsets.only(left: 15, right: 15),
+              //     decoration: ShapeDecoration(
+              //       color: AppColors.white,
+              //       shape: RoundedRectangleBorder(
+              //         side: const BorderSide(
+              //             width: 0.50, color: Color(0x3F737373)),
+              //         borderRadius: BorderRadius.circular(8),
+              //       ),
+              //       shadows: const [
+              //         BoxShadow(
+              //           color: Color(0x0F000000),
+              //           blurRadius: 6,
+              //           offset: Offset(-2, 2),
+              //           spreadRadius: 0,
+              //         )
+              //       ],
+              //     ),
+              //     child: addDogVM.selectedColors.isEmpty
+              //         ? Row(
+              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //             children: [
+              //               Text(
+              //                 AppStrings.typeColor.tr,
+              //                 style: Styles.expertSignupPaget2(),
+              //               ),
+              //               GestureDetector(
+              //                 onTap: () => showDialog(
+              //                   context: context,
+              //                   builder: (BuildContext context) {
+              //                     return AlertDialog(
+              //                       title: Text(AppStrings.pickColor.tr),
+              //                       content: SingleChildScrollView(
+              //                         child: ColorPicker(
+              //                           pickerColor: AppColors.white,
+              //                           onColorChanged: (Color color) {
+              //                             // Store the selected color temporarily
+              //                             selectedColor = color;
+              //                           },
+              //                           pickerAreaHeightPercent: 0.8,
+              //                         ),
+              //                       ),
+              //                       actions: <Widget>[
+              //                         TextButton(
+              //                           onPressed: () {
+              //                             if (selectedColor != null) {
+              //                               // Add the selected color to your list
+              //                               addDogVM.addColor(selectedColor!);
 
-                                            // Reset the selectedColor variable for the next selection
-                                            selectedColor = null;
-                                          }
-                                          Get.back();
-                                        },
-                                        child: Text(AppStrings.ok.tr),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(6.0),
-                                child: SvgPicture.asset(AssetImages.addIcon),
-                              ),
-                            )
-                          ],
-                        )
-                      : Row(
-                          children: [
-                            Expanded(
-                              child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: addDogVM.selectedColors.length,
-                                itemBuilder: (context, index) {
-                                  return Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 5.0, vertical: 5),
-                                    child: GestureDetector(
-                                      onTap: () => addDogVM.removeColor(index),
-                                      child: Container(
-                                        width: 40,
-                                        height: 40,
-                                        decoration: ShapeDecoration(
-                                          color: addDogVM.selectedColors[index],
-                                          shape: const OvalBorder(
-                                            side: BorderSide(
-                                              width: 0.50,
-                                              strokeAlign:
-                                                  BorderSide.strokeAlignOutside,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () => showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: Text(AppStrings.pickColor.tr),
-                                    content: SingleChildScrollView(
-                                      child: ColorPicker(
-                                        pickerColor: AppColors.white,
-                                        onColorChanged: (Color color) {
-                                          // Store the selected color temporarily
-                                          selectedColor = color;
-                                        },
-                                        pickerAreaHeightPercent: 0.8,
-                                      ),
-                                    ),
-                                    actions: <Widget>[
-                                      TextButton(
-                                        onPressed: () {
-                                          if (selectedColor != null) {
-                                            // Add the selected color to your list
-                                            addDogVM.addColor(selectedColor!);
+              //                               // Reset the selectedColor variable for the next selection
+              //                               selectedColor = null;
+              //                             }
+              //                             Get.back();
+              //                           },
+              //                           child: Text(AppStrings.ok.tr),
+              //                         ),
+              //                       ],
+              //                     );
+              //                   },
+              //                 ),
+              //                 child: Padding(
+              //                   padding: const EdgeInsets.all(6.0),
+              //                   child: SvgPicture.asset(AssetImages.addIcon),
+              //                 ),
+              //               )
+              //             ],
+              //           )
+              //         : Row(
+              //             children: [
+              //               Expanded(
+              //                 child: ListView.builder(
+              //                   scrollDirection: Axis.horizontal,
+              //                   itemCount: addDogVM.selectedColors.length,
+              //                   itemBuilder: (context, index) {
+              //                     return Padding(
+              //                       padding: const EdgeInsets.symmetric(
+              //                           horizontal: 5.0, vertical: 5),
+              //                       child: GestureDetector(
+              //                         onTap: () => addDogVM.removeColor(index),
+              //                         child: Container(
+              //                           width: 40,
+              //                           height: 40,
+              //                           decoration: ShapeDecoration(
+              //                             color: addDogVM.selectedColors[index],
+              //                             shape: const OvalBorder(
+              //                               side: BorderSide(
+              //                                 width: 0.50,
+              //                                 strokeAlign:
+              //                                     BorderSide.strokeAlignOutside,
+              //                               ),
+              //                             ),
+              //                           ),
+              //                         ),
+              //                       ),
+              //                     );
+              //                   },
+              //                 ),
+              //               ),
+              //               GestureDetector(
+              //                 onTap: () => showDialog(
+              //                   context: context,
+              //                   builder: (BuildContext context) {
+              //                     return AlertDialog(
+              //                       title: Text(AppStrings.pickColor.tr),
+              //                       content: SingleChildScrollView(
+              //                         child: ColorPicker(
+              //                           pickerColor: AppColors.white,
+              //                           onColorChanged: (Color color) {
+              //                             // Store the selected color temporarily
+              //                             selectedColor = color;
+              //                           },
+              //                           pickerAreaHeightPercent: 0.8,
+              //                         ),
+              //                       ),
+              //                       actions: <Widget>[
+              //                         TextButton(
+              //                           onPressed: () {
+              //                             if (selectedColor != null) {
+              //                               // Add the selected color to your list
+              //                               addDogVM.addColor(selectedColor!);
 
-                                            // Reset the selectedColor variable for the next selection
-                                            selectedColor = null;
-                                          }
-                                          Get.back();
-                                        },
-                                        child: Text(AppStrings.ok.tr),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(6.0),
-                                child: SvgPicture.asset(AssetImages.addIcon),
-                              ),
-                            )
-                          ],
-                        ),
-                ),
-              ),
+              //                               // Reset the selectedColor variable for the next selection
+              //                               selectedColor = null;
+              //                             }
+              //                             Get.back();
+              //                           },
+              //                           child: Text(AppStrings.ok.tr),
+              //                         ),
+              //                       ],
+              //                     );
+              //                   },
+              //                 ),
+              //                 child: Padding(
+              //                   padding: const EdgeInsets.all(6.0),
+              //                   child: SvgPicture.asset(AssetImages.addIcon),
+              //                 ),
+              //               )
+              //             ],
+              //           ),
+              //   ),
+              // ),
+              
               const SizedBox(
                 height: 10,
               ),

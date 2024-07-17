@@ -27,7 +27,7 @@ class CustomTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56,
+      // height: 56,
       padding: const EdgeInsets.only(left: 15, right: 15),
       decoration: isError != null
           ? isError!
@@ -79,6 +79,8 @@ class CustomTextfield extends StatelessWidget {
           onFieldSubmitted: onFieldSubmitted,
           decoration: InputDecoration(
               suffixIcon: suffixIcon ?? const SizedBox(),
+              contentPadding: const EdgeInsets.symmetric(vertical: 15),
+              isCollapsed: true,
               border: InputBorder.none,
               hintStyle: Styles.expertSignupPaget2(),
               hintText: hintText),

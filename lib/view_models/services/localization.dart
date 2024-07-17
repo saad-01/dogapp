@@ -476,7 +476,12 @@ final Map<String, String> enUS = {
   'once': "Once",
   'monday_friday': "Monday to Friday",
   'passwordSame': "Password and confirm password should be same",
-  'verifyMail': "Email is not verified. Please verify your email."
+  'verifyMail': "Email is not verified. Please verify your email.",
+  'submit': "Submit",
+  'checkMail': "Reset email sent. Please check your email.",
+  'history': "History",
+  'dateTime': "Date and Time",
+  'back': "Back",
 };
 final Map<String, String> fr = {
   'lblEasy': "Facile",
@@ -938,7 +943,13 @@ final Map<String, String> fr = {
   'addLocation': "Ajouter un lieu",
   'verifyMail': "L'e-mail n'est pas vérifié. Veuillez vérifier votre e-mail.",
   'passwordSame':
-      "Le mot de passe et la confirmation du mot de passe doivent être identiques"
+      "Le mot de passe et la confirmation du mot de passe doivent être identiques",
+  'submit': "Soumettre",
+  'checkMail':
+      "E-mail de réinitialisation envoyé. Veuillez vérifier votre e-mail.",
+  'history': "Historique",
+  'dateTime': "Date et heure",
+  'back': "Retour",
 };
 final Map<String, String> de = {
   'lblEasy': "Leicht",
@@ -1401,5 +1412,11 @@ final Map<String, String> de = {
   'addLocation': "Ort hinzufügen",
   'verifyMail':
       "E-Mail wurde nicht verifiziert. Bitte überprüfen Sie Ihre E-Mail.",
-  'passwordSame': "Password und Bestätigungspasswort müssen übereinstimmen"
+  'passwordSame': "Password und Bestätigungspasswort müssen übereinstimmen",
+  'submit': "Einreichen",
+  'checkMail':
+      "Zurücksetzungs-E-Mail gesendet. Bitte überprüfen Sie Ihre E-Mail.",
+  'history': "Verlauf",
+  'dateTime': "Datum und Uhrzeit",
+  'back': "Zurück",
 };

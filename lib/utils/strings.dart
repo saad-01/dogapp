@@ -30,6 +30,11 @@ class AppStrings {
   static String get typePassword => "typePassword".tr;
   static String get createButton => "createButton".tr;
   static String get verifyMail => "verifyMail".tr;
+  static String get checkMail => "checkMail".tr;
+  static String get submit => "submit".tr;
+  static String get history => "history".tr;
+  static String get dateTime => "dateTime".tr;
+  static String get back => "back".tr;
   //dashboardparent
   static String get hey => "hey".tr;
   static String get welcome => "welcome".tr;

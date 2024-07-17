@@ -21,6 +21,7 @@ class SelectLanguagePage extends StatefulWidget {
 
 class _SelectLanguagePageState extends State<SelectLanguagePage> {
   final LanguageController controller = Get.put(LanguageController());
+  final fromInApp = Get.arguments;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,13 +151,17 @@ class _SelectLanguagePageState extends State<SelectLanguagePage> {
                             height: 30,
                           ),
                           IntroBtn(
-                            title: AppStrings.next.tr,
+                            title:(fromInApp != null && fromInApp == true)? AppStrings.back.tr :AppStrings.next.tr,
                             clr: AppColors.yellowColor,
                             showIcon: false,
                             onPress: () {
-                              Get.offNamed(RouteName.signupPage);
+                              if (fromInApp != null && fromInApp == true) {
+                                Get.back();
+                              } else {
+                                Get.offNamed(RouteName.introPage);
+                              }
                             },
-                          ),
+                          )
                         ],
                       ),
                     ))

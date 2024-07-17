@@ -14,11 +14,13 @@ class EditDogModel extends GetxController {
   final weightController = TextEditingController().obs;
   final dateController = TextEditingController().obs;
   final microchipNumberController = TextEditingController().obs;
+  final colorController = TextEditingController().obs;
 
   final nameFocusNode = FocusNode().obs;
   final weightFocusNode = FocusNode().obs;
   final dateFocusNode = FocusNode().obs;
   final microchipNumberFocusNode = FocusNode().obs;
+  final colorFocusNode = FocusNode().obs;
 
   final RxString photoUrl = ''.obs;
   final RxString breed = ''.obs;
@@ -67,8 +69,8 @@ class EditDogModel extends GetxController {
   }
 
   Future<String> createDog(String id) async {
-    List<String> colorHexList =
-        selectedColors.map((color) => color.value.toRadixString(16)).toList();
+    // List<String> colorHexList =
+    //     selectedColors.map((color) => color.value.toRadixString(16)).toList();
     String res = await addDog(
       name: nameController.value.text,
       date: dateController.value.text,
@@ -77,7 +79,7 @@ class EditDogModel extends GetxController {
       microChipNumber: microchipNumberController.value.text,
       gender: gender.value,
       neutered: neutered.value,
-      colors: colorHexList,
+      colors: colorController.value.text,
       dogId: id,
     );
     if (res == "success") {
@@ -100,7 +102,7 @@ class EditDogModel extends GetxController {
     required String gender,
     required String dogId,
     required String neutered,
-    required List<String> colors,
+    required String colors,
   }) async {
     String res = "Some error Occurred";
     try {
@@ -123,6 +125,7 @@ class EditDogModel extends GetxController {
           'colors': jsonEncode(colors),
           'neutered': neutered,
           'gender': gender,
+          'timeStamp': Timestamp.now()
         });
 
         res = "success";

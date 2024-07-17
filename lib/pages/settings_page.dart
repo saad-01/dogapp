@@ -165,6 +165,18 @@ class _SettingsPageState extends State<SettingsPage> {
               const SizedBox(
                 height: 15,
               ),
+              CustomListTile(
+                trailing: AssetImages.nextBlackIcon,
+                title: AppStrings.lang.tr,
+                color: AppColors.white,
+                style: Styles.expertSignupPaget1(),
+                onPress: () {
+                  Get.toNamed(RouteName.languagePage, arguments: true);
+                },
+              ),
+              const SizedBox(
+                height: 15,
+              ),
               Obx(
                 () => role.value == 'parent'
                     ? CustomListTile(
@@ -224,6 +236,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       .delete();
                   AuthMethods auth = AuthMethods();
                   await auth.deleteUser();
+                  Get.offAllNamed(RouteName.loginPage);
                 },
               ),
             ],

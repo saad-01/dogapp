@@ -84,6 +84,7 @@ class FoodModel extends GetxController {
           'day': day.value,
           'dogId': dogId,
           'foodId': id,
+          'timeStamp': Timestamp.now(),
         });
         loading.value = false;
         Get.back();

@@ -25,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -47,29 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCi7U7Hnp6i2jeqpsTm0_qPp_38iLfzpVM',
-    appId: '1:556238993501:web:24e7867cfe9409f31fb5b4',
-    messagingSenderId: '556238993501',
-    projectId: 'my-dog-app-2db20',
-    authDomain: 'my-dog-app-2db20.firebaseapp.com',
-    storageBucket: 'my-dog-app-2db20.appspot.com',
-    measurementId: 'G-PEQCZ6QFJP',
+    apiKey: 'AIzaSyCmFn7RztKPrClQ_YfVf9NOqtWDnuROepY',
+    appId: '1:324124050894:web:a5fd2cfdeed16a2806d79f',
+    messagingSenderId: '324124050894',
+    projectId: 'dogplan-831c8',
+    authDomain: 'dogplan-831c8.firebaseapp.com',
+    storageBucket: 'dogplan-831c8.appspot.com',
+    measurementId: 'G-Y97SW4JRHE',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDQhdzewsFtomZklvEGuw1KJigX9TE1hmk',
-    appId: '1:556238993501:android:83942cba97ea14101fb5b4',
-    messagingSenderId: '556238993501',
-    projectId: 'my-dog-app-2db20',
-    storageBucket: 'my-dog-app-2db20.appspot.com',
+    apiKey: 'AIzaSyAbsOyn2hFmW2rfuXYFp4CG4YqQZ9NPWC4',
+    appId: '1:324124050894:android:99b38d4125f7a08506d79f',
+    messagingSenderId: '324124050894',
+    projectId: 'dogplan-831c8',
+    storageBucket: 'dogplan-831c8.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDrtSz7FNGd0x9Rp8T8I3WEvfk8mBlYavc',
-    appId: '1:556238993501:ios:53e25fe7f00e41fd1fb5b4',
-    messagingSenderId: '556238993501',
-    projectId: 'my-dog-app-2db20',
-    storageBucket: 'my-dog-app-2db20.appspot.com',
+    apiKey: 'AIzaSyAIsfMZ0MzR3kmc1EFxFX5gagmYPMGXNxY',
+    appId: '1:324124050894:ios:cbd280081b89e89506d79f',
+    messagingSenderId: '324124050894',
+    projectId: 'dogplan-831c8',
+    storageBucket: 'dogplan-831c8.appspot.com',
     iosBundleId: 'com.example.dogapp',
   );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyAIsfMZ0MzR3kmc1EFxFX5gagmYPMGXNxY',
+    appId: '1:324124050894:ios:cbd280081b89e89506d79f',
+    messagingSenderId: '324124050894',
+    projectId: 'dogplan-831c8',
+    storageBucket: 'dogplan-831c8.appspot.com',
+    iosBundleId: 'com.example.dogapp',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyCmFn7RztKPrClQ_YfVf9NOqtWDnuROepY',
+    appId: '1:324124050894:web:a0da34bf8198c4f406d79f',
+    messagingSenderId: '324124050894',
+    projectId: 'dogplan-831c8',
+    authDomain: 'dogplan-831c8.firebaseapp.com',
+    storageBucket: 'dogplan-831c8.appspot.com',
+    measurementId: 'G-SMLSZR2H7W',
+  );
+
 }

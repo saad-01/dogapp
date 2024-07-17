@@ -17,11 +17,13 @@ class AddDogModel extends GetxController {
   final weightController = TextEditingController().obs;
   final dateController = TextEditingController().obs;
   final microchipNumberController = TextEditingController().obs;
+  final colorController = TextEditingController().obs;
 
   final nameFocusNode = FocusNode().obs;
   final weightFocusNode = FocusNode().obs;
   final dateFocusNode = FocusNode().obs;
   final microchipNumberFocusNode = FocusNode().obs;
+  final colorFocusNode = FocusNode().obs;
 
   final RxString photoUrl = ''.obs;
   final RxString breed = ''.obs;
@@ -77,8 +79,8 @@ class AddDogModel extends GetxController {
 
   Future<void> createDog() async {
     loading.value = true;
-    List<String> colorHexList =
-        selectedColors.map((color) => color.value.toRadixString(16)).toList();
+    // List<String> colorHexList =
+    //     selectedColors.map((color) => color.value.toRadixString(16)).toList();
     SharedPref pref = SharedPref();
     String? uid = await pref.getUidFromSharedPreferences();
     String res = '';
@@ -91,7 +93,7 @@ class AddDogModel extends GetxController {
           microChipNumber: microchipNumberController.value.text,
           gender: gender.value,
           neutered: neutered.value,
-          colors: colorHexList,
+          colors: colorController.value.text,
           uid: uid!,
           file: image);
     } else {
@@ -103,7 +105,7 @@ class AddDogModel extends GetxController {
         microChipNumber: microchipNumberController.value.text,
         gender: gender.value,
         neutered: neutered.value,
-        colors: colorHexList,
+        colors: colorController.value.text,
         uid: uid!,
       );
     }
@@ -160,7 +162,7 @@ class AddDogModel extends GetxController {
     required String microChipNumber,
     required String gender,
     required String neutered,
-    required List<String> colors,
+    required String colors,
     required String uid,
     XFile? file,
   }) async {
@@ -190,7 +192,7 @@ class AddDogModel extends GetxController {
             date: date,
             microchipNumber: microChipNumber,
             breed: breed,
-            colors: jsonEncode(colors),
+            colors: colors,
             neutered: neutered,
             gender: gender,
             dogId: dogId);

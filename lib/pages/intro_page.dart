@@ -49,7 +49,7 @@ class _IntroPageState extends State<IntroPage> {
                     left: 20,
                     child: GestureDetector(
                       onTap: () {
-                        Get.toNamed(RouteName.languagePage);
+                        Get.offNamed(RouteName.languagePage);
                       },
                       child: Container(
                         width: 151,
@@ -215,7 +215,7 @@ class _IntroPageState extends State<IntroPage> {
                             ? SliderButton(
                                 backFlag: false,
                                 onPress: () {
-                                  Get.offNamed(RouteName.languagePage);
+                                  Get.offNamed(RouteName.loginPage);
                                 },
                               )
                             : const SizedBox(

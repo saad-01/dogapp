@@ -120,6 +120,7 @@ class DogManageWidget extends StatelessWidget {
                         ),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               SvgPicture.asset(AssetImages.del),
                               const SizedBox(

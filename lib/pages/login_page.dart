@@ -1,4 +1,5 @@
 import 'package:dogapp/components/textfield.dart';
+import 'package:dogapp/pages/forget_password.dart';
 import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/view_models/login_model.dart';
 import 'package:flutter/material.dart';
@@ -182,21 +183,23 @@ class _LoginPageState extends State<LoginPage> {
                           const SizedBox(
                             height: 20,
                           ),
-                          // Padding(
-                          //   padding: const EdgeInsets.all(8.0),
-                          //   child: GestureDetector(
-                          //     onTap: () {},
-                          //     child: Text(
-                          //       AppStrings.forgetPass.tr,
-                          //       maxLines: 2,
-                          //       style: const TextStyle(
-                          //         color: AppColors.white,
-                          //         decorationColor: AppColors.white,
-                          //         fontSize: 14,
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.to(() => const ForgetPage());
+                              },
+                              child: Text(
+                                AppStrings.forgetPass.tr,
+                                maxLines: 2,
+                                style: const TextStyle(
+                                  color: AppColors.white,
+                                  decorationColor: AppColors.white,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                          ),
                           const SizedBox(
                             height: 30,
                           ),
