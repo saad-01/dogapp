@@ -2,6 +2,7 @@ import 'package:dogapp/pages/add_appointment_page.dart';
 import 'package:dogapp/pages/add_comment_page.dart';
 import 'package:dogapp/pages/add_dog.dart';
 import 'package:dogapp/pages/add_event_page.dart';
+import 'package:dogapp/pages/add_expert_page.dart';
 import 'package:dogapp/pages/add_food_page.dart';
 import 'package:dogapp/pages/add_num_page.dart';
 import 'package:dogapp/pages/add_reminder_page.dart';
@@ -40,10 +41,12 @@ import 'package:dogapp/pages/expert_home_page.dart';
 import 'package:dogapp/pages/expert_profile.dart';
 import 'package:dogapp/pages/expert_signup_page.dart';
 import 'package:dogapp/pages/feed_manage_page.dart';
+import 'package:dogapp/pages/feeding_history.dart';
 import 'package:dogapp/pages/file_details_page.dart';
 import 'package:dogapp/pages/find_training_expert_page.dart';
 import 'package:dogapp/pages/found_profile_page.dart';
 import 'package:dogapp/pages/founded_dogs_page.dart';
+import 'package:dogapp/pages/get_coupons.dart';
 import 'package:dogapp/pages/intro_page.dart';
 import 'package:dogapp/pages/language_page.dart';
 import 'package:dogapp/pages/list_expert_page.dart';
@@ -73,6 +76,7 @@ import 'package:dogapp/pages/select_report_page.dart';
 import 'package:dogapp/pages/signup_page.dart';
 import 'package:dogapp/pages/splash_page.dart';
 import 'package:dogapp/pages/symptoms_page.dart';
+import 'package:dogapp/pages/user_details.dart';
 import 'package:dogapp/pages/vaccination_report_page.dart';
 import 'package:dogapp/pages/vet_page.dart';
 import 'package:dogapp/pages/walk_complete_page.dart';
@@ -251,6 +255,12 @@ class AppRoutes {
         GetPage(
           name: RouteName.signupPage,
           page: () => const SignupPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.editUserPage,
+          page: () => const EditUserDetails(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.rightToLeft,
         ),
@@ -581,6 +591,24 @@ class AppRoutes {
         GetPage(
           name: RouteName.pdfPage,
           page: () => const PdfPage(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.feedingHistoryPage,
+          page: () => const FeedingHistory(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.couponCodesPage,
+          page: () => const CouponCodes(),
+          transitionDuration: const Duration(milliseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RouteName.addExpertPage,
+          page: () => const AddExpertPage(),
           transitionDuration: const Duration(milliseconds: 250),
           transition: Transition.rightToLeft,
         ),

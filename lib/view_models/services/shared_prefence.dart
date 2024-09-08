@@ -30,7 +30,6 @@ class SharedPref {
     sp.setString('photoUrl', responseModel.photoUrl.toString());
     sp.setString('phoneNumber', responseModel.phoneNumber.toString());
     sp.setString('date', responseModel.date.toString());
-
     return true;
   }
 

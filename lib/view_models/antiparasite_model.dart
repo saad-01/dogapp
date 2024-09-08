@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dogapp/view_models/services/auth_services.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -21,6 +22,7 @@ class AnitParasiteModel extends GetxController {
   final RxBool reasonError = false.obs;
   DateTime? _selectedDate;
   final dateController = TextEditingController().obs;
+  final couponController = TextEditingController().obs;
   final timeController = TextEditingController().obs;
   final notesController = TextEditingController().obs;
   final reasonController = TextEditingController().obs;
@@ -107,11 +109,12 @@ class AnitParasiteModel extends GetxController {
   Future<void> selectDate(
       BuildContext context, TextEditingController controller) async {
     final DateTime? pickedDate = await showDatePicker(
-  context: context,
-  initialDate: DateTime.now(),
-  firstDate: DateTime.now(),
-  lastDate: DateTime(DateTime.now().year + 10), // or any other future date you prefer
-);
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime(
+          DateTime.now().year + 10), // or any other future date you prefer
+    );
 
     if (pickedDate != null && pickedDate != _selectedDate) {
       _selectedDate = pickedDate;
@@ -195,6 +198,7 @@ class AnitParasiteModel extends GetxController {
           'urls': jsonEncode(urls),
         });
         loading.value = false;
+        AuthMethods.couponUsed();
         Get.back();
         Utils.snackBar(AppStrings.success.tr, AppStrings.dogAdded.tr);
       }

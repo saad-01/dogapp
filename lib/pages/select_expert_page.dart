@@ -105,6 +105,16 @@ class SelectExpertPage extends StatelessWidget {
                           },
                           title: AppStrings.otherExpert.tr,
                         ),
+                        const SizedBox(
+                          width: 40,
+                        ),
+                        ImageBox(
+                          imagePath: AssetImages.ownExpert,
+                          onPress: () {
+                            Get.offNamed(RouteName.addExpertPage);
+                          },
+                          title: AppStrings.ownExpert.tr,
+                        ),
                       ],
                     ),
                   ],

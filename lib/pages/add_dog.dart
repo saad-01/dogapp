@@ -147,6 +147,7 @@ class _AddDogPageState extends State<AddDogPage> {
                               ? AppStrings.dateFormat.tr
                               : addDogVM.dateController.value.text,
                           obscureText: false,
+                          readOnly: true,
                           isError: addDogVM.dateError.value,
                           keyboardType: TextInputType.none,
                           controller: addDogVM.dateController.value,

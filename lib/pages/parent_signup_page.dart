@@ -138,6 +138,7 @@ class _ParentSignupPageState extends State<ParentSignupPage> {
                         () => CustomTextfield(
                           hintText: AppStrings.dateFormat.tr,
                           obscureText: false,
+                          readOnly: true,
                           isError: signupVM.dateError.value,
                           keyboardType: TextInputType.number,
                           controller: signupVM.dateController.value,

@@ -12,6 +12,8 @@ class AppStrings {
   static String get start => "start".tr;
   //signupPages
   static String get setProfileExpert => "setProfileExpert".tr;
+  static String get myDogs => "myDogs".tr;
+  static String get updateProfileExpert => "updateProfileExpert".tr;
   static String get uploadYourPhoto => "uploadYourPhoto".tr;
   static String get yourName => "yourName".tr;
   static String get typeYourname => "typeYourname".tr;
@@ -456,4 +458,12 @@ class AppStrings {
   static String get daily => "daily".tr;
   static String get once => "once".tr;
   static String get mondayFriday => "monday_friday".tr;
+  static String get couponCodes => "couponCodes".tr;
+  static String get copied => "copied".tr;
+  static String get ownExpert => "ownExpert".tr;
+  static String get expertName => "expertName".tr;
+  static String get addExpert => "addExpert".tr;
+  static String get writeCode => "writeCode".tr;
+  static String get apply => "apply".tr;
+  static String get getOff => "getOff".tr;
 }

@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/expert_item.dart';
+import 'package:dogapp/models/expert_model.dart';
 import 'package:dogapp/utils/strings.dart';
+import 'package:dogapp/view_models/services/shared_prefence.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,13 +12,30 @@ import '../utils/app_colors.dart';
 import '../utils/styles.dart';
 import '../view_models/select_expert_model.dart';
 
-class ListExpertPage extends StatelessWidget {
+class ListExpertPage extends StatefulWidget {
   const ListExpertPage({super.key});
 
   @override
+  State<ListExpertPage> createState() => _ListExpertPageState();
+}
+
+class _ListExpertPageState extends State<ListExpertPage> {
+  final String type = Get.arguments;
+  final SelectExpertModel expertVM = Get.find();
+  late ExpertModel user;
+
+  Future<void> getExpert() async {
+    user = await SharedPref().getExpert();
+  }
+
+  @override
+  void initState() {
+    getExpert();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final String type = Get.arguments;
-    final expertVM = Get.put(SelectExpertModel());
     return Scaffold(
       body: SafeArea(
           child: Container(
@@ -32,6 +52,9 @@ class ListExpertPage extends StatelessWidget {
                           .collection('users')
                           .where('role', isEqualTo: 'expert')
                           .where('speciality', isEqualTo: type)
+                          .where('uid',
+                              isNotEqualTo:
+                                  FirebaseAuth.instance.currentUser!.uid)
                           .snapshots(),
                       builder: (context, snapshot) {
                         if (snapshot.connectionState ==

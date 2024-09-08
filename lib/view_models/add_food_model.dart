@@ -14,14 +14,17 @@ class FoodModel extends GetxController {
   final timeController = TextEditingController().obs;
   final notesController = TextEditingController().obs;
   final reminderTimeController = TextEditingController().obs;
+  final quantityController = TextEditingController().obs;
   final RxString day = 'Never'.obs;
   final RxBool loading = false.obs;
   final RxBool nameError = false.obs;
   final RxBool timeError = false.obs;
+  final RxBool quantityError = false.obs;
   final foodNameFocusNode = FocusNode().obs;
   final timeFocusNode = FocusNode().obs;
   final notesFocusNode = FocusNode().obs;
   final reminderTimeFocusNode = FocusNode().obs;
+  final quantityFocusNode = FocusNode().obs;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   var selectedTime = TimeOfDay.now().obs;
   final RxString title = ''.obs;
@@ -67,8 +70,14 @@ class FoodModel extends GetxController {
         if (timeController.value.text.isEmpty) {
           timeError.value = true;
         }
+        if (quantityController.value.text.isNotEmpty) {
+          quantityError.value = true;
+        }
         if (foodNameController.value.text.isNotEmpty) {
           nameError.value = false;
+        }
+        if (quantityController.value.text.isNotEmpty) {
+          quantityError.value = false;
         }
         if (timeController.value.text.isNotEmpty) {
           timeError.value = false;
@@ -79,6 +88,7 @@ class FoodModel extends GetxController {
           'title': title.value,
           'foodName': foodNameController.value.text,
           'time': timeController.value.text,
+          'quantity': quantityController.value.text,
           'notes': notesController.value.text,
           'reminderTime': reminderTimeController.value.text,
           'day': day.value,

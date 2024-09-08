@@ -61,6 +61,7 @@ class AssetImages {
   static const otherReport = "assets/images/otherReport.jpg";
   static const physioExpert = "assets/images/phsioExpert.jpg";
   static const vetExpert = "assets/images/vetExpert.jpg";
+  static const ownExpert = "assets/images/ownExpert.png";
   static const nutriExpert = "assets/images/nutriExpert.jpg";
   static const editReport = "assets/images/editReport.svg";
   static const expertItem = "assets/images/expertItem.jpeg";
@@ -165,4 +166,6 @@ class AssetImages {
   static const whiteNext = "assets/images/whiteNext.svg";
   static const whiteBack = "assets/images/whiteBack.svg";
   static const event = "assets/images/event.svg";
+  static const demoUserImage =
+      'https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png';
 }

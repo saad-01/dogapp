@@ -6,7 +6,9 @@ import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/utils.dart';
 import 'package:dogapp/view_models/select_expert_model.dart';
+import 'package:dogapp/view_models/services/auth_services.dart';
 import 'package:dogapp/view_models/vet_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -340,11 +342,39 @@ class _VetReportPageState extends State<VetReportPage> {
                               },
                             ),
                           )
-                        : ExpertItem(
-                            expertis: AppStrings.trainExpert.tr,
-                            filledBtnTitle: '',
-                            name: expertVM.name.value,
-                            url: expertVM.url.value,
+                        : Column(
+                            children: [
+                              ExpertItem(
+                                expertis: AppStrings.trainExpert.tr,
+                                filledBtnTitle: '',
+                                name: expertVM.name.value,
+                                url: expertVM.url.value,
+                              ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              Obx(
+                                () => CustomTextfield(
+                                  hintText: AppStrings.writeCode.tr,
+                                  obscureText: false,
+                                  controller: vetVM.couponController.value,
+                                  onFieldSubmitted: (p0) {},
+                                  suffixIcon: GestureDetector(
+                                    onTap: () {
+                                      AuthMethods.couponValidate(
+                                          expertVM.id.value,
+                                          FirebaseAuth
+                                              .instance.currentUser!.uid,
+                                          vetVM.couponController.value.text);
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(15),
+                                      child: Text(AppStrings.apply.tr),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                   ),
                   const SizedBox(
@@ -470,7 +500,8 @@ class _VetReportPageState extends State<VetReportPage> {
                       onTap: () async {
                         vetVM.dogId.value = doc['dogId'];
                         vetVM.expertId.value = expertVM.id.value;
-                        await vetVM.addVaccination();
+                        await vetVM.addVaccination(); 
+                        // await AuthMethods.couponUsed();
                       },
                       icon: '')),
                 ],

@@ -100,34 +100,34 @@ class SignupPage extends StatelessWidget {
                       width: MediaQuery.sizeOf(context).width,
                     )),
                 Positioned(
-                    bottom: 0,
+                    bottom: 70,
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       width: MediaQuery.sizeOf(context).width,
                       child: Column(
                         children: [
-                          IntroBtn(
-                            title: AppStrings.google.tr,
-                            clr: AppColors.white,
-                            showIcon: true,
-                            icon: AssetImages.google,
-                            onPress: () {
-                              Get.toNamed(RouteName.signupPage);
-                            },
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            AppStrings.or.tr,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
+                          // IntroBtn(
+                          //   title: AppStrings.google.tr,
+                          //   clr: AppColors.white,
+                          //   showIcon: true,
+                          //   icon: AssetImages.google,
+                          //   onPress: () {
+                          //     Get.toNamed(RouteName.signupPage);
+                          //   },
+                          // ),
+                          // const SizedBox(
+                          //   height: 5,
+                          // ),
+                          // Text(
+                          //   AppStrings.or.tr,
+                          //   style: const TextStyle(
+                          //     color: Colors.white,
+                          //     fontSize: 14,
+                          //   ),
+                          // ),
+                          // const SizedBox(
+                          //   height: 5,
+                          // ),
                           IntroBtn(
                             title: AppStrings.mail.tr,
                             clr: AppColors.yellowColor,

@@ -7,6 +7,7 @@ import 'package:dogapp/utils/assets.dart';
 import 'package:dogapp/utils/strings.dart';
 import 'package:dogapp/utils/utils.dart';
 import 'package:dogapp/view_models/select_expert_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -16,6 +17,7 @@ import '../components/textfield.dart';
 import '../routes/route_names.dart';
 import '../utils/app_colors.dart';
 import '../utils/styles.dart';
+import '../view_models/services/auth_services.dart';
 import '../view_models/vaccination_model.dart';
 
 class VaccinationReportPage extends StatefulWidget {
@@ -349,11 +351,39 @@ class _VaccinationReportPageState extends State<VaccinationReportPage> {
                               },
                             ),
                           )
-                        : ExpertItem(
-                            expertis: AppStrings.trainExpert.tr,
-                            filledBtnTitle: '',
-                            name: expertVM.name.value,
-                            url: expertVM.url.value,
+                        : Column(
+                            children: [
+                              ExpertItem(
+                                expertis: AppStrings.trainExpert.tr,
+                                filledBtnTitle: '',
+                                name: expertVM.name.value,
+                                url: expertVM.url.value,
+                              ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              Obx(
+                                () => CustomTextfield(
+                                  hintText: AppStrings.writeCode.tr,
+                                  obscureText: false,
+                                  controller: vaccinationVM.couponController.value,
+                                  onFieldSubmitted: (p0) {},
+                                  suffixIcon: GestureDetector(
+                                    onTap: () {
+                                      AuthMethods.couponValidate(
+                                          expertVM.id.value,
+                                          FirebaseAuth
+                                              .instance.currentUser!.uid,
+                                          vaccinationVM.couponController.value.text);
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(15),
+                                      child: Text(AppStrings.apply.tr),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                   ),
                   const SizedBox(

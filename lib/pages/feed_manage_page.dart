@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dogapp/components/appbar.dart';
 import 'package:dogapp/components/diet_plan_widget.dart';
 import 'package:dogapp/components/food_reminder.dart';
+import 'package:dogapp/components/history_item.dart';
 import 'package:dogapp/components/primary_btn.dart';
 import 'package:dogapp/routes/route_names.dart';
 import 'package:dogapp/utils/app_colors.dart';
@@ -107,106 +108,6 @@ class FeedManagePage extends StatelessWidget {
                   ),
                   const SizedBox(
                     height: 20,
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      AppStrings.history.tr,
-                      style: Styles.expertSignupPaget1(),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  StreamBuilder<QuerySnapshot>(
-                    stream: FirebaseFirestore.instance
-                        .collection('dogFood')
-                        .where('dogId', isEqualTo: doc['dogId'])
-                        .snapshots(),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        // While data is being fetched, show a loading indicator
-                        return const CircularProgressIndicator(
-                          color: AppColors.primaryColor,
-                        );
-                      } else if (snapshot.hasError) {
-                        // If an error occurs during data retrieval, display an error message
-                        return Text('Error: ${snapshot.error}');
-                      } else {
-                        // If data retrieval is successful, build the UI with the fetched data
-                        final List<QueryDocumentSnapshot> docs =
-                            snapshot.data!.docs;
-                        // Check if the list of documents is empty
-                        if (docs.isEmpty) {
-                          // Return an empty widget if there are no documents
-                          return Text(
-                            AppStrings.none.tr,
-                            style: Styles.grey16(),
-                          );
-                        }
-
-                        // If there are documents, build the UI with the fetched data
-                        return Table(
-                          children: [
-                            TableRow(children: [
-                              Column(
-                                children: [
-                                  Table(
-                                    children: [
-                                      TableRow(children: [
-                                        Text(
-                                          AppStrings.foodName.tr,
-                                          style: Styles.expertSignupPaget1(),
-                                        ),
-                                        Text(
-                                          AppStrings.dateTime.tr,
-                                          style: Styles.expertSignupPaget1(),
-                                        ),
-                                        Text(
-                                          AppStrings.notes.tr,
-                                          style: Styles.expertSignupPaget1(),
-                                        ),
-                                      ])
-                                    ],
-                                  ),
-                                ],
-                              )
-                            ]),
-                            TableRow(
-                              children: [
-                                Column(
-                                  children: docs.map((doc) {
-                                    Timestamp timestamp = doc['timeStamp'];
-                                    // Convert to DateTime
-                                    DateTime dateTime = timestamp.toDate();
-                                    // Format the DateTime
-                                    String formattedDateTime =
-                                        DateFormat('dd.MM.yy HH:mm')
-                                            .format(dateTime);
-                                    return Column(
-                                      children: [
-                                        Table(
-                                          children: [
-                                            TableRow(children: [
-                                              Text(doc['foodName']),
-                                              Text(formattedDateTime),
-                                              Text(doc['notes'])
-                                            ])
-                                          ],
-                                        ),
-                                      ],
-                                    );
-                                  }).toList(),
-                                ),
-                              ],
-                            ),
-                          ],
-                        );
-                      }
-                    },
-                  ),
-                  const SizedBox(
-                    height: 30,
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
@@ -321,6 +222,101 @@ class FeedManagePage extends StatelessWidget {
                                         arguments: docu);
                                   },
                                 ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                              ],
+                            );
+                          }).toList(),
+                        );
+                      }
+                    },
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          AppStrings.history.tr,
+                          style: Styles.expertSignupPaget1(),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed(RouteName.feedingHistoryPage,
+                                  arguments: doc);
+                            },
+                            child: Text(
+                              AppStrings.seeAll.tr,
+                              style: Styles.subYellowText(),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          // SvgPicture.asset(AssetImages.nextYellowIcon)
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  StreamBuilder<QuerySnapshot>(
+                    stream: FirebaseFirestore.instance
+                        .collection('dogFood')
+                        .where(
+                          'dogId',
+                          isEqualTo: doc['dogId'],
+                        )
+                        .limit(3)
+                        .snapshots(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        // While data is being fetched, show a loading indicator
+                        return const CircularProgressIndicator(
+                          color: AppColors.primaryColor,
+                        );
+                      } else if (snapshot.hasError) {
+                        // If an error occurs during data retrieval, display an error message
+                        return Text('Error: ${snapshot.error}');
+                      } else {
+                        // If data retrieval is successful, build the UI with the fetched data
+                        final List<QueryDocumentSnapshot> docs =
+                            snapshot.data!.docs;
+                        // Check if the list of documents is empty
+                        if (docs.isEmpty) {
+                          // Return an empty widget if there are no documents
+                          return Text(
+                            AppStrings.none.tr,
+                            style: Styles.grey16(),
+                          );
+                        }
+
+                        // If there are documents, build the UI with the fetched data
+                        return Column(
+                          children: docs.map((doc) {
+                            Timestamp timestamp = doc['timeStamp'];
+                            // Convert to DateTime
+                            DateTime dateTime = timestamp.toDate();
+                            // Format the DateTime
+                            String formattedDateTime =
+                                DateFormat('dd.MM.yy HH:mm').format(dateTime);
+                            return Column(
+                              children: [
+                                HistoryItem(
+                                    heading: AppStrings.history.tr,
+                                    foodName: doc['foodName'],
+                                    quantity: doc['quantity'],
+                                    note: doc['notes'],
+                                    timeHeading: AppStrings.dateTime.tr,
+                                    time: formattedDateTime),
                                 const SizedBox(
                                   height: 10,
                                 ),

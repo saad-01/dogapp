@@ -12,7 +12,20 @@
           "package_name": "com.example.dogapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "324124050894-6spkqqk2oiqf7a2fc7sa3ntigho2bvcm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dogapp",
+            "certificate_hash": "64f35102901c232e5a4d82d16de4bc039da8cfd9"
+          }
+        },
+        {
+          "client_id": "324124050894-hg1v96idbu61abf40csl6ndvqvju4sq4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAbsOyn2hFmW2rfuXYFp4CG4YqQZ9NPWC4"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324124050894-hg1v96idbu61abf40csl6ndvqvju4sq4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "324124050894-np8gro9blg0kvngf3lsf94ghk91tmtch.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.dogapp"
+              }
+            }
+          ]
         }
       }
     }

@@ -155,6 +155,7 @@ class EditDogPage extends StatelessWidget {
                               ? AppStrings.dateFormat.tr
                               : addDogVM.dateController.value.text,
                           obscureText: false,
+                          readOnly: true,
                           keyboardType: TextInputType.none,
                           controller: addDogVM.dateController.value,
                           focusNode: addDogVM.dateFocusNode.value,

@@ -222,6 +222,7 @@ class CreateFoundReport extends StatelessWidget {
                               () => CustomTextfield(
                                 hintText: AppStrings.dateFormat.tr,
                                 obscureText: false,
+                                readOnly: true,
                                 isError: foundVM.dateError.value,
                                 keyboardType: TextInputType.none,
                                 controller: foundVM.dateController.value,

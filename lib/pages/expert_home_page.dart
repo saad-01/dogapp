@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 import '../components/appoint_widget.dart';
 import '../components/dog_widget.dart';
+import '../components/primary_btn.dart';
 import '../utils/app_colors.dart';
 import '../utils/assets.dart';
 import '../utils/strings.dart';
@@ -143,6 +144,79 @@ class _ExpertHomePageState extends State<ExpertHomePage> {
             SvgPicture.asset(AssetImages.horizontalDivider),
             const SizedBox(
               height: 20,
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                AppStrings.myDogs.tr,
+                style: Styles.expertSignupPaget1(),
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            StreamBuilder<QuerySnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('dogs')
+                  .where('uid',
+                      isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+                  .snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  // While data is being fetched, show a loading indicator
+                  return const CircularProgressIndicator(
+                    color: AppColors.primaryColor,
+                  );
+                } else if (snapshot.hasError) {
+                  // If an error occurs during data retrieval, display an error message
+                  return Text('Error: ${snapshot.error}');
+                } else {
+                  // If data retrieval is successful, build the UI with the fetched data
+                  final List<QueryDocumentSnapshot> docs = snapshot.data!.docs;
+                  if (docs.isEmpty) {
+                    // Return an empty widget if there are no documents
+                    return Text(
+                      AppStrings.none.tr,
+                      style: Styles.grey16(),
+                    );
+                  }
+                  return Column(
+                    children: docs.map((doc) {
+                      return Column(
+                        children: [
+                          DogWidget(
+                            name: doc['name'],
+                            date: doc['date'],
+                            url: doc['photoUrl'],
+                            onPress: () {
+                              Get.toNamed(RouteName.dogDetailsPage,
+                                  arguments: doc);
+                            },
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                        ],
+                      );
+                    }).toList(),
+                  );
+                }
+              },
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            PrimartyButton(
+              title: AppStrings.addDog.tr,
+              width: 180,
+              height: 12,
+              icon: AssetImages.addWhiteIcon,
+              onTap: () {
+                Get.toNamed(RouteName.addDogPage);
+              },
+            ),
+            const SizedBox(
+              height: 25,
             ),
             Align(
               alignment: Alignment.centerLeft,

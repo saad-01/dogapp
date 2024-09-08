@@ -86,4 +86,8 @@ class RouteName {
   static const String addEventPage = '/add_event_page';
   static const String addChatPage = '/add_chat_page';
   static const String pdfPage = '/pdf_page';
+  static const String editUserPage = '/edit_user_page';
+  static const String feedingHistoryPage = '/feeding_history_page';
+  static const String couponCodesPage = '/coupon_codes_page';
+  static const String addExpertPage = '/add_expert_page';
 }

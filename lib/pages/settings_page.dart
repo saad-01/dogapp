@@ -10,6 +10,7 @@ import 'package:dogapp/view_models/services/auth_services.dart';
 import 'package:dogapp/view_models/services/shared_prefence.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../components/custom_tile.dart';
@@ -65,65 +66,71 @@ class _SettingsPageState extends State<SettingsPage> {
               const SizedBox(
                 height: 35,
               ),
-              Container(
-                height: 90,
-                padding: const EdgeInsets.all(15),
-                decoration: ShapeDecoration(
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      width: 0.50,
-                      color: Colors.black.withOpacity(0.11999999731779099),
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  shadows: const [
-                    BoxShadow(
-                      color: Color(0x0F000000),
-                      blurRadius: 8,
-                      offset: Offset(0, 2),
-                      spreadRadius: 0,
-                    )
-                  ],
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Obx(
-                      () => Row(
-                        children: [
-                          PicContainer(
-                            width: 58,
-                            height: 58,
-                            child: Image.network(
-                              photoUrl.value == ''
-                                  ? 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM='
-                                  : photoUrl.value,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                name.value,
-                                style: Styles.expertSignupPaget1(),
-                              ),
-                              Text(
-                                email.value,
-                                style: Styles.subText(),
-                              ),
-                            ],
-                          ),
-                        ],
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed(RouteName.editUserPage);
+                },
+                child: Container(
+                  height: 90,
+                  padding: const EdgeInsets.all(15),
+                  decoration: ShapeDecoration(
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                        width: 0.50,
+                        color: Colors.black.withOpacity(0.11999999731779099),
                       ),
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                    // SvgPicture.asset(AssetImages.nextBlackIcon)
-                  ],
+                    shadows: const [
+                      BoxShadow(
+                        color: Color(0x0F000000),
+                        blurRadius: 8,
+                        offset: Offset(0, 2),
+                        spreadRadius: 0,
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Obx(
+                        () => Row(
+                          children: [
+                            PicContainer(
+                              width: 58,
+                              height: 58,
+                              child: Image.network(
+                                photoUrl.value == ''
+                                    ? 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM='
+                                    : photoUrl.value,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 15,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  name.value,
+                                  style: Styles.expertSignupPaget1(),
+                                ),
+                                Text(
+                                  email.value,
+                                  style: Styles.subText(),
+                                ),
+                              ],
+                            ),
+                            // SvgPicture.asset(AssetImages.nextBlackIcon),
+                          ],
+                        ),
+                      ),
+                      SvgPicture.asset(AssetImages.nextBlackIcon)
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(
@@ -177,28 +184,27 @@ class _SettingsPageState extends State<SettingsPage> {
               const SizedBox(
                 height: 15,
               ),
-              Obx(
-                () => role.value == 'parent'
-                    ? CustomListTile(
-                        trailing: AssetImages.nextBlackIcon,
-                        title: AppStrings.manageDogs.tr,
-                        color: AppColors.white,
-                        style: Styles.expertSignupPaget1(),
-                        onPress: () {
-                          Get.toNamed(RouteName.dogManagePage);
-                        },
-                      )
-                    : const SizedBox(),
+              CustomListTile(
+                trailing: AssetImages.nextBlackIcon,
+                title: AppStrings.manageDogs.tr,
+                color: AppColors.white,
+                style: Styles.expertSignupPaget1(),
+                onPress: () {
+                  Get.toNamed(RouteName.dogManagePage);
+                },
               ),
-              // const SizedBox(
-              //   height: 15,
-              // ),
-              // CustomListTile(
-              //   trailing: AssetImages.nextBlackIcon,
-              //   title: AppStrings.giveFeedback.tr,
-              //   color: AppColors.white,
-              //   style: Styles.expertSignupPaget1(),
-              // ),
+              const SizedBox(
+                height: 15,
+              ),
+              CustomListTile(
+                trailing: AssetImages.nextBlackIcon,
+                title: AppStrings.couponCodes.tr,
+                color: AppColors.white,
+                style: Styles.expertSignupPaget1(),
+                onPress: () {
+                  Get.toNamed(RouteName.couponCodesPage);
+                },
+              ),
               const SizedBox(
                 height: 15,
               ),

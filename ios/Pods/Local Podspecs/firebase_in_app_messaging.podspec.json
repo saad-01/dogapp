@@ -1,6 +1,6 @@
 {
   "name": "firebase_in_app_messaging",
-  "version": "0.7.4-15",
+  "version": "0.7.5-7",
   "summary": "Flutter plugin for Firebase In-App Messaging.",
   "description": "Flutter plugin for Firebase In-App Messaging.",
   "homepage": "https://firebase.google.com/docs/in-app-messaging",
@@ -21,7 +21,7 @@
 
     ],
     "Firebase/InAppMessaging": [
-      "10.20.0"
+      "10.25.0"
     ]
   },
   "static_framework": true,
@@ -29,7 +29,7 @@
     "ios": "11.0"
   },
   "pod_target_xcconfig": {
-    "GCC_PREPROCESSOR_DEFINITIONS": "LIBRARY_VERSION=\\@\\\"0.7.4-15\\\" LIBRARY_NAME=\\@\\\"flutter-fire-fiam\\\"",
+    "GCC_PREPROCESSOR_DEFINITIONS": "LIBRARY_VERSION=\\@\\\"0.7.5-7\\\" LIBRARY_NAME=\\@\\\"flutter-fire-fiam\\\"",
     "DEFINES_MODULE": "YES"
   }
 }

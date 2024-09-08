@@ -19,6 +19,7 @@ class ExpertSignupModel extends GetxController {
   final specialityController = TextEditingController().obs;
   final qualificationController = TextEditingController().obs;
   final RxString role = 'expert'.obs;
+  String uid = '';
   final RxString photoUrl = ''.obs;
   final RxBool passwordVisible = true.obs;
   final RxBool cpasswordVisible = true.obs;
@@ -166,4 +167,6 @@ class ExpertSignupModel extends GetxController {
       Utils.snackBar(AppStrings.error.tr, res);
     }
   }
+
+
 }

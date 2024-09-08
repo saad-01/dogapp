@@ -14,7 +14,8 @@ class CustomTextfield extends StatelessWidget {
       this.focusNode,
       this.onFieldSubmitted,
       this.validator,
-      this.isError});
+      this.isError,
+      this.readOnly});
   final String hintText;
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
@@ -22,6 +23,7 @@ class CustomTextfield extends StatelessWidget {
   final FocusNode? focusNode;
   final bool obscureText;
   final bool? isError;
+  final bool? readOnly;
   final void Function(String)? onFieldSubmitted;
   final String? Function(String?)? validator;
   @override
@@ -70,12 +72,13 @@ class CustomTextfield extends StatelessWidget {
       child: Center(
         child: TextFormField(
           textInputAction: TextInputAction.go,
-          textCapitalization: TextCapitalization.sentences,
+          textCapitalization: TextCapitalization.none,
           obscureText: obscureText,
           keyboardType: keyboardType,
           controller: controller,
           focusNode: focusNode,
           validator: validator,
+          readOnly: readOnly ?? false,
           onFieldSubmitted: onFieldSubmitted,
           decoration: InputDecoration(
               suffixIcon: suffixIcon ?? const SizedBox(),

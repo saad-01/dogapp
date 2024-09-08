@@ -231,7 +231,7 @@ class _LoginPageState extends State<LoginPage> {
                                 padding: const EdgeInsets.all(8.0),
                                 child: GestureDetector(
                                   onTap: () {
-                                    Get.toNamed(RouteName.chooseProfilePage);
+                                    Get.toNamed(RouteName.signupPage);
                                   },
                                   child: Text(
                                     AppStrings.signup.tr.toUpperCase(),

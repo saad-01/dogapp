@@ -479,9 +479,19 @@ final Map<String, String> enUS = {
   'verifyMail': "Email is not verified. Please verify your email.",
   'submit': "Submit",
   'checkMail': "Reset email sent. Please check your email.",
-  'history': "History",
+  'myDogs': "My Dogs",
   'dateTime': "Date and Time",
   'back': "Back",
+  'couponCodes': "Coupon Codes",
+  'copied': "Code copied to clipboard",
+  'ownExpert': "Add own expert",
+  'addExpert': "Add Expert",
+  'expertName': "Expert name",
+  'apply': "Apply",
+  'writeCode': "Coupon Code (if any)",
+  'getOff': "Get 100% off on your next appointment with this expert.",
+  'updateProfileExpert': "Update Profile",
+  'history': "Last Feeding",
 };
 final Map<String, String> fr = {
   'lblEasy': "Facile",
@@ -947,9 +957,18 @@ final Map<String, String> fr = {
   'submit': "Soumettre",
   'checkMail':
       "E-mail de réinitialisation envoyé. Veuillez vérifier votre e-mail.",
-  'history': "Historique",
   'dateTime': "Date et heure",
   'back': "Retour",
+  'couponCodes': "Codes de coupons",
+  'copied': "Code copié dans le presse-papiers",
+  'ownExpert': "Ajouter son propre expert",
+  'addExpert': "Ajouter un expert",
+  'expertName': "Nom de l'expert",
+  'apply': "Appliquer",
+  'writeCode': "Code de coupon (si disponible)",
+  'getOff': "Obtenez 100 % de réduction sur votre prochain rendez-vous avec cet expert.",
+  'updateProfileExpert': "Mettre à jour le profil",
+  'history': "Dernier repas"
 };
 final Map<String, String> de = {
   'lblEasy': "Leicht",
@@ -1415,8 +1434,17 @@ final Map<String, String> de = {
   'passwordSame': "Password und Bestätigungspasswort müssen übereinstimmen",
   'submit': "Einreichen",
   'checkMail':
-      "Zurücksetzungs-E-Mail gesendet. Bitte überprüfen Sie Ihre E-Mail.",
-  'history': "Verlauf",
+      "Zurücksetzungs-E-Mail gesendet. Bitte überprüfen Sie Ihre E-Mail.", 
   'dateTime': "Datum und Uhrzeit",
   'back': "Zurück",
+  'couponCodes': "Gutscheincodes",
+  'copied': "Code in die Zwischenablage kopiert",
+  'ownExpert': "Eigenen Experten hinzufügen",
+  'addExpert': "Experten hinzufügen",
+  'expertName': "Name des Experten",
+  'apply': "Anwenden",
+  'writeCode': "Gutscheincode (falls vorhanden)",
+  'getOff': "Erhalten Sie 100 % Rabatt auf Ihren nächsten Termin bei diesem Experten.",
+  'updateProfileExpert': "Profil aktualisieren",
+  'history': "Letzte Fütterung"
 };

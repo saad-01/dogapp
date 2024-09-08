@@ -98,6 +98,7 @@ class _AddFoodPageState extends State<AddFoodPage> {
                                 ? AppStrings.time.tr
                                 : foodVM.timeController.value.text,
                             obscureText: false,
+                            readOnly: true,
                             isError: foodVM.timeError.value,
                             // keyboardType: TextInputType.none,
                             controller: foodVM.timeController.value,
@@ -121,6 +122,27 @@ class _AddFoodPageState extends State<AddFoodPage> {
                               ),
                             ),
                           ),
+                        ),
+                        const SizedBox(
+                          height: 18,
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            AppStrings.quantity.tr,
+                            style: Styles.expertSignupPaget1(),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        CustomTextfield(
+                          hintText: '00 gram',
+                          obscureText: false,
+                          controller: foodVM.quantityController.value,
+                          focusNode: foodVM.quantityFocusNode.value,
+                          isError: foodVM.quantityError.value,
+                          onFieldSubmitted: (p0) {},
                         ),
                         const SizedBox(
                           height: 18,
@@ -214,6 +236,7 @@ class _AddFoodPageState extends State<AddFoodPage> {
                             focusNode: foodVM.reminderTimeFocusNode.value,
                             onFieldSubmitted: (p0) {},
                             obscureText: false,
+                            readOnly: true,
                             suffixIcon: GestureDetector(
                               onTap: () async {
                                 await foodVM.selectTime(context,

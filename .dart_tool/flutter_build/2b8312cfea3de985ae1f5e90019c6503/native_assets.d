@@ -1,0 +1,1 @@
+ /Users/dcs/Documents/apps/dogapp/.dart_tool/flutter_build/2b8312cfea3de985ae1f5e90019c6503/native_assets.yaml: 

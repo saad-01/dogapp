@@ -9,9 +9,16 @@ class AppointExpertModel extends GetxController {
   updateStatus(String id, String status) async {
     DocumentReference docRef = firestore.collection('appointments').doc(id);
     try {
-      await docRef.update({
-        'status': status,
-      });
+      if (status == 'Completed') {
+        await docRef.update({
+          'status': status,
+          'completedAt': FieldValue.serverTimestamp(),
+        });
+      } else {
+        await docRef.update({
+          'status': status,
+        });
+      }
       Get.back();
       Utils.snackBar(AppStrings.success.tr, AppStrings.success.tr);
     } catch (e) {
