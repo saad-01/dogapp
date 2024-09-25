@@ -58,7 +58,7 @@ class SelectExpertPage extends StatelessWidget {
                           imagePath: AssetImages.physioExpert,
                           onPress: () {
                             Get.offNamed(RouteName.listExpertPage,
-                                arguments: AppStrings.physioExpert.tr);
+                                arguments: "Physiotherapists");
                           },
                           title: AppStrings.physioExpert.tr,
                         ),
@@ -74,7 +74,7 @@ class SelectExpertPage extends StatelessWidget {
                           imagePath: AssetImages.nutriExpert,
                           onPress: () {
                             Get.offNamed(RouteName.listExpertPage,
-                                arguments: AppStrings.nutriExpert.tr);
+                                arguments: "Nutritionists");
                           },
                           title: AppStrings.nutriExpert.tr,
                         ),
@@ -85,7 +85,7 @@ class SelectExpertPage extends StatelessWidget {
                           imagePath: AssetImages.vetExpert,
                           onPress: () {
                             Get.offNamed(RouteName.listExpertPage,
-                                arguments: AppStrings.vetExpert.tr);
+                                arguments: "Veterinarians");
                           },
                           title: AppStrings.vetExpert.tr,
                         ),
